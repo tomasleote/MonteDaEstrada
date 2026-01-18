@@ -1,0 +1,120 @@
+{
+  "title": "Atividades e Experiências",
+  "description": "Descubra as múltiplas experiências que o Alentejo tem para oferecer, desde atividades ao ar livre até à descoberta da gastronomia local.",
+  "activities": [
+    {
+      "category": "Praias",
+      "title": "Praias da Costa Vicentina",
+      "description": "A poucos quilómetros, descubra algumas das praias mais bonitas de Portugal, no Parque Natural do Sudoeste Alentejano e Costa Vicentina.",
+      "highlights": [
+        "Praia da Zambujeira do Mar (5 km)",
+        "Praia do Carvalhal",
+        "Praia de Odeceixe",
+        "Praia dos Alteirinhos",
+        "Praia do Tonel"
+      ],
+      "icon": "🏖️"
+    },
+    {
+      "category": "Caminhadas",
+      "title": "Trilhos e Passeios Pedestres",
+      "description": "Explore a beleza natural do Alentejo através de diversos trilhos pedestres que passam por paisagens deslumbrantes.",
+      "highlights": [
+        "Rota Vicentina - Trilho dos Pescadores",
+        "Rota Vicentina - Caminho Histórico",
+        "Trilhos locais na herdade",
+        "Observação de aves"
+      ],
+      "icon": "🥾"
+    },
+    {
+      "category": "Cultura",
+      "title": "Património e Cultura",
+      "description": "Descubra a rica história e cultura alentejana visitando monumentos, museus e vilas tradicionais.",
+      "highlights": [
+        "Vila de Odemira",
+        "Castelo de Aljezur",
+        "Museu Regional de Beja",
+        "Mértola - Vila Museu",
+        "Artesanato local"
+      ],
+      "icon": "🏛️"
+    },
+    {
+      "category": "Gastronomia",
+      "title": "Gastronomia Alentejana",
+      "description": "Saboreie a autêntica cozinha alentejana nos restaurantes locais e descubra os sabores tradicionais.",
+      "highlights": [
+        "Restaurantes típicos em Zambujeira do Mar",
+        "Mercado local em Odemira",
+        "Provas de vinho na região",
+        "Queijos e enchidos regionais",
+        "Doçaria conventual"
+      ],
+      "icon": "🍷"
+    },
+    {
+      "category": "Natureza",
+      "title": "Observação da Natureza",
+      "description": "O Alentejo é um paraíso para os amantes da natureza, com fauna e flora únicas.",
+      "highlights": [
+        "Observação de aves",
+        "Passeios pela herdade",
+        "Paisagens do montado",
+        "Pôr do sol no campo",
+        "Céu estrelado sem poluição luminosa"
+      ],
+      "icon": "🦅"
+    },
+    {
+      "category": "Desporto",
+      "title": "Desportos e Aventura",
+      "description": "Para os mais aventureiros, a região oferece diversas atividades desportivas.",
+      "highlights": [
+        "Surf nas praias da Costa Vicentina",
+        "Ciclismo - BTT",
+        "Passeios a cavalo",
+        "Pesca desportiva",
+        "Canoagem no rio Mira"
+      ],
+      "icon": "🚴"
+    }
+  ],
+  "amenities": {
+    "title": "Comodidades no Monte",
+    "items": [
+      {
+        "name": "Piscina Exterior",
+        "description": "Piscina de água salgada para relaxar nos dias quentes (sazonal)"
+      },
+      {
+        "name": "Jardim",
+        "description": "Amplos espaços verdes para passear e descansar"
+      },
+      {
+        "name": "Churrasqueira",
+        "description": "Área de churrasqueira para convívio ao ar livre"
+      },
+      {
+        "name": "Bicicletas",
+        "description": "Bicicletas disponíveis para explorar os arredores"
+      },
+      {
+        "name": "Wi-Fi",
+        "description": "Internet sem fios gratuita em toda a propriedade"
+      },
+      {
+        "name": "Estacionamento",
+        "description": "Estacionamento privado e gratuito"
+      },
+      {
+        "name": "Cozinha Partilhada",
+        "description": "Cozinha totalmente equipada para uso dos hóspedes"
+      },
+      {
+        "name": "Terraço",
+        "description": "Terraço panorâmico com vista sobre a paisagem alentejana"
+      }
+    ]
+  }
+}

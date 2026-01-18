@@ -1,0 +1,91 @@
+// ==================================
+// ContactForm Component Styles
+// ==================================
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.form {
+  @include flex-column;
+  gap: $spacing-lg;
+  width: 100%;
+  max-width: 600px;
+}
+
+.field {
+  @include flex-column;
+  gap: $spacing-xs;
+}
+
+.label {
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+}
+
+.required {
+  color: $color-error;
+}
+
+.input,
+.textarea {
+  @include input-base;
+}
+
+.input.error,
+.textarea.error {
+  border-color: $color-error;
+
+  &:focus {
+    border-color: $color-error;
+    box-shadow: 0 0 0 3px rgba($color-error, 0.1);
+  }
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: $font-family-primary;
+}
+
+.errorMessage {
+  color: $color-error;
+  font-size: $font-size-sm;
+  margin-top: $spacing-xs;
+}
+
+.submitButton {
+  @include button-primary;
+  width: 100%;
+  font-size: $font-size-md;
+  padding: $spacing-md $spacing-xl;
+  margin-top: $spacing-md;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @include mobile {
+    padding: $spacing-sm $spacing-lg;
+  }
+}
+
+.successMessage {
+  padding: $spacing-md;
+  background-color: rgba($color-success, 0.1);
+  border-left: 4px solid $color-success;
+  color: darken($color-success, 15%);
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+}
+
+.errorMessageBox {
+  padding: $spacing-md;
+  background-color: rgba($color-error, 0.1);
+  border-left: 4px solid $color-error;
+  color: darken($color-error, 10%);
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  line-height: $line-height-normal;
+}

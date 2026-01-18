@@ -1,0 +1,187 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.localizacaoPage {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  @include h1;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.pageDescription {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.sectionTitle {
+  @include h2;
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+  color: $color-primary;
+}
+
+.centeredText {
+  text-align: center;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-2xl;
+  line-height: $line-height-relaxed;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mapPlaceholder {
+  background-color: $color-bg-secondary;
+  padding: $spacing-4xl 0;
+  border-top: 1px solid $color-border-light;
+  border-bottom: 1px solid $color-border-light;
+}
+
+.mapContent {
+  text-align: center;
+  padding: $spacing-3xl;
+  background-color: rgba($color-primary, 0.05);
+  border-radius: $border-radius-lg;
+
+  h3 {
+    font-size: $font-size-2xl;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: $color-text-secondary;
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.addressText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  margin-top: $spacing-lg;
+}
+
+.directionCard {
+  padding: $spacing-xl;
+}
+
+.directionTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.directionMeta {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-lg;
+  line-height: $line-height-relaxed;
+
+  strong {
+    color: $color-primary;
+  }
+}
+
+.routeList {
+  padding-left: $spacing-lg;
+
+  li {
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+    line-height: $line-height-normal;
+    color: $color-text-secondary;
+  }
+}
+
+.transportCard {
+  padding: $spacing-lg;
+  text-align: center;
+}
+
+.transportType {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.transportDescription {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.distanceCard {
+  padding: $spacing-md;
+  text-align: center;
+}
+
+.distanceLocation {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.distanceInfo {
+  font-size: $font-size-md;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+  margin-bottom: $spacing-xs;
+}
+
+.distanceDuration {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.infoCard {
+  padding: $spacing-xl;
+}
+
+.infoCardTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.infoCardText {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-md;
+}
+
+.featuresList,
+.tipsList {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-left: $spacing-md;
+    position: relative;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $color-secondary;
+      font-weight: bold;
+    }
+  }
+}

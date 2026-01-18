@@ -1,0 +1,206 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.redondezasPage {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  @include h1;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.pageDescription {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.sectionTitle {
+  @include h2;
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+  color: $color-primary;
+}
+
+.centeredText {
+  text-align: center;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-3xl;
+  line-height: $line-height-relaxed;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.regionOverview {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.regionDescription {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-xl;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  display: inline-block;
+
+  li {
+    padding-left: $spacing-lg;
+    position: relative;
+    margin-bottom: $spacing-sm;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $color-secondary;
+      font-weight: bold;
+    }
+  }
+}
+
+.placeCard {
+  padding: $spacing-xl;
+}
+
+.placeName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.placeDistance {
+  font-size: $font-size-sm;
+  color: $color-primary;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-md;
+}
+
+.placeDescription {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-md;
+}
+
+.placeFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+}
+
+.featureTag {
+  background-color: $color-secondary-light;
+  color: $color-primary-dark;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+}
+
+.attractionsList {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-left: $spacing-md;
+    position: relative;
+    margin-bottom: $spacing-xs;
+    font-size: $font-size-sm;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $color-secondary;
+    }
+  }
+}
+
+.restaurantCard {
+  padding: $spacing-lg;
+  text-align: center;
+}
+
+.restaurantName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.specialtiesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  justify-content: center;
+}
+
+.specialtyTag {
+  background-color: rgba($color-primary, 0.1);
+  color: $color-primary;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+}
+
+.festivalsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.festivalCard {
+  padding: $spacing-xl;
+}
+
+.festivalName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.festivalPeriod {
+  font-size: $font-size-sm;
+  color: $color-secondary-dark;
+  margin-bottom: $spacing-md;
+}
+
+.festivalDescription {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.attractionCard {
+  padding: $spacing-md;
+  text-align: center;
+}
+
+.attractionText {
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  margin: 0;
+}

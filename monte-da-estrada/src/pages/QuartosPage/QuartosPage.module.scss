@@ -1,0 +1,267 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.quartosPage {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  @include h1;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.pageDescription {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.sectionTitle {
+  @include h2;
+  text-align: center;
+  margin-bottom: $spacing-2xl;
+  color: $color-primary;
+}
+
+.roomsSection {
+  @include flex-column;
+  gap: $spacing-4xl;
+}
+
+.roomCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  &:nth-child(even) {
+    .roomInfo {
+      order: 2;
+    }
+    .roomImagePlaceholder {
+      order: 1;
+    }
+  }
+
+  @include tablet {
+    grid-template-columns: 1fr;
+
+    &:nth-child(even) {
+      .roomInfo,
+      .roomImagePlaceholder {
+        order: initial;
+      }
+    }
+  }
+}
+
+.roomInfo {
+  @include flex-column;
+  gap: $spacing-md;
+}
+
+.roomName {
+  @include h2;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.roomCapacity {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+}
+
+.featuresTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-top: $spacing-md;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-left: $spacing-lg;
+    position: relative;
+    margin-bottom: $spacing-sm;
+    line-height: $line-height-normal;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $color-secondary;
+      font-weight: bold;
+    }
+  }
+}
+
+.roomImagePlaceholder {
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-lg;
+  padding: $spacing-4xl;
+  text-align: center;
+  min-height: 300px;
+  @include flex-center;
+  color: $color-text-muted;
+  font-size: $font-size-xl;
+}
+
+.facilityCard {
+  padding: $spacing-lg;
+  text-align: center;
+}
+
+.facilityText {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  margin: 0;
+}
+
+.pricingSection {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pricingDescription {
+  text-align: center;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-3xl;
+  line-height: $line-height-relaxed;
+}
+
+.seasonsGrid {
+  margin-bottom: $spacing-3xl;
+}
+
+.seasonCard {
+  text-align: center;
+  padding: $spacing-xl;
+}
+
+.seasonName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.seasonPeriod {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-md;
+}
+
+.seasonNote {
+  font-size: $font-size-base;
+  color: $color-primary;
+  font-weight: $font-weight-medium;
+}
+
+.policies {
+  background-color: $color-bg-secondary;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+}
+
+.policiesTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.policiesList {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-left: $spacing-lg;
+    position: relative;
+    margin-bottom: $spacing-sm;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $color-secondary;
+      font-weight: bold;
+    }
+  }
+}
+
+.contactSection {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contactText {
+  text-align: center;
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-3xl;
+  line-height: $line-height-relaxed;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-3xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+  }
+}
+
+.contactInfo {
+  h3 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.contactItem {
+  margin-bottom: $spacing-lg;
+  line-height: $line-height-relaxed;
+
+  strong {
+    color: $color-primary;
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
+}
+
+.formWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+  text-align: center;
+}
+
+.ctaTitle {
+  @include h2;
+  color: $color-text-light;
+  margin-bottom: $spacing-xl;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: $spacing-lg;
+  justify-content: center;
+  flex-wrap: wrap;
+}

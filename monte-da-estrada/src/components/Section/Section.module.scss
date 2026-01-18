@@ -1,0 +1,42 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.section {
+  width: 100%;
+
+  // Background variants
+  &.light {
+    background-color: $color-bg-secondary;
+  }
+
+  &.dark {
+    background-color: $color-bg-dark;
+    color: $color-text-light;
+  }
+
+  &.primary {
+    background-color: $color-primary-light;
+    color: $color-text-light;
+  }
+
+  &.secondary {
+    background-color: $color-secondary-light;
+  }
+
+  // Padding variants
+  &.none {
+    padding: 0;
+  }
+
+  &.small {
+    padding: $spacing-xl 0;
+  }
+
+  &.medium {
+    padding: $spacing-2xl 0;
+  }
+
+  &.large {
+    padding: $spacing-4xl 0;
+  }
+}

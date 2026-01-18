@@ -1,34 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Suspense, lazy } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+import LoadingSpinner from './components/LoadingSpinner'
+import useScrollToTop from './hooks/useScrollToTop'
+
+// Lazy load page components for better performance
+const HomePage = lazy(() => import('./pages/HomePage'))
+const QuartosPage = lazy(() => import('./pages/QuartosPage'))
+const AtividadesPage = lazy(() => import('./pages/AtividadesPage'))
+const RedondezasPage = lazy(() => import('./pages/RedondezasPage'))
+const LocalizacaoPage = lazy(() => import('./pages/LocalizacaoPage'))
+const GaleriaPage = lazy(() => import('./pages/GaleriaPage'))
+
+// Navigation items for NavBar (matching Papa Léguas structure)
+const navItems = [
+  { label: 'Início', path: '/' },
+  { label: 'Quartos', path: '/quartos' },
+  { label: 'Atividades', path: '/atividades' },
+  { label: 'Redondezas', path: '/redondezas' },
+  { label: 'Localização', path: '/localizacao' },
+  { label: 'Galeria', path: '/galeria' },
+]
+
+// Contact information for Footer
+const contactInfo = {
+  phone: '283 647 535',
+  phone2: '960 254 072',
+  email: 'montedaestradazambujeiradomar@gmail.com',
+  address: 'Zambujeira do Mar, Alentejo',
+}
+
+// Quick links for Footer
+const quickLinks = [
+  { label: 'Início', path: '/' },
+  { label: 'Quartos', path: '/quartos' },
+  { label: 'Galeria', path: '/galeria' },
+  { label: 'Localização', path: '/localizacao' },
+]
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Scroll to top on route change
+  useScrollToTop()
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <a href="#main-content" className="skip-to-main">
+        Saltar para o conteúdo principal
+      </a>
+
+      <NavBar navItems={navItems} />
+
+      <main id="main-content" style={{ minHeight: 'calc(100vh - 70px)', paddingTop: '70px' }}>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/quartos" element={<QuartosPage />} />
+            <Route path="/atividades" element={<AtividadesPage />} />
+            <Route path="/redondezas" element={<RedondezasPage />} />
+            <Route path="/localizacao" element={<LocalizacaoPage />} />
+            <Route path="/galeria" element={<GaleriaPage />} />
+          </Routes>
+        </Suspense>
+      </main>
+
+      <Footer contactInfo={contactInfo} quickLinks={quickLinks} />
+    </div>
   )
 }
 

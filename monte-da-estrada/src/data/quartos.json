@@ -1,0 +1,91 @@
+{
+  "title": "Quartos e Instalações",
+  "description": "Acomodações confortáveis num ambiente tradicional alentejano, com todas as comodidades modernas.",
+  "rooms": [
+    {
+      "name": "Quarto Duplo Standard",
+      "capacity": "2 pessoas",
+      "features": [
+        "Cama de casal",
+        "Casa de banho privativa",
+        "Ar condicionado",
+        "Aquecimento",
+        "Wi-Fi gratuito",
+        "Vista para o campo"
+      ],
+      "images": [
+        "/images/rooms/double-standard-1.jpg",
+        "/images/rooms/double-standard-2.jpg"
+      ]
+    },
+    {
+      "name": "Quarto Twin",
+      "capacity": "2 pessoas",
+      "features": [
+        "Duas camas individuais",
+        "Casa de banho privativa",
+        "Ar condicionado",
+        "Aquecimento",
+        "Wi-Fi gratuito",
+        "Varanda"
+      ],
+      "images": [
+        "/images/rooms/twin-1.jpg",
+        "/images/rooms/twin-2.jpg"
+      ]
+    },
+    {
+      "name": "Quarto Familiar",
+      "capacity": "4 pessoas",
+      "features": [
+        "Uma cama de casal e duas camas individuais",
+        "Casa de banho privativa",
+        "Ar condicionado",
+        "Aquecimento",
+        "Wi-Fi gratuito",
+        "Espaço amplo"
+      ],
+      "images": [
+        "/images/rooms/family-1.jpg",
+        "/images/rooms/family-2.jpg"
+      ]
+    }
+  ],
+  "pricing": {
+    "title": "Preços e Reservas",
+    "description": "Os nossos preços variam consoante a época do ano. Entre em contacto para obter informações atualizadas.",
+    "seasons": [
+      {
+        "name": "Época Baixa",
+        "period": "Novembro - Março",
+        "note": "Consultar preços"
+      },
+      {
+        "name": "Época Média",
+        "period": "Abril, Maio, Outubro",
+        "note": "Consultar preços"
+      },
+      {
+        "name": "Época Alta",
+        "period": "Junho - Setembro",
+        "note": "Consultar preços"
+      }
+    ],
+    "policies": [
+      "Estadia mínima: 2 noites (pode variar conforme época)",
+      "Pagamento: Transferência bancária ou dinheiro",
+      "Cancelamento: Consultar política de cancelamento",
+      "Reservas: Por telefone ou email"
+    ]
+  },
+  "facilities": [
+    "Piscina exterior (sazonal)",
+    "Jardim e área exterior",
+    "Estacionamento gratuito",
+    "Wi-Fi em toda a propriedade",
+    "Cozinha equipada (uso comum)",
+    "Sala de estar comum",
+    "Terraço com vista panorâmica",
+    "Churrasqueira"
+  ]
+}

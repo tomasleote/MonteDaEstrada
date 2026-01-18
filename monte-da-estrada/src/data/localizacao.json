@@ -1,0 +1,132 @@
+{
+  "title": "Localização e Como Chegar",
+  "description": "O Monte da Estrada situa-se no Alentejo litoral, próximo de Zambujeira do Mar, numa localização privilegiada entre o campo e o mar.",
+  "address": {
+    "name": "Monte da Estrada",
+    "street": "Zambujeira do Mar",
+    "city": "Odemira",
+    "region": "Alentejo",
+    "country": "Portugal",
+    "coordinates": {
+      "latitude": 37.5253,
+      "longitude": -8.7858
+    }
+  },
+  "directions": {
+    "title": "Como Chegar",
+    "fromLisbon": {
+      "title": "De Lisboa",
+      "distance": "200 km",
+      "duration": "2h30",
+      "route": [
+        "Sair de Lisboa pela A2 em direção ao Sul",
+        "Continuar na A2 até Grândola",
+        "Sair na saída para Santiago do Cacém/Sines",
+        "Seguir pela N120 até São Luís",
+        "Continuar pela N393 em direção a Zambujeira do Mar",
+        "Seguir indicações para Monte da Estrada"
+      ]
+    },
+    "fromFaro": {
+      "title": "De Faro",
+      "distance": "150 km",
+      "duration": "2h",
+      "route": [
+        "Sair de Faro pela A22 em direção a Lagos",
+        "Continuar pela N125 até Aljezur",
+        "Seguir pela N120 em direção a Odeceixe",
+        "Continuar para Zambujeira do Mar",
+        "Seguir indicações para Monte da Estrada"
+      ]
+    },
+    "fromPorto": {
+      "title": "Do Porto",
+      "distance": "420 km",
+      "duration": "4h30",
+      "route": [
+        "Sair do Porto pela A1 em direção a Lisboa",
+        "Passar Lisboa e continuar pela A2 Sul",
+        "Seguir as indicações \"De Lisboa\" acima referidas"
+      ]
+    }
+  },
+  "publicTransport": {
+    "title": "Transportes Públicos",
+    "description": "O acesso por transportes públicos é limitado. Recomendamos a utilização de viatura própria.",
+    "options": [
+      {
+        "type": "Autocarro",
+        "description": "Rede Expressos até Odemira, seguido de táxi ou transfer (a combinar)"
+      },
+      {
+        "type": "Comboio",
+        "description": "Linha do Sul até Funcheira, seguido de autocarro ou táxi"
+      },
+      {
+        "type": "Transfer",
+        "description": "Serviço de transfer disponível mediante marcação prévia (custo adicional)"
+      }
+    ]
+  },
+  "parking": {
+    "title": "Estacionamento",
+    "description": "Estacionamento privado e gratuito disponível para todos os hóspedes.",
+    "features": [
+      "Estacionamento gratuito",
+      "Espaço para vários veículos",
+      "Localização segura",
+      "Acesso direto às instalações"
+    ]
+  },
+  "distances": {
+    "title": "Distâncias",
+    "items": [
+      {
+        "location": "Praia da Zambujeira do Mar",
+        "distance": "5 km",
+        "duration": "7 minutos de carro"
+      },
+      {
+        "location": "Odemira",
+        "distance": "20 km",
+        "duration": "20 minutos de carro"
+      },
+      {
+        "location": "Vila Nova de Milfontes",
+        "distance": "35 km",
+        "duration": "35 minutos de carro"
+      },
+      {
+        "location": "Aljezur",
+        "distance": "25 km",
+        "duration": "25 minutos de carro"
+      },
+      {
+        "location": "Lagos",
+        "distance": "60 km",
+        "duration": "1 hora de carro"
+      },
+      {
+        "location": "Lisboa",
+        "distance": "200 km",
+        "duration": "2h30 de carro"
+      },
+      {
+        "location": "Aeroporto de Faro",
+        "distance": "150 km",
+        "duration": "2 horas de carro"
+      }
+    ]
+  },
+  "tips": {
+    "title": "Dicas Úteis",
+    "items": [
+      "GPS: Utilizar as coordenadas para navegação mais precisa",
+      "Combustível: Abastecer em Odemira ou Zambujeira do Mar",
+      "Supermercado: Disponível em Zambujeira do Mar e Odemira",
+      "Farmácia: Zambujeira do Mar e Odemira",
+      "Centro de Saúde: Odemira",
+      "Multibanco: Zambujeira do Mar e Odemira"
+    ]
+  }
+}

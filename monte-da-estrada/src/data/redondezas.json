@@ -1,0 +1,144 @@
+{
+  "title": "A Região - Alentejo e Costa Vicentina",
+  "description": "Explore os tesouros do Alentejo litoral e da Costa Vicentina, uma região única de beleza natural e autenticidade.",
+  "region": {
+    "title": "Alentejo Litoral",
+    "description": "O Monte da Estrada situa-se no Alentejo litoral, numa região privilegiada entre o campo e o mar, no concelho de Odemira. Esta zona é caracterizada por paisagens vastas, praias selvagens e uma forte ligação às tradições.",
+    "highlights": [
+      "Parque Natural do Sudoeste Alentejano e Costa Vicentina",
+      "Praias praticamente desertas mesmo no verão",
+      "Gastronomia tradicional rica e autêntica",
+      "Artesanato local preservado",
+      "Natureza intocada e biodiversidade única"
+    ]
+  },
+  "beaches": {
+    "title": "Praias Próximas",
+    "items": [
+      {
+        "name": "Zambujeira do Mar",
+        "distance": "5 km",
+        "description": "Vila piscatória com uma das praias mais bonitas da costa alentejana. Conhecida pelo Festival Sudoeste que aqui decorre anualmente.",
+        "features": ["Restaurantes", "Cafés", "Comércio local", "Surf"]
+      },
+      {
+        "name": "Praia do Carvalhal",
+        "distance": "8 km",
+        "description": "Praia extensa e tranquila, ideal para longos passeios junto ao mar.",
+        "features": ["Natureza", "Tranquilidade", "Caminhadas"]
+      },
+      {
+        "name": "Praia de Odeceixe",
+        "distance": "15 km",
+        "description": "Praia fluvial e marítima onde o rio encontra o oceano, oferecendo paisagens únicas.",
+        "features": ["Paisagem única", "Rio e mar", "Ideal para famílias"]
+      },
+      {
+        "name": "Praia dos Alteirinhos",
+        "distance": "6 km",
+        "description": "Pequena praia escondida entre falésias, perfeita para quem procura sossego.",
+        "features": ["Isolada", "Beleza natural", "Falésias"]
+      }
+    ]
+  },
+  "towns": {
+    "title": "Vilas e Cidades",
+    "items": [
+      {
+        "name": "Odemira",
+        "distance": "20 km",
+        "description": "Capital do concelho, vila branca junto ao rio Mira com centro histórico encantador.",
+        "attractions": ["Centro histórico", "Mercado municipal", "Restaurantes", "Rio Mira"]
+      },
+      {
+        "name": "Aljezur",
+        "distance": "25 km",
+        "description": "Vila histórica já no Algarve, com castelo e museu.",
+        "attractions": ["Castelo", "Museu municipal", "Batata-doce famosa", "Mercado"]
+      },
+      {
+        "name": "Vila Nova de Milfontes",
+        "distance": "35 km",
+        "description": "Destino turístico de excelência com praias magníficas e forte histórico.",
+        "attractions": ["Praias", "Forte", "Restaurantes", "Rio Mira"]
+      },
+      {
+        "name": "Lagos",
+        "distance": "60 km",
+        "description": "Cidade histórica do Algarve com marina, praias e vida noturna.",
+        "attractions": ["Centro histórico", "Marina", "Grutas", "Vida noturna"]
+      }
+    ]
+  },
+  "restaurants": {
+    "title": "Gastronomia Local",
+    "description": "Descubra os sabores autênticos do Alentejo nos restaurantes da região.",
+    "items": [
+      {
+        "name": "Restaurantes em Zambujeira do Mar",
+        "specialties": ["Peixe fresco", "Açorda de marisco", "Cataplana"]
+      },
+      {
+        "name": "Restaurantes em Odemira",
+        "specialties": ["Carne de porco à alentejana", "Migas", "Ensopado de borrego"]
+      },
+      {
+        "name": "Tasca do Celso",
+        "specialties": ["Comida caseira", "Pratos tradicionais"]
+      },
+      {
+        "name": "Cafés tradicionais",
+        "specialties": ["Pastel de nata", "Bolo de mel", "Café alentejano"]
+      }
+    ]
+  },
+  "festivals": {
+    "title": "Festividades e Eventos",
+    "description": "A região é rica em tradições e celebrações ao longo do ano.",
+    "events": [
+      {
+        "name": "Festival Sudoeste",
+        "period": "Agosto",
+        "location": "Zambujeira do Mar",
+        "description": "Um dos maiores festivais de música de Portugal, atrai milhares de jovens."
+      },
+      {
+        "name": "Feira de Odemira",
+        "period": "Outubro",
+        "location": "Odemira",
+        "description": "Feira tradicional com artesanato, gastronomia e produtos locais."
+      },
+      {
+        "name": "Festa de São Luís",
+        "period": "Agosto",
+        "location": "Odemira",
+        "description": "Festas tradicionais com procissão, música e arraial."
+      },
+      {
+        "name": "Mercados Locais",
+        "period": "Semanais",
+        "location": "Várias localidades",
+        "description": "Mercados tradicionais com produtos frescos e artesanato."
+      },
+      {
+        "name": "Festas de Verão",
+        "period": "Julho - Setembro",
+        "location": "Várias aldeias",
+        "description": "Festas populares nas aldeias com música, dança e gastronomia."
+      }
+    ]
+  },
+  "attractions": {
+    "title": "Outros Pontos de Interesse",
+    "items": [
+      "Rota Vicentina - trilhos pedestres",
+      "Cabo de São Vicente - ponto mais ocidental da Europa",
+      "Sagres - Fortaleza e farol",
+      "Mértola - Vila museu",
+      "Parque Natural do Vale do Guadiana",
+      "Observação de aves na costa",
+      "Barragem de Santa Clara",
+      "Aldeias típicas do interior"
+    ]
+  }
+}

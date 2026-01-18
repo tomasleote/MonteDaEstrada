@@ -1,0 +1,57 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.grid {
+  display: grid;
+  width: 100%;
+
+  // Column variants
+  &.cols1 {
+    grid-template-columns: 1fr;
+  }
+
+  &.cols2 {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.cols3 {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &.cols4 {
+    grid-template-columns: repeat(4, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // Gap variants
+  &.gapsmall {
+    gap: $spacing-md;
+  }
+
+  &.gapmedium {
+    gap: $spacing-xl;
+  }
+
+  &.gaplarge {
+    gap: $spacing-2xl;
+  }
+}

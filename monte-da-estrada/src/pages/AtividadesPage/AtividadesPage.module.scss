@@ -1,0 +1,152 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.atividadesPage {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pageTitle {
+  @include h1;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.pageDescription {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.sectionTitle {
+  @include h2;
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+  color: $color-primary;
+}
+
+.activitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-4xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: $spacing-3xl;
+  }
+}
+
+.activitySection {
+  background-color: $color-bg-primary;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  transition: $transition-all-fast;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-4px);
+  }
+}
+
+.activityHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.activityIcon {
+  font-size: $font-size-3xl;
+}
+
+.activityTitle {
+  @include h3;
+  color: $color-primary;
+  margin: 0;
+}
+
+.activityDescription {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-lg;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding-left: $spacing-lg;
+    position: relative;
+    margin-bottom: $spacing-sm;
+    line-height: $line-height-normal;
+
+    &::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: $color-secondary;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.amenityCard {
+  text-align: center;
+  padding: $spacing-xl;
+}
+
+.amenityName {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.amenityDescription {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  margin: 0;
+}
+
+.cta {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  @include h2;
+  color: $color-text-light;
+  margin-bottom: $spacing-md;
+}
+
+.ctaText {
+  font-size: $font-size-lg;
+  color: rgba($color-text-light, 0.9);
+  margin-bottom: $spacing-2xl;
+  line-height: $line-height-relaxed;
+}
+
+.ctaButtons {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  @include button-secondary;
+  font-size: $font-size-lg;
+  padding: $spacing-md $spacing-2xl;
+}

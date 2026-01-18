@@ -1,0 +1,13 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.card {
+  @include card;
+
+  &.hoverable {
+    &:hover {
+      box-shadow: $shadow-lg;
+      transform: translateY(-2px);
+    }
+  }
+}

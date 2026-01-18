@@ -1,0 +1,129 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.galeriaPage {
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto $spacing-4xl;
+}
+
+.pageTitle {
+  @include h1;
+  color: $color-primary;
+  margin-bottom: $spacing-md;
+}
+
+.pageDescription {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+}
+
+.filterContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-bottom: $spacing-4xl;
+  padding: $spacing-lg 0;
+}
+
+.filterButton {
+  padding: $spacing-sm $spacing-lg;
+  border: 2px solid $color-border-light;
+  background-color: $color-bg-primary;
+  color: $color-text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: $transition-all-fast;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+    background-color: rgba($color-primary, 0.05);
+  }
+
+  &.active {
+    background-color: $color-primary;
+    color: $color-text-light;
+    border-color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary-dark;
+      border-color: $color-primary-dark;
+    }
+  }
+
+  @include mobile {
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+.categoryInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+  margin-top: $spacing-4xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.categoryCard {
+  padding: $spacing-xl;
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-lg;
+  border-left: 4px solid $color-secondary;
+}
+
+.categoryTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.categoryDescription {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.infoBlock {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.infoTitle {
+  @include h2;
+  color: $color-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.infoText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-xl;
+}
+
+.creditsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.credit {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  font-style: italic;
+}
