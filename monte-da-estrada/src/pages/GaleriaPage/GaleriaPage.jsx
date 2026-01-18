@@ -3,7 +3,7 @@ import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
 import Section from '@/components/Section';
-import ImageGallery from '@/components/ImageGallery';
+import Slideshow from '@/components/Slideshow';
 import styles from './GaleriaPage.module.scss';
 import galeriaData from '@/data/galeria.json';
 import { seoConfig } from '@/utils/seo-config';
@@ -70,18 +70,8 @@ const GaleriaPage = () => {
             ))}
           </div>
 
-          {/* Image Gallery */}
-          <ImageGallery images={filteredImages} />
-
-          {/* Category Descriptions */}
-          <div className={styles.categoryInfo}>
-            {galeriaData.categories.map((category) => (
-              <div key={category.id} className={styles.categoryCard}>
-                <h3 className={styles.categoryTitle}>{category.name}</h3>
-                <p className={styles.categoryDescription}>{category.description}</p>
-              </div>
-            ))}
-          </div>
+          {/* Slideshow */}
+          <Slideshow images={filteredImages} autoPlayInterval={5000} />
         </Container>
       </Section>
 

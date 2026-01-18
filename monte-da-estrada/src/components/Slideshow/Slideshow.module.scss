@@ -1,0 +1,326 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-lg;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  cursor: pointer;
+  overflow: hidden;
+
+  @include tablet {
+    height: 400px;
+  }
+
+  @include mobile {
+    height: 300px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform $transition-normal;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: $spacing-xl;
+  opacity: 0;
+  transition: opacity $transition-fast;
+
+  .imageContainer:hover & {
+    opacity: 1;
+  }
+}
+
+.viewIcon {
+  color: $color-text-light;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: $color-text-light;
+  border: none;
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  z-index: 10;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  &:focus {
+    outline: 2px solid $color-text-light;
+    outline-offset: -4px;
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+}
+
+.arrowPrev {
+  left: 0;
+  border-radius: 0 $border-radius-md $border-radius-md 0;
+}
+
+.arrowNext {
+  right: 0;
+  border-radius: $border-radius-md 0 0 $border-radius-md;
+}
+
+.caption {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: $color-text-light;
+  padding: $spacing-lg $spacing-xl;
+  font-size: $font-size-md;
+  text-align: center;
+
+  @include mobile {
+    font-size: $font-size-sm;
+    padding: $spacing-md;
+  }
+}
+
+.dots {
+  position: absolute;
+  bottom: $spacing-md;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: $spacing-sm;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  padding: 0;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+
+  &.dotActive {
+    background-color: $color-text-light;
+    width: 30px;
+    border-radius: $border-radius-full;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: $spacing-md;
+  right: $spacing-md;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: $color-text-light;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  z-index: 10;
+}
+
+.autoPlayStopped {
+  position: absolute;
+  top: $spacing-md;
+  left: $spacing-md;
+  background-color: rgba($color-primary, 0.9);
+  color: $color-text-light;
+  padding: $spacing-xs $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  z-index: 10;
+}
+
+.noImages {
+  text-align: center;
+  padding: $spacing-4xl;
+  color: $color-text-muted;
+  font-size: $font-size-lg;
+}
+
+// Fullscreen Modal
+.fullscreenModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: $z-index-modal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  animation: fadeIn $transition-fast;
+
+  @include mobile {
+    padding: $spacing-sm;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  background-color: transparent;
+  color: $color-text-light;
+  border: none;
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: $z-index-tooltip;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-all-fast;
+
+  &:hover {
+    color: $color-secondary;
+    transform: scale(1.2);
+  }
+
+  @include mobile {
+    top: $spacing-sm;
+    right: $spacing-sm;
+    font-size: 2rem;
+  }
+}
+
+.fullscreenArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: $color-text-light;
+  border: none;
+  font-size: 4rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  z-index: $z-index-popover;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  @include mobile {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+  }
+}
+
+.fullscreenArrowPrev {
+  left: 0;
+}
+
+.fullscreenArrowNext {
+  right: 0;
+}
+
+.fullscreenContent {
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.fullscreenImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: $border-radius-md;
+
+  @include mobile {
+    max-height: 70vh;
+  }
+}
+
+.fullscreenCaption {
+  color: $color-text-light;
+  font-size: $font-size-lg;
+  text-align: center;
+  max-width: 800px;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
+}
+
+.fullscreenCounter {
+  position: absolute;
+  bottom: $spacing-lg;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: $color-text-light;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+}
