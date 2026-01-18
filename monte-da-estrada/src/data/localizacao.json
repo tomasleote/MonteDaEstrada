@@ -7,9 +7,10 @@
     "city": "Odemira",
     "region": "Alentejo",
     "country": "Portugal",
+    "postalCode": "7630-568",
     "coordinates": {
-      "latitude": 37.5253,
-      "longitude": -8.7858
+      "latitude": 37.5882284,
+      "longitude": -8.7782661
     }
   },
   "directions": {

@@ -28,7 +28,7 @@ const contactInfo = {
   phone: '283 647 535',
   phone2: '960 254 072',
   email: 'montedaestradazambujeiradomar@gmail.com',
-  address: 'Zambujeira do Mar, Alentejo',
+  address: 'Zambujeira do Mar, 7630-568 Odemira, Alentejo',
 }
 
 // Quick links for Footer

@@ -4,6 +4,7 @@ import Container from '@/components/Container';
 import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
+import Map from '@/components/Map';
 import styles from './LocalizacaoPage.module.scss';
 import localizacaoData from '@/data/localizacao.json';
 import { seoConfig } from '@/utils/seo-config';
@@ -27,21 +28,29 @@ const LocalizacaoPage = () => {
         </Container>
       </Section>
 
-      {/* Map Placeholder */}
-      <Section padding="none">
-        <div className={styles.mapPlaceholder}>
-          <Container>
-            <div className={styles.mapContent}>
-              <h3>🗺️ Mapa Interativo</h3>
-              <p>Coordenadas: {localizacaoData.address.coordinates.latitude}, {localizacaoData.address.coordinates.longitude}</p>
+      {/* Interactive Map */}
+      <Section padding="large">
+        <Container>
+          <div className={styles.mapSection}>
+            <div className={styles.mapWrapper}>
+              <Map
+                latitude={localizacaoData.address.coordinates.latitude}
+                longitude={localizacaoData.address.coordinates.longitude}
+                title={`Mapa - ${localizacaoData.address.street}, ${localizacaoData.address.city}`}
+                height="500px"
+              />
+            </div>
+            <div className={styles.addressBox}>
+              <h3>Endereço</h3>
               <p className={styles.addressText}>
+                <strong>{localizacaoData.address.name}</strong><br />
                 {localizacaoData.address.street}<br />
-                {localizacaoData.address.city}, {localizacaoData.address.region}<br />
-                {localizacaoData.address.country}
+                {localizacaoData.address.postalCode} {localizacaoData.address.city}<br />
+                {localizacaoData.address.region}, {localizacaoData.address.country}
               </p>
             </div>
-          </Container>
-        </div>
+          </div>
+        </Container>
       </Section>
 
       {/* Directions Section */}

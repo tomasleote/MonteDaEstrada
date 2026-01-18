@@ -66,10 +66,52 @@
   }
 }
 
+.mapSection {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: $spacing-xl;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mapWrapper {
+  width: 100%;
+}
+
+.addressBox {
+  background-color: $color-bg-secondary;
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  border-left: 4px solid $color-primary;
+  height: fit-content;
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  @include tablet {
+    margin-top: $spacing-lg;
+  }
+}
+
 .addressText {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-medium;
-  margin-top: $spacing-lg;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  line-height: $line-height-relaxed;
+  margin: 0;
+
+  strong {
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    display: block;
+    margin-bottom: $spacing-xs;
+  }
 }
 
 .directionCard {
