@@ -5,10 +5,12 @@ import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import styles from './AtividadesPage.module.scss';
-import atividadesData from '@/data/atividades.json';
+import atividadesDataOriginal from '@/data/atividades.json';
 import { seoConfig } from '@/utils/seo-config';
+import useEditableContent from '@/hooks/useEditableContent';
 
 const AtividadesPage = () => {
+  const atividadesData = useEditableContent('atividades', atividadesDataOriginal);
   return (
     <div className={styles.atividadesPage}>
       <SEO

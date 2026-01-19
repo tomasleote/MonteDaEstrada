@@ -1,0 +1,407 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Publish mode - set to editorial_workflow for draft/review/publish flow
+publish_mode: simple
+
+# Media files will be stored in the repo under static/images/uploads
+media_folder: "monte-da-estrada/public/images"
+public_folder: "/images"
+
+# Internationalization (i18n) configuration
+locale: "pt"
+
+# Collections define the structure for different content types
+collections:
+  # HOME PAGE
+  - name: "home"
+    label: "Página Inicial"
+    files:
+      - label: "Conteúdo da Home"
+        name: "home"
+        file: "monte-da-estrada/src/data/home.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - { label: "Imagem de Fundo", name: "image", widget: "image" }
+
+          - label: "Secção de Boas-vindas"
+            name: "welcome"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Parágrafos"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Parágrafo", name: "paragraph", widget: "text" }
+
+          - label: "Destaques"
+            name: "highlights"
+            widget: "list"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Ícone (emoji)", name: "icon", widget: "string" }
+
+          - label: "Informações Práticas"
+            name: "information"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Hora de Check-in", name: "checkIn", widget: "string" }
+              - { label: "Hora de Check-out", name: "checkOut", widget: "string" }
+              - label: "Políticas"
+                name: "policies"
+                widget: "list"
+                field: { label: "Política", name: "policy", widget: "string" }
+              - label: "Incluído"
+                name: "included"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+  # QUARTOS PAGE
+  - name: "quartos"
+    label: "Quartos"
+    files:
+      - label: "Conteúdo de Quartos"
+        name: "quartos"
+        file: "monte-da-estrada/src/data/quartos.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Quartos"
+            name: "rooms"
+            widget: "list"
+            fields:
+              - { label: "Nome do Quarto", name: "name", widget: "string" }
+              - { label: "Capacidade", name: "capacity", widget: "string" }
+              - label: "Características"
+                name: "features"
+                widget: "list"
+                field: { label: "Característica", name: "feature", widget: "string" }
+              - label: "Imagens"
+                name: "images"
+                widget: "list"
+                field: { label: "Caminho da Imagem", name: "image", widget: "image" }
+
+          - label: "Preços e Reservas"
+            name: "pricing"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Épocas"
+                name: "seasons"
+                widget: "list"
+                fields:
+                  - { label: "Nome da Época", name: "name", widget: "string" }
+                  - { label: "Período", name: "period", widget: "string" }
+                  - { label: "Nota", name: "note", widget: "string" }
+              - label: "Políticas"
+                name: "policies"
+                widget: "list"
+                field: { label: "Política", name: "policy", widget: "string" }
+
+          - label: "Comodidades"
+            name: "facilities"
+            widget: "list"
+            field: { label: "Comodidade", name: "facility", widget: "string" }
+
+  # ATIVIDADES PAGE
+  - name: "atividades"
+    label: "Atividades"
+    files:
+      - label: "Conteúdo de Atividades"
+        name: "atividades"
+        file: "monte-da-estrada/src/data/atividades.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Atividades"
+            name: "activities"
+            widget: "list"
+            fields:
+              - { label: "Categoria", name: "category", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Destaques"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Destaque", name: "highlight", widget: "string" }
+              - { label: "Ícone (emoji)", name: "icon", widget: "string" }
+
+          - label: "Comodidades no Monte"
+            name: "amenities"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+
+  # REDONDEZAS PAGE
+  - name: "redondezas"
+    label: "A Região"
+    files:
+      - label: "Conteúdo da Região"
+        name: "redondezas"
+        file: "monte-da-estrada/src/data/redondezas.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Região"
+            name: "region"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Destaques"
+                name: "highlights"
+                widget: "list"
+                field: { label: "Destaque", name: "highlight", widget: "string" }
+
+          - label: "Praias"
+            name: "beaches"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+                  - label: "Características"
+                    name: "features"
+                    widget: "list"
+                    field: { label: "Característica", name: "feature", widget: "string" }
+
+          - label: "Vilas e Cidades"
+            name: "towns"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+                  - label: "Atrações"
+                    name: "attractions"
+                    widget: "list"
+                    field: { label: "Atração", name: "attraction", widget: "string" }
+
+          - label: "Gastronomia"
+            name: "restaurants"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - label: "Especialidades"
+                    name: "specialties"
+                    widget: "list"
+                    field: { label: "Especialidade", name: "specialty", widget: "string" }
+
+          - label: "Festividades"
+            name: "festivals"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Eventos"
+                name: "events"
+                widget: "list"
+                fields:
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - { label: "Período", name: "period", widget: "string" }
+                  - { label: "Localização", name: "location", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Pontos de Interesse"
+            name: "attractions"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+  # LOCALIZAÇÃO PAGE
+  - name: "localizacao"
+    label: "Localização"
+    files:
+      - label: "Conteúdo de Localização"
+        name: "localizacao"
+        file: "monte-da-estrada/src/data/localizacao.json"
+        fields:
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Morada"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Rua", name: "street", widget: "string" }
+              - { label: "Cidade", name: "city", widget: "string" }
+              - { label: "Região", name: "region", widget: "string" }
+              - { label: "País", name: "country", widget: "string" }
+              - { label: "Código Postal", name: "postalCode", widget: "string" }
+              - label: "Coordenadas GPS"
+                name: "coordinates"
+                widget: "object"
+                fields:
+                  - { label: "Latitude", name: "latitude", widget: "number", value_type: "float", step: 0.0000001 }
+                  - { label: "Longitude", name: "longitude", widget: "number", value_type: "float", step: 0.0000001 }
+
+          - label: "Como Chegar"
+            name: "directions"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "De Lisboa"
+                name: "fromLisbon"
+                widget: "object"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
+                  - label: "Percurso"
+                    name: "route"
+                    widget: "list"
+                    field: { label: "Passo", name: "step", widget: "string" }
+              - label: "De Faro"
+                name: "fromFaro"
+                widget: "object"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
+                  - label: "Percurso"
+                    name: "route"
+                    widget: "list"
+                    field: { label: "Passo", name: "step", widget: "string" }
+              - label: "Do Porto"
+                name: "fromPorto"
+                widget: "object"
+                fields:
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
+                  - label: "Percurso"
+                    name: "route"
+                    widget: "list"
+                    field: { label: "Passo", name: "step", widget: "string" }
+
+          - label: "Transportes Públicos"
+            name: "publicTransport"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Opções"
+                name: "options"
+                widget: "list"
+                fields:
+                  - { label: "Tipo", name: "type", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Estacionamento"
+            name: "parking"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Características"
+                name: "features"
+                widget: "list"
+                field: { label: "Característica", name: "feature", widget: "string" }
+
+          - label: "Distâncias"
+            name: "distances"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Localização", name: "location", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
+
+          - label: "Dicas Úteis"
+            name: "tips"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                field: { label: "Dica", name: "tip", widget: "string" }
+
+  # GALERIA PAGE
+  - name: "galeria"
+    label: "Galeria"
+    files:
+      - label: "Conteúdo da Galeria"
+        name: "galeria"
+        file: "monte-da-estrada/src/data/galeria.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "Categorias"
+            name: "categories"
+            widget: "list"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Imagens"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Imagem", name: "src", widget: "image" }
+                  - { label: "Miniatura", name: "thumbnail", widget: "image" }
+                  - { label: "Texto Alternativo", name: "alt", widget: "string" }
+                  - { label: "Legenda", name: "caption", widget: "string" }
+
+          - label: "Informações sobre Fotografia"
+            name: "photographyInfo"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Créditos"
+                name: "credits"
+                widget: "list"
+                field: { label: "Crédito", name: "credit", widget: "string" }

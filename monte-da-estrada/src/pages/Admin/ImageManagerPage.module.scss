@@ -1,0 +1,334 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.managerPage {
+  min-height: 100vh;
+  background-color: $color-bg-primary;
+  padding: $spacing-2xl;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-2xl;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+
+  h1 {
+    @include h2;
+    color: $color-primary;
+    margin: 0;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.backButton {
+  @include button-outline;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-sm;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.downloadButton {
+  @include button-outline;
+  padding: $spacing-sm $spacing-lg;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.saveButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-xl;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.successMessage {
+  background-color: rgba($color-secondary, 0.2);
+  border-left: 4px solid $color-secondary;
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: $spacing-xl;
+  border-radius: $border-radius-md;
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+  animation: slideIn $transition-normal;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filterContainer {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  background-color: $color-bg-secondary;
+  border: none;
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+  }
+
+  &.active {
+    background-color: $color-primary;
+    color: $color-text-light;
+  }
+}
+
+.content {
+  background-color: $color-bg-primary;
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.instructions {
+  background-color: rgba($color-secondary, 0.1);
+  padding: $spacing-lg;
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-2xl;
+  border-left: 4px solid $color-secondary;
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: $spacing-xl;
+
+    li {
+      margin-bottom: $spacing-xs;
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+.addImageSection {
+  margin-bottom: $spacing-2xl;
+  text-align: center;
+}
+
+.addImageButton {
+  @include button-primary;
+  padding: $spacing-md $spacing-2xl;
+  font-size: $font-size-base;
+}
+
+.imageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: $spacing-xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageCard {
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: $transition-all-fast;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  opacity: 0;
+  transition: opacity $transition-fast;
+
+  .imageWrapper:hover & {
+    opacity: 1;
+  }
+}
+
+.editButton,
+.deleteButton {
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: $transition-all-fast;
+}
+
+.editButton {
+  background-color: $color-primary;
+  color: $color-text-light;
+
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+.deleteButton {
+  background-color: #d32f2f;
+  color: $color-text-light;
+
+  &:hover {
+    background-color: #b71c1c;
+  }
+}
+
+.imageInfo {
+  padding: $spacing-md;
+}
+
+.categoryBadge {
+  display: inline-block;
+  background-color: rgba($color-primary, 0.1);
+  color: $color-primary;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacing-sm;
+}
+
+.imageCaption {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin: 0;
+  line-height: $line-height-normal;
+}
+
+.editForm {
+  padding: $spacing-lg;
+  background-color: $color-bg-primary;
+  border-top: 2px solid $color-border-light;
+}
+
+.field {
+  margin-bottom: $spacing-md;
+
+  label {
+    display: block;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+    font-size: $font-size-xs;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: $spacing-sm;
+    border: 1px solid $color-border-light;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    font-family: $font-family-primary;
+    transition: $transition-all-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+}
+
+.closeEditButton {
+  @include button-outline;
+  width: 100%;
+  padding: $spacing-sm;
+  font-size: $font-size-sm;
+}
+
+.emptyState {
+  text-align: center;
+  padding: $spacing-4xl;
+  color: $color-text-muted;
+  font-size: $font-size-lg;
+}

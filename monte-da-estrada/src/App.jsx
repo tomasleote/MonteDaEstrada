@@ -13,6 +13,10 @@ const RedondezasPage = lazy(() => import('./pages/RedondezasPage'))
 const LocalizacaoPage = lazy(() => import('./pages/LocalizacaoPage'))
 const GaleriaPage = lazy(() => import('./pages/GaleriaPage'))
 
+// NOTE: Admin panel now powered by Decap CMS
+// Access at /admin (served from public/admin/index.html)
+// Old localStorage-based admin pages have been replaced
+
 // Navigation items for NavBar (matching Papa Léguas structure)
 const navItems = [
   { label: 'Início', path: '/' },
@@ -54,12 +58,20 @@ function App() {
       <main id="main-content" style={{ minHeight: 'calc(100vh - 70px)', paddingTop: '70px' }}>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
+            {/* Public Routes */}
             <Route path="/" element={<HomePage />} />
             <Route path="/quartos" element={<QuartosPage />} />
             <Route path="/atividades" element={<AtividadesPage />} />
             <Route path="/redondezas" element={<RedondezasPage />} />
             <Route path="/localizacao" element={<LocalizacaoPage />} />
             <Route path="/galeria" element={<GaleriaPage />} />
+
+            {/* Admin Panel - Powered by Decap CMS */}
+            {/* Access the admin panel at: /admin */}
+            {/* Authentication handled by Netlify Identity */}
+            {/* Content management handled by Decap CMS (Git-based) */}
+
+            {/* Old localStorage-based admin routes removed - now using Decap CMS */}
           </Routes>
         </Suspense>
       </main>

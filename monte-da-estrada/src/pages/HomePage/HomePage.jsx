@@ -7,10 +7,13 @@ import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 import styles from './HomePage.module.scss';
-import homeData from '@/data/home.json';
+import homeDataOriginal from '@/data/home.json';
 import { seoConfig } from '@/utils/seo-config';
+import useEditableContent from '@/hooks/useEditableContent';
 
 const HomePage = () => {
+  // Use editable content hook to load from localStorage if edited
+  const homeData = useEditableContent('home', homeDataOriginal);
   return (
     <div className={styles.homePage}>
       <SEO

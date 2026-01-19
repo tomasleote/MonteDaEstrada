@@ -7,10 +7,12 @@ import Card from '@/components/Card';
 import Button from '@/components/Button';
 import ContactForm from '@/components/ContactForm';
 import styles from './QuartosPage.module.scss';
-import quartosData from '@/data/quartos.json';
+import quartosDataOriginal from '@/data/quartos.json';
 import { seoConfig } from '@/utils/seo-config';
+import useEditableContent from '@/hooks/useEditableContent';
 
 const QuartosPage = () => {
+  const quartosData = useEditableContent('quartos', quartosDataOriginal);
   return (
     <div className={styles.quartosPage}>
       <SEO

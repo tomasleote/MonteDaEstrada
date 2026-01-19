@@ -1,0 +1,243 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.editorPage {
+  min-height: 100vh;
+  background-color: $color-bg-secondary;
+  padding: $spacing-2xl;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-2xl;
+  flex-wrap: wrap;
+  gap: $spacing-lg;
+
+  h1 {
+    @include h2;
+    color: $color-primary;
+    margin: 0;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.backButton {
+  @include button-outline;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-sm;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+
+  @include mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.downloadButton {
+  @include button-outline;
+  padding: $spacing-sm $spacing-lg;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.saveButton {
+  @include button-primary;
+  padding: $spacing-sm $spacing-xl;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.successMessage {
+  background-color: rgba($color-secondary, 0.2);
+  border-left: 4px solid $color-secondary;
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: $spacing-xl;
+  border-radius: $border-radius-md;
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+  animation: slideIn $transition-normal;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-xl;
+  overflow-x: auto;
+  padding-bottom: $spacing-sm;
+
+  @include mobile {
+    flex-wrap: nowrap;
+  }
+}
+
+.tab {
+  background-color: $color-bg-secondary;
+  border: none;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+  }
+
+  @include mobile {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-xs;
+  }
+}
+
+.activeTab {
+  background-color: $color-primary;
+  color: $color-text-light;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    color: $color-text-light;
+  }
+}
+
+.tabIcon {
+  font-size: $font-size-lg;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
+}
+
+.content {
+  background-color: $color-bg-primary;
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.editorSection {
+  h2 {
+    @include h2;
+    color: $color-primary;
+    margin-bottom: $spacing-2xl;
+    padding-bottom: $spacing-md;
+    border-bottom: 2px solid $color-border-light;
+  }
+
+  h3 {
+    @include h3;
+    color: $color-primary-dark;
+    margin-top: $spacing-2xl;
+    margin-bottom: $spacing-lg;
+  }
+
+  h4 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.section {
+  margin-bottom: $spacing-3xl;
+  padding: $spacing-xl;
+  background-color: $color-bg-secondary;
+  border-radius: $border-radius-md;
+  border-left: 4px solid $color-secondary;
+}
+
+.field {
+  margin-bottom: $spacing-lg;
+
+  label {
+    display: block;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-sm;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: $spacing-md;
+    border: 1px solid $color-border-light;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-base;
+    font-family: $font-family-primary;
+    transition: $transition-all-fast;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: $line-height-normal;
+  }
+}
+
+.highlightItem {
+  padding: $spacing-lg;
+  background-color: $color-bg-primary;
+  border-radius: $border-radius-sm;
+  margin-bottom: $spacing-lg;
+  border: 1px solid $color-border-light;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

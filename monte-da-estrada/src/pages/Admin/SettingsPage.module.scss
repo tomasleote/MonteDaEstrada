@@ -1,0 +1,218 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.settingsPage {
+  min-height: 100vh;
+  background-color: $color-bg-primary;
+  padding: $spacing-2xl;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-2xl;
+  flex-wrap: wrap;
+
+  h1 {
+    @include h2;
+    color: $color-primary;
+    margin: 0;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    gap: $spacing-md;
+  }
+}
+
+.backButton {
+  @include button-outline;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-sm;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.successMessage {
+  background-color: rgba($color-secondary, 0.2);
+  border-left: 4px solid $color-secondary;
+  padding: $spacing-md $spacing-lg;
+  margin-bottom: $spacing-xl;
+  border-radius: $border-radius-md;
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+  animation: slideIn $transition-normal;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-2xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formSection {
+  background-color: $color-bg-primary;
+  padding: $spacing-2xl;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+
+  h2 {
+    @include h2;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.description {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-2xl;
+  padding: $spacing-md;
+  background-color: rgba($color-primary, 0.05);
+  border-radius: $border-radius-sm;
+}
+
+.form {
+  .field {
+    margin-bottom: $spacing-xl;
+
+    label {
+      display: block;
+      font-weight: $font-weight-semibold;
+      color: $color-text-primary;
+      margin-bottom: $spacing-sm;
+      font-size: $font-size-sm;
+    }
+
+    input {
+      width: 100%;
+      padding: $spacing-md;
+      border: 2px solid $color-border-light;
+      border-radius: $border-radius-sm;
+      font-size: $font-size-base;
+      font-family: $font-family-primary;
+      transition: $transition-all-fast;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+      }
+
+      &.error {
+        border-color: #d32f2f;
+      }
+
+      &::placeholder {
+        color: $color-text-muted;
+      }
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: $color-border-light;
+  margin: $spacing-2xl 0;
+}
+
+.errorMessage {
+  display: block;
+  color: #d32f2f;
+  font-size: $font-size-xs;
+  margin-top: $spacing-xs;
+  font-weight: $font-weight-medium;
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-2xl;
+  justify-content: flex-end;
+
+  @include mobile {
+    flex-direction: column-reverse;
+  }
+}
+
+.cancelButton {
+  @include button-outline;
+  padding: $spacing-md $spacing-xl;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.submitButton {
+  @include button-primary;
+  padding: $spacing-md $spacing-2xl;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.infoSection {
+  background-color: rgba($color-secondary, 0.1);
+  padding: $spacing-xl;
+  border-radius: $border-radius-lg;
+  border-left: 4px solid $color-secondary;
+  height: fit-content;
+
+  h3 {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    margin-bottom: $spacing-lg;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: $spacing-xl;
+
+    li {
+      margin-bottom: $spacing-sm;
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+      line-height: $line-height-normal;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

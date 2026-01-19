@@ -1,0 +1,130 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.loginPage {
+  min-height: 100vh;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl 0;
+}
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.loginBox {
+  background-color: $color-bg-primary;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-xl;
+  padding: $spacing-4xl;
+  max-width: 450px;
+  width: 100%;
+
+  @include mobile {
+    padding: $spacing-2xl;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.subtitle {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  margin: 0;
+}
+
+.form {
+  margin-bottom: $spacing-xl;
+}
+
+.error {
+  background-color: rgba($color-error, 0.1);
+  border-left: 4px solid $color-error;
+  color: $color-error;
+  padding: $spacing-md;
+  border-radius: $border-radius-sm;
+  margin-bottom: $spacing-lg;
+  font-size: $font-size-sm;
+}
+
+.formGroup {
+  margin-bottom: $spacing-xl;
+}
+
+.label {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-xs;
+}
+
+.input {
+  width: 100%;
+  padding: $spacing-md;
+  border: 2px solid $color-border-light;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  transition: $transition-all-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+}
+
+.submitButton {
+  width: 100%;
+  padding: $spacing-md $spacing-xl;
+  background-color: $color-primary;
+  color: $color-text-light;
+  border: none;
+  border-radius: $border-radius-md;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  transition: $transition-all-fast;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding-top: $spacing-xl;
+  border-top: 1px solid $color-border-light;
+}
+
+.footerText {
+  font-size: $font-size-xs;
+  color: $color-text-muted;
+  margin: 0;
+}
