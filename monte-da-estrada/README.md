@@ -296,3 +296,233 @@ This is a private project for Monte da Estrada. For any questions or changes, pl
 ---
 
 Built with ❤️ using React, Vite, and SCSS
+
+## 🌍 Multi-Language Support (i18n)
+
+This website supports 5 languages, enabling visitors from different countries to view content in their preferred language.
+
+### Supported Languages
+
+- 🇵🇹 **Português** (Portuguese) - Default language
+- 🇬🇧 **English** - International visitors
+- 🇩🇪 **Deutsch** (German) - German-speaking visitors
+- 🇪🇸 **Español** (Spanish) - Spanish-speaking visitors
+- 🇫🇷 **Français** (French) - French-speaking visitors
+
+### How it Works
+
+The website uses **react-i18next** for internationalization:
+
+1. **Automatic Language Detection**: Detects the user's browser language on first visit
+2. **Manual Selection**: Users can switch languages using the globe icon in the navigation bar
+3. **Persistent Preferences**: Selected language is saved to localStorage
+4. **Fallback**: Defaults to Portuguese if the browser language is not supported
+
+### Translation File Structure
+
+Translation files are located in `public/locales/` organized by language and namespace:
+
+```
+public/locales/
+├── pt/           # Portuguese translations
+│   ├── common.json       # Shared UI elements (nav, footer, buttons, forms)
+│   ├── home.json         # Homepage content
+│   ├── quartos.json      # Rooms page
+│   ├── atividades.json   # Activities page
+│   ├── redondezas.json   # Surroundings page
+│   ├── localizacao.json  # Location page
+│   └── galeria.json      # Gallery page
+├── en/           # English translations (same structure)
+├── de/           # German translations (same structure)
+├── es/           # Spanish translations (same structure)
+└── fr/           # French translations (same structure)
+```
+
+### Adding or Editing Translations
+
+#### Editing Existing Translations
+
+1. Navigate to `public/locales/{language}/{namespace}.json`
+2. Find the key you want to translate
+3. Update the value
+4. Save the file
+5. Refresh the browser (no rebuild needed)
+
+**Example** - Editing the Portuguese home page title:
+
+```json
+// public/locales/pt/home.json
+{
+  "hero": {
+    "title": "Monte da Estrada",  // Edit this value
+    "subtitle": "Turismo Rural no Alentejo"
+  }
+}
+```
+
+#### Adding New Translation Keys
+
+1. Add the key to the Portuguese file first (master language):
+
+```json
+// public/locales/pt/common.json
+{
+  "buttons": {
+    "newButton": "Novo Botão"
+  }
+}
+```
+
+2. Translate to all other languages (en, de, es, fr)
+
+3. Use in your component:
+
+```jsx
+import { useTranslation } from 'react-i18next';
+
+const MyComponent = () => {
+  const { t } = useTranslation('common');
+  
+  return <button>{t('buttons.newButton')}</button>;
+};
+```
+
+### Adding a New Language
+
+To add support for a new language (e.g., Italian):
+
+1. Create a new folder in `public/locales/`:
+   ```bash
+   mkdir public/locales/it
+   ```
+
+2. Copy all JSON files from the `pt/` folder:
+   ```bash
+   cp public/locales/pt/*.json public/locales/it/
+   ```
+
+3. Translate all content in the Italian files
+
+4. Add the language to `src/i18n.js`:
+   ```javascript
+   supportedLngs: ['pt', 'en', 'de', 'es', 'fr', 'it'],
+   ```
+
+5. Add the language option to `src/components/LanguageSwitcher/LanguageSwitcher.jsx`:
+   ```javascript
+   const LANGUAGES = [
+     // ... existing languages
+     { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+   ];
+   ```
+
+### Using Translations in Components
+
+#### Basic Usage
+
+```jsx
+import { useTranslation } from 'react-i18next';
+
+const MyComponent = () => {
+  const { t } = useTranslation('namespace');
+  
+  return (
+    <div>
+      <h1>{t('key.title')}</h1>
+      <p>{t('key.description')}</p>
+    </div>
+  );
+};
+```
+
+#### With Arrays
+
+```jsx
+const { t } = useTranslation('home');
+
+// Translation file:
+// { "items": ["Item 1", "Item 2", "Item 3"] }
+
+const items = t('items', { returnObjects: true });
+items.map((item, index) => <li key={index}>{item}</li>);
+```
+
+#### SEO Metadata
+
+Use the `usePageMeta` hook for translated meta tags:
+
+```jsx
+import { Helmet } from 'react-helmet-async';
+import usePageMeta from '@/hooks/usePageMeta';
+
+const MyPage = () => {
+  const { title, description, keywords, lang } = usePageMeta('namespace');
+  
+  return (
+    <>
+      <Helmet>
+        <html lang={lang} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+      </Helmet>
+      
+      {/* Page content */}
+    </>
+  );
+};
+```
+
+### Translation Namespaces
+
+Namespaces help organize translations by page or feature:
+
+- **common**: Shared UI elements (navigation, footer, buttons, forms, language selector)
+- **home**: Homepage content
+- **quartos**: Rooms page content
+- **atividades**: Activities page content
+- **redondezas**: Surroundings page content
+- **localizacao**: Location page content
+- **galeria**: Gallery page content
+
+### Best Practices
+
+1. **Always use translation keys** - Never hardcode text in components
+2. **Keep keys organized** - Use nested objects for logical grouping
+3. **Be consistent** - Use the same key structure across all languages
+4. **Translate everything** - Including button labels, placeholders, error messages
+5. **Test all languages** - Verify translations display correctly in each language
+6. **Watch for text overflow** - German text tends to be longer; ensure UI doesn't break
+7. **Update all languages together** - When adding a new key, translate it immediately
+
+### Troubleshooting
+
+**Translations not showing?**
+- Check the browser console for i18next errors
+- Verify the translation file exists in `public/locales/{lang}/{namespace}.json`
+- Ensure the key path is correct (e.g., `t('footer.contact')`)
+- Clear localStorage and refresh to reset language detection
+
+**Language not persisting?**
+- Check browser localStorage for `i18nextLng` key
+- Ensure cookies are enabled
+- Try selecting the language again
+
+**Missing translations appear as keys?**
+- Add the missing key to the translation file
+- Check the namespace name matches the `useTranslation()` parameter
+- Verify JSON syntax is correct (no trailing commas)
+
+### i18n Package Information
+
+- **i18next**: ^25.8.0 - Core i18n framework
+- **react-i18next**: ^15.3.0 - React bindings with hooks
+- **i18next-browser-languagedetector**: ^8.0.2 - Automatic language detection
+- **i18next-http-backend**: ^3.0.2 - Dynamic translation file loading
+
+### Resources
+
+- [react-i18next Documentation](https://react.i18next.com/)
+- [i18next Documentation](https://www.i18next.com/)
+- [Translation Best Practices](https://www.i18next.com/principles/best-practices)
+

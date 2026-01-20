@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Hero.module.scss';
 
 /**
@@ -22,10 +23,20 @@ const Hero = ({
   overlay,
   align,
 }) => {
-  const heroStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    minHeight: height,
-  };
+  const heroRef = useRef(null);
+
+  // Parallax scroll effects
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  // Transform values for parallax layers
+  const yTitle = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const ySubtitle = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const yCta = useTransform(scrollYProgress, [0, 1], [0, 250]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   const handleCtaClick = (e) => {
     if (onCtaClick) {
@@ -35,9 +46,14 @@ const Hero = ({
   };
 
   return (
-    <section
+    <motion.section
+      ref={heroRef}
       className={styles.hero}
-      style={heroStyle}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        minHeight: height,
+        scale
+      }}
       role="banner"
       aria-label="Hero section"
     >
@@ -47,23 +63,44 @@ const Hero = ({
         style={{ backgroundColor: `rgba(0, 0, 0, ${overlay})` }}
       />
 
-      {/* Content */}
-      <div className={`${styles.content} ${styles[`align-${align}`]}`}>
+      {/* Content with parallax */}
+      <motion.div
+        className={`${styles.content} ${styles[`align-${align}`]}`}
+        style={{ opacity }}
+      >
         <div className={styles.textWrapper}>
           {title && (
-            <h1 className={styles.title}>
+            <motion.h1
+              className={styles.title}
+              style={{ y: yTitle }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            >
               {title}
-            </h1>
+            </motion.h1>
           )}
 
           {subtitle && (
-            <p className={styles.subtitle}>
+            <motion.p
+              className={styles.subtitle}
+              style={{ y: ySubtitle }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
               {subtitle}
-            </p>
+            </motion.p>
           )}
 
           {ctaText && (
-            <div className={styles.ctaWrapper}>
+            <motion.div
+              className={styles.ctaWrapper}
+              style={{ y: yCta }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
               {ctaLink ? (
                 <a
                   href={ctaLink}
@@ -80,16 +117,28 @@ const Hero = ({
                   {ctaText}
                 </button>
               )}
-            </div>
+            </motion.div>
           )}
         </div>
-      </div>
+      </motion.div>
 
-      {/* Scroll indicator (optional) */}
-      <div className={styles.scrollIndicator} aria-hidden="true">
-        <span className={styles.scrollArrow}>↓</span>
-      </div>
-    </section>
+      {/* Animated scroll indicator */}
+      <motion.div
+        className={styles.scrollIndicator}
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 0.5 }}
+      >
+        <motion.span
+          className={styles.scrollArrow}
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+        >
+          ↓
+        </motion.span>
+      </motion.div>
+    </motion.section>
   );
 };
 

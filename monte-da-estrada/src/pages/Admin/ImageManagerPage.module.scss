@@ -1,5 +1,4 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles' as *;
 
 .managerPage {
   min-height: 100vh;

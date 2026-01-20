@@ -1,0 +1,113 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.languageSwitcher {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  @include flex-center;
+  gap: $spacing-sm;
+  padding: $spacing-sm $spacing-md;
+  background-color: transparent;
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-sm;
+  color: $color-text-primary;
+  font-size: $font-size-sm;
+  font-family: $font-family-primary;
+  cursor: pointer;
+  transition: all $transition-fast $ease-standard;
+
+  &:hover {
+    background-color: $color-bg-secondary;
+    border-color: $color-primary;
+  }
+
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.icon {
+  font-size: $font-size-base;
+  color: $color-primary;
+}
+
+.currentLang {
+  font-weight: $font-weight-semibold;
+  letter-spacing: 0.5px;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + $spacing-xs);
+  right: 0;
+  min-width: 180px;
+  background-color: $color-bg-primary;
+  border: $border-width-thin solid $color-border-light;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+  padding: $spacing-xs 0;
+  z-index: $z-index-dropdown;
+  animation: fadeInDown $transition-fast $ease-out-back;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.option {
+  @include flex-center;
+  gap: $spacing-sm;
+  width: 100%;
+  padding: $spacing-sm $spacing-md;
+  background-color: transparent;
+  border: none;
+  color: $color-text-primary;
+  font-size: $font-size-sm;
+  font-family: $font-family-primary;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color $transition-fast $ease-standard;
+
+  &:hover {
+    background-color: $color-bg-secondary;
+  }
+
+  &.active {
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+  }
+}
+
+.flag {
+  font-size: $font-size-lg;
+  line-height: 1;
+}
+
+.name {
+  flex: 1;
+}
+
+.checkmark {
+  color: $color-primary;
+  font-size: $font-size-sm;
+}
+
+// Mobile responsive
+@include responsive($breakpoint-md) {
+  .dropdown {
+    right: auto;
+    left: 0;
+  }
+}

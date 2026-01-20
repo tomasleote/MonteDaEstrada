@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Monte da Estrada - Turismo Rural en Alentejo",
+    "description": "Turismo Rural en Alentejo. Disfrute de la tranquilidad del campo alentejano en un ambiente acogedor y auténtico cerca de las playas de Costa Vicentina.",
+    "keywords": "alentejo, turismo rural, zambujeira do mar, alojamiento, vacaciones, portugal, costa vicentina, naturaleza"
+  },
+  "hero": {
+    "title": "Monte da Estrada",
+    "subtitle": "Turismo Rural en Alentejo"
+  },
+  "welcome": {
+    "title": "Bienvenido a Monte da Estrada",
+    "paragraphs": [
+      "Monte da Estrada es una tradicional casa de campo alentejana que ha sido convertida en turismo rural de calidad, preservando la autenticidad y el contacto con la naturaleza.",
+      "Durante generaciones, este fue un espacio dedicado a la agricultura - trigo, cebada, patatas, maíz y sandía - y a la ganadería. Hoy, manteniendo el respeto por la tradición, hemos creado este lugar pensando en nuestros huéspedes, priorizando la comodidad, la privacidad, la funcionalidad y el contacto con la naturaleza.",
+      "Situado en la región de Zambujeira do Mar, en el corazón del Alentejo, Monte da Estrada ofrece una experiencia única de tranquilidad y autenticidad."
+    ]
+  },
+  "highlights": {
+    "title": "¿Por qué elegir Monte da Estrada?",
+    "items": [
+      {
+        "title": "Tranquilidad Absoluta",
+        "description": "Disfrute del silencio y la paz del campo alentejano"
+      },
+      {
+        "title": "Naturaleza Envolvente",
+        "description": "Paisajes impresionantes y contacto directo con la naturaleza"
+      },
+      {
+        "title": "Comodidad Moderna",
+        "description": "Instalaciones renovadas con todas las comodidades"
+      },
+      {
+        "title": "Ubicación Privilegiada",
+        "description": "Cerca de las playas de Costa Vicentina"
+      }
+    ]
+  },
+  "information": {
+    "title": "Información Práctica",
+    "checkIn": "15:00",
+    "checkOut": "12:00",
+    "policies": [
+      "Check-in: a partir de las 15:00h",
+      "Check-out: hasta las 12:00h",
+      "No está permitido fumar en el interior de las instalaciones",
+      "Mascotas: consultar previamente",
+      "Los niños son bienvenidos"
+    ],
+    "included": [
+      "Ropa de cama y toallas",
+      "Productos de higiene personal",
+      "Wi-Fi gratuito",
+      "Aparcamiento gratuito",
+      "Limpieza diaria"
+    ]
+  }
+}

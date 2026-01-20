@@ -1,13 +1,38 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles' as *;
 
 .card {
   @include card;
+  @include gpu-accelerate;
+  position: relative;
+  overflow: hidden;
+
+  // Subtle shine effect on hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    transition: transform $duration-slow $ease-standard;
+    pointer-events: none;
+  }
 
   &.hoverable {
     &:hover {
       box-shadow: $shadow-lg;
-      transform: translateY(-2px);
+      transform: translateY(-8px);
+
+      &::before {
+        transform: translateX(100%);
+      }
     }
   }
 }

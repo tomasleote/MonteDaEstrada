@@ -1,0 +1,9 @@
+// Monte da Estrada - SCSS Module Exports
+// Modern Sass module system using @forward
+// Replaces deprecated @import statements
+
+// Forward all design tokens
+@forward './variables';
+
+// Forward all mixins
+@forward './mixins';

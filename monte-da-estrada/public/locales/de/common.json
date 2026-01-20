@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "quartos": "Zimmer",
+    "atividades": "Aktivitäten",
+    "redondezas": "Umgebung",
+    "localizacao": "Lage",
+    "galeria": "Galerie"
+  },
+  "footer": {
+    "contact": "Kontakt",
+    "navigation": "Navigation",
+    "about": "Monte da Estrada",
+    "description": "Landtourismus im Alentejo. Genießen Sie die Ruhe der Alentejo-Landschaft in einer einladenden und authentischen Umgebung.",
+    "phone": "Telefon",
+    "email": "E-Mail",
+    "location": "Standort",
+    "copyright": "Alle Rechte vorbehalten"
+  },
+  "buttons": {
+    "learnMore": "Mehr erfahren",
+    "bookNow": "Jetzt buchen",
+    "viewRooms": "Zimmer ansehen",
+    "viewGallery": "Galerie ansehen",
+    "sendMessage": "Nachricht senden",
+    "viewMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "close": "Schließen"
+  },
+  "form": {
+    "name": "Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "message": "Nachricht",
+    "namePlaceholder": "Ihr Name",
+    "emailPlaceholder": "Ihre E-Mail",
+    "phonePlaceholder": "Ihre Telefonnummer",
+    "messagePlaceholder": "Ihre Nachricht",
+    "requiredField": "Dieses Feld ist erforderlich",
+    "invalidEmail": "Ungültige E-Mail",
+    "sending": "Wird gesendet...",
+    "success": "Nachricht erfolgreich gesendet!",
+    "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
+  },
+  "language": {
+    "select": "Sprache",
+    "pt": "Português",
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français"
+  },
+  "accessibility": {
+    "skipToMain": "Zum Hauptinhalt springen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
+  }
+}

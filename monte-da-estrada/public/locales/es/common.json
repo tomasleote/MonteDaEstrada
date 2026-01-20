@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "quartos": "Habitaciones",
+    "atividades": "Actividades",
+    "redondezas": "Alrededores",
+    "localizacao": "Ubicación",
+    "galeria": "Galería"
+  },
+  "footer": {
+    "contact": "Contacto",
+    "navigation": "Navegación",
+    "about": "Monte da Estrada",
+    "description": "Turismo Rural en Alentejo. Disfrute de la tranquilidad del campo alentejano en un ambiente acogedor y auténtico.",
+    "phone": "Teléfono",
+    "email": "Correo electrónico",
+    "location": "Ubicación",
+    "copyright": "Todos los derechos reservados"
+  },
+  "buttons": {
+    "learnMore": "Saber más",
+    "bookNow": "Reservar ahora",
+    "viewRooms": "Ver habitaciones",
+    "viewGallery": "Ver galería",
+    "sendMessage": "Enviar mensaje",
+    "viewMore": "Ver más",
+    "showLess": "Mostrar menos",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "close": "Cerrar"
+  },
+  "form": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "message": "Mensaje",
+    "namePlaceholder": "Su nombre",
+    "emailPlaceholder": "Su correo electrónico",
+    "phonePlaceholder": "Su teléfono",
+    "messagePlaceholder": "Su mensaje",
+    "requiredField": "Este campo es obligatorio",
+    "invalidEmail": "Correo electrónico inválido",
+    "sending": "Enviando...",
+    "success": "¡Mensaje enviado con éxito!",
+    "error": "Error al enviar el mensaje. Por favor, inténtelo de nuevo."
+  },
+  "language": {
+    "select": "Idioma",
+    "pt": "Português",
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français"
+  },
+  "accessibility": {
+    "skipToMain": "Saltar al contenido principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
+  }
+}

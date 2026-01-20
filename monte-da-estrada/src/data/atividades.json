@@ -13,7 +13,7 @@
         "Praia dos Alteirinhos",
         "Praia do Tonel"
       ],
-      "icon": "🏖️"
+      "icon": "beach"
     },
     {
       "category": "Caminhadas",
@@ -25,7 +25,7 @@
         "Trilhos locais na herdade",
         "Observação de aves"
       ],
-      "icon": "🥾"
+      "icon": "hiking"
     },
     {
       "category": "Cultura",
@@ -38,7 +38,7 @@
         "Mértola - Vila Museu",
         "Artesanato local"
       ],
-      "icon": "🏛️"
+      "icon": "museum"
     },
     {
       "category": "Gastronomia",
@@ -51,7 +51,7 @@
         "Queijos e enchidos regionais",
         "Doçaria conventual"
       ],
-      "icon": "🍷"
+      "icon": "wine"
     },
     {
       "category": "Natureza",
@@ -64,7 +64,7 @@
         "Pôr do sol no campo",
         "Céu estrelado sem poluição luminosa"
       ],
-      "icon": "🦅"
+      "icon": "bird"
     },
     {
       "category": "Desporto",
@@ -77,7 +77,7 @@
         "Pesca desportiva",
         "Canoagem no rio Mira"
       ],
-      "icon": "🚴"
+      "icon": "biking"
     }
   ],
   "amenities": {

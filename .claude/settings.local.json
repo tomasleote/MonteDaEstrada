@@ -7,7 +7,13 @@
       "Bash(npm install)",
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(npm view:*)",
+      "Bash(timeout 10 tail:*)",
+      "Bash(exit 0)",
+      "Bash(curl:*)"
     ]
   }
 }

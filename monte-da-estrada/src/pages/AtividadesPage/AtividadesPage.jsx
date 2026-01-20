@@ -1,13 +1,35 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import SEO from '@/components/SEO';
 import Container from '@/components/Container';
 import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
+import Icon from '@/components/Icon';
 import styles from './AtividadesPage.module.scss';
 import atividadesDataOriginal from '@/data/atividades.json';
 import { seoConfig } from '@/utils/seo-config';
 import useEditableContent from '@/hooks/useEditableContent';
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
 
 const AtividadesPage = () => {
   const atividadesData = useEditableContent('atividades', atividadesDataOriginal);
@@ -32,11 +54,21 @@ const AtividadesPage = () => {
       {/* Activities Section */}
       <Section padding="large">
         <Container>
-          <div className={styles.activitiesGrid}>
+          <motion.div
+            className={styles.activitiesGrid}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
             {atividadesData.activities.map((activity, index) => (
-              <div key={index} className={styles.activitySection}>
+              <motion.div
+                key={index}
+                className={styles.activitySection}
+                variants={fadeInUp}
+              >
                 <div className={styles.activityHeader}>
-                  <span className={styles.activityIcon}>{activity.icon}</span>
+                  <Icon name={activity.icon} size="2xl" color="primary" />
                   <h2 className={styles.activityTitle}>{activity.title}</h2>
                 </div>
                 <p className={styles.activityDescription}>{activity.description}</p>
@@ -45,24 +77,41 @@ const AtividadesPage = () => {
                     <li key={idx}>{highlight}</li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </Section>
 
       {/* Amenities Section */}
       <Section background="secondary" padding="large">
         <Container>
-          <h2 className={styles.sectionTitle}>{atividadesData.amenities.title}</h2>
-          <Grid columns={4} gap="large">
-            {atividadesData.amenities.items.map((amenity, index) => (
-              <Card key={index} className={styles.amenityCard}>
-                <h3 className={styles.amenityName}>{amenity.name}</h3>
-                <p className={styles.amenityDescription}>{amenity.description}</p>
-              </Card>
-            ))}
-          </Grid>
+          <motion.h2
+            className={styles.sectionTitle}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            {atividadesData.amenities.title}
+          </motion.h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <Grid columns={4} gap="large">
+              {atividadesData.amenities.items.map((amenity, index) => (
+                <motion.div key={index} variants={fadeInUp}>
+                  <Card className={styles.amenityCard}>
+                    <h3 className={styles.amenityName}>{amenity.name}</h3>
+                    <p className={styles.amenityDescription}>{amenity.description}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </Grid>
+          </motion.div>
         </Container>
       </Section>
 

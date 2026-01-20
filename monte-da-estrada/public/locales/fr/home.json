@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Monte da Estrada - Tourisme Rural en Alentejo",
+    "description": "Tourisme Rural en Alentejo. Profitez de la tranquillité de la campagne de l'Alentejo dans un environnement accueillant et authentique près des plages de Costa Vicentina.",
+    "keywords": "alentejo, tourisme rural, zambujeira do mar, hébergement, vacances, portugal, costa vicentina, nature"
+  },
+  "hero": {
+    "title": "Monte da Estrada",
+    "subtitle": "Tourisme Rural en Alentejo"
+  },
+  "welcome": {
+    "title": "Bienvenue à Monte da Estrada",
+    "paragraphs": [
+      "Monte da Estrada est une ferme traditionnelle de l'Alentejo qui a été convertie en tourisme rural de qualité, préservant l'authenticité et le contact avec la nature.",
+      "Pendant des générations, cet espace a été dédié à l'agriculture - blé, orge, pommes de terre, maïs et pastèque - et à l'élevage. Aujourd'hui, en maintenant le respect de la tradition, nous avons créé ce lieu en pensant à nos invités, en privilégiant le confort, l'intimité, la fonctionnalité et le contact avec la nature.",
+      "Situé dans la région de Zambujeira do Mar, au cœur de l'Alentejo, Monte da Estrada offre une expérience unique de tranquillité et d'authenticité."
+    ]
+  },
+  "highlights": {
+    "title": "Pourquoi choisir Monte da Estrada?",
+    "items": [
+      {
+        "title": "Tranquillité Absolue",
+        "description": "Profitez du silence et de la paix de la campagne de l'Alentejo"
+      },
+      {
+        "title": "Nature Environnante",
+        "description": "Paysages époustouflants et contact direct avec la nature"
+      },
+      {
+        "title": "Confort Moderne",
+        "description": "Installations rénovées avec toutes les commodités"
+      },
+      {
+        "title": "Emplacement Privilégié",
+        "description": "Près des plages de Costa Vicentina"
+      }
+    ]
+  },
+  "information": {
+    "title": "Informations Pratiques",
+    "checkIn": "15h00",
+    "checkOut": "12h00",
+    "policies": [
+      "Check-in: à partir de 15h00",
+      "Check-out: jusqu'à 12h00",
+      "Il est interdit de fumer à l'intérieur des installations",
+      "Animaux de compagnie: consulter au préalable",
+      "Les enfants sont les bienvenus"
+    ],
+    "included": [
+      "Linge de lit et serviettes",
+      "Produits d'hygiène personnelle",
+      "Wi-Fi gratuit",
+      "Parking gratuit",
+      "Nettoyage quotidien"
+    ]
+  }
+}

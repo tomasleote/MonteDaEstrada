@@ -1,5 +1,4 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles' as *;
 
 .dashboardPage {
   min-height: 100vh;

@@ -1,5 +1,4 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles' as *;
 
 .section {
   width: 100%;

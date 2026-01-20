@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Monte da Estrada - Turismo Rural no Alentejo",
+    "description": "Turismo Rural no Alentejo. Desfrute da tranquilidade do campo alentejano num ambiente acolhedor e autêntico perto das praias da Costa Vicentina.",
+    "keywords": "alentejo, turismo rural, zambujeira do mar, alojamento, férias, portugal, costa vicentina, natureza"
+  },
+  "hero": {
+    "title": "Monte da Estrada",
+    "subtitle": "Turismo Rural no Alentejo"
+  },
+  "welcome": {
+    "title": "Bem-vindo ao Monte da Estrada",
+    "paragraphs": [
+      "O Monte da Estrada é um tradicional monte alentejano que foi convertido em turismo rural de qualidade, preservando a autenticidade e o contacto com a natureza.",
+      "Durante gerações, este foi um espaço dedicado à agricultura - trigo, cevada, batata, milho e melancia - e ao pastoreio de gado. Hoje, mantendo o respeito pela tradição, criámos este lugar pensando nos nossos hóspedes, privilegiando o conforto, a privacidade, a funcionalidade e o contacto com a natureza.",
+      "Situado na região de Zambujeira do Mar, no coração do Alentejo, o Monte da Estrada oferece uma experiência única de tranquilidade e autenticidade."
+    ]
+  },
+  "highlights": {
+    "title": "Porquê Escolher o Monte da Estrada?",
+    "items": [
+      {
+        "title": "Tranquilidade Absoluta",
+        "description": "Desfrute do silêncio e da paz do campo alentejano"
+      },
+      {
+        "title": "Natureza Envolvente",
+        "description": "Paisagens deslumbrantes e contacto direto com a natureza"
+      },
+      {
+        "title": "Conforto Moderno",
+        "description": "Instalações renovadas com todas as comodidades"
+      },
+      {
+        "title": "Localização Privilegiada",
+        "description": "Próximo das praias da Costa Vicentina"
+      }
+    ]
+  },
+  "information": {
+    "title": "Informações Práticas",
+    "checkIn": "15:00",
+    "checkOut": "12:00",
+    "policies": [
+      "Check-in: a partir das 15:00h",
+      "Check-out: até às 12:00h",
+      "Não é permitido fumar no interior das instalações",
+      "Animais de estimação: consultar previamente",
+      "Crianças são bem-vindas"
+    ],
+    "included": [
+      "Roupa de cama e toalhas",
+      "Produtos de higiene pessoal",
+      "Wi-Fi gratuito",
+      "Estacionamento gratuito",
+      "Limpeza diária"
+    ]
+  }
+}

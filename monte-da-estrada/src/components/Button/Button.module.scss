@@ -1,8 +1,7 @@
 // ==================================
 // Button Component Styles
 // ==================================
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles' as *;
 
 .button {
   @include button-base;

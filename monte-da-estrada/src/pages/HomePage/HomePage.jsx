@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
@@ -6,10 +7,32 @@ import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
+import Icon from '@/components/Icon';
 import styles from './HomePage.module.scss';
 import homeDataOriginal from '@/data/home.json';
 import { seoConfig } from '@/utils/seo-config';
 import useEditableContent from '@/hooks/useEditableContent';
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+};
 
 const HomePage = () => {
   // Use editable content hook to load from localStorage if edited
@@ -35,30 +58,62 @@ const HomePage = () => {
       {/* Welcome Section */}
       <Section padding="large">
         <Container>
-          <div className={styles.welcome}>
-            <h2 className={styles.welcomeTitle}>{homeData.welcome.title}</h2>
+          <motion.div
+            className={styles.welcome}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <motion.h2
+              className={styles.welcomeTitle}
+              variants={fadeInUp}
+            >
+              {homeData.welcome.title}
+            </motion.h2>
             {homeData.welcome.paragraphs.map((paragraph, index) => (
-              <p key={index} className={styles.welcomeText}>
+              <motion.p
+                key={index}
+                className={styles.welcomeText}
+                variants={fadeInUp}
+                transition={{ delay: index * 0.1 }}
+              >
                 {paragraph}
-              </p>
+              </motion.p>
             ))}
-          </div>
+          </motion.div>
         </Container>
       </Section>
 
       {/* Highlights Section */}
       <Section background="light" padding="large">
         <Container>
-          <h2 className={styles.sectionTitle}>Porquê Escolher o Monte da Estrada?</h2>
-          <Grid columns={4} gap="large">
-            {homeData.highlights.map((highlight, index) => (
-              <Card key={index} className={styles.highlightCard}>
-                <div className={styles.highlightIcon}>{highlight.icon}</div>
-                <h3 className={styles.highlightTitle}>{highlight.title}</h3>
-                <p className={styles.highlightDescription}>{highlight.description}</p>
-              </Card>
-            ))}
-          </Grid>
+          <motion.h2
+            className={styles.sectionTitle}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            Porquê Escolher o Monte da Estrada?
+          </motion.h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+          >
+            <Grid columns={4} gap="large">
+              {homeData.highlights.map((highlight, index) => (
+                <motion.div key={index} variants={fadeInUp}>
+                  <Card className={styles.highlightCard}>
+                    <Icon name={highlight.icon} size="xl" color="primary" />
+                    <h3 className={styles.highlightTitle}>{highlight.title}</h3>
+                    <p className={styles.highlightDescription}>{highlight.description}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </Grid>
+          </motion.div>
         </Container>
       </Section>
 

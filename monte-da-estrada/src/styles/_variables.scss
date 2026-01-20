@@ -157,6 +157,40 @@ $transition-opacity: opacity $transition-fast $ease-in-out;
 $transition-transform: transform $transition-normal $ease-out-back;
 
 // ------------------------------------
+// ADVANCED ANIMATIONS
+// ------------------------------------
+// Enhanced easing functions
+$ease-power-in: cubic-bezier(0.7, 0, 0.84, 0);
+$ease-power-out: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-power-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+$ease-expo-out: cubic-bezier(0.19, 1, 0.22, 1);
+$ease-back-in: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+$ease-back-out: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+// Animation durations (granular)
+$duration-instant: 0.1s;
+$duration-micro: 0.15s;
+$duration-quick: 0.2s;
+$duration-base: 0.4s;
+$duration-moderate: 0.6s;
+$duration-slow: 0.8s;
+$duration-slower: 1s;
+$duration-slowest: 1.2s;
+
+// Stagger delays
+$stagger-delay-xs: 0.05s;
+$stagger-delay-sm: 0.1s;
+$stagger-delay-md: 0.15s;
+$stagger-delay-lg: 0.2s;
+
+// Hover transforms
+$hover-lift: translateY(-4px);
+$hover-lift-large: translateY(-8px);
+$hover-scale-small: scale(1.02);
+$hover-scale-medium: scale(1.05);
+$hover-scale-large: scale(1.1);
+
+// ------------------------------------
 // Z-INDEX LAYERS
 // ------------------------------------
 $z-index-dropdown: 1000;

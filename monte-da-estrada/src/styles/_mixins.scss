@@ -1,8 +1,9 @@
 // ==================================
 // SCSS MIXINS - Reusable Patterns
 // ==================================
-// Import variables first
-@import './variables';
+// Use modern module system
+@use 'sass:color';
+@use './variables' as *;
 
 // ------------------------------------
 // LAYOUT MIXINS
@@ -391,5 +392,145 @@
   &:focus-visible {
     outline: 2px solid $color-accent;
     outline-offset: 2px;
+  }
+}
+
+// ------------------------------------
+// ADVANCED ANIMATION MIXINS
+// ------------------------------------
+
+// Smooth hardware-accelerated transform
+@mixin gpu-accelerate {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+// Card lift animation with shadow
+@mixin hover-lift($distance: 4px, $shadow-size: lg) {
+  transition: transform $duration-quick $ease-power-out,
+              box-shadow $duration-quick $ease-power-out;
+
+  &:hover {
+    transform: translateY(-#{$distance});
+    @if $shadow-size == sm {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    } @else if $shadow-size == md {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    } @else if $shadow-size == lg {
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Stagger animation delays for children
+@mixin stagger-animation($delay: $stagger-delay-sm, $max-children: 12) {
+  @for $i from 1 through $max-children {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$delay * $i};
+      transition-delay: #{$delay * $i};
+    }
+  }
+}
+
+// Fade in with slide up
+@mixin fade-slide-in($distance: 40px, $duration: $duration-base) {
+  opacity: 0;
+  transform: translateY($distance);
+  transition: opacity $duration $ease-power-out,
+              transform $duration $ease-power-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Scale fade in
+@mixin scale-fade-in($scale-from: 0.9, $duration: $duration-base) {
+  opacity: 0;
+  transform: scale($scale-from);
+  transition: opacity $duration $ease-power-out,
+              transform $duration $ease-power-out;
+
+  &.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Button press animation
+@mixin button-press {
+  transition: transform $duration-micro $ease-power-out;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+// Shimmer loading animation
+@mixin shimmer-loading {
+  background: linear-gradient(
+    90deg,
+    $color-bg-secondary 0%,
+    color.adjust($color-bg-secondary, $lightness: 5%) 50%,
+    $color-bg-secondary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+// Pulse animation
+@mixin pulse($scale: 1.05, $duration: 2s) {
+  animation: pulse-animation $duration $ease-standard infinite;
+
+  @keyframes pulse-animation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale($scale); }
+  }
+}
+
+// Floating animation
+@mixin float($distance: 10px, $duration: 3s) {
+  animation: float-animation $duration $ease-in-out infinite;
+
+  @keyframes float-animation {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-#{$distance}); }
+  }
+}
+
+// Smooth underline animation
+@mixin underline-animation($color: $color-primary, $height: 2px) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: $height;
+    background-color: $color;
+    transition: width $duration-quick $ease-power-out;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Skeleton loading placeholder
+@mixin skeleton {
+  @include shimmer-loading;
+  border-radius: $border-radius-sm;
+
+  &::before {
+    content: '\00a0'; // Non-breaking space
   }
 }

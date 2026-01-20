@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "quartos": "Chambres",
+    "atividades": "Activités",
+    "redondezas": "Environs",
+    "localizacao": "Emplacement",
+    "galeria": "Galerie"
+  },
+  "footer": {
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "about": "Monte da Estrada",
+    "description": "Tourisme Rural en Alentejo. Profitez de la tranquillité de la campagne de l'Alentejo dans un environnement accueillant et authentique.",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "location": "Emplacement",
+    "copyright": "Tous droits réservés"
+  },
+  "buttons": {
+    "learnMore": "En savoir plus",
+    "bookNow": "Réserver maintenant",
+    "viewRooms": "Voir les chambres",
+    "viewGallery": "Voir la galerie",
+    "sendMessage": "Envoyer un message",
+    "viewMore": "Voir plus",
+    "showLess": "Afficher moins",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "close": "Fermer"
+  },
+  "form": {
+    "name": "Nom",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "message": "Message",
+    "namePlaceholder": "Votre nom",
+    "emailPlaceholder": "Votre e-mail",
+    "phonePlaceholder": "Votre téléphone",
+    "messagePlaceholder": "Votre message",
+    "requiredField": "Ce champ est obligatoire",
+    "invalidEmail": "E-mail invalide",
+    "sending": "Envoi en cours...",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi du message. Veuillez réessayer."
+  },
+  "language": {
+    "select": "Langue",
+    "pt": "Português",
+    "en": "English",
+    "de": "Deutsch",
+    "es": "Español",
+    "fr": "Français"
+  },
+  "accessibility": {
+    "skipToMain": "Passer au contenu principal",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  }
+}

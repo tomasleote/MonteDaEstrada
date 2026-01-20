@@ -1,8 +1,8 @@
 // ==================================
 // ContactForm Component Styles
 // ==================================
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use 'sass:color';
+@use '@/styles' as *;
 
 .form {
   @include flex-column;
@@ -74,7 +74,7 @@
   padding: $spacing-md;
   background-color: rgba($color-success, 0.1);
   border-left: 4px solid $color-success;
-  color: darken($color-success, 15%);
+  color: color.adjust($color-success, $lightness: -15%);
   border-radius: $border-radius-md;
   font-size: $font-size-base;
   line-height: $line-height-normal;
@@ -84,7 +84,7 @@
   padding: $spacing-md;
   background-color: rgba($color-error, 0.1);
   border-left: 4px solid $color-error;
-  color: darken($color-error, 10%);
+  color: color.adjust($color-error, $lightness: -10%);
   border-radius: $border-radius-md;
   font-size: $font-size-base;
   line-height: $line-height-normal;

@@ -4,9 +4,9 @@
 // This file imports all variables and mixins, and defines global resets and base styles
 // ALL COMPONENTS MUST IMPORT THIS FILE
 
-// Import design tokens and mixins
-@import './variables';
-@import './mixins';
+// Use modern module system
+@use './variables' as *;
+@use './mixins' as *;
 
 // ==================================
 // CSS RESET & BASE STYLES

@@ -10,13 +10,23 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/react-fontawesome": "^3.1.1",
+    "framer-motion": "^12.27.5",
+    "i18next": "^25.8.0",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
     "netlify-cms-app": "^2.15.72",
     "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.69.0",
-    "react-router-dom": "^7.11.0"
+    "react-i18next": "^16.5.3",
+    "react-router-dom": "^7.11.0",
+    "react-scroll-parallax": "^3.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

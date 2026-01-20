@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import styles from './Button.module.scss';
 
 /**
@@ -27,26 +28,34 @@ const Button = ({
     .filter(Boolean)
     .join(' ');
 
-  // If href is provided, render as Link
+  // If href is provided, render as Link with motion
   if (href) {
     return (
-      <Link to={href} className={buttonClasses} {...rest}>
-        {children}
-      </Link>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        style={{ display: 'inline-block' }}
+      >
+        <Link to={href} className={buttonClasses} {...rest}>
+          {children}
+        </Link>
+      </motion.div>
     );
   }
 
-  // Otherwise render as button
+  // Otherwise render as button with motion
   return (
-    <button
+    <motion.button
       type={type}
       className={buttonClasses}
       onClick={onClick}
       disabled={disabled}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       {...rest}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

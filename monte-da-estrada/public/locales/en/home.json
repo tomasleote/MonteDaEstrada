@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Monte da Estrada - Rural Tourism in Alentejo",
+    "description": "Rural Tourism in Alentejo. Enjoy the tranquility of the Alentejo countryside in a welcoming and authentic environment near the Costa Vicentina beaches.",
+    "keywords": "alentejo, rural tourism, zambujeira do mar, accommodation, vacation, portugal, costa vicentina, nature"
+  },
+  "hero": {
+    "title": "Monte da Estrada",
+    "subtitle": "Rural Tourism in Alentejo"
+  },
+  "welcome": {
+    "title": "Welcome to Monte da Estrada",
+    "paragraphs": [
+      "Monte da Estrada is a traditional Alentejo farmhouse that has been converted into quality rural tourism, preserving authenticity and contact with nature.",
+      "For generations, this was a space dedicated to agriculture - wheat, barley, potatoes, corn and watermelon - and livestock farming. Today, maintaining respect for tradition, we have created this place with our guests in mind, focusing on comfort, privacy, functionality and contact with nature.",
+      "Located in the Zambujeira do Mar region, in the heart of Alentejo, Monte da Estrada offers a unique experience of tranquility and authenticity."
+    ]
+  },
+  "highlights": {
+    "title": "Why Choose Monte da Estrada?",
+    "items": [
+      {
+        "title": "Absolute Tranquility",
+        "description": "Enjoy the silence and peace of the Alentejo countryside"
+      },
+      {
+        "title": "Surrounding Nature",
+        "description": "Stunning landscapes and direct contact with nature"
+      },
+      {
+        "title": "Modern Comfort",
+        "description": "Renovated facilities with all amenities"
+      },
+      {
+        "title": "Privileged Location",
+        "description": "Close to Costa Vicentina beaches"
+      }
+    ]
+  },
+  "information": {
+    "title": "Practical Information",
+    "checkIn": "3:00 PM",
+    "checkOut": "12:00 PM",
+    "policies": [
+      "Check-in: from 3:00 PM",
+      "Check-out: until 12:00 PM",
+      "Smoking is not allowed inside the facilities",
+      "Pets: please consult in advance",
+      "Children are welcome"
+    ],
+    "included": [
+      "Bed linen and towels",
+      "Personal hygiene products",
+      "Free Wi-Fi",
+      "Free parking",
+      "Daily cleaning"
+    ]
+  }
+}

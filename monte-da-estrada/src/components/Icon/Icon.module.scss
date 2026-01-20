@@ -1,0 +1,71 @@
+@use '@/styles' as *;
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  // Size variants
+  &--xs {
+    width: 12px;
+    height: 12px;
+  }
+
+  &--sm {
+    width: 16px;
+    height: 16px;
+  }
+
+  &--md {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--lg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &--xl {
+    width: 48px;
+    height: 48px;
+  }
+
+  &--2xl {
+    width: 64px;
+    height: 64px;
+  }
+
+  &--3xl {
+    width: 80px;
+    height: 80px;
+  }
+
+  // Color variants
+  &--primary {
+    color: $color-primary;
+  }
+
+  &--secondary {
+    color: $color-secondary;
+  }
+
+  &--accent {
+    color: $color-accent;
+  }
+
+  &--white {
+    color: $color-text-light;
+  }
+
+  &--inherit {
+    color: inherit;
+  }
+}
