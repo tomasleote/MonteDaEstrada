@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .grid {
   display: grid;
@@ -44,7 +44,7 @@
 
   // Gap variants
   &.gapsmall {
-    gap: $spacing-md;
+    gap: $spacing-m;
   }
 
   &.gapmedium {
@@ -52,6 +52,6 @@
   }
 
   &.gaplarge {
-    gap: $spacing-2xl;
+    gap: $spacing-xxl;
   }
 }

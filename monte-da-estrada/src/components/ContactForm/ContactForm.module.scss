@@ -1,12 +1,13 @@
 // ==================================
 // ContactForm Component Styles
 // ==================================
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+@use 'sass:color';
 
 .form {
   @include flex-column;
-  gap: $spacing-lg;
+  gap: $spacing-l;
   width: 100%;
   max-width: 600px;
 }
@@ -57,8 +58,8 @@
   @include button-primary;
   width: 100%;
   font-size: $font-size-md;
-  padding: $spacing-md $spacing-xl;
-  margin-top: $spacing-md;
+  padding: $spacing-m $spacing-xl;
+  margin-top: $spacing-m;
 
   &:disabled {
     opacity: 0.6;
@@ -66,25 +67,25 @@
   }
 
   @include mobile {
-    padding: $spacing-sm $spacing-lg;
+    padding: $spacing-s $spacing-l;
   }
 }
 
 .successMessage {
-  padding: $spacing-md;
+  padding: $spacing-m;
   background-color: rgba($color-success, 0.1);
   border-left: 4px solid $color-success;
-  color: darken($color-success, 15%);
+  color: color.adjust($color-success, $lightness: -15%);
   border-radius: $border-radius-md;
   font-size: $font-size-base;
   line-height: $line-height-normal;
 }
 
 .errorMessageBox {
-  padding: $spacing-md;
+  padding: $spacing-m;
   background-color: rgba($color-error, 0.1);
   border-left: 4px solid $color-error;
-  color: darken($color-error, 10%);
+  color: color.adjust($color-error, $lightness: -10%);
   border-radius: $border-radius-md;
   font-size: $font-size-base;
   line-height: $line-height-normal;

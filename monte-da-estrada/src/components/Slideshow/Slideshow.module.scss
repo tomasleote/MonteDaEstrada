@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .slideshow {
   position: relative;
@@ -60,7 +60,7 @@
   font-weight: $font-weight-medium;
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
+  gap: $spacing-s;
 }
 
 .arrow {
@@ -113,23 +113,23 @@
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
   color: $color-text-light;
-  padding: $spacing-lg $spacing-xl;
+  padding: $spacing-l $spacing-xl;
   font-size: $font-size-md;
   text-align: center;
 
   @include mobile {
     font-size: $font-size-sm;
-    padding: $spacing-md;
+    padding: $spacing-m;
   }
 }
 
 .dots {
   position: absolute;
-  bottom: $spacing-md;
+  bottom: $spacing-m;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: $spacing-sm;
+  gap: $spacing-s;
   z-index: 10;
 }
 
@@ -156,11 +156,11 @@
 
 .counter {
   position: absolute;
-  top: $spacing-md;
-  right: $spacing-md;
+  top: $spacing-m;
+  right: $spacing-m;
   background-color: rgba(0, 0, 0, 0.7);
   color: $color-text-light;
-  padding: $spacing-xs $spacing-md;
+  padding: $spacing-xs $spacing-m;
   border-radius: $border-radius-md;
   font-size: $font-size-sm;
   font-weight: $font-weight-medium;
@@ -169,11 +169,11 @@
 
 .autoPlayStopped {
   position: absolute;
-  top: $spacing-md;
-  left: $spacing-md;
+  top: $spacing-m;
+  left: $spacing-m;
   background-color: rgba($color-primary, 0.9);
   color: $color-text-light;
-  padding: $spacing-xs $spacing-md;
+  padding: $spacing-xs $spacing-m;
   border-radius: $border-radius-md;
   font-size: $font-size-xs;
   font-weight: $font-weight-medium;
@@ -182,7 +182,7 @@
 
 .noImages {
   text-align: center;
-  padding: $spacing-4xl;
+  padding: $spacing-xxxl;
   color: $color-text-muted;
   font-size: $font-size-lg;
 }
@@ -203,7 +203,7 @@
   animation: fadeIn $transition-fast;
 
   @include mobile {
-    padding: $spacing-sm;
+    padding: $spacing-s;
   }
 }
 
@@ -218,8 +218,8 @@
 
 .closeButton {
   position: absolute;
-  top: $spacing-lg;
-  right: $spacing-lg;
+  top: $spacing-l;
+  right: $spacing-l;
   background-color: transparent;
   color: $color-text-light;
   border: none;
@@ -239,8 +239,8 @@
   }
 
   @include mobile {
-    top: $spacing-sm;
-    right: $spacing-sm;
+    top: $spacing-s;
+    right: $spacing-s;
     font-size: 2rem;
   }
 }
@@ -287,7 +287,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: $spacing-md;
+  gap: $spacing-m;
 }
 
 .fullscreenImage {
@@ -314,12 +314,12 @@
 
 .fullscreenCounter {
   position: absolute;
-  bottom: $spacing-lg;
+  bottom: $spacing-l;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.7);
   color: $color-text-light;
-  padding: $spacing-sm $spacing-lg;
+  padding: $spacing-s $spacing-l;
   border-radius: $border-radius-md;
   font-size: $font-size-md;
   font-weight: $font-weight-medium;

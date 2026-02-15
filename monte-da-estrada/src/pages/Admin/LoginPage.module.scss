@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .loginPage {
   min-height: 100vh;
@@ -21,25 +21,25 @@
   background-color: $color-bg-primary;
   border-radius: $border-radius-xl;
   box-shadow: $shadow-xl;
-  padding: $spacing-4xl;
+  padding: $spacing-xxxl;
   max-width: 450px;
   width: 100%;
 
   @include mobile {
-    padding: $spacing-2xl;
+    padding: $spacing-xxl;
   }
 }
 
 .header {
   text-align: center;
-  margin-bottom: $spacing-3xl;
+  margin-bottom: $spacing-xxxl;
 }
 
 .title {
   font-size: $font-size-3xl;
   font-weight: $font-weight-bold;
   color: $color-primary;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-s;
 }
 
 .subtitle {
@@ -56,9 +56,9 @@
   background-color: rgba($color-error, 0.1);
   border-left: 4px solid $color-error;
   color: $color-error;
-  padding: $spacing-md;
+  padding: $spacing-m;
   border-radius: $border-radius-sm;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-l;
   font-size: $font-size-sm;
 }
 
@@ -76,7 +76,7 @@
 
 .input {
   width: 100%;
-  padding: $spacing-md;
+  padding: $spacing-m;
   border: 2px solid $color-border-light;
   border-radius: $border-radius-md;
   font-size: $font-size-base;
@@ -95,7 +95,7 @@
 
 .submitButton {
   width: 100%;
-  padding: $spacing-md $spacing-xl;
+  padding: $spacing-m $spacing-xl;
   background-color: $color-primary;
   color: $color-text-light;
   border: none;

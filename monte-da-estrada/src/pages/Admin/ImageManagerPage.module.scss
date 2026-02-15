@@ -1,13 +1,13 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .managerPage {
   min-height: 100vh;
   background-color: $color-bg-primary;
-  padding: $spacing-2xl;
+  padding: $spacing-xxl;
 
   @include mobile {
-    padding: $spacing-lg;
+    padding: $spacing-l;
   }
 }
 
@@ -15,9 +15,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xxl;
   flex-wrap: wrap;
-  gap: $spacing-lg;
+  gap: $spacing-l;
 
   h1 {
     @include h2;
@@ -33,7 +33,7 @@
 
 .backButton {
   @include button-outline;
-  padding: $spacing-sm $spacing-lg;
+  padding: $spacing-s $spacing-l;
   font-size: $font-size-sm;
 
   @include mobile {
@@ -43,7 +43,7 @@
 
 .actions {
   display: flex;
-  gap: $spacing-md;
+  gap: $spacing-m;
 
   @include mobile {
     flex-direction: column;
@@ -53,7 +53,7 @@
 
 .downloadButton {
   @include button-outline;
-  padding: $spacing-sm $spacing-lg;
+  padding: $spacing-s $spacing-l;
 
   @include mobile {
     width: 100%;
@@ -62,7 +62,7 @@
 
 .saveButton {
   @include button-primary;
-  padding: $spacing-sm $spacing-xl;
+  padding: $spacing-s $spacing-xl;
 
   &:disabled {
     opacity: 0.5;
@@ -77,7 +77,7 @@
 .successMessage {
   background-color: rgba($color-secondary, 0.2);
   border-left: 4px solid $color-secondary;
-  padding: $spacing-md $spacing-lg;
+  padding: $spacing-m $spacing-l;
   margin-bottom: $spacing-xl;
   border-radius: $border-radius-md;
   color: $color-primary-dark;
@@ -98,7 +98,7 @@
 
 .filterContainer {
   display: flex;
-  gap: $spacing-sm;
+  gap: $spacing-s;
   margin-bottom: $spacing-xl;
   flex-wrap: wrap;
 }
@@ -106,7 +106,7 @@
 .filterButton {
   background-color: $color-bg-secondary;
   border: none;
-  padding: $spacing-sm $spacing-lg;
+  padding: $spacing-s $spacing-l;
   border-radius: $border-radius-md;
   cursor: pointer;
   transition: $transition-all-fast;
@@ -127,27 +127,27 @@
 
 .content {
   background-color: $color-bg-primary;
-  padding: $spacing-2xl;
+  padding: $spacing-xxl;
   border-radius: $border-radius-lg;
   box-shadow: $shadow-md;
 
   @include mobile {
-    padding: $spacing-lg;
+    padding: $spacing-l;
   }
 }
 
 .instructions {
   background-color: rgba($color-secondary, 0.1);
-  padding: $spacing-lg;
+  padding: $spacing-l;
   border-radius: $border-radius-md;
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xxl;
   border-left: 4px solid $color-secondary;
 
   h3 {
     font-size: $font-size-lg;
     font-weight: $font-weight-bold;
     color: $color-primary;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-m;
   }
 
   ul {
@@ -163,13 +163,13 @@
 }
 
 .addImageSection {
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xxl;
   text-align: center;
 }
 
 .addImageButton {
   @include button-primary;
-  padding: $spacing-md $spacing-2xl;
+  padding: $spacing-m $spacing-xxl;
   font-size: $font-size-base;
 }
 
@@ -219,7 +219,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: $spacing-md;
+  gap: $spacing-m;
   opacity: 0;
   transition: opacity $transition-fast;
 
@@ -230,7 +230,7 @@
 
 .editButton,
 .deleteButton {
-  padding: $spacing-sm $spacing-lg;
+  padding: $spacing-s $spacing-l;
   border: none;
   border-radius: $border-radius-sm;
   cursor: pointer;
@@ -258,18 +258,18 @@
 }
 
 .imageInfo {
-  padding: $spacing-md;
+  padding: $spacing-m;
 }
 
 .categoryBadge {
   display: inline-block;
   background-color: rgba($color-primary, 0.1);
   color: $color-primary;
-  padding: $spacing-xs $spacing-sm;
+  padding: $spacing-xs $spacing-s;
   border-radius: $border-radius-sm;
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-s;
 }
 
 .imageCaption {
@@ -280,13 +280,13 @@
 }
 
 .editForm {
-  padding: $spacing-lg;
+  padding: $spacing-l;
   background-color: $color-bg-primary;
   border-top: 2px solid $color-border-light;
 }
 
 .field {
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-m;
 
   label {
     display: block;
@@ -299,7 +299,7 @@
   input,
   textarea {
     width: 100%;
-    padding: $spacing-sm;
+    padding: $spacing-s;
     border: 1px solid $color-border-light;
     border-radius: $border-radius-sm;
     font-size: $font-size-sm;
@@ -322,13 +322,13 @@
 .closeEditButton {
   @include button-outline;
   width: 100%;
-  padding: $spacing-sm;
+  padding: $spacing-s;
   font-size: $font-size-sm;
 }
 
 .emptyState {
   text-align: center;
-  padding: $spacing-4xl;
+  padding: $spacing-xxxl;
   color: $color-text-muted;
   font-size: $font-size-lg;
 }

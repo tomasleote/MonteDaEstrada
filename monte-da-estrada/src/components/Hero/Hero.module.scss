@@ -1,25 +1,53 @@
 // ==================================
 // Hero Component Styles
 // ==================================
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .hero {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
+  @include responsive-hero;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; // Parallax effect on desktop
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+
+  // Apply dark overlay with primary color gradient
+  @include image-overlay-gradient($color-primary, 0.6, 'to bottom');
+
+  // Use dvh for mobile browsers (accounts for URL bar)
+  min-height: 100dvh;
+  background-attachment: fixed; // Parallax effect on desktop
+
+  // Fallback for browsers without dvh support
+  @supports not (height: 100dvh) {
+    min-height: 100vh;
+  }
 
   @include mobile {
     background-attachment: scroll; // Better performance on mobile
-    min-height: 70vh;
+    min-height: 70dvh;
+
+    @supports not (height: 70dvh) {
+      min-height: 70vh;
+    }
+  }
+
+  // Mobile landscape optimization
+  @include mobile-landscape {
+    // Reduce height in landscape to show content faster
+    min-height: 60dvh;
+    height: 400px;
+    max-height: 60dvh;
+
+    @supports not (height: 60dvh) {
+      min-height: 60vh;
+      max-height: 60vh;
+    }
+
+    // Adjust background position for better framing
+    background-position: center 30%;
   }
 }
 
@@ -47,12 +75,18 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  padding-top: $spacing-4xl;
-  padding-bottom: $spacing-4xl;
+  padding-top: $spacing-xxxl;
+  padding-bottom: $spacing-xxxl;
 
   @include mobile {
-    padding-top: $spacing-3xl;
-    padding-bottom: $spacing-3xl;
+    padding-top: $spacing-xxxl;
+    padding-bottom: $spacing-xxxl;
+  }
+
+  @include mobile-landscape {
+    // More compact spacing in landscape
+    padding-top: $spacing-m;
+    padding-bottom: $spacing-m;
   }
 
   // Alignment variations
@@ -94,34 +128,58 @@
 // ------------------------------------
 
 .title {
+  @include text-elegance(
+    $font-size-h1,
+    $line-height-tight,
+    $letter-spacing-wide,
+    $font-family-primary
+  );
   color: $color-text-light;
-  font-size: $font-size-4xl;
-  font-weight: $font-weight-bold;
-  line-height: $line-height-tight;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-l;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   animation: slideInUp 0.8s $ease-out-back;
 
   @include mobile {
-    font-size: $font-size-2xl;
-    margin-bottom: $spacing-md;
+    @include responsive-font($font-size-h3, $font-size-h1);
+    margin-bottom: $spacing-m;
+  }
+
+  @include mobile-landscape {
+    // Smaller font in landscape to fit better
+    @include responsive-font($font-size-h5, $font-size-h4);
+    line-height: 1.2;
+    margin-bottom: $spacing-s;
   }
 }
 
 .subtitle {
-  color: $color-text-light;
-  font-size: $font-size-xl;
-  font-weight: $font-weight-normal;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-2xl;
+  @include text-elegance(
+    $font-size-body-large,
+    $line-height-relaxed,
+    $letter-spacing-normal,
+    $font-family-secondary
+  );
+  color: $color-accent-light;
+  margin-bottom: $spacing-xxxl;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   animation: slideInUp 1s $ease-out-back;
   animation-delay: 0.2s;
   animation-fill-mode: both;
+  font-weight: $font-weight-light;
 
   @include mobile {
-    font-size: $font-size-md;
+    font-size: $font-size-body;
     margin-bottom: $spacing-xl;
+  }
+
+  @include mobile-landscape {
+    font-size: $font-size-body-small;
+    margin-bottom: $spacing-m;
+
+    // Hide subtitle in very small landscape views
+    @media (max-height: 480px) {
+      display: none;
+    }
   }
 }
 
@@ -137,17 +195,17 @@
 
 .cta {
   @include button-primary;
-  padding: $spacing-md $spacing-2xl;
-  font-size: $font-size-lg;
+  padding: $spacing-m $spacing-xxl;
+  font-size: $font-size-body-large;
   font-weight: $font-weight-semibold;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: $shadow-lg;
+  letter-spacing: $letter-spacing-wide;
+  box-shadow: $shadow-strong;
   border: none;
+  font-family: $font-family-secondary;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: $shadow-xl;
+    box-shadow: $shadow-hover;
   }
 
   &:active {
@@ -155,8 +213,8 @@
   }
 
   @include mobile {
-    padding: $spacing-md $spacing-xl;
-    font-size: $font-size-base;
+    padding: $spacing-m $spacing-xl;
+    font-size: $font-size-body;
   }
 }
 
@@ -166,20 +224,20 @@
 
 .scrollIndicator {
   position: absolute;
-  bottom: $spacing-2xl;
+  bottom: $spacing-xxxl;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
   animation: bounce 2s infinite;
 
   @include mobile {
-    bottom: $spacing-lg;
+    bottom: $spacing-l;
   }
 }
 
 .scrollArrow {
   display: block;
-  font-size: $font-size-2xl;
+  font-size: $font-size-h2;
   color: $color-text-light;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }

@@ -1,18 +1,18 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .spinnerContainer {
   @include flex-center;
   flex-direction: column;
   min-height: 60vh;
-  padding: $spacing-4xl;
+  padding: $spacing-xxxl;
 }
 
 .spinner {
   width: 60px;
   height: 60px;
   position: relative;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-l;
 }
 
 .spinnerCircle {

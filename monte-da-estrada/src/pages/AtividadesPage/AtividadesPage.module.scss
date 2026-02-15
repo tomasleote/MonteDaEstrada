@@ -1,117 +1,285 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .atividadesPage {
   width: 100%;
 }
 
-.header {
+// ============================================
+// HERO SECTION
+// ============================================
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @include tablet {
+    height: 50vh;
+    min-height: 350px;
+  }
+
+  @include mobile {
+    height: 40vh;
+    min-height: 300px;
+  }
+}
+
+.heroImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($color-primary, 0.6) 0%,
+    rgba($color-primary, 0.4) 50%,
+    rgba($color-primary, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
+  padding: $spacing-xl $spacing-m;
+  color: $color-text-light;
 }
 
-.pageTitle {
+.heroTitle {
   @include h1;
-  color: $color-primary;
-  margin-bottom: $spacing-md;
+  color: $color-text-light;
+  margin-bottom: $spacing-m;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-size: clamp($font-size-h2, 5vw, $font-size-h1);
+
+  @include mobile {
+    font-size: $font-size-h3;
+  }
 }
 
-.pageDescription {
+.heroDescription {
   font-size: $font-size-lg;
-  color: $color-text-secondary;
   line-height: $line-height-relaxed;
+  color: rgba($color-text-light, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  max-width: 700px;
+  margin: 0 auto;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
 }
 
-.sectionTitle {
-  @include h2;
-  text-align: center;
-  margin-bottom: $spacing-3xl;
-  color: $color-primary;
-}
+// ============================================
+// ACTIVITIES GRID WITH IMAGE CARDS
+// ============================================
 
 .activitiesGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: $spacing-4xl;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xxl;
 
   @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-xl;
+  }
+
+  @include mobile {
     grid-template-columns: 1fr;
-    gap: $spacing-3xl;
+    gap: $spacing-l;
   }
 }
 
-.activitySection {
+.activityCard {
+  @include luxury-card;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   background-color: $color-bg-primary;
-  padding: $spacing-xl;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-md;
-  transition: $transition-all-fast;
+  transition: all $transition-duration-normal $transition-timing-normal;
 
   &:hover {
     box-shadow: $shadow-lg;
-    transform: translateY(-4px);
+    transform: translateY(-8px);
+
+    .activityImage {
+      transform: scale(1.1);
+    }
+
+    .activityImageOverlay {
+      background: linear-gradient(
+        to bottom,
+        rgba($color-primary, 0.4),
+        rgba($color-primary, 0.7)
+      );
+    }
   }
 }
 
-.activityHeader {
+.activityImageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: $color-bg-secondary;
+}
+
+.activityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform $transition-duration-slow $transition-timing-normal;
+}
+
+.activityImageOverlay {
+  @include image-overlay-gradient($color-primary, 0.3, 'to bottom');
   display: flex;
   align-items: center;
-  gap: $spacing-md;
-  margin-bottom: $spacing-md;
+  justify-content: center;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  &::before {
+    z-index: 1;
+  }
 }
 
 .activityIcon {
-  font-size: $font-size-3xl;
+  position: relative;
+  z-index: 2;
+  font-size: $font-size-4xl;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+
+  @include mobile {
+    font-size: $font-size-3xl;
+  }
+}
+
+.activityContent {
+  padding: $spacing-xl;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  @include mobile {
+    padding: $spacing-l;
+  }
 }
 
 .activityTitle {
   @include h3;
   color: $color-primary;
-  margin: 0;
+  margin: 0 0 $spacing-m 0;
+  font-size: $font-size-xl;
+
+  @include mobile {
+    font-size: $font-size-lg;
+  }
 }
 
 .activityDescription {
   font-size: $font-size-base;
   color: $color-text-secondary;
   line-height: $line-height-relaxed;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-l;
+
+  @include mobile {
+    font-size: $font-size-sm;
+  }
 }
 
 .highlightsList {
   list-style: none;
   padding: 0;
+  margin: 0;
 
   li {
-    padding-left: $spacing-lg;
+    padding-left: $spacing-l;
     position: relative;
-    margin-bottom: $spacing-sm;
+    margin-bottom: $spacing-s;
     line-height: $line-height-normal;
+    font-size: $font-size-sm;
+    color: $color-text-primary;
 
     &::before {
       content: '→';
       position: absolute;
       left: 0;
-      color: $color-secondary;
-      font-weight: bold;
+      color: $color-accent;
+      font-weight: $font-weight-bold;
+      font-size: $font-size-base;
     }
 
     &:last-child {
       margin-bottom: 0;
     }
+
+    @include mobile {
+      font-size: $font-size-xs;
+      padding-left: $spacing-m;
+    }
+  }
+}
+
+// ============================================
+// AMENITIES SECTION
+// ============================================
+
+.sectionTitle {
+  @include h2;
+  text-align: center;
+  margin-bottom: $spacing-xxxl;
+  color: $color-primary;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
   }
 }
 
 .amenityCard {
   text-align: center;
   padding: $spacing-xl;
+
+  @include mobile {
+    padding: $spacing-l;
+  }
 }
 
 .amenityName {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;
   color: $color-primary;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-s;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
 }
 
 .amenityDescription {
@@ -119,7 +287,15 @@
   color: $color-text-secondary;
   line-height: $line-height-normal;
   margin: 0;
+
+  @include mobile {
+    font-size: $font-size-xs;
+  }
 }
+
+// ============================================
+// CTA SECTION
+// ============================================
 
 .cta {
   text-align: center;
@@ -130,14 +306,19 @@
 .ctaTitle {
   @include h2;
   color: $color-text-light;
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-m;
 }
 
 .ctaText {
   font-size: $font-size-lg;
   color: rgba($color-text-light, 0.9);
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xxl;
   line-height: $line-height-relaxed;
+
+  @include mobile {
+    font-size: $font-size-base;
+    margin-bottom: $spacing-xl;
+  }
 }
 
 .ctaButtons {
@@ -148,5 +329,10 @@
 .ctaButton {
   @include button-secondary;
   font-size: $font-size-lg;
-  padding: $spacing-md $spacing-2xl;
+  padding: $spacing-m $spacing-xxl;
+
+  @include mobile {
+    font-size: $font-size-base;
+    padding: $spacing-s $spacing-xl;
+  }
 }

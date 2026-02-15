@@ -1,13 +1,13 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .settingsPage {
   min-height: 100vh;
   background-color: $color-bg-primary;
-  padding: $spacing-2xl;
+  padding: $spacing-xxl;
 
   @include mobile {
-    padding: $spacing-lg;
+    padding: $spacing-l;
   }
 }
 
@@ -15,7 +15,7 @@
   display: flex;
   align-items: center;
   gap: $spacing-xl;
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xxl;
   flex-wrap: wrap;
 
   h1 {
@@ -27,13 +27,13 @@
   @include mobile {
     flex-direction: column;
     align-items: stretch;
-    gap: $spacing-md;
+    gap: $spacing-m;
   }
 }
 
 .backButton {
   @include button-outline;
-  padding: $spacing-sm $spacing-lg;
+  padding: $spacing-s $spacing-l;
   font-size: $font-size-sm;
 
   @include mobile {
@@ -44,7 +44,7 @@
 .successMessage {
   background-color: rgba($color-secondary, 0.2);
   border-left: 4px solid $color-secondary;
-  padding: $spacing-md $spacing-lg;
+  padding: $spacing-m $spacing-l;
   margin-bottom: $spacing-xl;
   border-radius: $border-radius-md;
   color: $color-primary-dark;
@@ -66,7 +66,7 @@
 .content {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: $spacing-2xl;
+  gap: $spacing-xxl;
 
   @include tablet {
     grid-template-columns: 1fr;
@@ -75,18 +75,18 @@
 
 .formSection {
   background-color: $color-bg-primary;
-  padding: $spacing-2xl;
+  padding: $spacing-xxl;
   border-radius: $border-radius-lg;
   box-shadow: $shadow-md;
 
   h2 {
     @include h2;
     color: $color-primary;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-m;
   }
 
   @include mobile {
-    padding: $spacing-lg;
+    padding: $spacing-l;
   }
 }
 
@@ -94,8 +94,8 @@
   font-size: $font-size-sm;
   color: $color-text-secondary;
   line-height: $line-height-normal;
-  margin-bottom: $spacing-2xl;
-  padding: $spacing-md;
+  margin-bottom: $spacing-xxl;
+  padding: $spacing-m;
   background-color: rgba($color-primary, 0.05);
   border-radius: $border-radius-sm;
 }
@@ -108,13 +108,13 @@
       display: block;
       font-weight: $font-weight-semibold;
       color: $color-text-primary;
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacing-s;
       font-size: $font-size-sm;
     }
 
     input {
       width: 100%;
-      padding: $spacing-md;
+      padding: $spacing-m;
       border: 2px solid $color-border-light;
       border-radius: $border-radius-sm;
       font-size: $font-size-base;
@@ -141,7 +141,7 @@
 .divider {
   height: 1px;
   background-color: $color-border-light;
-  margin: $spacing-2xl 0;
+  margin: $spacing-xxl 0;
 }
 
 .errorMessage {
@@ -154,8 +154,8 @@
 
 .actions {
   display: flex;
-  gap: $spacing-md;
-  margin-top: $spacing-2xl;
+  gap: $spacing-m;
+  margin-top: $spacing-xxl;
   justify-content: flex-end;
 
   @include mobile {
@@ -165,7 +165,7 @@
 
 .cancelButton {
   @include button-outline;
-  padding: $spacing-md $spacing-xl;
+  padding: $spacing-m $spacing-xl;
 
   @include mobile {
     width: 100%;
@@ -174,7 +174,7 @@
 
 .submitButton {
   @include button-primary;
-  padding: $spacing-md $spacing-2xl;
+  padding: $spacing-m $spacing-xxl;
 
   &:disabled {
     opacity: 0.6;
@@ -197,7 +197,7 @@
     font-size: $font-size-lg;
     font-weight: $font-weight-bold;
     color: $color-primary;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-l;
   }
 
   ul {
@@ -205,7 +205,7 @@
     padding-left: $spacing-xl;
 
     li {
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacing-s;
       color: $color-text-secondary;
       font-size: $font-size-sm;
       line-height: $line-height-normal;

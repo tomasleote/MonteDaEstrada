@@ -4,13 +4,30 @@ import Container from '@/components/Container';
 import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import styles from './AtividadesPage.module.scss';
 import atividadesDataOriginal from '@/data/atividades.json';
+import { atividadesImages } from '@/assets/images/atividades';
 import { seoConfig } from '@/utils/seo-config';
 import useEditableContent from '@/hooks/useEditableContent';
 
 const AtividadesPage = () => {
   const atividadesData = useEditableContent('atividades', atividadesDataOriginal);
+
+  // Map JSON activities to image categories for dynamic image assignment
+  const getActivityImage = (activityTitle) => {
+    // Use festival images for cultural/event activities
+    if (activityTitle.includes('Patrimó') || activityTitle.includes('Cultura')) {
+      return atividadesImages.activities.find(img => img.category === 'festival');
+    }
+    // Use music festival images for general activities that could benefit from vibrant imagery
+    if (activityTitle.includes('Desport') || activityTitle.includes('Aventura')) {
+      return atividadesImages.activities.find(img => img.category === 'music');
+    }
+    // Default to general activities or rotate through festival images
+    return atividadesImages.activities[Math.floor(Math.random() * 3) + 3]; // Random festival image
+  };
+
   return (
     <div className={styles.atividadesPage}>
       <SEO
@@ -19,34 +36,63 @@ const AtividadesPage = () => {
         keywords={seoConfig.atividades.keywords}
         image={seoConfig.atividades.image}
       />
-      {/* Page Header */}
-      <Section background="light" padding="large">
+
+      {/* Hero Section with Background Image */}
+      <div className={styles.hero}>
+        <div className={styles.heroImageWrapper}>
+          <ResponsiveImage
+            src={atividadesImages.heroes[0].src}
+            alt={atividadesImages.heroes[0].alt}
+            className={styles.heroImage}
+            loading="eager"
+            lazy={false}
+            objectFit="cover"
+          />
+          <div className={styles.heroOverlay} />
+        </div>
         <Container>
-          <div className={styles.header}>
-            <h1 className={styles.pageTitle}>{atividadesData.title}</h1>
-            <p className={styles.pageDescription}>{atividadesData.description}</p>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>{atividadesData.title}</h1>
+            <p className={styles.heroDescription}>{atividadesData.description}</p>
           </div>
         </Container>
-      </Section>
+      </div>
 
-      {/* Activities Section */}
+      {/* Activities Cards with Images */}
       <Section padding="large">
         <Container>
           <div className={styles.activitiesGrid}>
-            {atividadesData.activities.map((activity, index) => (
-              <div key={index} className={styles.activitySection}>
-                <div className={styles.activityHeader}>
-                  <span className={styles.activityIcon}>{activity.icon}</span>
-                  <h2 className={styles.activityTitle}>{activity.title}</h2>
+            {atividadesData.activities.map((activity, index) => {
+              // Cycle through available images
+              const imageIndex = index % atividadesImages.activities.length;
+              const activityImage = atividadesImages.activities[imageIndex];
+
+              return (
+                <div key={index} className={styles.activityCard}>
+                  <div className={styles.activityImageWrapper}>
+                    <ResponsiveImage
+                      src={activityImage.src}
+                      alt={activityImage.alt}
+                      className={styles.activityImage}
+                      aspectRatio="16/9"
+                      objectFit="cover"
+                    />
+                    <div className={styles.activityImageOverlay}>
+                      <span className={styles.activityIcon}>{activity.icon}</span>
+                    </div>
+                  </div>
+                  <div className={styles.activityContent}>
+                    <h2 className={styles.activityTitle}>{activity.title}</h2>
+                    <p className={styles.activityDescription}>{activity.description}</p>
+                    <ul className={styles.highlightsList}>
+                      {activity.highlights.map((highlight, idx) => (
+                        <li key={idx}>{highlight}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className={styles.activityDescription}>{activity.description}</p>
-                <ul className={styles.highlightsList}>
-                  {activity.highlights.map((highlight, idx) => (
-                    <li key={idx}>{highlight}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </Section>

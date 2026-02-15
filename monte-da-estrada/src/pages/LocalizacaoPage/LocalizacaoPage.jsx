@@ -5,6 +5,9 @@ import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import Map from '@/components/Map';
+import ContactForm from '@/components/ContactForm';
+import ResponsiveImage from '@/components/ResponsiveImage';
+import { exteriorImages } from '@/assets/images/exterior';
 import styles from './LocalizacaoPage.module.scss';
 import localizacaoData from '@/data/localizacao.json';
 import { seoConfig } from '@/utils/seo-config';
@@ -18,15 +21,26 @@ const LocalizacaoPage = () => {
         keywords={seoConfig.localizacao.keywords}
         image={seoConfig.localizacao.image}
       />
-      {/* Page Header */}
-      <Section background="light" padding="large">
-        <Container>
-          <div className={styles.header}>
-            <h1 className={styles.pageTitle}>{localizacaoData.title}</h1>
-            <p className={styles.pageDescription}>{localizacaoData.description}</p>
-          </div>
-        </Container>
-      </Section>
+
+      {/* Hero Section with Real Image */}
+      <div className={styles.hero}>
+        <ResponsiveImage
+          src={exteriorImages.hero.src}
+          alt={exteriorImages.hero.alt}
+          className={styles.heroImage}
+          loading="eager"
+          lazy={false}
+          aspectRatio="21/9"
+        />
+        <div className={styles.heroOverlay}>
+          <Container>
+            <div className={styles.heroContent}>
+              <h1 className={styles.heroTitle}>{localizacaoData.title}</h1>
+              <p className={styles.heroDescription}>{localizacaoData.description}</p>
+            </div>
+          </Container>
+        </div>
+      </div>
 
       {/* Interactive Map */}
       <Section padding="large">
@@ -155,6 +169,24 @@ const LocalizacaoPage = () => {
               </ul>
             </Card>
           </Grid>
+        </Container>
+      </Section>
+
+      {/* Contact Form Section */}
+      <Section padding="large">
+        <Container>
+          <div className={styles.contactSection}>
+            <div className={styles.contactHeader}>
+              <h2 className={styles.sectionTitle}>Entre em Contacto</h2>
+              <p className={styles.contactDescription}>
+                Tem alguma questão sobre como chegar ou necessita de mais informações?
+                Envie-nos uma mensagem e responderemos em breve.
+              </p>
+            </div>
+            <div className={styles.contactFormWrapper}>
+              <ContactForm />
+            </div>
+          </div>
         </Container>
       </Section>
     </div>

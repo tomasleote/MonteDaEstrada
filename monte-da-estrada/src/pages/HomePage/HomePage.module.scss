@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .homePage {
   width: 100%;
@@ -15,13 +15,15 @@
   @include h2;
   margin-bottom: $spacing-xl;
   color: $color-primary;
+  font-family: $font-family-primary;
 }
 
 .welcomeText {
-  font-size: $font-size-md;
+  font-size: $font-size-body-large;
   line-height: $line-height-relaxed;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-l;
   color: $color-text-secondary;
+  font-family: $font-family-secondary;
 
   &:last-child {
     margin-bottom: 0;
@@ -31,29 +33,51 @@
 .sectionTitle {
   @include h2;
   text-align: center;
-  margin-bottom: $spacing-3xl;
+  margin-bottom: $spacing-xxxl;
   color: $color-primary;
+  font-family: $font-family-primary;
+}
+
+.galleryGrid {
+  @include gallery-grid(3, 2, 1);
+}
+
+.galleryItem {
+  @include luxury-card;
+  padding: 0;
+  overflow: hidden;
+  border-radius: $border-radius-rounded;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-medium;
+  }
 }
 
 .highlightCard {
+  @include luxury-card;
   text-align: center;
   padding: $spacing-xl;
 }
 
 .highlightIcon {
-  font-size: $font-size-4xl;
-  margin-bottom: $spacing-md;
+  font-size: $font-size-h1;
+  margin-bottom: $spacing-m;
+  color: $color-accent;
 }
 
 .highlightTitle {
   @include h3;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-s;
   color: $color-primary;
+  font-family: $font-family-primary;
 }
 
 .highlightDescription {
   color: $color-text-secondary;
-  line-height: $line-height-normal;
+  line-height: $line-height-base;
+  font-family: $font-family-secondary;
 }
 
 .infoGrid {
@@ -63,8 +87,9 @@
 
 .infoBlock {
   background-color: $color-bg-secondary;
-  padding: $spacing-2xl;
-  border-radius: $border-radius-lg;
+  padding: $spacing-xxxl;
+  border-radius: $border-radius-rounded;
+  border: 1px solid $color-border-light;
 }
 
 .infoTitle {
@@ -72,30 +97,26 @@
   margin-bottom: $spacing-xl;
   color: $color-primary;
   text-align: center;
+  font-family: $font-family-primary;
 }
 
 .infoContent {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-xl;
-
-  @include tablet {
-    grid-template-columns: 1fr;
-    gap: $spacing-lg;
-  }
+  @include gallery-grid(3, 2, 1);
 }
 
 .infoItem {
   h4 {
-    font-size: $font-size-lg;
-    font-weight: $font-weight-bold;
+    font-size: $font-size-h5;
+    font-weight: $font-weight-semibold;
     color: $color-primary;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-m;
+    font-family: $font-family-primary;
   }
 
   p {
-    margin-bottom: $spacing-sm;
-    line-height: $line-height-normal;
+    margin-bottom: $spacing-s;
+    line-height: $line-height-base;
+    font-family: $font-family-secondary;
   }
 
   ul {
@@ -103,15 +124,16 @@
     padding: 0;
 
     li {
-      padding-left: $spacing-md;
+      padding-left: $spacing-m;
       position: relative;
-      margin-bottom: $spacing-sm;
+      margin-bottom: $spacing-s;
+      font-family: $font-family-secondary;
 
       &::before {
         content: '•';
         position: absolute;
         left: 0;
-        color: $color-secondary;
+        color: $color-accent;
         font-weight: bold;
       }
     }
@@ -127,19 +149,21 @@
 .ctaTitle {
   @include h2;
   color: $color-text-light;
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-m;
+  font-family: $font-family-primary;
 }
 
 .ctaText {
-  font-size: $font-size-lg;
+  font-size: $font-size-body-large;
   color: rgba($color-text-light, 0.9);
-  margin-bottom: $spacing-2xl;
+  margin-bottom: $spacing-xxxl;
   line-height: $line-height-relaxed;
+  font-family: $font-family-secondary;
 }
 
 .ctaButtons {
   display: flex;
-  gap: $spacing-lg;
+  gap: $spacing-l;
   justify-content: center;
   flex-wrap: wrap;
 

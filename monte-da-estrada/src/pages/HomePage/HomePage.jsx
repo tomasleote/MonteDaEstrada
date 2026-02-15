@@ -6,10 +6,12 @@ import Section from '@/components/Section';
 import Grid from '@/components/Grid';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import styles from './HomePage.module.scss';
 import homeDataOriginal from '@/data/home.json';
 import { seoConfig } from '@/utils/seo-config';
 import useEditableContent from '@/hooks/useEditableContent';
+import { homeImages } from '@/assets/images/home';
 
 const HomePage = () => {
   // Use editable content hook to load from localStorage if edited
@@ -24,7 +26,7 @@ const HomePage = () => {
       />
       {/* Hero Section */}
       <Hero
-        backgroundImage={homeData.hero.image}
+        backgroundImage={homeImages.hero.src}
         title={homeData.hero.title}
         subtitle={homeData.hero.subtitle}
         ctaText="Ver Quartos"
@@ -41,6 +43,26 @@ const HomePage = () => {
               <p key={index} className={styles.welcomeText}>
                 {paragraph}
               </p>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Gallery Section */}
+      <Section background="light" padding="large">
+        <Container>
+          <h2 className={styles.sectionTitle}>Descubra o Monte da Estrada</h2>
+          <div className={styles.galleryGrid}>
+            {homeImages.gallery.slice(0, 6).map((image, index) => (
+              <div key={index} className={styles.galleryItem}>
+                <ResponsiveImage
+                  src={image.src}
+                  alt={image.alt}
+                  aspectRatio="4/3"
+                  objectFit="cover"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                />
+              </div>
             ))}
           </div>
         </Container>

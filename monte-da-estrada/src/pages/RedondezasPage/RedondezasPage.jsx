@@ -1,14 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SEO from '@/components/SEO';
 import Container from '@/components/Container';
 import Section from '@/components/Section';
-import Grid from '@/components/Grid';
-import Card from '@/components/Card';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import styles from './RedondezasPage.module.scss';
-import redondezasData from '@/data/redondezas.json';
+import { redondezasImages } from '@/assets/images/redondezas';
 import { seoConfig } from '@/utils/seo-config';
 
+/**
+ * RedondezasPage component
+ * Displays nearby attractions grouped by proximity and location
+ * Features luxury card styling with real images from the region
+ */
 const RedondezasPage = () => {
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
+  // Group attractions by proximity for better organization
+  const attractionsByProximity = {
+    closest: redondezasImages.attractions.filter(
+      (attr) => parseInt(attr.distance) <= 10
+    ),
+    nearby: redondezasImages.attractions.filter(
+      (attr) => parseInt(attr.distance) > 10 && parseInt(attr.distance) <= 20
+    ),
+    regional: redondezasImages.attractions.filter(
+      (attr) => parseInt(attr.distance) > 20 && parseInt(attr.distance) <= 35
+    ),
+    extended: redondezasImages.attractions.filter(
+      (attr) => parseInt(attr.distance) > 35
+    )
+  };
+
+  // Get filtered attractions based on selection
+  const getFilteredAttractions = () => {
+    if (selectedFilter === 'all') {
+      return redondezasImages.attractions;
+    }
+    return attractionsByProximity[selectedFilter] || [];
+  };
+
+  const filteredAttractions = getFilteredAttractions();
+
   return (
     <div className={styles.redondezasPage}>
       <SEO
@@ -17,121 +49,137 @@ const RedondezasPage = () => {
         keywords={seoConfig.redondezas.keywords}
         image={seoConfig.redondezas.image}
       />
-      {/* Page Header */}
-      <Section background="light" padding="large">
-        <Container>
-          <div className={styles.header}>
-            <h1 className={styles.pageTitle}>{redondezasData.title}</h1>
-            <p className={styles.pageDescription}>{redondezasData.description}</p>
-          </div>
-        </Container>
-      </Section>
 
-      {/* Region Overview */}
+      {/* Hero Section with Background Image */}
+      <div className={styles.hero}>
+        <ResponsiveImage
+          src={redondezasImages.hero.src}
+          alt={redondezasImages.hero.alt}
+          className={styles.heroImage}
+          aspectRatio="21/9"
+          objectFit="cover"
+          lazy={false}
+        />
+        <div className={styles.heroOverlay}>
+          <Container>
+            <div className={styles.heroContent}>
+              <h1 className={styles.heroTitle}>Explore the Region</h1>
+              <p className={styles.heroSubtitle}>
+                Discover the pristine beauty of Portugal's Southwest coast
+              </p>
+            </div>
+          </Container>
+        </div>
+      </div>
+
+      {/* Introduction Section */}
       <Section padding="large">
         <Container>
-          <div className={styles.regionOverview}>
-            <h2 className={styles.sectionTitle}>{redondezasData.region.title}</h2>
-            <p className={styles.regionDescription}>{redondezasData.region.description}</p>
-            <ul className={styles.highlightsList}>
-              {redondezasData.region.highlights.map((highlight, index) => (
-                <li key={index}>{highlight}</li>
-              ))}
-            </ul>
+          <div className={styles.introduction}>
+            <h2 className={styles.sectionTitle}>Nearby Attractions</h2>
+            <p className={styles.introText}>
+              Monte da Estrada is perfectly positioned to explore the stunning Alentejo coast
+              and its charming villages. From pristine beaches to historic towns, cultural
+              festivals to natural wonders, discover the authentic beauty of this unique region.
+            </p>
           </div>
         </Container>
       </Section>
 
-      {/* Beaches Section */}
-      <Section background="secondary" padding="large">
+      {/* Filter Section */}
+      <Section background="light" padding="medium">
         <Container>
-          <h2 className={styles.sectionTitle}>{redondezasData.beaches.title}</h2>
-          <Grid columns={2} gap="large">
-            {redondezasData.beaches.items.map((beach, index) => (
-              <Card key={index} className={styles.placeCard}>
-                <h3 className={styles.placeName}>{beach.name}</h3>
-                <p className={styles.placeDistance}>{beach.distance}</p>
-                <p className={styles.placeDescription}>{beach.description}</p>
-                <div className={styles.placeFeatures}>
-                  {beach.features.map((feature, idx) => (
-                    <span key={idx} className={styles.featureTag}>{feature}</span>
-                  ))}
+          <div className={styles.filterContainer}>
+            <h3 className={styles.filterTitle}>Filter by Distance</h3>
+            <div className={styles.filterButtons}>
+              <button
+                className={`${styles.filterButton} ${
+                  selectedFilter === 'all' ? styles.active : ''
+                }`}
+                onClick={() => setSelectedFilter('all')}
+              >
+                All Attractions ({redondezasImages.attractions.length})
+              </button>
+              <button
+                className={`${styles.filterButton} ${
+                  selectedFilter === 'closest' ? styles.active : ''
+                }`}
+                onClick={() => setSelectedFilter('closest')}
+              >
+                Closest (0-10 km) ({attractionsByProximity.closest.length})
+              </button>
+              <button
+                className={`${styles.filterButton} ${
+                  selectedFilter === 'nearby' ? styles.active : ''
+                }`}
+                onClick={() => setSelectedFilter('nearby')}
+              >
+                Nearby (11-20 km) ({attractionsByProximity.nearby.length})
+              </button>
+              <button
+                className={`${styles.filterButton} ${
+                  selectedFilter === 'regional' ? styles.active : ''
+                }`}
+                onClick={() => setSelectedFilter('regional')}
+              >
+                Regional (21-35 km) ({attractionsByProximity.regional.length})
+              </button>
+              <button
+                className={`${styles.filterButton} ${
+                  selectedFilter === 'extended' ? styles.active : ''
+                }`}
+                onClick={() => setSelectedFilter('extended')}
+              >
+                Extended (35+ km) ({attractionsByProximity.extended.length})
+              </button>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Attractions Grid */}
+      <Section padding="large">
+        <Container>
+          <div className={styles.attractionsGrid}>
+            {filteredAttractions.map((attraction, index) => (
+              <article key={index} className={styles.attractionCard}>
+                <div className={styles.imageWrapper}>
+                  <ResponsiveImage
+                    src={attraction.src}
+                    alt={attraction.alt}
+                    className={styles.cardImage}
+                    aspectRatio="4/3"
+                    objectFit="cover"
+                  />
+                  <div className={styles.distanceBadge}>{attraction.distance}</div>
                 </div>
-              </Card>
-            ))}
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Towns Section */}
-      <Section padding="large">
-        <Container>
-          <h2 className={styles.sectionTitle}>{redondezasData.towns.title}</h2>
-          <Grid columns={2} gap="large">
-            {redondezasData.towns.items.map((town, index) => (
-              <Card key={index} className={styles.placeCard}>
-                <h3 className={styles.placeName}>{town.name}</h3>
-                <p className={styles.placeDistance}>{town.distance}</p>
-                <p className={styles.placeDescription}>{town.description}</p>
-                <ul className={styles.attractionsList}>
-                  {town.attractions.map((attraction, idx) => (
-                    <li key={idx}>{attraction}</li>
-                  ))}
-                </ul>
-              </Card>
-            ))}
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Gastronomy Section */}
-      <Section background="light" padding="large">
-        <Container>
-          <h2 className={styles.sectionTitle}>{redondezasData.restaurants.title}</h2>
-          <p className={styles.centeredText}>{redondezasData.restaurants.description}</p>
-          <Grid columns={2} gap="large">
-            {redondezasData.restaurants.items.map((restaurant, index) => (
-              <Card key={index} className={styles.restaurantCard}>
-                <h3 className={styles.restaurantName}>{restaurant.name}</h3>
-                <div className={styles.specialtiesList}>
-                  {restaurant.specialties.map((specialty, idx) => (
-                    <span key={idx} className={styles.specialtyTag}>{specialty}</span>
-                  ))}
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{attraction.title}</h3>
+                  <p className={styles.cardLocation}>{attraction.location}</p>
                 </div>
-              </Card>
-            ))}
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Festivals Section */}
-      <Section padding="large">
-        <Container>
-          <h2 className={styles.sectionTitle}>{redondezasData.festivals.title}</h2>
-          <p className={styles.centeredText}>{redondezasData.festivals.description}</p>
-          <div className={styles.festivalsGrid}>
-            {redondezasData.festivals.events.map((event, index) => (
-              <Card key={index} className={styles.festivalCard}>
-                <h3 className={styles.festivalName}>{event.name}</h3>
-                <p className={styles.festivalPeriod}>{event.period} • {event.location}</p>
-                <p className={styles.festivalDescription}>{event.description}</p>
-              </Card>
+              </article>
             ))}
           </div>
+
+          {/* No Results Message */}
+          {filteredAttractions.length === 0 && (
+            <div className={styles.noResults}>
+              <p>No attractions found in this distance range.</p>
+            </div>
+          )}
         </Container>
       </Section>
 
-      {/* Other Attractions */}
-      <Section background="secondary" padding="large">
+      {/* Call to Action */}
+      <Section background="dark" padding="large">
         <Container>
-          <h2 className={styles.sectionTitle}>{redondezasData.attractions.title}</h2>
-          <Grid columns={3} gap="medium">
-            {redondezasData.attractions.items.map((attraction, index) => (
-              <Card key={index} className={styles.attractionCard}>
-                <p className={styles.attractionText}>{attraction}</p>
-              </Card>
-            ))}
-          </Grid>
+          <div className={styles.ctaContent}>
+            <h2 className={styles.ctaTitle}>Plan Your Adventure</h2>
+            <p className={styles.ctaText}>
+              Let us help you discover the best of the Alentejo coast. Contact us for
+              personalized recommendations and local insights.
+            </p>
+          </div>
         </Container>
       </Section>
     </div>

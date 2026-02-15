@@ -1,58 +1,89 @@
 // ==================================
 // DESIGN TOKENS - Monte da Estrada
 // ==================================
-// Based on Monte do Papa Léguas design patterns
-// Customized for Monte da Estrada branding
+// Herdade do Touril-inspired design system
+// Exact colors extracted from herdadedotouril.com
 
-// ------------------------------------
+// ============================================
 // COLOR PALETTE
-// ------------------------------------
-// Primary colors - Warm earth tones for Alentejo countryside
-$color-primary: #8B6F47;        // Warm brown (Alentejo earth)
-$color-primary-light: #A68A64;  // Lighter brown
-$color-primary-dark: #6B5537;   // Darker brown
+// ============================================
 
-// Secondary colors
-$color-secondary: #D4A574;      // Golden sand
-$color-secondary-light: #E8C9A0;
-$color-secondary-dark: #B8895C;
+// Primary Brand Colors (Black & Dark Tones)
+$color-primary: #0A0203;           // Deep black (exact from header)
+$color-primary-light: #222222;     // Lighter black/charcoal
+$color-primary-lighter: #333333;   // Medium charcoal
 
-// Accent colors
-$color-accent: #116dff;         // Blue for CTAs (from Papa Léguas)
-$color-accent-hover: #0d5dd4;   // Darker blue for hover states
+// Accent Colors (Gold/Yellow - Exact from Touril)
+$color-accent: #FBAB18;             // Bright gold/yellow (exact from logo & buttons)
+$color-accent-dark: #E09600;        // Darker gold (calculated darker variant)
+$color-accent-light: #FFD580;       // Light gold/cream
 
-// Text colors
-$color-text-primary: #2C2C2C;   // Dark gray for main text
-$color-text-secondary: #5A5A5A; // Medium gray for secondary text
-$color-text-light: #FFFFFF;     // White for text on dark backgrounds
-$color-text-muted: #8C8C8C;     // Muted gray for hints/captions
+// Neutral Palette (White & Gray Tones)
+$color-neutral-white: #FFFFFF;      // Pure white
+$color-neutral-off-white: #F8F8F8;  // Off-white (exact from site)
+$color-neutral-light-gray: #EAEAEA; // Light gray
+$color-neutral-gray: #CACACA;       // Medium gray (exact from site)
+$color-neutral-dark-gray: #777777;  // Dark gray (exact from site)
+$color-neutral-black: #0A0A0A;      // Very dark black
 
-// Background colors
-$color-bg-primary: #FFFFFF;     // White background
-$color-bg-secondary: #F8F5F2;   // Light beige/cream
-$color-bg-dark: #3A3A3A;        // Dark background for footer
-$color-bg-overlay: rgba(0, 0, 0, 0.5); // Semi-transparent overlay for hero images
+// Text Colors (Exact from Touril)
+$color-text-primary: #0A0203;       // Main text (very dark black)
+$color-text-secondary: #777777;     // Secondary text (exact gray from site)
+$color-text-muted: #999999;         // Muted/placeholder (exact from site)
+$color-text-light: #FFFFFF;         // Light text on dark backgrounds
 
-// Border colors
-$color-border-light: #E0E0E0;   // Light borders
-$color-border-medium: #CCCCCC;  // Medium borders
-$color-border-dark: #999999;    // Dark borders
+// Semantic Colors (using gold/yellow tones instead of green)
+$color-success: #FBAB18;            // Gold (matches brand accent)
+$color-warning: #E67E22;            // Orange
+$color-error: #E80000;              // Red (exact from site)
+$color-info: #3498DB;               // Blue
 
-// Status colors
-$color-success: #4CAF50;
-$color-error: #F44336;
-$color-warning: #FF9800;
-$color-info: #2196F3;
+// Backgrounds (White, Cream, and Black)
+$color-bg-primary: #FFFFFF;              // Pure white
+$color-bg-secondary: #F8F8F8;            // Off-white (exact from site)
+$color-bg-tertiary: #FEFEFE;             // Very light off-white (exact from site)
+$color-bg-dark: #0A0203;                 // Black background (exact from header)
+$color-bg-overlay: rgba(10, 2, 3, 0.6);  // Semi-transparent black overlay (using exact black)
 
-// ------------------------------------
+// Borders (Exact from Touril)
+$color-border: #CACACA;              // Medium gray border (exact from site)
+$color-border-light: #EAEAEA;        // Light gray border (exact from site)
+$color-border-dark: #777777;         // Dark gray border (exact from site)
+$color-border-medium: #CACACA;       // Deprecated alias
+
+// Deprecated color aliases (for backwards compatibility)
+$color-primary-dark: $color-primary;
+$color-secondary: $color-accent;
+$color-secondary-light: $color-accent-light;
+$color-secondary-dark: $color-accent-dark;
+$color-bg-dark: #0A0203;  // Updated to exact black
+
+// ============================================
 // TYPOGRAPHY
-// ------------------------------------
-// Font families
-$font-family-primary: 'Arial', 'Helvetica', sans-serif;
-$font-family-heading: 'Arial', 'Helvetica', sans-serif;
+// ============================================
+
+// Font Families
+$font-family-primary: 'Playfair Display', 'Georgia', serif;     // Display/headings
+$font-family-secondary: 'Lato', 'Segoe UI', sans-serif;         // Body text
 $font-family-mono: 'Courier New', monospace;
 
-// Font sizes - Mobile first (base: 16px)
+// Font Sizes (REM-based for scalability)
+$font-size-h1: 3.5rem;      // 56px
+$font-size-h2: 2.75rem;     // 44px
+$font-size-h3: 2.125rem;    // 34px
+$font-size-h4: 1.5rem;      // 24px
+$font-size-h5: 1.25rem;     // 20px
+$font-size-h6: 1rem;        // 16px
+
+$font-size-body-large: 1.125rem;    // 18px
+$font-size-body: 1rem;              // 16px
+$font-size-body-small: 0.875rem;    // 14px
+$font-size-body-extra-small: 0.75rem; // 12px
+
+$font-size-caption: 0.75rem;        // 12px
+$font-size-label: 0.875rem;         // 14px
+
+// Deprecated (kept for backwards compatibility)
 $font-size-xs: 0.75rem;    // 12px
 $font-size-sm: 0.875rem;   // 14px
 $font-size-base: 1rem;     // 16px
@@ -63,50 +94,84 @@ $font-size-2xl: 2rem;      // 32px
 $font-size-3xl: 2.5rem;    // 40px
 $font-size-4xl: 3rem;      // 48px
 
-// Font weights
+// Font Weights
 $font-weight-light: 300;
-$font-weight-normal: 400;
+$font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-// Line heights
+// Line Heights
 $line-height-tight: 1.2;
-$line-height-normal: 1.5;
+$line-height-base: 1.5;
 $line-height-relaxed: 1.75;
 $line-height-loose: 2;
 
-// ------------------------------------
+// Letter Spacing
+$letter-spacing-tight: -0.5px;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.5px;
+$letter-spacing-extra-wide: 1px;
+
+// Deprecated line-height aliases (for backwards compatibility)
+$line-height-normal: $line-height-base;
+
+// ============================================
 // SPACING SYSTEM
-// ------------------------------------
-// Base spacing unit: 8px
+// ============================================
+
+// Base spacing unit (8px system)
 $spacing-unit: 8px;
 
 // Spacing scale
-$spacing-xs: $spacing-unit * 0.5;    // 4px
+$spacing-xs: $spacing-unit * 0.5;   // 4px
+$spacing-s: $spacing-unit * 1;      // 8px
+$spacing-m: $spacing-unit * 2;      // 16px
+$spacing-l: $spacing-unit * 3;      // 24px
+$spacing-xl: $spacing-unit * 4;     // 32px
+$spacing-xxl: $spacing-unit * 5;    // 40px
+$spacing-xxxl: $spacing-unit * 6;   // 48px
+
+// Deprecated (kept for backwards compatibility)
 $spacing-sm: $spacing-unit;          // 8px
 $spacing-md: $spacing-unit * 2;      // 16px
-$spacing-lg: $spacing-unit * 3;      // 24px
-$spacing-xl: $spacing-unit * 4;      // 32px
 $spacing-2xl: $spacing-unit * 6;     // 48px
 $spacing-3xl: $spacing-unit * 8;     // 64px
 $spacing-4xl: $spacing-unit * 10;    // 80px
 
-// ------------------------------------
+// Semantic spacing
+$margin-section: $spacing-xxxl;
+$padding-section: $spacing-xxxl;
+$gap-grid: $spacing-l;
+$gap-flex: $spacing-m;
+
+// ============================================
 // LAYOUT
-// ------------------------------------
+// ============================================
 // Container widths
 $container-max-width: 1200px;
-$container-padding: $spacing-lg;  // 24px (from Papa Léguas)
+$container-padding: $spacing-l;  // 24px
 
 // Grid
 $grid-columns: 12;
-$grid-gap: $spacing-md;  // 16px
+$grid-gap: $spacing-m;  // 16px
 
-// ------------------------------------
-// BREAKPOINTS
-// ------------------------------------
-// Mobile-first breakpoints
+// ============================================
+// RESPONSIVE BREAKPOINTS
+// ============================================
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-wide: 1440px;
+
+// Container widths
+$container-mobile: 100%;
+$container-tablet: 90%;
+$container-desktop: 1200px;
+$container-desktop-wide: 1320px;
+
+// Deprecated (kept for backwards compatibility)
 $breakpoint-xs: 480px;
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
@@ -114,33 +179,52 @@ $breakpoint-lg: 1024px;
 $breakpoint-xl: 1280px;
 $breakpoint-2xl: 1536px;
 
-// ------------------------------------
+// ============================================
 // BORDERS & RADIUS
-// ------------------------------------
+// ============================================
+
 $border-width-thin: 1px;
 $border-width-medium: 2px;
 $border-width-thick: 4px;
 
-$border-radius-sm: 4px;
-$border-radius-md: 8px;
+$border-radius-sharp: 0px;
+$border-radius-slight: 4px;
+$border-radius-rounded: 8px;
+$border-radius-full: 50%;
+
+// Deprecated (kept for backwards compatibility)
+$border-radius-sm: $border-radius-slight;
+$border-radius-md: $border-radius-rounded;
 $border-radius-lg: 12px;
 $border-radius-xl: 16px;
 $border-radius-2xl: 24px;
-$border-radius-full: 9999px;  // For circular buttons
 
-// ------------------------------------
-// SHADOWS
-// ------------------------------------
-// Box shadows (from Papa Léguas design)
+// ============================================
+// VISUAL EFFECTS
+// ============================================
+
+// Shadows (Luxury aesthetic - subtle)
+$shadow-subtle: 0 1px 3px rgba(26, 26, 26, 0.08);
+$shadow-medium: 0 4px 12px rgba(26, 26, 26, 0.12);
+$shadow-strong: 0 12px 32px rgba(26, 26, 26, 0.16);
+$shadow-hover: 0 8px 24px rgba(26, 26, 26, 0.15);
+
+// Deprecated (kept for backwards compatibility)
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
 $shadow-md: 0 1px 3px rgba(0, 0, 0, 0.5);
 $shadow-lg: 0 1px 4px rgba(0, 0, 0, 0.6);
 $shadow-xl: 0 4px 12px rgba(0, 0, 0, 0.15);
 
-// ------------------------------------
-// TRANSITIONS & ANIMATIONS
-// ------------------------------------
-// Durations (from Papa Léguas)
+// Transitions
+$transition-timing-slow: cubic-bezier(0.4, 0, 0.2, 1);      // Material Motion
+$transition-timing-normal: cubic-bezier(0.4, 0, 0.6, 1);    // Ease in-out
+$transition-timing-fast: cubic-bezier(0.4, 0, 1, 1);        // Ease out
+
+$transition-duration-quick: 150ms;
+$transition-duration-normal: 300ms;
+$transition-duration-slow: 500ms;
+
+// Deprecated (kept for backwards compatibility)
 $transition-fast: 0.2s;
 $transition-normal: 0.4s;
 $transition-slow: 0.6s;
@@ -155,6 +239,48 @@ $transition-all-fast: all $transition-fast $ease-standard;
 $transition-all-normal: all $transition-normal $ease-standard;
 $transition-opacity: opacity $transition-fast $ease-in-out;
 $transition-transform: transform $transition-normal $ease-out-back;
+
+// Opacity
+$opacity-hover: 0.85;
+$opacity-disabled: 0.5;
+$opacity-overlay: 0.7;
+
+// ------------------------------------
+// FLUID TYPOGRAPHY (using clamp)
+// ------------------------------------
+// Formula: clamp(min, preferred, max)
+// Preferred size scales with viewport width
+
+:root {
+  // Fluid font sizes (scale from mobile to desktop)
+  --font-size-xs-fluid: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);    // 12px → 14px
+  --font-size-sm-fluid: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);      // 14px → 16px
+  --font-size-base-fluid: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);      // 16px → 18px
+  --font-size-lg-fluid: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);     // 18px → 20px
+  --font-size-xl-fluid: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);      // 20px → 24px
+  --font-size-2xl-fluid: clamp(1.5rem, 1.3rem + 1vw, 2rem);           // 24px → 32px
+  --font-size-3xl-fluid: clamp(2rem, 1.7rem + 1.5vw, 2.5rem);         // 32px → 40px
+  --font-size-4xl-fluid: clamp(2.5rem, 2rem + 2.5vw, 3rem);           // 40px → 48px
+
+  // Fluid spacing (scale with viewport)
+  --spacing-xs-fluid: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);        // 4px → 8px
+  --spacing-sm-fluid: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);            // 8px → 16px
+  --spacing-md-fluid: clamp(1rem, 0.8rem + 1vw, 1.5rem);              // 16px → 24px
+  --spacing-lg-fluid: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);            // 24px → 32px
+  --spacing-xl-fluid: clamp(2rem, 1.6rem + 2vw, 3rem);                // 32px → 48px
+}
+
+// ------------------------------------
+// TOUCH TARGETS (44×44px minimum recommended)
+// ------------------------------------
+$touch-target-min: 44px;
+$touch-target-comfortable: 48px;
+$touch-target-large: 56px;
+
+// Touch-friendly spacing (thumb-zone optimization)
+$touch-spacing-sm: 8px;
+$touch-spacing-md: 16px;
+$touch-spacing-lg: 24px;
 
 // ------------------------------------
 // Z-INDEX LAYERS

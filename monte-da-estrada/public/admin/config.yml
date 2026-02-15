@@ -5,9 +5,10 @@ backend:
 # Publish mode - set to editorial_workflow for draft/review/publish flow
 publish_mode: simple
 
-# Media files will be stored in the repo under static/images/uploads
-media_folder: "monte-da-estrada/public/images"
-public_folder: "/images"
+# Media files will be stored in the repo under src/assets/images
+# UPDATED: Changed from public/images to src/assets/images to match actual image location
+media_folder: "monte-da-estrada/src/assets/images"
+public_folder: "/src/assets/images"
 
 # Internationalization (i18n) configuration
 locale: "pt"
@@ -28,7 +29,9 @@ collections:
             fields:
               - { label: "Título", name: "title", widget: "string" }
               - { label: "Subtítulo", name: "subtitle", widget: "string" }
-              - { label: "Imagem de Fundo", name: "image", widget: "image" }
+              - { label: "Imagem de Fundo", name: "image", widget: "image", required: true }
+              # NEW: Alt text for hero image (accessibility)
+              - { label: "Texto Alternativo da Imagem", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
           - label: "Secção de Boas-vindas"
             name: "welcome"
@@ -39,6 +42,9 @@ collections:
                 name: "paragraphs"
                 widget: "list"
                 field: { label: "Parágrafo", name: "paragraph", widget: "text" }
+              # NEW: Welcome section image
+              - { label: "Imagem de Boas-vindas", name: "image", widget: "image", required: false }
+              - { label: "Texto Alternativo da Imagem", name: "imageAlt", widget: "string", required: false, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
           - label: "Destaques"
             name: "highlights"
@@ -47,6 +53,27 @@ collections:
               - { label: "Título", name: "title", widget: "string" }
               - { label: "Descrição", name: "description", widget: "text" }
               - { label: "Ícone (emoji)", name: "icon", widget: "string" }
+
+          # NEW: Feature images grid (3-4 images showcasing property highlights)
+          - label: "Imagens de Destaques"
+            name: "featureImages"
+            widget: "list"
+            min: 3
+            max: 4
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", required: true }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+
+          # NEW: CTA (Call-to-Action) section image
+          - label: "Imagem do CTA de Reserva"
+            name: "ctaImage"
+            widget: "image"
+            required: false
+          - label: "Texto Alternativo do CTA"
+            name: "ctaImageAlt"
+            widget: "string"
+            required: false
+            pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
 
           - label: "Informações Práticas"
             name: "information"
@@ -72,6 +99,16 @@ collections:
         name: "quartos"
         file: "monte-da-estrada/src/data/quartos.json"
         fields:
+          # NEW: Hero section for Quartos page
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", required: true }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Descrição", name: "description", widget: "text" }
 
@@ -85,10 +122,51 @@ collections:
                 name: "features"
                 widget: "list"
                 field: { label: "Característica", name: "feature", widget: "string" }
-              - label: "Imagens"
-                name: "images"
+
+              # UPDATED: Structured room images with hero + gallery (replaces simple list)
+              - label: "Imagem Principal do Quarto"
+                name: "heroImage"
+                widget: "image"
+                required: true
+              - label: "Texto Alternativo da Imagem Principal"
+                name: "heroImageAlt"
+                widget: "string"
+                required: true
+                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+
+              - label: "Galeria do Quarto"
+                name: "galleryImages"
                 widget: "list"
-                field: { label: "Caminho da Imagem", name: "image", widget: "image" }
+                max: 4
+                required: false
+                fields:
+                  - { label: "Imagem", name: "image", widget: "image", required: true }
+                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+
+          # NEW: Common areas section
+          - label: "Áreas Comuns"
+            name: "commonAreas"
+            widget: "object"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - label: "Imagem Principal"
+                name: "heroImage"
+                widget: "image"
+                required: false
+              - label: "Texto Alternativo da Imagem Principal"
+                name: "heroImageAlt"
+                widget: "string"
+                required: false
+                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+              - label: "Galeria de Áreas Comuns"
+                name: "galleryImages"
+                widget: "list"
+                max: 4
+                required: false
+                fields:
+                  - { label: "Imagem", name: "image", widget: "image", required: true }
+                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
           - label: "Preços e Reservas"
             name: "pricing"
@@ -121,6 +199,16 @@ collections:
         name: "atividades"
         file: "monte-da-estrada/src/data/atividades.json"
         fields:
+          # NEW: Hero section for Atividades page
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", required: true }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Descrição", name: "description", widget: "text" }
 
@@ -136,6 +224,25 @@ collections:
                 widget: "list"
                 field: { label: "Destaque", name: "highlight", widget: "string" }
               - { label: "Ícone (emoji)", name: "icon", widget: "string" }
+
+              # NEW: Activity images
+              - label: "Imagem Principal da Atividade"
+                name: "heroImage"
+                widget: "image"
+                required: false
+              - label: "Texto Alternativo da Imagem Principal"
+                name: "heroImageAlt"
+                widget: "string"
+                required: false
+                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+              - label: "Galeria de Imagens"
+                name: "images"
+                widget: "list"
+                max: 10
+                required: false
+                fields:
+                  - { label: "Imagem", name: "image", widget: "image", required: true }
+                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
           - label: "Comodidades no Monte"
             name: "amenities"
@@ -157,6 +264,16 @@ collections:
         name: "redondezas"
         file: "monte-da-estrada/src/data/redondezas.json"
         fields:
+          # NEW: Hero section for Redondezas page
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", required: true }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Descrição", name: "description", widget: "text" }
 
@@ -171,6 +288,7 @@ collections:
                 widget: "list"
                 field: { label: "Destaque", name: "highlight", widget: "string" }
 
+          # UPDATED: Beaches with image support
           - label: "Praias"
             name: "beaches"
             widget: "object"
@@ -188,6 +306,26 @@ collections:
                     widget: "list"
                     field: { label: "Característica", name: "feature", widget: "string" }
 
+                  # NEW: Beach images
+                  - label: "Imagem Principal"
+                    name: "primaryImage"
+                    widget: "image"
+                    required: false
+                  - label: "Texto Alternativo da Imagem Principal"
+                    name: "primaryImageAlt"
+                    widget: "string"
+                    required: false
+                    pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+                  - label: "Galeria de Imagens"
+                    name: "images"
+                    widget: "list"
+                    max: 4
+                    required: false
+                    fields:
+                      - { label: "Imagem", name: "image", widget: "image", required: true }
+                      - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+
+          # UPDATED: Towns with image support
           - label: "Vilas e Cidades"
             name: "towns"
             widget: "object"
@@ -204,6 +342,25 @@ collections:
                     name: "attractions"
                     widget: "list"
                     field: { label: "Atração", name: "attraction", widget: "string" }
+
+                  # NEW: Town images
+                  - label: "Imagem Principal"
+                    name: "primaryImage"
+                    widget: "image"
+                    required: false
+                  - label: "Texto Alternativo da Imagem Principal"
+                    name: "primaryImageAlt"
+                    widget: "string"
+                    required: false
+                    pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+                  - label: "Galeria de Imagens"
+                    name: "images"
+                    widget: "list"
+                    max: 4
+                    required: false
+                    fields:
+                      - { label: "Imagem", name: "image", widget: "image", required: true }
+                      - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
           - label: "Gastronomia"
             name: "restaurants"
@@ -254,8 +411,29 @@ collections:
         name: "localizacao"
         file: "monte-da-estrada/src/data/localizacao.json"
         fields:
+          # NEW: Hero section for Localização page
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", required: false }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: false, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+
           - { label: "Título", name: "title", widget: "string" }
           - { label: "Descrição", name: "description", widget: "text" }
+
+          # NEW: Context images (showing surrounding area)
+          - label: "Imagens de Contexto"
+            name: "contextImages"
+            widget: "list"
+            max: 3
+            required: false
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", required: true }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Legenda (opcional)", name: "caption", widget: "string", required: false }
 
           - label: "Morada"
             name: "address"
@@ -372,7 +550,9 @@ collections:
             name: "hero"
             widget: "object"
             fields:
-              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Imagem", name: "image", widget: "image", required: true }
+              # NEW: Alt text for hero
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
               - { label: "Título", name: "title", widget: "string" }
               - { label: "Subtítulo", name: "subtitle", widget: "string" }
 
@@ -390,10 +570,11 @@ collections:
                 name: "images"
                 widget: "list"
                 fields:
-                  - { label: "Imagem", name: "src", widget: "image" }
-                  - { label: "Miniatura", name: "thumbnail", widget: "image" }
-                  - { label: "Texto Alternativo", name: "alt", widget: "string" }
-                  - { label: "Legenda", name: "caption", widget: "string" }
+                  - { label: "Imagem", name: "src", widget: "image", required: true }
+                  - { label: "Miniatura", name: "thumbnail", widget: "image", required: false }
+                  # Note: Alt text already exists in galeria (good!)
+                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+                  - { label: "Legenda", name: "caption", widget: "string", required: false }
 
           - label: "Informações sobre Fotografia"
             name: "photographyInfo"
@@ -405,3 +586,47 @@ collections:
                 name: "credits"
                 widget: "list"
                 field: { label: "Crédito", name: "credit", widget: "string" }
+
+  # NEW COLLECTION: SITE SETTINGS (for global logos and branding)
+  - name: "site_settings"
+    label: "Configurações do Site"
+    files:
+      - label: "Configurações Globais"
+        name: "settings"
+        file: "monte-da-estrada/src/data/site-settings.json"
+        fields:
+          - label: "Logotipo do Site"
+            name: "siteLogo"
+            widget: "image"
+            required: true
+          - label: "Texto Alternativo do Logotipo"
+            name: "siteLogoAlt"
+            widget: "string"
+            required: true
+            default: "Monte da Estrada - Turismo Rural"
+            pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+
+          - label: "Logotipos de Parceiros"
+            name: "partnerLogos"
+            widget: "list"
+            max: 5
+            fields:
+              - { label: "Nome do Parceiro", name: "name", widget: "string", required: true }
+              - { label: "Logotipo", name: "logo", widget: "image", required: true }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "URL (opcional)", name: "url", widget: "string", required: false }
+
+          - label: "Favicon"
+            name: "favicon"
+            widget: "image"
+            required: false
+
+          - label: "Meta Imagem (partilha social)"
+            name: "metaImage"
+            widget: "image"
+            required: false
+          - label: "Texto Alternativo da Meta Imagem"
+            name: "metaImageAlt"
+            widget: "string"
+            required: false
+            pattern: ['.{10,150}', 'Alt text must be 10-150 characters']

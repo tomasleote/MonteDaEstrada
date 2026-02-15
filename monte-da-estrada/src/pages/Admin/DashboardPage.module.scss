@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .dashboardPage {
   min-height: 100vh;
@@ -8,7 +8,7 @@
 
 .header {
   background: linear-gradient(135deg, $color-primary 0%, $color-primary-dark 100%);
-  padding: $spacing-2xl 0;
+  padding: $spacing-xxl 0;
   box-shadow: $shadow-md;
 }
 
@@ -19,7 +19,7 @@
 
   @include mobile {
     flex-direction: column;
-    gap: $spacing-lg;
+    gap: $spacing-l;
     text-align: center;
   }
 }
@@ -42,7 +42,7 @@
 }
 
 .logoutButton {
-  padding: $spacing-sm $spacing-xl;
+  padding: $spacing-s $spacing-xl;
   background-color: rgba(255, 255, 255, 0.2);
   color: $color-text-light;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -60,12 +60,12 @@
 
 .welcomeMessage {
   text-align: center;
-  margin-bottom: $spacing-4xl;
+  margin-bottom: $spacing-xxxl;
 
   h2 {
     font-size: $font-size-2xl;
     color: $color-primary;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-m;
   }
 
   p {
@@ -78,13 +78,13 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: $spacing-xl;
-  margin-bottom: $spacing-4xl;
+  margin-bottom: $spacing-xxxl;
 }
 
 .menuCard {
   background-color: $color-bg-primary;
   border-radius: $border-radius-lg;
-  padding: $spacing-2xl;
+  padding: $spacing-xxl;
   text-decoration: none;
   transition: $transition-all-fast;
   border: 2px solid transparent;
@@ -104,14 +104,14 @@
 
 .menuIcon {
   font-size: 3rem;
-  margin-bottom: $spacing-md;
+  margin-bottom: $spacing-m;
 }
 
 .menuTitle {
   font-size: $font-size-xl;
   font-weight: $font-weight-bold;
   color: $color-primary;
-  margin-bottom: $spacing-sm;
+  margin-bottom: $spacing-s;
 }
 
 .menuDescription {
@@ -123,8 +123,8 @@
 
 .menuArrow {
   position: absolute;
-  bottom: $spacing-lg;
-  right: $spacing-lg;
+  bottom: $spacing-l;
+  right: $spacing-l;
   font-size: $font-size-2xl;
   color: $color-primary;
   transition: $transition-all-fast;
@@ -144,7 +144,7 @@
   h3 {
     font-size: $font-size-lg;
     color: $color-primary;
-    margin-bottom: $spacing-md;
+    margin-bottom: $spacing-m;
   }
 
   p {

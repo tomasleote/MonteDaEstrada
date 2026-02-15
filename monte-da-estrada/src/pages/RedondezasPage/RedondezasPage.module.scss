@@ -1,206 +1,367 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .redondezasPage {
   width: 100%;
+  min-height: 100vh;
 }
 
-.header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
+// ============================================
+// HERO SECTION
+// ============================================
 
-.pageTitle {
-  @include h1;
-  color: $color-primary;
-  margin-bottom: $spacing-md;
-}
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  overflow: hidden;
 
-.pageDescription {
-  font-size: $font-size-lg;
-  color: $color-text-secondary;
-  line-height: $line-height-relaxed;
-}
-
-.sectionTitle {
-  @include h2;
-  text-align: center;
-  margin-bottom: $spacing-2xl;
-  color: $color-primary;
-}
-
-.centeredText {
-  text-align: center;
-  font-size: $font-size-md;
-  color: $color-text-secondary;
-  margin-bottom: $spacing-3xl;
-  line-height: $line-height-relaxed;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.regionOverview {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.regionDescription {
-  font-size: $font-size-md;
-  color: $color-text-secondary;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-xl;
-}
-
-.highlightsList {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  display: inline-block;
-
-  li {
-    padding-left: $spacing-lg;
-    position: relative;
-    margin-bottom: $spacing-sm;
-
-    &::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: $color-secondary;
-      font-weight: bold;
-    }
+  @include mobile {
+    height: 50vh;
+    min-height: 300px;
   }
 }
 
-.placeCard {
-  padding: $spacing-xl;
-}
+.heroImage {
+  width: 100%;
+  height: 100%;
 
-.placeName {
-  font-size: $font-size-xl;
-  font-weight: $font-weight-bold;
-  color: $color-primary;
-  margin-bottom: $spacing-xs;
-}
-
-.placeDistance {
-  font-size: $font-size-sm;
-  color: $color-primary;
-  font-weight: $font-weight-semibold;
-  margin-bottom: $spacing-md;
-}
-
-.placeDescription {
-  font-size: $font-size-base;
-  color: $color-text-secondary;
-  line-height: $line-height-normal;
-  margin-bottom: $spacing-md;
-}
-
-.placeFeatures {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-xs;
-}
-
-.featureTag {
-  background-color: $color-secondary-light;
-  color: $color-primary-dark;
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-sm;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-medium;
-}
-
-.attractionsList {
-  list-style: none;
-  padding: 0;
-
-  li {
-    padding-left: $spacing-md;
-    position: relative;
-    margin-bottom: $spacing-xs;
-    font-size: $font-size-sm;
-
-    &::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: $color-secondary;
-    }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
-.restaurantCard {
-  padding: $spacing-lg;
-  text-align: center;
-}
-
-.restaurantName {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
-  color: $color-primary;
-  margin-bottom: $spacing-md;
-}
-
-.specialtiesList {
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 2, 3, 0.3) 0%,
+    rgba(10, 2, 3, 0.6) 100%
+  );
   display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-xs;
+  align-items: center;
   justify-content: center;
 }
 
-.specialtyTag {
-  background-color: rgba($color-primary, 0.1);
-  color: $color-primary;
-  padding: $spacing-xs $spacing-sm;
-  border-radius: $border-radius-sm;
-  font-size: $font-size-xs;
-}
-
-.festivalsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: $spacing-xl;
-
-  @include mobile {
-    grid-template-columns: 1fr;
-  }
-}
-
-.festivalCard {
+.heroContent {
+  text-align: center;
+  color: $color-text-light;
   padding: $spacing-xl;
 }
 
-.festivalName {
+.heroTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-m;
+  letter-spacing: $letter-spacing-tight;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+  @include tablet {
+    font-size: $font-size-3xl;
+  }
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.heroSubtitle {
+  font-family: $font-family-secondary;
   font-size: $font-size-lg;
+  font-weight: $font-weight-regular;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: $line-height-relaxed;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+// ============================================
+// INTRODUCTION SECTION
+// ============================================
+
+.introduction {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-3xl;
   font-weight: $font-weight-bold;
   color: $color-primary;
-  margin-bottom: $spacing-xs;
+  margin-bottom: $spacing-l;
+  letter-spacing: $letter-spacing-tight;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
 }
 
-.festivalPeriod {
-  font-size: $font-size-sm;
-  color: $color-secondary-dark;
-  margin-bottom: $spacing-md;
-}
-
-.festivalDescription {
-  font-size: $font-size-base;
+.introText {
+  font-family: $font-family-secondary;
+  font-size: $font-size-md;
   color: $color-text-secondary;
-  line-height: $line-height-normal;
+  line-height: $line-height-relaxed;
+  margin-bottom: 0;
 }
 
-.attractionCard {
-  padding: $spacing-md;
+// ============================================
+// FILTER SECTION
+// ============================================
+
+.filterContainer {
   text-align: center;
 }
 
-.attractionText {
+.filterTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-l;
+
+  @include mobile {
+    font-size: $font-size-lg;
+  }
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-m;
+  justify-content: center;
+  align-items: center;
+
+  @include mobile {
+    gap: $spacing-s;
+  }
+}
+
+.filterButton {
+  font-family: $font-family-secondary;
   font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
   color: $color-text-primary;
+  background-color: $color-neutral-white;
+  border: $border-width-thin solid $color-border;
+  padding: $spacing-s $spacing-l;
+  border-radius: $border-radius-rounded;
+  cursor: pointer;
+  transition: all $transition-duration-normal $transition-timing-normal;
+  white-space: nowrap;
+
+  @include mobile {
+    font-size: $font-size-xs;
+    padding: $spacing-xs $spacing-m;
+  }
+
+  &:hover {
+    background-color: $color-accent-light;
+    border-color: $color-accent;
+    color: $color-primary;
+    transform: translateY(-2px);
+    box-shadow: $shadow-medium;
+  }
+
+  &.active {
+    background-color: $color-accent;
+    border-color: $color-accent;
+    color: $color-primary;
+    font-weight: $font-weight-semibold;
+    box-shadow: $shadow-medium;
+  }
+
+  &:focus {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// ATTRACTIONS GRID
+// ============================================
+
+.attractionsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $spacing-xl;
+
+  // Reason: Responsive grid breakpoints for optimal viewing on all devices
+  @media (max-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-l;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-l;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-m;
+  }
+}
+
+// ============================================
+// ATTRACTION CARDS (Luxury Styling)
+// ============================================
+
+.attractionCard {
+  background-color: $color-neutral-white;
+  border-radius: $border-radius-rounded;
+  overflow: hidden;
+  box-shadow: $shadow-subtle;
+  transition: all $transition-duration-normal $transition-timing-normal;
+  cursor: pointer;
+
+  // Reason: Lift animation on hover creates premium, interactive feel
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow-strong;
+
+    .cardImage img {
+      transform: scale(1.08);
+    }
+
+    .cardTitle {
+      color: $color-accent;
+    }
+
+    .distanceBadge {
+      background-color: $color-accent;
+      color: $color-primary;
+    }
+  }
+
+  &:focus-within {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: $color-neutral-light-gray;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-duration-slow $transition-timing-normal;
+  }
+}
+
+.distanceBadge {
+  position: absolute;
+  top: $spacing-m;
+  right: $spacing-m;
+  background-color: rgba(10, 2, 3, 0.85);
+  color: $color-neutral-white;
+  padding: $spacing-xs $spacing-m;
+  border-radius: $border-radius-rounded;
+  font-family: $font-family-secondary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  letter-spacing: $letter-spacing-wide;
+  backdrop-filter: blur(4px);
+  transition: all $transition-duration-normal $transition-timing-normal;
+}
+
+.cardContent {
+  padding: $spacing-l;
+  background-color: $color-neutral-white;
+}
+
+.cardTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-xs;
+  line-height: $line-height-tight;
+  transition: color $transition-duration-normal $transition-timing-normal;
+
+  @include mobile {
+    font-size: $font-size-md;
+  }
+}
+
+.cardLocation {
+  font-family: $font-family-secondary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  color: $color-text-secondary;
   margin: 0;
+  line-height: $line-height-base;
+}
+
+// ============================================
+// NO RESULTS MESSAGE
+// ============================================
+
+.noResults {
+  text-align: center;
+  padding: $spacing-xxxl;
+  color: $color-text-secondary;
+
+  p {
+    font-family: $font-family-secondary;
+    font-size: $font-size-lg;
+    margin: 0;
+  }
+}
+
+// ============================================
+// CALL TO ACTION SECTION
+// ============================================
+
+.ctaContent {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  color: $color-text-light;
+}
+
+.ctaTitle {
+  font-family: $font-family-primary;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-l;
+  letter-spacing: $letter-spacing-tight;
+
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+.ctaText {
+  font-family: $font-family-secondary;
+  font-size: $font-size-md;
+  line-height: $line-height-relaxed;
+  margin-bottom: 0;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
 }

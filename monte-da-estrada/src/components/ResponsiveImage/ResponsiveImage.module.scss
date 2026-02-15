@@ -1,0 +1,93 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  background-color: $color-bg-secondary;
+  @include elegant-transition('opacity', 300ms);
+
+  &.loaded {
+    .placeholder {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &[role='button'] {
+    cursor: pointer;
+
+    &:hover .image {
+      @include elegant-transition('transform', 300ms);
+      transform: scale(1.05);
+    }
+
+    &:focus {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  @include elegant-transition('transform', 300ms);
+}
+
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    $color-bg-secondary 0%,
+    rgba($color-bg-secondary, 0.8) 50%,
+    $color-bg-secondary 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include elegant-transition('opacity', 300ms);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba($color-primary, 0.2);
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Responsive behavior
+@include responsive($breakpoint-mobile) {
+  .imageContainer {
+    &[role='button']:hover .image {
+      transform: none; // Disable hover zoom on mobile
+    }
+  }
+}

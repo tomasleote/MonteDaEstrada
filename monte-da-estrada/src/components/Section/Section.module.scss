@@ -1,5 +1,5 @@
-@import '@/styles/variables';
-@import '@/styles/mixins';
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .section {
   width: 100%;
@@ -33,10 +33,10 @@
   }
 
   &.medium {
-    padding: $spacing-2xl 0;
+    padding: $spacing-xxl 0;
   }
 
   &.large {
-    padding: $spacing-4xl 0;
+    padding: $spacing-xxxl 0;
   }
 }

@@ -1,31 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
 import Container from '@/components/Container';
 import Section from '@/components/Section';
-import Slideshow from '@/components/Slideshow';
+import ResponsiveImage from '@/components/ResponsiveImage';
+import Lightbox from '@/components/Lightbox';
 import styles from './GaleriaPage.module.scss';
 import galeriaData from '@/data/galeria.json';
 import { seoConfig } from '@/utils/seo-config';
+import { galeriaImages } from '@/assets/images/galeria';
+import { homeImages } from '@/assets/images/home';
+import { exteriorImages } from '@/assets/images/exterior';
 
 const GaleriaPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Flatten all images from all categories
-  const allImages = galeriaData.categories.reduce((acc, category) => {
-    return [...acc, ...category.images];
+  // Combine all gallery images from different sources
+  const allGalleryImages = useMemo(() => {
+    return [
+      ...galeriaImages.gallery,
+      ...homeImages.gallery,
+      ...exteriorImages.amenities
+    ];
   }, []);
 
-  // Get filtered images based on selected category
-  const getFilteredImages = () => {
-    if (selectedCategory === 'all') {
-      return allImages;
-    }
-    const category = galeriaData.categories.find(cat => cat.id === selectedCategory);
-    return category ? category.images : [];
+  // Reason: Open lightbox at specific image index
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
   };
 
-  const filteredImages = getFilteredImages();
+  const handleCloseLightbox = () => {
+    setLightboxOpen(false);
+  };
 
   return (
     <div className={styles.galeriaPage}>
@@ -35,6 +43,7 @@ const GaleriaPage = () => {
         keywords={seoConfig.galeria.keywords}
         image={seoConfig.galeria.image}
       />
+
       {/* Hero Section */}
       <Hero
         backgroundImage={galeriaData.hero.image}
@@ -43,7 +52,7 @@ const GaleriaPage = () => {
         height="60vh"
       />
 
-      {/* Gallery Section */}
+      {/* Gallery Grid Section */}
       <Section padding="large">
         <Container>
           <div className={styles.header}>
@@ -51,27 +60,28 @@ const GaleriaPage = () => {
             <p className={styles.pageDescription}>{galeriaData.description}</p>
           </div>
 
-          {/* Category Filter */}
-          <div className={styles.filterContainer}>
-            <button
-              className={`${styles.filterButton} ${selectedCategory === 'all' ? styles.active : ''}`}
-              onClick={() => setSelectedCategory('all')}
-            >
-              Todas as Fotos ({allImages.length})
-            </button>
-            {galeriaData.categories.map((category) => (
-              <button
-                key={category.id}
-                className={`${styles.filterButton} ${selectedCategory === category.id ? styles.active : ''}`}
-                onClick={() => setSelectedCategory(category.id)}
+          {/* Masonry Grid Gallery */}
+          <div className={styles.galleryGrid}>
+            {allGalleryImages.map((image, index) => (
+              <div
+                key={index}
+                className={styles.galleryItem}
               >
-                {category.name} ({category.images.length})
-              </button>
+                <ResponsiveImage
+                  src={image.src}
+                  alt={image.alt}
+                  aspectRatio="4/3"
+                  objectFit="cover"
+                  className={styles.galleryImage}
+                  onClick={() => handleImageClick(index)}
+                  loading="lazy"
+                />
+                <div className={styles.imageOverlay}>
+                  <span className={styles.imageTitle}>{image.title}</span>
+                </div>
+              </div>
             ))}
           </div>
-
-          {/* Slideshow */}
-          <Slideshow images={filteredImages} autoPlayInterval={5000} />
         </Container>
       </Section>
 
@@ -89,6 +99,14 @@ const GaleriaPage = () => {
           </div>
         </Container>
       </Section>
+
+      {/* Lightbox */}
+      <Lightbox
+        images={allGalleryImages}
+        initialIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={handleCloseLightbox}
+      />
     </div>
   );
 };
