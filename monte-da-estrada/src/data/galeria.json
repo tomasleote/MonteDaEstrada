@@ -1,6 +1,7 @@
 {
   "hero": {
-    "image": "/images/hero-galeria.jpg",
+    "image": "/src/assets/images/galeria/galeria-hero-acessos.jpg",
+    "alt": "Galeria de imagens do Monte da Estrada",
     "title": "Galeria",
     "subtitle": "Conheça o Monte da Estrada"
   },
@@ -13,26 +14,22 @@
       "description": "A beleza da propriedade e da paisagem alentejana",
       "images": [
         {
-          "src": "/images/gallery/exterior-1.jpg",
-          "thumbnail": "/images/gallery/thumbs/exterior-1.jpg",
+          "src": "/src/assets/images/exterior/exterior-amenity-01.jpg",
           "alt": "Vista geral do Monte da Estrada",
           "caption": "Monte da Estrada - Vista geral da propriedade"
         },
         {
-          "src": "/images/gallery/exterior-2.jpg",
-          "thumbnail": "/images/gallery/thumbs/exterior-2.jpg",
+          "src": "/src/assets/images/exterior/exterior-amenity-02.jpg",
           "alt": "Jardim e área exterior",
           "caption": "Jardim com vista para o campo alentejano"
         },
         {
-          "src": "/images/gallery/exterior-3.jpg",
-          "thumbnail": "/images/gallery/thumbs/exterior-3.jpg",
+          "src": "/src/assets/images/exterior/exterior-amenity-03.jpg",
           "alt": "Piscina exterior",
           "caption": "Piscina de água salgada"
         },
         {
-          "src": "/images/gallery/exterior-4.jpg",
-          "thumbnail": "/images/gallery/thumbs/exterior-4.jpg",
+          "src": "/src/assets/images/exterior/exterior-amenity-04.jpg",
           "alt": "Terraço panorâmico",
           "caption": "Terraço com vista sobre a paisagem"
         }
@@ -44,26 +41,22 @@
       "description": "Acomodações confortáveis com charme tradicional",
       "images": [
         {
-          "src": "/images/gallery/room-1.jpg",
-          "thumbnail": "/images/gallery/thumbs/room-1.jpg",
+          "src": "/src/assets/images/quartos/quartos-room-01.jpg",
           "alt": "Quarto duplo",
           "caption": "Quarto duplo standard"
         },
         {
-          "src": "/images/gallery/room-2.jpg",
-          "thumbnail": "/images/gallery/thumbs/room-2.jpg",
+          "src": "/src/assets/images/quartos/quartos-room-03.jpg",
           "alt": "Quarto twin",
           "caption": "Quarto com duas camas individuais"
         },
         {
-          "src": "/images/gallery/room-3.jpg",
-          "thumbnail": "/images/gallery/thumbs/room-3.jpg",
+          "src": "/src/assets/images/quartos/quartos-room-05.jpg",
           "alt": "Quarto familiar",
           "caption": "Quarto familiar espaçoso"
         },
         {
-          "src": "/images/gallery/room-4.jpg",
-          "thumbnail": "/images/gallery/thumbs/room-4.jpg",
+          "src": "/src/assets/images/quartos/quartos-common-area-01.jpg",
           "alt": "Casa de banho",
           "caption": "Casa de banho privativa"
         }
@@ -75,26 +68,22 @@
       "description": "Espaços de convívio e relaxamento",
       "images": [
         {
-          "src": "/images/gallery/common-1.jpg",
-          "thumbnail": "/images/gallery/thumbs/common-1.jpg",
+          "src": "/src/assets/images/quartos/quartos-common-area-02.jpg",
           "alt": "Sala de estar",
           "caption": "Sala de estar comum"
         },
         {
-          "src": "/images/gallery/common-2.jpg",
-          "thumbnail": "/images/gallery/thumbs/common-2.jpg",
+          "src": "/src/assets/images/quartos/quartos-common-area-03.jpg",
           "alt": "Cozinha equipada",
           "caption": "Cozinha partilhada totalmente equipada"
         },
         {
-          "src": "/images/gallery/common-3.jpg",
-          "thumbnail": "/images/gallery/thumbs/common-3.jpg",
+          "src": "/src/assets/images/exterior/exterior-amenity-05.jpg",
           "alt": "Área de refeições",
           "caption": "Área de refeições exterior"
         },
         {
-          "src": "/images/gallery/common-4.jpg",
-          "thumbnail": "/images/gallery/thumbs/common-4.jpg",
+          "src": "/src/assets/images/exterior/exterior-amenity-06.jpg",
           "alt": "Zona de churrasqueira",
           "caption": "Churrasqueira e área de convívio"
         }
@@ -106,26 +95,22 @@
       "description": "A beleza natural do Alentejo",
       "images": [
         {
-          "src": "/images/gallery/landscape-1.jpg",
-          "thumbnail": "/images/gallery/thumbs/landscape-1.jpg",
+          "src": "/src/assets/images/home/home-property-view-05.jpg",
           "alt": "Campo alentejano",
           "caption": "Vista sobre os campos alentejanos"
         },
         {
-          "src": "/images/gallery/landscape-2.jpg",
-          "thumbnail": "/images/gallery/thumbs/landscape-2.jpg",
+          "src": "/src/assets/images/home/home-property-view-07.jpg",
           "alt": "Pôr do sol",
           "caption": "Pôr do sol sobre o Alentejo"
         },
         {
-          "src": "/images/gallery/landscape-3.jpg",
-          "thumbnail": "/images/gallery/thumbs/landscape-3.jpg",
+          "src": "/src/assets/images/home/home-property-view-10.jpg",
           "alt": "Natureza envolvente",
           "caption": "Flora e fauna da região"
         },
         {
-          "src": "/images/gallery/landscape-4.jpg",
-          "thumbnail": "/images/gallery/thumbs/landscape-4.jpg",
+          "src": "/src/assets/images/home/home-property-view-12.jpg",
           "alt": "Céu estrelado",
           "caption": "Céu noturno sem poluição luminosa"
         }

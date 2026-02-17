@@ -1,4 +1,9 @@
 {
+  "hero": {
+    "image": "/src/assets/images/exterior/exterior-hero-amenities.jpg",
+    "alt": "Comodidades e localização privilegiada do Monte da Estrada",
+    "title": "Localização e Comodidades"
+  },
   "title": "Localização e Como Chegar",
   "description": "O Monte da Estrada situa-se no Alentejo litoral, próximo de Zambujeira do Mar, numa localização privilegiada entre o campo e o mar.",
   "address": {

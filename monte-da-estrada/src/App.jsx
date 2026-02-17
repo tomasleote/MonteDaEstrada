@@ -1,6 +1,6 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/NavBar'
+import Header from './components/Header'
 import Footer from './components/Footer'
 import LoadingSpinner from './components/LoadingSpinner'
 import useScrollToTop from './hooks/useScrollToTop'
@@ -47,15 +47,39 @@ function App() {
   // Scroll to top on route change
   useScrollToTop()
 
+  // Language state for header (EN/PT)
+  const [currentLanguage, setCurrentLanguage] = useState('PT')
+
+  // Handler for RESERVAS button click
+  const handleReservasClick = () => {
+    // TODO: Integrate with booking system
+    // For now, navigate to external booking page or show modal
+    window.location.href = 'https://www.booking.com/' // Replace with actual booking URL
+  }
+
+  // Handler for language change
+  const handleLanguageChange = (lang) => {
+    setCurrentLanguage(lang)
+    // TODO: Implement i18n language switching
+    console.log(`Language changed to: ${lang}`)
+  }
+
   return (
     <div className="app">
       <a href="#main-content" className="skip-to-main">
         Saltar para o conteúdo principal
       </a>
 
-      <NavBar navItems={navItems} />
+      <Header
+        brandName="Monte da Estrada"
+        navigationItems={navItems}
+        sticky={true}
+        onReservasClick={handleReservasClick}
+        currentLanguage={currentLanguage}
+        onLanguageChange={handleLanguageChange}
+      />
 
-      <main id="main-content" style={{ minHeight: 'calc(100vh - 70px)', paddingTop: '70px' }}>
+      <main id="main-content" style={{ minHeight: 'calc(100vh - 192px)', paddingTop: '0' }}>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             {/* Public Routes */}

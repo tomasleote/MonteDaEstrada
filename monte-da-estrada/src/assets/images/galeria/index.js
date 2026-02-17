@@ -13,33 +13,33 @@ export const galeriaImages = {
   heroes: [
     {
       src: galeriaHeroAcessos,
-      alt: 'Access and directions to Monte da Estrada',
-      title: 'Access Information',
+      alt: 'Acesso e direções para Monte da Estrada',
+      title: 'Informações de Acesso',
       category: 'info'
     },
     {
       src: galeriaHeroInformacoes,
-      alt: 'General information about Monte da Estrada',
-      title: 'General Information',
+      alt: 'Informações gerais sobre Monte da Estrada',
+      title: 'Informações Gerais',
       category: 'info'
     },
     {
       src: galeriaHeroPrecos,
-      alt: 'Pricing information for Monte da Estrada accommodations',
-      title: 'Pricing',
+      alt: 'Informações de preços das acomodações',
+      title: 'Preços',
       category: 'info'
     }
   ],
   gallery: [
     {
       src: dsc0946,
-      alt: 'Monte da Estrada property detail',
-      title: 'Property Detail 1'
+      alt: 'Detalhe da propriedade Monte da Estrada',
+      title: 'Detalhe da Propriedade 1'
     },
     {
       src: dsc0967,
-      alt: 'Monte da Estrada property feature',
-      title: 'Property Detail 2'
+      alt: 'Característica da propriedade Monte da Estrada',
+      title: 'Detalhe da Propriedade 2'
     }
   ]
 };

@@ -1,0 +1,27 @@
+{
+  "siteLogo": "/src/assets/images/logos/logo-monte-estrada-text.jpg",
+  "siteLogoAlt": "Monte da Estrada - Turismo Rural no Alentejo",
+  "partnerLogos": [
+    {
+      "name": "Associação de Desenvolvimento Local",
+      "logo": "/src/assets/images/logos/logo-adl-partner.jpg",
+      "alt": "ADL - Associação de Desenvolvimento Local",
+      "url": ""
+    },
+    {
+      "name": "Leader EU Funding",
+      "logo": "/src/assets/images/logos/logo-leader-eu-funding-banner.jpg",
+      "alt": "Programa LEADER - Financiamento União Europeia",
+      "url": ""
+    },
+    {
+      "name": "Turismo Rural",
+      "logo": "/src/assets/images/logos/logo-turismo-rural-badge.jpg",
+      "alt": "Turismo Rural - Alojamento Certificado",
+      "url": ""
+    }
+  ],
+  "favicon": "/src/assets/images/logos/logo-monte-estrada-text.jpg",
+  "metaImage": "/src/assets/images/home/home-hero-monte-exterior.jpg",
+  "metaImageAlt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo no Alentejo"
+}

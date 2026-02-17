@@ -1,4 +1,9 @@
 {
+  "hero": {
+    "image": "/src/assets/images/redondezas/redondezas-hero-region.jpg",
+    "alt": "Região do Alentejo e Costa Vicentina",
+    "title": "A Região"
+  },
   "title": "A Região - Alentejo e Costa Vicentina",
   "description": "Explore os tesouros do Alentejo litoral e da Costa Vicentina, uma região única de beleza natural e autenticidade.",
   "region": {

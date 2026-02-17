@@ -595,6 +595,42 @@ collections:
         name: "settings"
         file: "monte-da-estrada/src/data/site-settings.json"
         fields:
+          # HEADER CONFIGURATION
+          - label: "Configurações do Cabeçalho"
+            name: "header"
+            widget: "object"
+            fields:
+              - label: "Nome da Marca"
+                name: "brandName"
+                widget: "string"
+                required: true
+                default: "Monte da Estrada"
+              - label: "Logotipo do Cabeçalho"
+                name: "logo"
+                widget: "image"
+                required: false
+                hint: "Logotipo circular para o cabeçalho (recomendado: 60x60px)"
+              - label: "Texto Alternativo do Logotipo"
+                name: "logoAlt"
+                widget: "string"
+                required: false
+                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+              - label: "URL do Botão de Reservas"
+                name: "reservasUrl"
+                widget: "string"
+                required: true
+                default: "https://www.booking.com/"
+                hint: "Link para o sistema de reservas (Booking.com, site próprio, etc.)"
+              - label: "Língua Padrão"
+                name: "defaultLanguage"
+                widget: "select"
+                options: ["PT", "EN"]
+                default: "PT"
+              - label: "Mostrar Seletor de Língua"
+                name: "showLanguageSelector"
+                widget: "boolean"
+                default: true
+
           - label: "Logotipo do Site"
             name: "siteLogo"
             widget: "image"

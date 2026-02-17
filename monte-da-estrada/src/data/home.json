@@ -2,8 +2,31 @@
   "hero": {
     "title": "Monte da Estrada",
     "subtitle": "Turismo Rural no Alentejo",
-    "image": "/images/hero-monte.jpg"
+    "image": "/src/assets/images/home/home-hero-monte-exterior.jpg",
+    "alt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo"
   },
+  "featureImages": [
+    {
+      "src": "/src/assets/images/home/home-property-view-01.jpg",
+      "alt": "Vista da propriedade Monte da Estrada pela entrada principal",
+      "title": "Entrada Principal"
+    },
+    {
+      "src": "/src/assets/images/home/home-property-view-02.jpg",
+      "alt": "Paisagem envolvente do Monte da Estrada com campos verdes",
+      "title": "Paisagem Envolvente"
+    },
+    {
+      "src": "/src/assets/images/home/home-property-view-03.jpg",
+      "alt": "Vista da propriedade mostrando arquitetura tradicional portuguesa",
+      "title": "Arquitetura Tradicional"
+    },
+    {
+      "src": "/src/assets/images/home/home-property-view-04.jpg",
+      "alt": "Vista panorâmica da propriedade e zona rural",
+      "title": "Vista Panorâmica"
+    }
+  ],
   "welcome": {
     "title": "Bem-vindo ao Monte da Estrada",
     "paragraphs": [

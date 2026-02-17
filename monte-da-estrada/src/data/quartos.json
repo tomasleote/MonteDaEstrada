@@ -1,4 +1,9 @@
 {
+  "hero": {
+    "image": "/src/assets/images/quartos/quartos-hero-rooms-overview.jpg",
+    "alt": "Visão geral dos quartos luxuosos do Monte da Estrada",
+    "title": "Os Nossos Quartos"
+  },
   "title": "Quartos e Instalações",
   "description": "Acomodações confortáveis num ambiente tradicional alentejano, com todas as comodidades modernas.",
   "rooms": [
@@ -14,8 +19,12 @@
         "Vista para o campo"
       ],
       "images": [
-        "/images/rooms/double-standard-1.jpg",
-        "/images/rooms/double-standard-2.jpg"
+        "/src/assets/images/quartos/quartos-room-01.jpg",
+        "/src/assets/images/quartos/quartos-room-02.jpg"
+      ],
+      "imageAlts": [
+        "Quarto duplo standard com cama de casal e decoração tradicional",
+        "Casa de banho privativa do quarto duplo com todo o conforto moderno"
       ]
     },
     {
@@ -30,8 +39,12 @@
         "Varanda"
       ],
       "images": [
-        "/images/rooms/twin-1.jpg",
-        "/images/rooms/twin-2.jpg"
+        "/src/assets/images/quartos/quartos-room-03.jpg",
+        "/src/assets/images/quartos/quartos-room-04.jpg"
+      ],
+      "imageAlts": [
+        "Quarto twin com duas camas individuais e vista para o campo",
+        "Casa de banho do quarto twin com design moderno"
       ]
     },
     {
@@ -46,8 +59,12 @@
         "Espaço amplo"
       ],
       "images": [
-        "/images/rooms/family-1.jpg",
-        "/images/rooms/family-2.jpg"
+        "/src/assets/images/quartos/quartos-room-05.jpg",
+        "/src/assets/images/quartos/quartos-room-06.jpg"
+      ],
+      "imageAlts": [
+        "Quarto familiar espaçoso com múltiplas camas",
+        "Casa de banho do quarto familiar completamente equipada"
       ]
     }
   ],

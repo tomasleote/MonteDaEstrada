@@ -1,4 +1,9 @@
 {
+  "hero": {
+    "image": "/src/assets/images/atividades/atividades-hero-activities.jpg",
+    "alt": "Atividades e experiências disponíveis no Alentejo",
+    "title": "Atividades e Experiências"
+  },
   "title": "Atividades e Experiências",
   "description": "Descubra as múltiplas experiências que o Alentejo tem para oferecer, desde atividades ao ar livre até à descoberta da gastronomia local.",
   "activities": [
