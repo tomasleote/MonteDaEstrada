@@ -180,6 +180,7 @@ When borders are needed:
 - Light dividers: rgba(0, 0, 0, 0.1)
 - Medium dividers: rgba(0, 0, 0, 0.2)
 
+Borders are not needed in the header
 ---
 
 ## 3. Spacing System

@@ -1,0 +1,300 @@
+// ==================================
+// DESIGN TOKENS - Touril Ecosystem
+// ==================================
+// Shared design system for all Touril ecosystem websites
+// Based on Herdade do Touril visual audit + Monte da Estrada Header implementation
+
+// ============================================
+// COLOR PALETTE (Touril-aligned)
+// ============================================
+
+// Primary Brand Colors (Black - exact from Header)
+$color-primary: #0A0203;           // Deep black (exact from working header)
+$color-primary-light: #222222;     // Lighter black/charcoal
+$color-primary-lighter: #333333;   // Medium charcoal
+
+// Accent Colors (Gold - exact from working Header & Touril)
+$color-accent: #FBAB18;             // Bright gold/yellow (verified from Header)
+$color-accent-dark: #E09600;        // Darker gold (calculated variant)
+$color-accent-light: #FFD580;       // Light gold/cream
+
+// Neutral Palette (White & Gray Tones)
+$color-neutral-white: #FFFFFF;      // Pure white
+$color-neutral-off-white: #F8F8F8;  // Off-white (Touril aesthetic)
+$color-neutral-light-gray: #EAEAEA; // Light gray
+$color-neutral-gray: #CACACA;       // Medium gray
+$color-neutral-dark-gray: #777777;  // Dark gray
+$color-neutral-black: #0A0A0A;      // Very dark black
+
+// Text Colors
+$color-text-primary: #0A0203;       // Main text (very dark black - from Header)
+$color-text-secondary: #777777;     // Secondary text
+$color-text-muted: #999999;         // Muted/placeholder
+$color-text-light: #FFFFFF;         // Light text on dark backgrounds
+
+// Semantic Colors
+$color-success: #FBAB18;            // Gold (matches brand accent)
+$color-warning: #E67E22;            // Orange
+$color-error: #E80000;              // Red
+$color-info: #3498DB;               // Blue
+
+// Backgrounds
+$color-bg-primary: #FFFFFF;              // Pure white
+$color-bg-secondary: #F8F8F8;            // Off-white (Touril aesthetic)
+$color-bg-tertiary: #FEFEFE;             // Very light off-white
+$color-bg-dark: #0A0203;                 // Black background (exact from Header)
+$color-bg-overlay: rgba(10, 2, 3, 0.6);  // Semi-transparent black overlay
+
+// Borders
+$color-border: #CACACA;              // Medium gray border
+$color-border-light: #EAEAEA;        // Light gray border
+$color-border-dark: #777777;         // Dark gray border
+$color-border-medium: #CACACA;       // Deprecated alias
+
+// Deprecated color aliases (for backwards compatibility)
+$color-primary-dark: $color-primary;
+$color-secondary: $color-accent;
+$color-secondary-light: $color-accent-light;
+$color-secondary-dark: $color-accent-dark;
+
+// ============================================
+// TYPOGRAPHY (Touril Design - Open Sans)
+// ============================================
+
+// Font Families (Touril uses Open Sans for all text)
+$font-family-primary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-secondary: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-family-mono: 'Courier New', monospace;
+
+// Font Sizes (REM-based for scalability)
+// Touril sizing: H1=32px, H2=28px, Body=14px
+$font-size-h1: 2rem;                // 32px (Touril H1)
+$font-size-h2: 1.75rem;             // 28px (Touril H2)
+$font-size-h3: 2.125rem;            // 34px
+$font-size-h4: 1.5rem;              // 24px
+$font-size-h5: 1.25rem;             // 20px
+$font-size-h6: 1rem;                // 16px
+
+$font-size-body-large: 1.125rem;    // 18px
+$font-size-body: 0.875rem;          // 14px (Touril body size)
+$font-size-body-small: 0.875rem;    // 14px
+$font-size-body-extra-small: 0.75rem; // 12px
+
+$font-size-caption: 0.75rem;        // 12px
+$font-size-label: 0.875rem;         // 14px
+
+// Deprecated (kept for backwards compatibility)
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-base: 1rem;     // 16px
+$font-size-md: 1.125rem;   // 18px
+$font-size-lg: 1.25rem;    // 20px
+$font-size-xl: 1.5rem;     // 24px
+$font-size-2xl: 2rem;      // 32px
+$font-size-3xl: 2.5rem;    // 40px
+$font-size-4xl: 3rem;      // 48px
+
+// Font Weights (Touril: 300 for headings, 400 for body)
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights (Touril: 1.4 for headings, 1.71 for body)
+$line-height-tight: 1.4;            // For headings (Touril)
+$line-height-base: 1.5;
+$line-height-relaxed: 1.71;         // Body text (Touril - very spacious)
+$line-height-loose: 2;
+
+// Letter Spacing (Touril: 1px for all text - critical!)
+$letter-spacing-tight: -0.5px;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.5px;
+$letter-spacing-extra-wide: 1px;    // Touril standard (1px) - used everywhere
+$letter-spacing-touril: 1px;        // Explicit Touril token
+
+// Deprecated line-height aliases
+$line-height-normal: $line-height-base;
+
+// ============================================
+// SPACING SYSTEM
+// ============================================
+
+// Base spacing unit (8px system)
+$spacing-unit: 8px;
+
+// Spacing scale
+$spacing-xs: $spacing-unit * 0.5;   // 4px
+$spacing-s: $spacing-unit * 1;      // 8px
+$spacing-m: $spacing-unit * 2;      // 16px
+$spacing-l: $spacing-unit * 3;      // 24px
+$spacing-xl: $spacing-unit * 4;     // 32px
+$spacing-xxl: $spacing-unit * 5;    // 40px
+$spacing-xxxl: $spacing-unit * 6;   // 48px
+
+// Deprecated (kept for backwards compatibility)
+$spacing-sm: $spacing-unit;          // 8px
+$spacing-md: $spacing-unit * 2;      // 16px
+$spacing-2xl: $spacing-unit * 6;     // 48px
+$spacing-3xl: $spacing-unit * 8;     // 64px
+$spacing-4xl: $spacing-unit * 10;    // 80px
+
+// Semantic spacing
+$margin-section: $spacing-xxxl;
+$padding-section: $spacing-xxxl;
+$gap-grid: $spacing-l;
+$gap-flex: $spacing-m;
+
+// Touril-specific section spacing (50px)
+$spacing-section-touril: 50px;
+
+// ============================================
+// LAYOUT
+// ============================================
+
+// Container widths
+$container-max-width: 1200px;
+$container-padding: $spacing-l;  // 24px
+
+// Grid
+$grid-columns: 12;
+$grid-gap: $spacing-m;  // 16px
+
+// ============================================
+// RESPONSIVE BREAKPOINTS
+// ============================================
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-wide: 1440px;
+
+// Container widths
+$container-mobile: 100%;
+$container-tablet: 90%;
+$container-desktop: 1200px;
+$container-desktop-wide: 1320px;
+
+// Deprecated (kept for backwards compatibility)
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+// ============================================
+// BORDERS & RADIUS (Touril: 0px sharp aesthetic)
+// ============================================
+
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 4px;
+
+// Touril uses sharp corners (0px) for architectural feel
+$border-radius-sharp: 0px;
+$border-radius-slight: 4px;
+$border-radius-rounded: 8px;
+$border-radius-full: 50%;
+
+// Deprecated (kept for backwards compatibility)
+$border-radius-sm: $border-radius-slight;
+$border-radius-md: $border-radius-rounded;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-2xl: 24px;
+
+// ============================================
+// VISUAL EFFECTS (Touril: minimal/flat aesthetic)
+// ============================================
+
+// Shadows (Luxury aesthetic - subtle, Touril prefers flat/none)
+$shadow-subtle: 0 1px 3px rgba(26, 26, 26, 0.08);
+$shadow-medium: 0 4px 12px rgba(26, 26, 26, 0.12);
+$shadow-strong: 0 12px 32px rgba(26, 26, 26, 0.16);
+$shadow-hover: 0 8px 24px rgba(26, 26, 26, 0.15);
+
+// Deprecated (kept for backwards compatibility)
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+$shadow-md: 0 1px 3px rgba(0, 0, 0, 0.5);
+$shadow-lg: 0 1px 4px rgba(0, 0, 0, 0.6);
+$shadow-xl: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+// Transitions (Touril: 0.3s standard)
+$transition-timing-slow: cubic-bezier(0.4, 0, 0.2, 1);      // Material Motion
+$transition-timing-normal: cubic-bezier(0.4, 0, 0.6, 1);    // Ease in-out
+$transition-timing-fast: cubic-bezier(0.4, 0, 1, 1);        // Ease out
+
+$transition-duration-quick: 150ms;
+$transition-duration-normal: 300ms;
+$transition-duration-slow: 500ms;
+
+// Deprecated (kept for backwards compatibility)
+$transition-fast: 0.2s;
+$transition-normal: 0.3s;            // Touril standard (0.3s, not 0.4s)
+$transition-slow: 0.6s;
+
+// Easing functions
+$ease-standard: ease;
+$ease-in-out: cubic-bezier(0.37, 0, 0.63, 1);
+$ease-out-back: cubic-bezier(0.87, 0, 0.13, 1);
+
+// Combined transitions
+$transition-all-fast: all $transition-fast $ease-standard;
+$transition-all-normal: all $transition-normal $ease-standard;
+$transition-opacity: opacity $transition-fast $ease-in-out;
+$transition-transform: transform $transition-normal $ease-out-back;
+
+// Opacity
+$opacity-hover: 0.85;
+$opacity-disabled: 0.5;
+$opacity-overlay: 0.7;
+
+// ------------------------------------
+// FLUID TYPOGRAPHY (using clamp)
+// ------------------------------------
+
+:root {
+  // Fluid font sizes (scale from mobile to desktop)
+  --font-size-xs-fluid: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);    // 12px → 14px
+  --font-size-sm-fluid: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);      // 14px → 16px
+  --font-size-base-fluid: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);      // 16px → 18px
+  --font-size-lg-fluid: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);     // 18px → 20px
+  --font-size-xl-fluid: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);      // 20px → 24px
+  --font-size-2xl-fluid: clamp(1.5rem, 1.3rem + 1vw, 2rem);           // 24px → 32px
+  --font-size-3xl-fluid: clamp(2rem, 1.7rem + 1.5vw, 2.5rem);         // 32px → 40px
+  --font-size-4xl-fluid: clamp(2.5rem, 2rem + 2.5vw, 3rem);           // 40px → 48px
+
+  // Fluid spacing (scale with viewport)
+  --spacing-xs-fluid: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);        // 4px → 8px
+  --spacing-sm-fluid: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);            // 8px → 16px
+  --spacing-md-fluid: clamp(1rem, 0.8rem + 1vw, 1.5rem);              // 16px → 24px
+  --spacing-lg-fluid: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);            // 24px → 32px
+  --spacing-xl-fluid: clamp(2rem, 1.6rem + 2vw, 3rem);                // 32px → 48px
+}
+
+// ------------------------------------
+// TOUCH TARGETS (44×44px minimum)
+// ------------------------------------
+
+$touch-target-min: 44px;
+$touch-target-comfortable: 48px;
+$touch-target-large: 56px;
+
+// Touch-friendly spacing (thumb-zone optimization)
+$touch-spacing-sm: 8px;
+$touch-spacing-md: 16px;
+$touch-spacing-lg: 24px;
+
+// ------------------------------------
+// Z-INDEX LAYERS
+// ------------------------------------
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;

@@ -1,0 +1,942 @@
+// ==================================
+// SCSS MIXINS - Shared Component Library
+// ==================================
+// Reusable patterns for Touril ecosystem components
+@use './variables' as *;
+
+// ============================================
+// LUXURY COMPONENT MIXINS
+// ============================================
+
+/**
+ * Luxury Card Pattern
+ * Applies premium card styling with subtle shadow and elegant hover
+ */
+@mixin luxury-card {
+  background-color: $color-bg-primary;
+  border: 1px solid $color-border-light;
+  border-radius: $border-radius-slight;
+  box-shadow: $shadow-subtle;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-2px);
+  }
+
+  &:focus-within {
+    box-shadow: $shadow-medium;
+    outline: 2px solid $color-primary;
+  }
+}
+
+/**
+ * Image Overlay Pattern
+ * Creates elegant gradient overlay for images
+ */
+@mixin image-overlay-gradient($color: $color-primary, $opacity: 0.5, $direction: 'to bottom') {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      #{$direction},
+      rgba($color, $opacity),
+      rgba($color, 0)
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+/**
+ * Elegant Transition
+ * Smooth, sophisticated animation with proper easing
+ */
+@mixin elegant-transition($property: 'all', $duration: $transition-duration-normal) {
+  transition: $property $duration $transition-timing-normal;
+  will-change: $property;
+}
+
+/**
+ * Responsive Hero Section
+ * Full-bleed hero with responsive behavior
+ */
+@mixin responsive-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 400px;
+  max-height: 800px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-tablet) {
+    height: auto;
+    min-height: 50vh;
+    background-attachment: scroll;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    min-height: 40vh;
+  }
+}
+
+/**
+ * Gallery Grid System
+ * Responsive grid layout for image galleries
+ */
+@mixin gallery-grid($cols-desktop: 3, $cols-tablet: 2, $cols-mobile: 1) {
+  display: grid;
+  grid-template-columns: repeat($cols-desktop, 1fr);
+  gap: $gap-grid;
+  width: 100%;
+
+  @media (max-width: $breakpoint-desktop) {
+    grid-template-columns: repeat($cols-tablet, 1fr);
+    gap: $gap-grid * 0.75;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    grid-template-columns: repeat($cols-mobile, 1fr);
+    gap: $gap-grid * 0.5;
+  }
+}
+
+/**
+ * Image Aspect Ratio Container
+ * Maintains consistent aspect ratio for responsive images
+ */
+@mixin aspect-ratio-new($ratio) {
+  position: relative;
+  padding-bottom: (1 / $ratio) * 100%;
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/**
+ * Text Elegance
+ * Applies sophisticated typography with optical adjustments
+ */
+@mixin text-elegance(
+  $size: $font-size-body,
+  $line-height: $line-height-base,
+  $letter-spacing: $letter-spacing-normal,
+  $font-family: $font-family-secondary
+) {
+  font-family: $font-family;
+  font-size: $size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $color-text-primary;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Container Padding
+ * Responsive container with proper padding
+ */
+@mixin container-padding {
+  padding: 0 $spacing-m;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 0 $spacing-l;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+/**
+ * Focus States for Accessibility
+ * Visible focus ring for keyboard navigation
+ */
+@mixin focus-ring {
+  &:focus,
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+/**
+ * Hidden (Visually) but Accessible
+ * Hide element from visual but keep for screen readers
+ */
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/**
+ * Responsive Typography
+ * Scales font size based on viewport
+ */
+@mixin responsive-font($mobile, $desktop) {
+  font-size: $mobile;
+
+  @media (min-width: $breakpoint-desktop) {
+    font-size: $desktop;
+  }
+}
+
+// ------------------------------------
+// LAYOUT MIXINS
+// ------------------------------------
+
+// Flexbox centering
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flexbox column
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Flexbox row with gap
+@mixin flex-row($gap: $spacing-m) {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+}
+
+// Container with max-width and responsive padding
+@mixin container {
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+
+  @include mobile {
+    padding-left: $spacing-m;
+    padding-right: $spacing-m;
+  }
+
+  @media (max-width: $breakpoint-xs) {
+    padding-left: $spacing-s;
+    padding-right: $spacing-s;
+  }
+}
+
+// Grid layout
+@mixin grid($columns: 3, $gap: $grid-gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// ------------------------------------
+// RESPONSIVE MIXINS
+// ------------------------------------
+
+// Media query for mobile
+@mixin mobile {
+  @media (max-width: $breakpoint-tablet - 1) {
+    @content;
+  }
+}
+
+// Media query for tablet
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1) {
+    @content;
+  }
+}
+
+// Media query for desktop
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Custom breakpoint
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Min-width breakpoint
+@mixin min-width($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// Responsive mixin using new breakpoint variable names
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'mobile' {
+    @media (max-width: $breakpoint-tablet - 1) {
+      @content;
+    }
+  } @else if $breakpoint == 'tablet' {
+    @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1) {
+      @content;
+    }
+  } @else if $breakpoint == 'desktop' {
+    @media (min-width: $breakpoint-desktop) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// ------------------------------------
+// ORIENTATION DETECTION
+// ------------------------------------
+
+// Portrait orientation
+@mixin portrait {
+  @media (orientation: portrait) {
+    @content;
+  }
+}
+
+// Landscape orientation
+@mixin landscape {
+  @media (orientation: landscape) {
+    @content;
+  }
+}
+
+// Mobile in landscape mode
+@mixin mobile-landscape {
+  @media (max-width: $breakpoint-tablet - 1) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Tablet in portrait mode
+@mixin tablet-portrait {
+  @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop - 1) and (orientation: portrait) {
+    @content;
+  }
+}
+
+// ------------------------------------
+// TYPOGRAPHY MIXINS
+// ------------------------------------
+
+// Heading styles
+@mixin heading-base {
+  font-family: $font-family-primary;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  margin-bottom: $spacing-m;
+}
+
+@mixin h1 {
+  @include heading-base;
+  font-size: var(--font-size-4xl-fluid, $font-size-h1);
+
+  @supports not (font-size: clamp(1rem, 2vw, 3rem)) {
+    font-size: $font-size-h1;
+
+    @include mobile {
+      @include responsive-font($font-size-h3, $font-size-h1);
+    }
+  }
+}
+
+@mixin h2 {
+  @include heading-base;
+  font-size: var(--font-size-3xl-fluid, $font-size-h2);
+
+  @supports not (font-size: clamp(1rem, 2vw, 3rem)) {
+    font-size: $font-size-h2;
+
+    @include mobile {
+      @include responsive-font($font-size-h4, $font-size-h2);
+    }
+  }
+}
+
+@mixin h3 {
+  @include heading-base;
+  font-size: var(--font-size-2xl-fluid, $font-size-h3);
+
+  @supports not (font-size: clamp(1rem, 2vw, 3rem)) {
+    font-size: $font-size-h3;
+
+    @include mobile {
+      @include responsive-font($font-size-h5, $font-size-h3);
+    }
+  }
+}
+
+// Body text
+@mixin text-body {
+  font-family: $font-family-secondary;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-base;
+  color: $color-text-primary;
+}
+
+// Text truncation
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Multi-line truncation
+@mixin text-truncate-lines($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ------------------------------------
+// TOURIL-SPECIFIC TYPOGRAPHY MIXINS
+// ------------------------------------
+
+/**
+ * Touril text base (1px letter-spacing - critical!)
+ */
+@mixin touril-text {
+  font-family: $font-family-primary;
+  letter-spacing: $letter-spacing-touril;  // 1px everywhere
+}
+
+/**
+ * Touril H1 (32px, light weight 300, 1.4 line-height, 1px letter-spacing)
+ */
+@mixin touril-h1 {
+  @include touril-text;
+  font-size: $font-size-h1;           // 32px
+  font-weight: $font-weight-light;    // 300
+  line-height: $line-height-tight;    // 1.4
+  color: $color-text-primary;
+  margin-bottom: $spacing-m;
+}
+
+/**
+ * Touril H2 (28px, light weight 300, 1.4 line-height, 1px letter-spacing)
+ */
+@mixin touril-h2 {
+  @include touril-text;
+  font-size: $font-size-h2;           // 28px
+  font-weight: $font-weight-light;    // 300
+  line-height: $line-height-tight;    // 1.4
+  color: $color-text-primary;
+  margin-bottom: $spacing-m;
+}
+
+/**
+ * Touril body text (14px, regular weight 400, 1.71 line-height, 1px letter-spacing)
+ */
+@mixin touril-body {
+  @include touril-text;
+  font-size: $font-size-body;         // 14px
+  font-weight: $font-weight-regular;  // 400
+  line-height: $line-height-relaxed;  // 1.71
+  color: $color-text-primary;
+}
+
+/**
+ * Touril button (gold accent, sharp corners, no shadow, 1px letter-spacing)
+ */
+@mixin touril-button-primary {
+  @include touril-text;
+  @include touch-target;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-s $spacing-l;
+
+  background-color: $color-accent;    // Gold
+  color: $color-text-primary;         // Dark text on gold
+  border: none;
+  border-radius: 0px;                 // Sharp corners
+
+  font-size: $font-size-body-small;   // 14px
+  font-weight: $font-weight-regular;
+
+  cursor: pointer;
+  transition: all $transition-duration-normal $transition-timing-fast;
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-dark;
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+/**
+ * Touril card (flat, no shadow, sharp corners)
+ */
+@mixin touril-card {
+  background-color: $color-bg-primary;
+  border: none;
+  border-radius: 0px;                 // Sharp corners
+  box-shadow: none;                   // No elevation (flat design)
+  padding: $spacing-l;
+  transition: transform $transition-duration-normal $transition-timing-standard;
+
+  &:hover {
+    transform: translateY(-2px);       // Subtle lift instead of shadow
+  }
+}
+
+/**
+ * Touril section spacing (50px top/bottom padding, Touril aesthetic)
+ */
+@mixin touril-section {
+  padding-top: $spacing-section-touril;    // 50px
+  padding-bottom: $spacing-section-touril; // 50px
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+
+/**
+ * Touril image treatment (sharp corners, no border, cover)
+ */
+@mixin touril-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: none;
+  border-radius: 0px;                 // Sharp corners
+  display: block;
+}
+
+/**
+ * Touril fixed header (transparent/semi-transparent, high z-index)
+ */
+@mixin touril-fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+
+  @include mobile {
+    background-color: rgba(255, 255, 255, 1);  // Solid on mobile
+  }
+}
+
+// ------------------------------------
+// BUTTON MIXINS
+// ------------------------------------
+
+// Base button styles
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-s $spacing-l;
+  border: none;
+  border-radius: $border-radius-rounded;
+  font-family: $font-family-secondary;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: $transition-all-fast;
+  text-decoration: none;
+  touch-action: manipulation;
+  @include touch-target;
+
+  @include touch-device {
+    padding: $spacing-m $spacing-l;
+  }
+
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+  }
+}
+
+// Primary button
+@mixin button-primary {
+  @include button-base;
+  @include touch-ripple($color-primary);
+  @include touch-press;
+  background-color: $color-primary;
+  color: $color-text-light;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-light;
+    box-shadow: $shadow-medium;
+  }
+
+  &:focus {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// Secondary button (gold accent)
+@mixin button-secondary {
+  @include button-base;
+  @include touch-ripple($color-accent);
+  @include touch-press;
+  background-color: $color-accent;
+  color: $color-text-primary;
+
+  &:hover:not(:disabled) {
+    background-color: $color-accent-dark;
+    box-shadow: $shadow-medium;
+  }
+}
+
+// Outline button
+@mixin button-outline {
+  @include button-base;
+  @include touch-highlight($color-primary);
+  @include touch-press;
+  background-color: transparent;
+  color: $color-primary;
+  border: $border-width-medium solid $color-primary;
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary;
+    color: $color-text-light;
+  }
+}
+
+// ------------------------------------
+// CARD MIXINS
+// ------------------------------------
+
+@mixin card {
+  background-color: $color-bg-primary;
+  border-radius: $border-radius-rounded;
+  box-shadow: $shadow-subtle;
+  padding: $spacing-l;
+  transition: $transition-all-fast;
+  border: 1px solid $color-border-light;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transform: translateY(-2px);
+  }
+}
+
+// ------------------------------------
+// IMAGE MIXINS
+// ------------------------------------
+
+// Cover image
+@mixin image-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// Responsive image
+@mixin image-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Image overlay
+@mixin image-overlay($opacity: 0.5) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, $opacity);
+    transition: $transition-opacity;
+    z-index: 1;
+  }
+
+  &:hover::after {
+    opacity: 0.7;
+  }
+}
+
+// ------------------------------------
+// FORM MIXINS
+// ------------------------------------
+
+// Input field base
+@mixin input-base {
+  width: 100%;
+  padding: $spacing-m;
+  border: $border-width-thin solid $color-border;
+  border-radius: $border-radius-rounded;
+  font-family: $font-family-secondary;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+  background-color: $color-bg-primary;
+  transition: $transition-all-fast;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+  }
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:disabled {
+    background-color: $color-bg-secondary;
+    cursor: not-allowed;
+    opacity: $opacity-disabled;
+  }
+}
+
+// ------------------------------------
+// ANIMATION MIXINS
+// ------------------------------------
+
+// Fade in animation
+@mixin fade-in($duration: $transition-normal) {
+  animation: fadeIn $duration $ease-standard;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Slide in from bottom
+@mixin slide-in-up($duration: $transition-normal) {
+  animation: slideInUp $duration $ease-out-back;
+
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+// ------------------------------------
+// TOUCH DEVICE DETECTION
+// ------------------------------------
+
+// Target touch devices only
+@mixin touch-device {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+// Target devices with hover support
+@mixin hover-device {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+// Target hybrid devices
+@mixin hybrid-device {
+  @media (hover: hover) and (pointer: coarse) {
+    @content;
+  }
+}
+
+// Disable hover effects on touch devices
+@mixin no-touch-hover {
+  @include touch-device {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// Ensure minimum touch target size
+@mixin touch-target($size: $touch-target-min) {
+  min-width: $size;
+  min-height: $size;
+  padding: max($spacing-s, calc(($size - 1em) / 2));
+
+  @include touch-device {
+    min-width: $touch-target-comfortable;
+    min-height: $touch-target-comfortable;
+  }
+}
+
+// Touch ripple effect
+@mixin touch-ripple($color: $color-primary) {
+  position: relative;
+  overflow: hidden;
+
+  @include touch-device {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background-color: rgba($color, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s ease-out, height 0.4s ease-out;
+    }
+
+    &:active::after {
+      width: 200%;
+      height: 200%;
+    }
+  }
+}
+
+// Touch press effect
+@mixin touch-press {
+  @include touch-device {
+    &:active {
+      transform: scale(0.97);
+      transition: transform 0.1s ease-out;
+    }
+  }
+}
+
+// Touch highlight
+@mixin touch-highlight($color: $color-primary) {
+  -webkit-tap-highlight-color: rgba($color, 0.2);
+
+  @include touch-device {
+    &:active {
+      background-color: rgba($color, 0.05);
+    }
+  }
+}
+
+// ------------------------------------
+// SAFE AREA MIXINS
+// ------------------------------------
+
+// Safe area padding
+@mixin safe-area-padding($side: all) {
+  @if $side == all {
+    padding-top: var(--safe-padding-top);
+    padding-right: var(--safe-padding-right);
+    padding-bottom: var(--safe-padding-bottom);
+    padding-left: var(--safe-padding-left);
+  } @else if $side == top {
+    padding-top: var(--safe-padding-top);
+  } @else if $side == bottom {
+    padding-bottom: var(--safe-padding-bottom);
+  } @else if $side == horizontal {
+    padding-right: var(--safe-padding-right);
+    padding-left: var(--safe-padding-left);
+  }
+}
+
+// Safe area insets
+@mixin safe-area-inset($side: all) {
+  @if $side == all {
+    padding-top: var(--safe-area-top);
+    padding-right: var(--safe-area-right);
+    padding-bottom: var(--safe-area-bottom);
+    padding-left: var(--safe-area-left);
+  } @else if $side == top {
+    padding-top: var(--safe-area-top);
+  } @else if $side == bottom {
+    padding-bottom: var(--safe-area-bottom);
+  }
+}
+
+// ------------------------------------
+// UTILITY MIXINS
+// ------------------------------------
+
+// Clearfix for floats
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Visually hidden
+@mixin visually-hidden {
+  @include sr-only;
+}
+
+// Aspect ratio box
+@mixin aspect-ratio($width: 16, $height: 9) {
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    padding-top: calc(($height / $width) * 100%);
+  }
+
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Smooth scroll
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Focus visible
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
