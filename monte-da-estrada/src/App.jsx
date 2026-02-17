@@ -77,6 +77,7 @@ function App() {
         onReservasClick={handleReservasClick}
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
+        phone="+351 960 254 072"
       />
 
       <main id="main-content" style={{ minHeight: 'calc(100vh - 192px)', paddingTop: '0' }}>

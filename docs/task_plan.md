@@ -40,14 +40,14 @@ These are the direct action items from the meeting. Must be done before the trip
 ---
 
 ## Phase 2 — Replicate Touril Header & Footer
-**Deadline: After Feb 20 | Status: 🔴 Not Started**
+**Deadline: After Feb 20 | Status: 🟡 In Progress (Header Done, Footer Pending)**
 
 Build new Header and Footer components that are **visually identical** to herdadedotouril.com, adapted for Monte da Estrada content.
 
 ### Touril Header Structure (confirmed from audit):
 ```
-[TOP BAR]  Black bg | Logo (image + "Herdade do Touril" text + tagline) | Language switcher (EN|PT) | RESERVAS button (orange/yellow)
-[NAV BAR]  White bg | Navigation links uppercase | Active state highlighted
+[TOP BAR]  Black bg (#202020) | Logo (image + "Herdade do Touril" text + tagline) | Language switcher (EN|PT) | RESERVAS button (orange/yellow)
+[NAV BAR]  White bg | Navigation links uppercase | Active state highlighted with bottom border
 ```
 
 ### Touril Footer Structure (confirmed from audit):
@@ -58,23 +58,43 @@ Build new Header and Footer components that are **visually identical** to herdad
 [LAST]    Copyright: © Touril Agrotourismo Limitada [year]
 ```
 
-### Tasks:
+### Tasks (HEADER):
 
-- [ ] **2.1** Refactor `Header.jsx` → two-tier layout (TopBar + NavBar)
-  - TopBar: black bg, logo left, language switcher + RESERVAR button right
-  - NavBar: white bg, nav links uppercase, active highlight
-  - WhatsApp icon + phone in TopBar
-- [ ] **2.2** Update `Header.module.scss` → match Touril colors/spacing/fonts
-- [ ] **2.3** Refactor `Footer.jsx` → three-column Touril layout
+- [x] **2.1** Refactor `Header.jsx` → three-tier layout (Utility + Branding + NavBar)
+  - Utility bar: #202020 bg (25px), language switcher right
+  - Branding bar: #0A0203 bg (70px), logo left, buttons (WhatsApp + RESERVAR) right
+  - NavBar: white bg (44px), nav links uppercase, active state with bottom border
+  - WhatsApp button with icon + phone number functionality
+- [x] **2.2** Update `Header.module.scss` → match Touril colors/spacing/fonts
+  - Utility bar: height 25px, background #202020
+  - Branding bar: height 70px, background #0A0203
+  - Navigation bar: height 44px, background white
+  - Navigation links: bottom border underline (3px, transparent by default, gold on active/hover)
+  - WhatsApp button: circular (44px), green (#25D366), next to RESERVAS button
+  - Button group with proper spacing
+  - Responsive adjustments for tablet/mobile
+- [x] **2.3** Add WhatsApp button to Header component
+  - FontAwesome integration (@fortawesome/react-fontawesome + @fortawesome/free-brands-svg-icons)
+  - Conditional rendering based on `whatsappPhone` prop
+  - Proper WhatsApp link format: `https://wa.me/{phone}` (format: 351XXXXXXXXX)
+  - Accessibility: aria-label, opens in new tab, proper focus states
+- [x] **2.4** Install FontAwesome packages
+  - `@fortawesome/fontawesome-svg-core`
+  - `@fortawesome/react-fontawesome`
+  - `@fortawesome/free-brands-svg-icons`
+  - Using `--legacy-peer-deps` for React 19 compatibility
+
+### Tasks (FOOTER - Not Started):
+
+- [ ] **2.5** Refactor `Footer.jsx` → three-column Touril layout
   - Column 1: Nav links
   - Column 2: Address + contact info
   - Column 3: Social + legal
-- [ ] **2.4** Update `Footer.module.scss` → match Touril dark footer style
-- [ ] **2.5** Extract Touril colors into `_variables.scss` (see findings.md for DNA)
-- [ ] **2.6** Make RESERVAR button configurable via props (different URL per property)
-- [ ] **2.7** Make nav items configurable via props (different pages per property)
-- [ ] **2.8** Test responsiveness (mobile hamburger must work)
-- [ ] **2.9** Update Header tests in `__tests__/Header.test.jsx`
+- [ ] **2.6** Update `Footer.module.scss` → match Touril dark footer style
+- [ ] **2.7** Make RESERVAR button configurable via props (different URL per property)
+- [ ] **2.8** Make nav items configurable via props (different pages per property)
+- [ ] **2.9** Test responsiveness (mobile hamburger must work)
+- [ ] **2.10** Update Header tests in `__tests__/Header.test.jsx`
 
 **Design DNA to apply (from findings.md):**
 - Colors: `#000000` (header bg), `#ffffff` (nav bg), `#f0a500` (accent/reservas), `#333` (text)
@@ -204,12 +224,59 @@ Use Playwright to fully audit montedopapaleguas.pt and document all pages, compo
 
 ---
 
+## 📝 Session Progress — 2026-02-17
+
+### Completed Today (Header Styling & WhatsApp Integration)
+
+**Summary:** Implemented Phase 2 header styling changes and WhatsApp button functionality.
+
+**Changes Made:**
+1. ✅ **Header Layout & Sizing**
+   - Updated utility bar (top): 25px height, #202020 background
+   - Updated branding bar (middle): 70px height, #0A0203 background
+   - Updated navigation bar (bottom): 44px height, white background
+
+2. ✅ **Navigation Link Styling**
+   - Changed from background color on active → bottom border underline
+   - Border: 3px solid, transparent by default
+   - Hover state: semi-transparent gold border
+   - Active state: solid gold border + gold text color
+   - Maintains professional look with underline at button bottom
+
+3. ✅ **WhatsApp Button**
+   - Added circular green button (44px, #25D366) next to RESERVAS button
+   - FontAwesome integration (free-brands-svg-icons)
+   - Conditional rendering: only shows if `whatsappPhone` prop provided
+   - Format: `https://wa.me/{phone}` (e.g., "351912345678")
+   - Hover effect: color change to teal, lift animation, shadow
+   - Full accessibility: aria-label, keyboard navigation, focus states
+
+4. ✅ **Responsive Updates**
+   - Tablet: adjusted button sizes and spacing
+   - Mobile: further optimization (22px utility bar, 65px branding bar, 38px WhatsApp button)
+
+5. ✅ **Package Installation**
+   - Installed FontAwesome packages with `--legacy-peer-deps` for React 19
+
+**Files Modified:**
+- `monte-da-estrada/src/components/Header/Header.jsx`
+- `monte-da-estrada/src/components/Header/Header.module.scss`
+- `monte-da-estrada/package.json` (FontAwesome packages added)
+
+**Next Steps:**
+- [ ] Update App.jsx to pass `whatsappPhone` prop to Header component
+- [ ] Test header rendering in browser
+- [ ] Proceed with Phase 1 immediate fixes (email, phone, copyright updates)
+- [ ] Then work on Footer component redesign (Phase 2.5+)
+
+---
+
 ## Open Questions / Blockers
 
 | # | Question | Owner | Status |
 |---|----------|-------|--------|
-| 1 | What is the HeyTravel booking URL for Monte da Estrada? | Owner/client | ❓ Open |
-| 2 | What is Monte da Estrada's mobile phone number? | Owner/client | ❓ Open |
+| 1 | What is Monte da Estrada's WhatsApp phone number? | Owner/client | ❓ Open (needed for Header prop) |
+| 2 | What is the HeyTravel booking URL for Monte da Estrada? | Owner/client | ❓ Open |
 | 3 | What primary color differentiates Monte da Estrada from Papa-léguas? | Design decision | ❓ Open |
 | 4 | Does Monte da Estrada need Livro de Reclamações link in footer? | Owner/client | ❓ Open |
 | 5 | Language switcher: PT/EN only, or also ES/DE/FR like Touril? | Owner/client | ❓ Open |

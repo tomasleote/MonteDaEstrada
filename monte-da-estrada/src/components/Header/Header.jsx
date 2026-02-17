@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import styles from './Header.module.scss';
 
 /**
@@ -8,7 +10,7 @@ import styles from './Header.module.scss';
  *
  * Features:
  * - Tier 1: Language selector (utility bar)
- * - Tier 2: Logo + brand name + RESERVAS button (branding bar)
+ * - Tier 2: Logo + brand name + RESERVAS button + WhatsApp button (branding bar)
  * - Tier 3: Main navigation (navigation bar)
  * - Sticky positioning on scroll
  * - Mobile-responsive design
@@ -20,6 +22,8 @@ const Header = ({
   navigationItems = [],
   sticky = true,
   onReservasClick,
+  whatsappPhone = null,
+  phone = null,
   currentLanguage = 'PT',
   onLanguageChange,
 }) => {
@@ -82,7 +86,7 @@ const Header = ({
         </div>
       </div>
 
-      {/* Tier 2: Branding - Logo + Name + RESERVAS Button */}
+      {/* Tier 2: Branding - Logo + Name + RESERVAS Button + WhatsApp Button */}
       <div className={styles.brandingBar}>
         <div className={styles.container}>
           <Link to="/" className={styles.brandSection} aria-label="Home">
@@ -92,13 +96,38 @@ const Header = ({
             <span className={styles.brandName}>{brandName}</span>
           </Link>
 
-          <button
-            className={styles.reservasButton}
-            onClick={onReservasClick}
-            aria-label="Fazer Reserva"
-          >
-            RESERVAS
-          </button>
+          <div className={styles.buttonGroup}>
+            {whatsappPhone && (
+              <a
+                href={`https://wa.me/${whatsappPhone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.whatsappButton}
+                aria-label="Contact via WhatsApp"
+              >
+                <FontAwesomeIcon icon={faWhatsapp} />
+              </a>
+            )}
+
+            {phone && (
+              <a
+                href={`tel:${phone.replace(/\s/g, '')}`}
+                className={styles.phoneLink}
+                aria-label={`Ligar para ${phone}`}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className={styles.phoneIcon} />
+                <span className={styles.phoneNumber}>{phone}</span>
+              </a>
+            )}
+
+            <button
+              className={styles.reservasButton}
+              onClick={onReservasClick}
+              aria-label="Fazer Reserva"
+            >
+              RESERVAS
+            </button>
+          </div>
         </div>
       </div>
 
@@ -149,6 +178,10 @@ Header.propTypes = {
   sticky: PropTypes.bool,
   /** Callback function when RESERVAS button is clicked */
   onReservasClick: PropTypes.func,
+  /** WhatsApp phone number in format: 351XXXXXXXXX (without +) */
+  whatsappPhone: PropTypes.string,
+  /** Phone number displayed in header (e.g. '+351 960 254 072') */
+  phone: PropTypes.string,
   /** Current language ('EN' or 'PT') */
   currentLanguage: PropTypes.oneOf(['EN', 'PT']),
   /** Callback function when language is changed */
@@ -160,6 +193,8 @@ Header.defaultProps = {
   navigationItems: [],
   sticky: true,
   onReservasClick: null,
+  whatsappPhone: null,
+  phone: null,
   currentLanguage: 'PT',
   onLanguageChange: null,
 };
