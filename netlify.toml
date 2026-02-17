@@ -4,10 +4,10 @@
 [build]
   # Build command - navigate to project directory, install dependencies, and build
   # Using --legacy-peer-deps due to React 19 compatibility with netlify-cms-app
-  command = "cd monte-da-estrada && npm install --legacy-peer-deps && npm run build"
+  command = "cd apps/monte-da-estrada && npm install --legacy-peer-deps && npm run build"
 
   # Directory to publish after build (relative to repository root)
-  publish = "monte-da-estrada/dist"
+  publish = "apps/monte-da-estrada/dist"
 
   # Node version to use for builds
   [build.environment]
