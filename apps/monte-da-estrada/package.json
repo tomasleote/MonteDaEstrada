@@ -14,6 +14,7 @@
     "@fortawesome/free-brands-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.2.0",
+    "@touril-ecosystem/ui-components": "*",
     "netlify-cms-app": "^2.15.72",
     "prop-types": "^15.8.1",
     "react": "^19.2.0",

@@ -1,7 +1,6 @@
 import { Suspense, lazy, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import { Header, Footer } from '@touril-ecosystem/ui-components'
 import LoadingSpinner from './components/LoadingSpinner'
 import useScrollToTop from './hooks/useScrollToTop'
 

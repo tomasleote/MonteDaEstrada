@@ -1,8 +1,8 @@
 // ==================================
 // Footer Component Styles
 // ==================================
-@use '@/styles/variables' as *;
-@use '@/styles/mixins' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
 .footer {
   background-color: $color-bg-dark;
