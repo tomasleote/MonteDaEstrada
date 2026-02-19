@@ -1,126 +1,219 @@
 // ==================================
-// Footer Component Styles
+// Footer Component Styles - Touril Design
 // ==================================
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
 .footer {
   background-color: $color-bg-dark;
-  color: $color-text-light;
-  padding: $spacing-xxxl 0 $spacing-l;
-  margin-top: $spacing-xxxl;
+  color: $color-text-muted;
+  padding: $spacing-xxl $spacing-m;
+  margin-top: 14px;
+  font-family: $font-family-primary;
+  font-size: $font-size-body;
+  letter-spacing: $letter-spacing-touril;
+  line-height: $line-height-base;
 
-  @include mobile {
-    // Respect bottom safe area (home indicator)
-    padding-bottom: max($spacing-xl, var(--safe-area-bottom));
-  }
-}
-
-.container {
-  @include container;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-xxxl;
-  margin-bottom: $spacing-xxl;
-
-  @include tablet {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-xxl;
-  }
-
-  @include mobile {
-    grid-template-columns: 1fr;
-    gap: $spacing-xl;
-  }
-}
-
-.section {
-  @include flex-column;
-  gap: $spacing-m;
-}
-
-.heading {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
-  color: $color-secondary;
-  margin-bottom: $spacing-s;
-}
-
-.contactInfo {
-  @include flex-column;
-  gap: $spacing-s;
-}
-
-.contactItem {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
-  line-height: $line-height-relaxed;
-
+  // All links inherit muted color and get gold hover
   a {
-    color: $color-text-light;
+    color: $color-text-muted;
     text-decoration: none;
-    transition: $transition-all-fast;
+    transition: color $transition-normal $ease-standard;
 
     &:hover {
-      color: $color-secondary;
-      text-decoration: underline;
+      color: $color-accent;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-accent;
+      outline-offset: 2px;
     }
   }
 }
 
-.label {
-  font-weight: $font-weight-semibold;
-  color: $color-secondary-light;
-  font-size: $font-size-sm;
+// Main footer content wrapper (nav + address sections)
+.footerContent {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: $footer-content-max-width;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-desktop) {
+    flex-direction: column;
+  }
 }
 
-.linkList {
+// Left column: Navigation menu
+.footerMenu {
+  width: 640px;
+
+  @media (max-width: $breakpoint-desktop) {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 $spacing-m;
+  }
+}
+
+// Navigation list: float-based 3-column grid (desktop)
+.navList {
   list-style: none;
   padding: 0;
   margin: 0;
+
+  // Clearfix for floated items
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+// Navigation items: floated grid cells (desktop)
+.navItem {
+  // Desktop: float grid (3 columns, ~160px wide each)
+  float: left;
+  width: $footer-nav-item-width;
+  margin: 0 $spacing-xl $spacing-s 0; // 32px right gap, 8px bottom gap
+
+  @media (max-width: $breakpoint-desktop) {
+    float: none;
+    width: 100%;
+    margin: 0 0 $spacing-s;
+  }
+}
+
+// Navigation links: compact vertical spacing (15px line-height at 14px font)
+.navLink {
+  display: block;
+  font-size: $font-size-body;
+  line-height: $line-height-footer-nav; // 1.07 = 15px at 14px font
+}
+
+// Right column: Address + Legal information
+.footerAddress {
+  width: 620px;
   display: flex;
-  flex-direction: column;
-  gap: $spacing-s;
-}
+  flex-wrap: nowrap;
+  border-left: $border-width-footer-divider solid $color-footer-divider;
+  padding-left: $spacing-m;
+  font-style: normal;
 
-.linkItem {
-  margin: 0;
-}
-
-.link {
-  color: $color-text-light;
-  text-decoration: none;
-  transition: $transition-all-fast;
-  display: inline-block;
-
-  &:hover {
-    color: $color-secondary;
-    transform: translateX(4px);
-  }
-
-  &:focus-visible {
-    @include focus-visible;
+  @media (max-width: $breakpoint-desktop) {
+    width: 100%;
+    display: block;
+    border-left: none;
+    border-top: $border-width-footer-divider solid $color-footer-divider;
+    padding: $spacing-m 0 0;
+    text-align: center;
   }
 }
 
-.description {
+// Contact block: first column (~234px) — Morada + Contactos
+// Touril audit: P1 width ~234px with 20px right padding
+.contactBlock {
+  flex: 0 0 234px;
+  padding-right: $spacing-m;
+  line-height: $line-height-relaxed; // 1.71 for spacious contact info
+
+  @media (max-width: $breakpoint-desktop) {
+    flex: none;
+    padding-right: 0;
+    margin-bottom: $spacing-m;
+  }
+}
+
+// Legal block: second column (fills remaining ~365px) — Reclamações + CNIACC
+// Touril audit: P2 width ~365px with 20px right padding
+.legalBlock {
+  flex: 1;
+  padding-right: $spacing-m;
   line-height: $line-height-relaxed;
-  color: rgba($color-text-light, 0.9);
-  margin: 0;
+
+  @media (max-width: $breakpoint-desktop) {
+    flex: none;
+    padding-right: 0;
+  }
 }
 
-.copyright {
-  border-top: 1px solid rgba($color-text-light, 0.2);
-  padding-top: $spacing-l;
+// Bold labels for sections (Morada, Contactos, Entidade)
+.addressLabel {
+  display: block;
+  font-weight: $font-weight-bold;
+  color: $color-text-muted;
+  margin-top: $spacing-s;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+// Paragraph for address lines
+.addressParagraph {
+  margin: $spacing-s 0 0;
+  padding: 0;
+  line-height: $line-height-relaxed;
+}
+
+// Paragraph for contact links (phone, email)
+.contactParagraph {
+  margin: 0;
+  padding: 0;
+}
+
+// Paragraph for legal links and info
+.legalParagraph {
+  margin: 0;
+  padding: 0;
+}
+
+// Bottom section: Social icons + copyright
+.blockSocial {
+  max-width: $footer-content-max-width;
+  margin: $spacing-xxxl auto 0; // 48px top margin
+  text-align: center;
+}
+
+// Social media icon list
+.socialList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 $spacing-xl; // 32px bottom margin
+}
+
+// Individual social icon container
+.socialItem {
+  display: inline-block;
+  margin: 0 $spacing-l $spacing-m 0; // 24px right, 16px bottom
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Social icon link: 45×45px square
+.socialLink {
+  display: inline-block;
+  width: $size-social-icon;
+  height: $size-social-icon;
+  line-height: $size-social-icon;
   text-align: center;
 
-  p {
-    margin: 0;
-    font-size: $font-size-sm;
-    color: rgba($color-text-light, 0.7);
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
   }
+
+  span {
+    display: inline-block;
+    font-weight: $font-weight-bold;
+  }
+}
+
+// Copyright notice
+.copyright {
+  margin: 0;
+  color: $color-text-light;
+  font-size: $font-size-body;
 }

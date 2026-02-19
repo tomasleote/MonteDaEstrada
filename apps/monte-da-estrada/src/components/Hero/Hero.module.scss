@@ -64,6 +64,7 @@
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
   transition: $transition-opacity;
+  pointer-events: none; // Decorative only — must not block scroll events on the image beneath
 }
 
 // ------------------------------------

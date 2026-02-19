@@ -1,6 +1,6 @@
 import { Suspense, lazy, useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Header, Footer } from '@touril-ecosystem/ui-components'
+import { HeaderModern, Footer } from '@touril-ecosystem/ui-components'
 import LoadingSpinner from './components/LoadingSpinner'
 import useScrollToTop from './hooks/useScrollToTop'
 
@@ -16,30 +16,52 @@ const GaleriaPage = lazy(() => import('./pages/GaleriaPage'))
 // Access at /admin (served from public/admin/index.html)
 // Old localStorage-based admin pages have been replaced
 
-// Navigation items for NavBar (matching Papa Léguas structure)
-const navItems = [
-  { label: 'Início', path: '/' },
-  { label: 'Quartos', path: '/quartos' },
-  { label: 'Atividades', path: '/atividades' },
-  { label: 'Redondezas', path: '/redondezas' },
-  { label: 'Localização', path: '/localizacao' },
-  { label: 'Galeria', path: '/galeria' },
+// Navigation links for HeaderModern
+const navLinks = [
+  { label: 'Início', to: '/' },
+  { label: 'Quartos', to: '/quartos' },
+  { label: 'Atividades', to: '/atividades' },
+  { label: 'Redondezas', to: '/redondezas' },
+  { label: 'Localização', to: '/localizacao' },
+  { label: 'Galeria', to: '/galeria' },
 ]
 
-// Contact information for Footer
-const contactInfo = {
-  phone: '283 647 535',
-  phone2: '960 254 072',
+// Footer address/contact information
+const footerAddress = {
+  name: 'Monte da Estrada',
+  street: 'Zambujeira do Mar',
+  postalCode: '7630-568 Odemira',
+  region: 'Alentejo',
+  country: 'Portugal',
+  mobile: '+351 960 254 072',
   email: 'montedaestradazambujeiradomar@gmail.com',
-  address: 'Zambujeira do Mar, 7630-568 Odemira, Alentejo',
+  // TODO: Replace gpsCoords with exact property coordinates
+  gpsCoords: '37°31\'10"N / 8°46\'54"W',
+  gpsLink: 'https://maps.google.com/maps?q=Zambujeira+do+Mar,+7630-568+Odemira,+Portugal',
 }
 
-// Quick links for Footer
-const quickLinks = [
-  { label: 'Início', path: '/' },
-  { label: 'Quartos', path: '/quartos' },
-  { label: 'Galeria', path: '/galeria' },
-  { label: 'Localização', path: '/localizacao' },
+// Footer legal information
+const footerLegalInfo = {
+  complaintBook: {
+    text: 'Livro de Reclamações Electrónico',
+    url: 'https://www.livroreclamacoes.pt/',
+  },
+  arbitration: {
+    entityName: 'CNIACC – Centro Arbitragem',
+    entityUrl: 'https://www.cniacc.pt/',
+    phone: '253 619 107',
+    email: 'geral@cniacc.pt',
+  },
+}
+
+// Footer navigation links
+const footerNavLinks = [
+  { text: 'Início', href: '/' },
+  { text: 'Quartos', href: '/quartos' },
+  { text: 'Atividades', href: '/atividades' },
+  { text: 'Redondezas', href: '/redondezas' },
+  { text: 'Localização', href: '/localizacao' },
+  { text: 'Galeria', href: '/galeria' },
 ]
 
 function App() {
@@ -49,7 +71,7 @@ function App() {
   // Language state for header (EN/PT)
   const [currentLanguage, setCurrentLanguage] = useState('PT')
 
-  // Handler for RESERVAS button click
+  // Handler for reserve button click
   const handleReservasClick = () => {
     // TODO: Integrate with booking system
     // For now, navigate to external booking page or show modal
@@ -69,17 +91,17 @@ function App() {
         Saltar para o conteúdo principal
       </a>
 
-      <Header
+      <HeaderModern
+        links={navLinks}
         brandName="Monte da Estrada"
-        navigationItems={navItems}
-        sticky={true}
-        onReservasClick={handleReservasClick}
+        reserveLabel="RESERVAR"
+        onReserveClick={handleReservasClick}
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
-        phone="+351 960 254 072"
+        scrollThreshold={50}
       />
 
-      <main id="main-content" style={{ minHeight: 'calc(100vh - 192px)', paddingTop: '0' }}>
+      <main id="main-content" style={{ minHeight: '100vh' }}>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             {/* Public Routes */}
@@ -100,7 +122,12 @@ function App() {
         </Suspense>
       </main>
 
-      <Footer contactInfo={contactInfo} quickLinks={quickLinks} />
+      <Footer
+        address={footerAddress}
+        navigationLinks={footerNavLinks}
+        legalInfo={footerLegalInfo}
+        copyright={`© Monte da Estrada ${new Date().getFullYear()}`}
+      />
     </div>
   )
 }

@@ -85,6 +85,7 @@
   justify-content: center;
   opacity: 0;
   transition: $transition-opacity;
+  pointer-events: none; // Decorative only — clicks are handled by .imageWrapper; opacity: 0 does NOT prevent events
 }
 
 .viewIcon {

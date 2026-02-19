@@ -1,0 +1,623 @@
+// ==================================
+// HeaderModern Component Styles
+// ==================================
+// Luxury hotel header with scroll-triggered transformations
+// Uses Touril design system tokens and responsive behavior
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ============================================
+// MAIN HEADER WRAPPER
+// ============================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-fixed;
+  width: 100%;
+  height: 80px;
+  padding: $spacing-s $spacing-m;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  transition: all $transition-duration-slow $transition-timing-normal;
+  backdrop-filter: none;
+
+  @include tablet {
+    padding: $spacing-s $spacing-l;
+  }
+
+  @include desktop {
+    padding: $spacing-s $spacing-xl;
+  }
+}
+
+// ============================================
+// LAYOUT ZONES
+// ============================================
+
+.leftZone {
+  display: flex;
+  align-items: center;
+  gap: $spacing-s;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.centerZone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.rightZone {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+// Scrolled state - header expands and darkens
+.headerScrolled {
+  height: 110px;
+  background-color: $color-primary;
+  box-shadow: $shadow-medium;
+  backdrop-filter: blur(4px);
+
+  // Reason: Logo/brand text and nav both stay in normal flex flow.
+  // centerZone (flex-direction: column, justify-content: center) stacks
+  // them vertically and centers the pair within the header height.
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-bottom: $spacing-xs;
+  }
+
+  .logo {
+    height: 54px;
+    width: auto;
+    max-width: 200px;
+  }
+
+  .brandText {
+    font-size: $font-size-body;
+  }
+
+  // Mobile only - adjust nav position
+  @include mobile {
+    height: auto;
+    padding-top: $spacing-m;
+    padding-bottom: $spacing-m;
+
+    .logoContainer {
+      position: static;
+      transform: none;
+      top: auto;
+      left: auto;
+      margin-bottom: $spacing-m;
+    }
+
+    .logo {
+      height: 50px;
+    }
+  }
+}
+
+// Mobile menu open state
+.headerMenuOpen {
+  .mobileMenu {
+    display: flex;
+  }
+}
+
+// Hamburger transforms to X when menu is open
+.hamburgerOpen {
+  .hamburgerLine {
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+  }
+}
+
+// ============================================
+// LOGO CONTAINER
+// ============================================
+
+.logoContainer {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  @include mobile {
+    display: flex;
+    width: 100%;
+    height: auto;
+    position: static;
+    margin-bottom: $spacing-m;
+  }
+}
+
+.logo {
+  height: 0;
+  width: auto;
+  max-width: 200px;
+  display: block;
+  transition: height $transition-duration-slow $transition-timing-normal;
+  object-fit: contain;
+  object-position: center;
+
+  @include mobile {
+    height: 50px;
+    margin-bottom: $spacing-s;
+  }
+}
+
+.brandText {
+  @include touril-text;
+  font-size: 0;
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-extra-wide;
+  text-transform: uppercase;
+  color: $color-text-light;
+  transition: font-size $transition-duration-slow $transition-timing-normal;
+  white-space: nowrap;
+}
+
+// ============================================
+// NAVIGATION
+// ============================================
+
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.navList {
+  @include flex-row($spacing-l);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-m;
+  }
+}
+
+.navItem {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.navLink {
+  @include touril-text;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-text-light;
+  text-decoration: none;
+  display: block;
+  padding: $spacing-s $spacing-m;
+  transition: color $transition-duration-normal $transition-timing-fast;
+  position: relative;
+
+  @include focus-visible;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  // Active link indicator
+  &.navLinkActive {
+    color: $color-accent;
+  }
+
+  @include mobile {
+    padding: $spacing-m 0;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+}
+
+// ============================================
+// LANGUAGE SWITCHER
+// ============================================
+
+.languageSwitcher {
+  @include flex-row($spacing-s);
+  align-items: center;
+  margin-right: $spacing-m;
+
+  @include mobile {
+    margin-right: 0;
+  }
+}
+
+.langButton {
+  @include touril-text;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-text-light;
+  background-color: transparent;
+  border: none;
+  padding: $spacing-s $spacing-xs;
+  cursor: pointer;
+  transition: color $transition-duration-normal $transition-timing-fast;
+  text-decoration: none;
+  min-height: $touch-target-min;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include focus-visible;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  // Active language state
+  &.langButtonActive {
+    color: $color-accent;
+    font-weight: $font-weight-medium;
+    opacity: 1;
+  }
+}
+
+.langSeparator {
+  display: inline-block;
+  width: 1px;
+  height: 14px;
+  background-color: $color-text-light;
+  opacity: 0.5;
+  margin: 0 $spacing-xs;
+  vertical-align: middle;
+  font-size: 0;
+  overflow: hidden;
+}
+
+// ============================================
+// RESERVE BUTTON (DESKTOP)
+// ============================================
+
+.reserveButton {
+  @include touril-text;
+  padding: 10px 25px;
+  background-color: transparent;
+  border: $border-width-thin solid $color-text-light;
+  border-radius: $border-radius-sharp;
+  color: $color-text-light;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all $transition-duration-normal $transition-timing-fast;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $touch-target-min;
+  white-space: nowrap;
+
+  @include focus-visible;
+
+  &:hover {
+    background-color: $color-accent;
+    border-color: $color-accent;
+    color: $color-primary;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+// ============================================
+// MOBILE RESERVE BUTTON (FIXED BOTTOM)
+// ============================================
+
+.mobileReserveBar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-fixed - 10;
+
+  @include responsive($breakpoint-tablet) {
+    display: block;
+  }
+}
+
+.mobileReserveButton {
+  @include touril-text;
+  display: block;
+  width: 100%;
+  padding: 0;
+  background-color: $color-accent;
+  border: none;
+  border-radius: 0;
+  color: $color-text-light;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 42px;
+  transition: all $transition-duration-normal $transition-timing-fast;
+  text-align: center;
+
+  @include focus-visible;
+
+  &:active {
+    opacity: $opacity-hover;
+  }
+}
+
+// ============================================
+// HAMBURGER MENU (MOBILE)
+// ============================================
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  padding: $spacing-s;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: $z-index-modal;
+
+  @include focus-visible;
+}
+
+.hamburgerLine {
+  width: 24px;
+  height: 2px;
+  background-color: $color-text-light;
+  margin: 4px 0;
+  transition: transform $transition-duration-normal $transition-timing-normal,
+              opacity $transition-duration-normal $transition-timing-normal;
+  display: block;
+
+  .headerScrolled & {
+    background-color: $color-text-light;
+  }
+}
+
+// ============================================
+// MOBILE MENU (OVERLAY)
+// ============================================
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-bg-overlay;
+  backdrop-filter: blur(4px);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  z-index: $z-index-modal - 1;
+  padding-top: 80px; // Below fixed header
+  animation: slideInUp $transition-duration-normal $transition-timing-normal;
+}
+
+.mobileNav {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.mobileNavList {
+  @include flex-column;
+  list-style: none;
+  margin: 0;
+  padding: $spacing-l;
+  gap: 0;
+}
+
+.mobileNavLink {
+  @include touril-text;
+  font-size: 16px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-text-light;
+  text-decoration: none;
+  padding: $spacing-m $spacing-s;
+  border-bottom: $border-width-thin solid rgba($color-text-light, 0.1);
+  transition: color $transition-duration-normal $transition-timing-fast;
+  display: block;
+
+  @include focus-visible;
+
+  &:hover,
+  &.mobileNavLinkActive {
+    color: $color-accent;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// ============================================
+// SCREEN READER ONLY TEXT
+// ============================================
+
+.srOnly {
+  @include sr-only;
+}
+
+// ============================================
+// ANIMATIONS
+// ============================================
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ============================================
+// RESPONSIVE BEHAVIOR
+// ============================================
+
+// Tablet-specific adjustments (768px - 1023px)
+@include tablet {
+  .header {
+    height: 75px;
+    padding: $spacing-s $spacing-l;
+  }
+
+  .headerScrolled {
+    height: 100px;
+
+    .logo {
+      height: 45px;
+    }
+
+    .brandText {
+      font-size: $font-size-body-extra-small;
+    }
+  }
+
+  .navLink {
+    font-size: 13px;
+    padding: $spacing-s;
+    letter-spacing: 1.2px;
+  }
+
+  .reserveButton {
+    padding: 8px 20px;
+    font-size: 12px;
+  }
+}
+
+// Desktop-specific adjustments (1024px+)
+@include desktop {
+  .header {
+    height: 80px;
+    padding: $spacing-s $spacing-xl;
+  }
+
+  .headerScrolled {
+    height: 110px;
+
+    .logo {
+      height: 54px;
+    }
+
+    .brandText {
+      font-size: $font-size-body;
+    }
+  }
+
+  .navLink {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  .reserveButton {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
+}
+
+// ============================================
+// ACCESSIBILITY
+// ============================================
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .headerScrolled,
+  .navLink,
+  .langButton,
+  .reserveButton,
+  .mobileReserveButton,
+  .hamburgerLine,
+  .mobileMenu {
+    transition: none;
+    animation: none;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: more) {
+  .navLink {
+    font-weight: $font-weight-bold;
+  }
+
+  .hamburgerLine {
+    height: 3px;
+  }
+}
+
+// ============================================
+// PRINT STYLES
+// ============================================
+
+@media print {
+  .header,
+  .headerScrolled,
+  .mobileReserveBar,
+  .mobileMenu {
+    display: none !important;
+  }
+}
