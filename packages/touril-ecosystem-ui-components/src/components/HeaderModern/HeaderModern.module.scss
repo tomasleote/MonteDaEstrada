@@ -64,12 +64,9 @@
 .rightZone {
   display: flex;
   align-items: center;
+  gap: $spacing-s;
   flex-shrink: 0;
   z-index: 1;
-
-  @include mobile {
-    display: none;
-  }
 }
 
 // Scrolled state - header expands and darkens
@@ -79,43 +76,26 @@
   box-shadow: $shadow-medium;
   backdrop-filter: blur(4px);
 
-  // Reason: Logo/brand text and nav both stay in normal flex flow.
-  // centerZone (flex-direction: column, justify-content: center) stacks
-  // them vertically and centers the pair within the header height.
-  .logoContainer {
-    display: flex;
-    justify-content: center;
-    width: auto;
-    margin-bottom: $spacing-xs;
-  }
-
-  .logo {
-    height: 54px;
-    width: auto;
-    max-width: 200px;
-  }
-
-  .brandText {
-    font-size: $font-size-body;
-  }
-
   // Mobile only - adjust nav position
   @include mobile {
     height: auto;
     padding-top: $spacing-m;
     padding-bottom: $spacing-m;
+  }
+}
 
-    .logoContainer {
-      position: static;
-      transform: none;
-      top: auto;
-      left: auto;
-      margin-bottom: $spacing-m;
-    }
+// When Propriedades dropdown is open, apply scrolled-like styling
+.headerPropertiesOpen {
+  height: 110px;
+  background-color: $color-primary;
+  box-shadow: $shadow-medium;
+  backdrop-filter: blur(4px);
+  transition: all $transition-duration-normal $transition-timing-normal;
 
-    .logo {
-      height: 50px;
-    }
+  @include mobile {
+    height: auto;
+    padding-top: $spacing-m;
+    padding-bottom: $spacing-m;
   }
 }
 
@@ -144,47 +124,36 @@
 }
 
 // ============================================
-// LOGO CONTAINER
+// LEFT ZONE: LOGO / BRAND
 // ============================================
 
-.logoContainer {
-  display: none;
+.brandLink {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  transition: all $transition-duration-normal $transition-timing-normal;
-
-  @include mobile {
-    display: flex;
-    width: 100%;
-    height: auto;
-    position: static;
-    margin-bottom: $spacing-m;
-  }
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-.logo {
-  height: 0;
+.logoLeft {
+  height: 40px;
   width: auto;
-  max-width: 200px;
-  display: block;
-  transition: height $transition-duration-slow $transition-timing-normal;
+  max-width: 180px;
   object-fit: contain;
-  object-position: center;
+  display: block;
+  transition: height $transition-duration-normal $transition-timing-normal;
 
-  @include mobile {
-    height: 50px;
-    margin-bottom: $spacing-s;
+  .headerScrolled & {
+    height: 36px;
   }
 }
 
-.brandText {
+.brandTextLeft {
   @include touril-text;
-  font-size: 0;
+  font-size: 28px;
   font-weight: $font-weight-light;
   letter-spacing: $letter-spacing-extra-wide;
   text-transform: uppercase;
   color: $color-text-light;
-  transition: font-size $transition-duration-slow $transition-timing-normal;
   white-space: nowrap;
 }
 
@@ -253,21 +222,20 @@
   }
 }
 
+
 // ============================================
-// LANGUAGE SWITCHER
+// PROPRIEDADES DROPDOWN
 // ============================================
 
-.languageSwitcher {
-  @include flex-row($spacing-s);
-  align-items: center;
-  margin-right: $spacing-m;
+.propertiesDropdown {
+  position: relative;
+  margin-left: $spacing-m;
+  flex-shrink: 0;
 
-  @include mobile {
-    margin-right: 0;
-  }
+  @include mobile { display: none; }
 }
 
-.langButton {
+.propertiesToggle {
   @include touril-text;
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
@@ -278,115 +246,85 @@
   border: none;
   padding: $spacing-s $spacing-xs;
   cursor: pointer;
-  transition: color $transition-duration-normal $transition-timing-fast;
-  text-decoration: none;
   min-height: $touch-target-min;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  @include focus-visible;
-
-  &:hover {
-    color: $color-accent;
-  }
-
-  // Active language state
-  &.langButtonActive {
-    color: $color-accent;
-    font-weight: $font-weight-medium;
-    opacity: 1;
-  }
-}
-
-.langSeparator {
-  display: inline-block;
-  width: 1px;
-  height: 14px;
-  background-color: $color-text-light;
-  opacity: 0.5;
-  margin: 0 $spacing-xs;
-  vertical-align: middle;
-  font-size: 0;
-  overflow: hidden;
-}
-
-// ============================================
-// RESERVE BUTTON (DESKTOP)
-// ============================================
-
-.reserveButton {
-  @include touril-text;
-  padding: 10px 25px;
-  background-color: transparent;
-  border: $border-width-thin solid $color-text-light;
-  border-radius: $border-radius-sharp;
-  color: $color-text-light;
-  font-size: $font-size-body;
-  font-weight: $font-weight-regular;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all $transition-duration-normal $transition-timing-fast;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: $touch-target-min;
+  gap: $spacing-xs;
+  transition: color $transition-duration-normal $transition-timing-fast;
   white-space: nowrap;
 
   @include focus-visible;
 
-  &:hover {
-    background-color: $color-accent;
-    border-color: $color-accent;
-    color: $color-primary;
-  }
-
-  @include mobile {
-    display: none;
-  }
+  &:hover { opacity: $opacity-hover; }
 }
 
-// ============================================
-// MOBILE RESERVE BUTTON (FIXED BOTTOM)
-// ============================================
+.propertiesArrow {
+  display: inline-block;
+  font-size: 10px;
+  transition: transform $transition-duration-normal $transition-timing-normal;
+  margin-left: 2px;
+}
 
-.mobileReserveBar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+.propertiesArrowOpen {
+  transform: rotate(180deg);
+}
+
+.propertiesMenu {
+  position: absolute;
+  top: calc(100% + 8px);
   right: 0;
-  z-index: $z-index-fixed - 10;
-
-  @include responsive($breakpoint-tablet) {
-    display: block;
-  }
+  width: max-content;
+  max-width: clamp(240px, 25vw, 400px);
+  background-color: $color-primary;
+  border-top: 1px solid rgba($color-text-light, 0.25);
+  list-style: none;
+  margin: 0;
+  padding: $spacing-s 0;
+  z-index: $z-index-dropdown;
+  box-shadow: $shadow-medium;
+  // Reason: visibility+pointer-events instead of display:none so that
+  // opacity and transform transitions can animate smoothly
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity $transition-duration-normal $transition-timing-normal,
+              transform $transition-duration-normal $transition-timing-normal,
+              visibility 0s linear $transition-duration-normal;
 }
 
-.mobileReserveButton {
+.propertiesMenuOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity $transition-duration-normal $transition-timing-normal,
+              transform $transition-duration-normal $transition-timing-normal,
+              visibility 0s linear 0s;
+}
+
+.propertyItem {
   @include touril-text;
   display: block;
-  width: 100%;
-  padding: 0;
-  background-color: $color-accent;
-  border: none;
-  border-radius: 0;
-  color: $color-text-light;
+  padding: $spacing-s $spacing-l;
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  cursor: pointer;
-  line-height: 42px;
-  transition: all $transition-duration-normal $transition-timing-fast;
-  text-align: center;
+  text-decoration: none;
+  color: $color-text-light;
+  transition: color $transition-duration-normal $transition-timing-fast,
+              background-color $transition-duration-normal $transition-timing-fast;
 
   @include focus-visible;
 
-  &:active {
-    opacity: $opacity-hover;
+  &:hover {
+    color: $color-accent;
+    background-color: rgba($color-text-light, 0.05);
+  }
+
+  &.propertyItemActive {
+    color: $color-accent;
   }
 }
 
@@ -408,6 +346,10 @@
   z-index: $z-index-modal;
 
   @include focus-visible;
+}
+
+.hamburgerMobile {
+  @include desktop { display: none; }
 }
 
 .hamburgerLine {
@@ -487,6 +429,17 @@
 }
 
 // ============================================
+// MOBILE MENU: PROPRIEDADES
+// ============================================
+
+.mobilePropertiesList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: $border-width-thin solid rgba($color-text-light, 0.1);
+}
+
+// ============================================
 // SCREEN READER ONLY TEXT
 // ============================================
 
@@ -523,25 +476,12 @@
 
   .headerScrolled {
     height: 100px;
-
-    .logo {
-      height: 45px;
-    }
-
-    .brandText {
-      font-size: $font-size-body-extra-small;
-    }
   }
 
   .navLink {
     font-size: 13px;
     padding: $spacing-s;
     letter-spacing: 1.2px;
-  }
-
-  .reserveButton {
-    padding: 8px 20px;
-    font-size: 12px;
   }
 }
 
@@ -554,14 +494,6 @@
 
   .headerScrolled {
     height: 110px;
-
-    .logo {
-      height: 54px;
-    }
-
-    .brandText {
-      font-size: $font-size-body;
-    }
   }
 
   .navLink {
@@ -571,11 +503,6 @@
     &:hover {
       color: $color-accent;
     }
-  }
-
-  .reserveButton {
-    padding: 10px 25px;
-    font-size: 14px;
   }
 }
 
@@ -587,10 +514,10 @@
 @media (prefers-reduced-motion: reduce) {
   .header,
   .headerScrolled,
+  .headerPropertiesOpen,
   .navLink,
-  .langButton,
-  .reserveButton,
-  .mobileReserveButton,
+  .propertiesToggle,
+  .propertiesMenu,
   .hamburgerLine,
   .mobileMenu {
     transition: none;
@@ -616,7 +543,6 @@
 @media print {
   .header,
   .headerScrolled,
-  .mobileReserveBar,
   .mobileMenu {
     display: none !important;
   }

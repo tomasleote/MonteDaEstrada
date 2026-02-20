@@ -82,7 +82,10 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  overflow: hidden;
+  // Reason: no overflow:hidden here — hero uses CSS background-image (not
+  // overflowing child content), so clipping is unnecessary. overflow:hidden
+  // creates a scroll container; combined with overscroll-behavior it would
+  // trap wheel events and prevent page scroll when hovering over the hero.
 
   @media (max-width: $breakpoint-tablet) {
     height: auto;

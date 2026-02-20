@@ -26,6 +26,12 @@ const navLinks = [
   { label: 'Galeria', to: '/galeria' },
 ]
 
+// Properties for HeaderModern dropdown
+const properties = [
+  { name: 'Monte da Estrada', url: '#monte-da-estrada' },
+  { name: 'Monte do Papa Léguas', url: '#monte-do-papa-leguas' },
+]
+
 // Footer address/contact information
 const footerAddress = {
   name: 'Monte da Estrada',
@@ -94,11 +100,12 @@ function App() {
       <HeaderModern
         links={navLinks}
         brandName="Monte da Estrada"
-        reserveLabel="RESERVAR"
-        onReserveClick={handleReservasClick}
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
         scrollThreshold={50}
+        properties={properties}
+        currentPropertyUrl="#monte-da-estrada"
+        showProperties={true}
       />
 
       <main id="main-content" style={{ minHeight: '100vh' }}>

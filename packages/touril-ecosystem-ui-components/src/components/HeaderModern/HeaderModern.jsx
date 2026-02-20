@@ -1,47 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './HeaderModern.module.scss';
 
 /**
- * Modern header component for luxury hotel websites (e.g., casadesaolourenco.pt).
+ * Modern header component for luxury hotel websites.
  *
  * TWO SCROLL STATES:
- * 1. TOP OF PAGE: transparent background, 80px height, logo hidden, nav links visible centered
- * 2. SCROLLED (past threshold): dark background, 110px height, logo visible (centered above nav),
- *    nav links pushed below logo, box-shadow visible
+ * 1. TOP OF PAGE: transparent background, 80px height, nav links visible centered
+ * 2. SCROLLED (past threshold): dark background, 110px height, box-shadow visible
  *
  * LAYOUT (left to right):
- * - LEFT: Hamburger menu button + Language switcher (EN | PT)
+ * - LEFT: Logo/Brand (always visible)
  * - CENTER: Navigation links (hidden on mobile, shown on desktop)
- * - CENTER TOP (scrolled only): Logo appears above nav links
- * - RIGHT: Reserve/booking button
+ * - RIGHT: Language switcher (EN | PT) + Propriedades dropdown + Hamburger (mobile only)
  *
  * FEATURES:
- * - Scroll-triggered state transitions with smooth CSS animations (0.5s ease-in)
+ * - Scroll-triggered state transitions with smooth CSS animations
  * - Mobile hamburger menu with full-screen overlay
  * - Language switcher with active state indicator
+ * - Propriedades dropdown for multi-property navigation
  * - Responsive design with desktop and mobile layouts
  * - Full keyboard navigation support
  * - ARIA labels for accessibility
  * - Body scroll lock when mobile menu is open
- * - Mobile fixed bottom reserve button (full-width, gold background)
  */
 const HeaderModern = ({
   links = [],
   logoDefault = null,
   logoScrolled = null,
-  onReserveClick = null,
-  reserveLabel = 'RESERVE ONLINE',
   scrollThreshold = 50,
   themeOverrides = {},
   mobileBreakpoint = 1024,
   currentLanguage = 'PT',
   onLanguageChange = null,
   brandName = 'Luxury Hotel',
+  properties = [],
+  currentPropertyUrl = typeof window !== 'undefined' ? window.location.origin : '',
+  showProperties = true,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
+  const propertiesRef = useRef(null);
   const location = useLocation();
 
   // Reason: Monitor scroll position to trigger header state transition
@@ -68,6 +69,17 @@ const HeaderModern = ({
     };
   }, [isMenuOpen]);
 
+  // Reason: Close properties dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (propertiesRef.current && !propertiesRef.current.contains(e.target)) {
+        setIsPropertiesOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   /**
    * Check if the current route matches a navigation path
    * @param {string} path - The path to check
@@ -84,82 +96,48 @@ const HeaderModern = ({
     setIsMenuOpen(false);
   };
 
-  // Reason: Close mobile menu on Escape key press
-  // Handler defined inside useEffect to avoid stale closure
+  // Reason: Close mobile menu and properties dropdown on Escape key press
   useEffect(() => {
-    if (!isMenuOpen) return;
+    if (!isMenuOpen && !isPropertiesOpen) return;
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setIsMenuOpen(false);
+        setIsPropertiesOpen(false);
       }
     };
 
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isPropertiesOpen]);
 
   return (
     <header
       className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''} ${
+        isPropertiesOpen ? styles.headerPropertiesOpen : ''
+      } ${
         isMenuOpen ? styles.headerMenuOpen : ''
       }`}
       role="banner"
       style={themeOverrides}
     >
-      {/* LEFT ZONE: Hamburger Menu + Language Switcher */}
+      {/* LEFT ZONE: Logo/Brand */}
       <div className={styles.leftZone}>
-        <button
-          className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerOpen : ''}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-        </button>
-
-        <div className={styles.languageSwitcher}>
-          <button
-            className={`${styles.langButton} ${
-              currentLanguage === 'EN' ? styles.langButtonActive : ''
-            }`}
-            onClick={() => onLanguageChange && onLanguageChange('EN')}
-            aria-label="Switch to English"
-            aria-pressed={currentLanguage === 'EN'}
-          >
-            EN
-          </button>
-          <span className={styles.langSeparator} aria-hidden="true" />
-          <button
-            className={`${styles.langButton} ${
-              currentLanguage === 'PT' ? styles.langButtonActive : ''
-            }`}
-            onClick={() => onLanguageChange && onLanguageChange('PT')}
-            aria-label="Mudar para Português"
-            aria-pressed={currentLanguage === 'PT'}
-          >
-            PT
-          </button>
-        </div>
-      </div>
-
-      {/* CENTER ZONE: Logo/Brand (when scrolled) + Navigation */}
-      <div className={styles.centerZone}>
-        <div className={styles.logoContainer}>
-          {logoScrolled ? (
+        <a href="/" className={styles.brandLink} aria-label={brandName}>
+          {logoDefault ? (
             <img
-              src={logoScrolled}
+              src={isScrolled && logoScrolled ? logoScrolled : logoDefault}
               alt={brandName}
-              className={styles.logo}
+              className={styles.logoLeft}
             />
           ) : (
-            <span className={styles.brandText}>{brandName}</span>
+            <span className={styles.brandTextLeft}>{brandName}</span>
           )}
-        </div>
+        </a>
+      </div>
 
+      {/* CENTER ZONE: Navigation */}
+      <div className={styles.centerZone}>
         <nav
           className={styles.nav}
           role="navigation"
@@ -196,14 +174,56 @@ const HeaderModern = ({
         </nav>
       </div>
 
-      {/* RIGHT ZONE: Reserve Button (Desktop) */}
+      {/* RIGHT ZONE: Propriedades Dropdown + Hamburger (mobile) */}
       <div className={styles.rightZone}>
+        {/* Propriedades dropdown */}
+        {showProperties && properties.length > 0 && (
+          <div className={styles.propertiesDropdown} ref={propertiesRef}>
+            <button
+              className={styles.propertiesToggle}
+              onClick={() => setIsPropertiesOpen(!isPropertiesOpen)}
+              aria-haspopup="true"
+              aria-expanded={isPropertiesOpen}
+              aria-label="Selecionar propriedade"
+            >
+              PROPRIEDADES <span className={`${styles.propertiesArrow} ${isPropertiesOpen ? styles.propertiesArrowOpen : ''}`}>&#9662;</span>
+            </button>
+            <ul
+              className={`${styles.propertiesMenu} ${isPropertiesOpen ? styles.propertiesMenuOpen : ''}`}
+              role="menu"
+            >
+              {properties.map((property) => (
+                <li key={property.url} role="none">
+                  <a
+                    href={property.url}
+                    className={`${styles.propertyItem} ${property.url === currentPropertyUrl ? styles.propertyItemActive : ''}`}
+                    role="menuitem"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (property.url !== currentPropertyUrl) {
+                        window.location.href = property.url;
+                      }
+                    }}
+                  >
+                    {property.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Hamburger — mobile only */}
         <button
-          className={styles.reserveButton}
-          onClick={onReserveClick}
-          aria-label={reserveLabel}
+          className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerOpen : ''} ${styles.hamburgerMobile}`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
-          {reserveLabel}
+          <span className={styles.hamburgerLine} />
+          <span className={styles.hamburgerLine} />
+          <span className={styles.hamburgerLine} />
         </button>
       </div>
 
@@ -244,17 +264,29 @@ const HeaderModern = ({
             ))}
           </ul>
         </nav>
-      </div>
 
-      {/* MOBILE RESERVE BUTTON (Fixed bottom, full-width) */}
-      <div className={styles.mobileReserveBar}>
-        <button
-          className={styles.mobileReserveButton}
-          onClick={onReserveClick}
-          aria-label={reserveLabel}
-        >
-          {reserveLabel}
-        </button>
+        {/* Propriedades in mobile menu */}
+        {showProperties && properties.length > 0 && (
+          <ul className={styles.mobilePropertiesList}>
+            {properties.map((property) => (
+              <li key={property.url}>
+                <a
+                  href={property.url}
+                  className={`${styles.mobileNavLink} ${property.url === currentPropertyUrl ? styles.mobileNavLinkActive : ''}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (property.url !== currentPropertyUrl) {
+                      window.location.href = property.url;
+                    }
+                  }}
+                >
+                  {property.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+
       </div>
 
       {/* Accessibility: SR-only skip links */}
@@ -277,14 +309,10 @@ HeaderModern.propTypes = {
       external: PropTypes.bool,
     })
   ),
-  /** Logo image URL for top-of-page state (currently unused but available for future use) */
+  /** Logo image URL for default (top-of-page) state */
   logoDefault: PropTypes.string,
-  /** Logo image URL shown when header is in scrolled state (centered above nav) */
+  /** Logo image URL shown when header is in scrolled state */
   logoScrolled: PropTypes.string,
-  /** Callback function triggered when reserve button is clicked */
-  onReserveClick: PropTypes.func,
-  /** Text displayed on the reserve button */
-  reserveLabel: PropTypes.string,
   /** Pixel threshold for scroll state trigger (default: 50px) */
   scrollThreshold: PropTypes.number,
   /** CSS-in-JS style object for component-wide theme overrides */
@@ -297,20 +325,32 @@ HeaderModern.propTypes = {
   onLanguageChange: PropTypes.func,
   /** Brand name for image alt text and accessibility labels */
   brandName: PropTypes.string,
+  /** Array of properties shown in the Propriedades dropdown */
+  properties: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    })
+  ),
+  /** URL of the currently active property — used to highlight its entry in the dropdown */
+  currentPropertyUrl: PropTypes.string,
+  /** Whether to show the Propriedades dropdown */
+  showProperties: PropTypes.bool,
 };
 
 HeaderModern.defaultProps = {
   links: [],
   logoDefault: null,
   logoScrolled: null,
-  onReserveClick: null,
-  reserveLabel: 'RESERVE ONLINE',
   scrollThreshold: 50,
   themeOverrides: {},
   mobileBreakpoint: 1024,
   currentLanguage: 'PT',
   onLanguageChange: null,
   brandName: 'Luxury Hotel',
+  properties: [],
+  currentPropertyUrl: typeof window !== 'undefined' ? window.location.origin : '',
+  showProperties: true,
 };
 
 export default HeaderModern;
