@@ -1,65 +1,101 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import SEO from '@/components/SEO';
-import Container from '@/components/Container';
+import Hero from '@/components/Hero';
 import Section from '@/components/Section';
-import Grid from '@/components/Grid';
-import Card from '@/components/Card';
+import Container from '@/components/Container';
 import Button from '@/components/Button';
-import ContactForm from '@/components/ContactForm';
-import ResponsiveImage from '@/components/ResponsiveImage';
+import { RoomCardGallery } from '@touril-ecosystem/ui-components';
 import styles from './QuartosPage.module.scss';
-import quartosDataOriginal from '@/data/quartos.json';
 import { quartosImages } from '@/assets/images/quartos';
 import { seoConfig } from '@/utils/seo-config';
-import useEditableContent from '@/hooks/useEditableContent';
 
+/**
+ * Room data for the RoomCardGallery component.
+ * Each room maps real images from the quartos assets folder
+ * to the expected data shape.
+ */
+const rooms = [
+  {
+    roomId: 'room-suite-deluxe',
+    title: 'Suite Deluxe',
+    subtitle: 'A melhor suite do Monte da Estrada onde o conforto e a elegância se encontram. Amplas janelas tornam a natureza protagonista, com vista panorâmica sobre o Alentejo.',
+    image: quartosImages.rooms[4].src,
+    imageAlt: quartosImages.rooms[4].alt,
+    description: `
+      <p><strong>Luxo e natureza em perfeita harmonia. A Suite Deluxe é o nosso espaço mais exclusivo, onde cada detalhe foi pensado para proporcionar uma experiência inesquecível.</strong></p>
+      <ul>
+        <li>Suite espaçosa (35 m²) com sala de estar integrada</li>
+        <li>Terraço privado panorâmico com mobiliário premium</li>
+        <li>Vista 360° sobre a paisagem alentejana</li>
+        <li>Decoração de autor com peças de artesanato local</li>
+        <li>1 cama King Size (200cm x 200cm)</li>
+        <li>Roupa de cama egípcia 100% algodão (400 fios)</li>
+        <li>Casa de banho completa com banheira e chuveiro</li>
+        <li>Amenities premium de casa de banho</li>
+        <li>Acesso Wi-Fi gratuito de alta velocidade</li>
+        <li>Ar condicionado e aquecimento central</li>
+        <li>Minibar com seleção regional</li>
+      </ul>
+      <p><strong>"Incluído:"</strong></p>
+      <ul>
+        <li>Pequeno-almoço gourmet regional</li>
+        <li>Acesso à piscina exterior e jardins</li>
+        <li>Estacionamento privativo gratuito</li>
+        <li>Late check-out mediante disponibilidade</li>
+      </ul>
+    `,
+    images: [
+      { src: quartosImages.rooms[4].src, alt: 'Suite Deluxe - Vista geral' },
+      { src: quartosImages.rooms[9].src, alt: 'Suite Deluxe - Segunda vista' },
+      { src: quartosImages.rooms[0].src, alt: 'Suite Deluxe - Detalhe' },
+    ],
+  },
+  {
+    roomId: 'room-comfort-alentejo',
+    title: 'Quarto Comfort Alentejo',
+    subtitle: 'Elegante e acolhedor, com terraço privativo e vista sobre a paisagem alentejana, perfeito para uma estadia serena e revitalizante.',
+    image: quartosImages.rooms[1].src,
+    imageAlt: quartosImages.rooms[1].alt,
+    description: `
+      <p><strong>Conforto com vistas amplas sobre o panorama do Alentejo. A luz natural invade o quarto, onde a paisagem se transforma em arte.</strong></p>
+      <ul>
+        <li>Quarto espaçoso (28 m²) com grande janela</li>
+        <li>Terraço privado com mobiliário exterior</li>
+        <li>Vista sobre a paisagem alentejana</li>
+        <li>Decoração com peças de artesanato local</li>
+        <li>1 cama King Size (180cm x 200cm) ou 2 camas Twin</li>
+        <li>Roupa de cama 100% algodão</li>
+        <li>Casa de banho com chuveiro</li>
+        <li>Amenities de casa de banho</li>
+        <li>Acesso Wi-Fi gratuito</li>
+        <li>Ar condicionado</li>
+        <li>Minibar</li>
+      </ul>
+      <p><strong>"Incluído:"</strong></p>
+      <ul>
+        <li>Pequeno-almoço regional</li>
+        <li>Acesso à piscina exterior</li>
+        <li>Estacionamento gratuito</li>
+      </ul>
+    `,
+    images: [
+      { src: quartosImages.rooms[1].src, alt: 'Quarto Comfort - Vista geral' },
+      { src: quartosImages.rooms[3].src, alt: 'Quarto Comfort - Segunda vista' },
+      { src: quartosImages.rooms[6].src, alt: 'Quarto Comfort - Detalhe' },
+    ],
+  },
+];
+
+/**
+ * QuartosPage - Rooms page using the RoomCardGallery component.
+ * Features a hero section, alternating room cards with expand-in-place
+ * detail views, and a CTA section.
+ */
 const QuartosPage = () => {
-  const quartosData = useEditableContent('quartos', quartosDataOriginal);
-  const [selectedRoom, setSelectedRoom] = useState(null);
-
-  // Reason: Group room images by category for better organization
-  const suiteRooms = quartosImages.rooms.filter(room => room.category === 'suite');
-  const deluxeRooms = quartosImages.rooms.filter(room => room.category === 'deluxe');
-  const standardRooms = quartosImages.rooms.filter(room => room.category === 'standard');
-
-  /**
-   * Opens the room detail modal
-   * @param {Object} room - The room data object
-   * @param {Object} roomImage - The room image object
-   */
-  const handleRoomClick = (room, roomImage) => {
-    setSelectedRoom({ ...room, image: roomImage });
+  const handleReserveClick = (roomId) => {
+    // Reason: Open external booking or scroll to contact section
+    window.open('https://www.booking.com', '_blank', 'noopener,noreferrer');
   };
-
-  /**
-   * Closes the room detail modal
-   */
-  const closeModal = () => {
-    setSelectedRoom(null);
-  };
-
-  /**
-   * Handles keyboard navigation for closing modal
-   */
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
-  };
-
-  // Reason: Prevent body scroll when modal is open for better UX
-  useEffect(() => {
-    if (selectedRoom) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedRoom]);
 
   return (
     <div className={styles.quartosPage}>
@@ -70,244 +106,18 @@ const QuartosPage = () => {
         image={seoConfig.quartos.image}
       />
 
-      {/* Hero Section with Real Image */}
-      <div
-        className={styles.hero}
-        style={{ backgroundImage: `url(${quartosImages.hero.src})` }}
-      >
-        <div className={styles.heroOverlay}>
-          <Container>
-            <div className={styles.heroContent}>
-              <h1 className={styles.heroTitle}>{quartosData.title}</h1>
-              <p className={styles.heroDescription}>{quartosData.description}</p>
-            </div>
-          </Container>
-        </div>
-      </div>
+      <Hero
+        backgroundImage={quartosImages.hero.src}
+        title="Os Nossos Quartos"
+        subtitle="Descubra o conforto e a tranquilidade do Monte da Estrada"
+        height="60vh"
+        overlay={0.5}
+      />
 
-      {/* Rooms Gallery Section */}
-      <Section padding="large">
-        <Container>
-          <h2 className={styles.sectionTitle}>Explore os Nossos Quartos</h2>
-
-          {/* Suite Rooms */}
-          {suiteRooms.length > 0 && (
-            <div className={styles.categorySection}>
-              <h3 className={styles.categoryTitle}>Suites Premium</h3>
-              <div className={styles.roomsGrid}>
-                {suiteRooms.map((roomImage, index) => {
-                  // Reason: Match room images with room data from JSON
-                  const roomData = quartosData.rooms[index % quartosData.rooms.length];
-                  return (
-                    <div
-                      key={`suite-${index}`}
-                      className={styles.roomCard}
-                      onClick={() => handleRoomClick(roomData, roomImage)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyPress={(e) => e.key === 'Enter' && handleRoomClick(roomData, roomImage)}
-                    >
-                      <div className={styles.roomImageWrapper}>
-                        <ResponsiveImage
-                          src={roomImage.src}
-                          alt={roomImage.alt}
-                          aspectRatio="4/3"
-                          objectFit="cover"
-                          className={styles.roomImage}
-                        />
-                        <div className={styles.roomOverlay}>
-                          <span className={styles.viewDetails}>Ver Detalhes</span>
-                        </div>
-                      </div>
-                      <div className={styles.roomCardContent}>
-                        <h4 className={styles.roomCardTitle}>{roomData.name}</h4>
-                        <p className={styles.roomCardCapacity}>{roomData.capacity}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Deluxe Rooms */}
-          {deluxeRooms.length > 0 && (
-            <div className={styles.categorySection}>
-              <h3 className={styles.categoryTitle}>Quartos Deluxe</h3>
-              <div className={styles.roomsGrid}>
-                {deluxeRooms.map((roomImage, index) => {
-                  const roomData = quartosData.rooms[index % quartosData.rooms.length];
-                  return (
-                    <div
-                      key={`deluxe-${index}`}
-                      className={styles.roomCard}
-                      onClick={() => handleRoomClick(roomData, roomImage)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyPress={(e) => e.key === 'Enter' && handleRoomClick(roomData, roomImage)}
-                    >
-                      <div className={styles.roomImageWrapper}>
-                        <ResponsiveImage
-                          src={roomImage.src}
-                          alt={roomImage.alt}
-                          aspectRatio="4/3"
-                          objectFit="cover"
-                          className={styles.roomImage}
-                        />
-                        <div className={styles.roomOverlay}>
-                          <span className={styles.viewDetails}>Ver Detalhes</span>
-                        </div>
-                      </div>
-                      <div className={styles.roomCardContent}>
-                        <h4 className={styles.roomCardTitle}>{roomData.name}</h4>
-                        <p className={styles.roomCardCapacity}>{roomData.capacity}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Standard Rooms */}
-          {standardRooms.length > 0 && (
-            <div className={styles.categorySection}>
-              <h3 className={styles.categoryTitle}>Quartos Standard</h3>
-              <div className={styles.roomsGrid}>
-                {standardRooms.map((roomImage, index) => {
-                  const roomData = quartosData.rooms[index % quartosData.rooms.length];
-                  return (
-                    <div
-                      key={`standard-${index}`}
-                      className={styles.roomCard}
-                      onClick={() => handleRoomClick(roomData, roomImage)}
-                      role="button"
-                      tabIndex={0}
-                      onKeyPress={(e) => e.key === 'Enter' && handleRoomClick(roomData, roomImage)}
-                    >
-                      <div className={styles.roomImageWrapper}>
-                        <ResponsiveImage
-                          src={roomImage.src}
-                          alt={roomImage.alt}
-                          aspectRatio="4/3"
-                          objectFit="cover"
-                          className={styles.roomImage}
-                        />
-                        <div className={styles.roomOverlay}>
-                          <span className={styles.viewDetails}>Ver Detalhes</span>
-                        </div>
-                      </div>
-                      <div className={styles.roomCardContent}>
-                        <h4 className={styles.roomCardTitle}>{roomData.name}</h4>
-                        <p className={styles.roomCardCapacity}>{roomData.capacity}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </Container>
-      </Section>
-
-      {/* Common Areas Section */}
-      <Section background="secondary" padding="large">
-        <Container>
-          <h2 className={styles.sectionTitle}>Áreas Comuns</h2>
-          <div className={styles.commonAreasGrid}>
-            {quartosImages.commonAreas.map((area, index) => (
-              <div key={`area-${index}`} className={styles.commonAreaCard}>
-                <ResponsiveImage
-                  src={area.src}
-                  alt={area.alt}
-                  aspectRatio="16/9"
-                  objectFit="cover"
-                  className={styles.commonAreaImage}
-                />
-              </div>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Facilities Section */}
-      <Section background="light" padding="large">
-        <Container>
-          <h2 className={styles.sectionTitle}>Instalações e Comodidades</h2>
-          <Grid columns={3} gap="medium">
-            {quartosData.facilities.map((facility, index) => (
-              <Card key={index} className={styles.facilityCard}>
-                <p className={styles.facilityText}>{facility}</p>
-              </Card>
-            ))}
-          </Grid>
-        </Container>
-      </Section>
-
-      {/* Pricing Section */}
-      <Section padding="large">
-        <Container>
-          <div className={styles.pricingSection}>
-            <h2 className={styles.sectionTitle}>{quartosData.pricing.title}</h2>
-            <p className={styles.pricingDescription}>{quartosData.pricing.description}</p>
-
-            <Grid columns={3} gap="large" className={styles.seasonsGrid}>
-              {quartosData.pricing.seasons.map((season, index) => (
-                <Card key={index} className={styles.seasonCard}>
-                  <h3 className={styles.seasonName}>{season.name}</h3>
-                  <p className={styles.seasonPeriod}>{season.period}</p>
-                  <p className={styles.seasonNote}>{season.note}</p>
-                </Card>
-              ))}
-            </Grid>
-
-            <div className={styles.policies}>
-              <h3 className={styles.policiesTitle}>Políticas de Reserva</h3>
-              <ul className={styles.policiesList}>
-                {quartosData.pricing.policies.map((policy, index) => (
-                  <li key={index}>{policy}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* Contact Section */}
-      <Section background="light" padding="large">
-        <Container>
-          <div className={styles.contactSection}>
-            <h2 className={styles.sectionTitle}>Faça a Sua Reserva</h2>
-            <p className={styles.contactText}>
-              Preencha o formulário abaixo ou entre em contacto connosco por telefone ou email
-              para fazer a sua reserva ou esclarecer qualquer dúvida.
-            </p>
-
-            <div className={styles.contactGrid}>
-              <div className={styles.contactInfo}>
-                <h3>Contactos</h3>
-                <p className={styles.contactItem}>
-                  <strong>Telefone:</strong><br />
-                  283 647 535<br />
-                  960 254 072
-                </p>
-                <p className={styles.contactItem}>
-                  <strong>Email:</strong><br />
-                  montedaestradazambujeiradomar@gmail.com
-                </p>
-                <p className={styles.contactItem}>
-                  <strong>Horário de Atendimento:</strong><br />
-                  Todos os dias: 9:00 - 20:00
-                </p>
-              </div>
-
-              <div className={styles.formWrapper}>
-                <ContactForm />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
+      <RoomCardGallery
+        rooms={rooms}
+        onReserveClick={handleReserveClick}
+      />
 
       {/* CTA Section */}
       <Section background="primary" padding="medium">
@@ -328,65 +138,6 @@ const QuartosPage = () => {
           </div>
         </Container>
       </Section>
-
-      {/* Room Detail Modal */}
-      {selectedRoom && (
-        <div
-          className={styles.modal}
-          onClick={closeModal}
-          onKeyDown={handleKeyDown}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-title"
-        >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-            role="document"
-          >
-            <button
-              className={styles.modalClose}
-              onClick={closeModal}
-              aria-label="Fechar modal"
-            >
-              ×
-            </button>
-
-            <div className={styles.modalImage}>
-              <ResponsiveImage
-                src={selectedRoom.image.src}
-                alt={selectedRoom.image.alt}
-                aspectRatio="16/9"
-                objectFit="cover"
-                lazy={false}
-              />
-            </div>
-
-            <div className={styles.modalBody}>
-              <h2 id="modal-title" className={styles.modalTitle}>{selectedRoom.name}</h2>
-              <p className={styles.modalCapacity}>
-                <strong>Capacidade:</strong> {selectedRoom.capacity}
-              </p>
-
-              <h3 className={styles.modalFeaturesTitle}>Características:</h3>
-              <ul className={styles.modalFeaturesList}>
-                {selectedRoom.features.map((feature, idx) => (
-                  <li key={idx}>{feature}</li>
-                ))}
-              </ul>
-
-              <div className={styles.modalActions}>
-                <Button variant="primary" href="#contact">
-                  Reservar Agora
-                </Button>
-                <Button variant="outline" onClick={closeModal}>
-                  Fechar
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

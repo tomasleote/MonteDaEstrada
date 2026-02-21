@@ -1,0 +1,448 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// EXPANDED CARD ANIMATIONS
+// ==================================
+
+@keyframes expandFade {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+// ==================================
+// EXPANDED CARD LAYOUT
+// ==================================
+
+.expandedCard {
+  width: 100%;
+  position: relative;
+  background-color: $color-bg-primary;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // Reason: Fill viewport minus expanded header (110px) without internal scrollbar
+  min-height: calc(100vh - 110px);
+  animation: expandFade 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+  // Reason: Mobile layout converts to single column with flexbox
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    animation: expandFade 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+.expandedCardReversed {
+  .slideshowColumn {
+    order: 2;
+  }
+
+  .contentColumn {
+    order: 1;
+  }
+
+  // Reason: Mobile layout ignores order property
+  @include mobile {
+    .slideshowColumn {
+      order: unset;
+    }
+
+    .contentColumn {
+      order: unset;
+    }
+  }
+}
+
+// ==================================
+// CLOSE BUTTON
+// ==================================
+
+.closeButton {
+  position: absolute;
+  top: $spacing-m;
+  right: $spacing-m;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  @include flex-center;
+  background-color: rgba($color-primary, 0.8);
+  color: $color-text-light;
+  border: none;
+  border-radius: $border-radius-sharp;
+  font-size: 28px;
+  cursor: pointer;
+  transition: all $transition-duration-normal $transition-timing-fast;
+  font-weight: $font-weight-light;
+
+  &:hover {
+    background-color: $color-primary;
+    transform: rotate(90deg);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+
+  @include mobile {
+    top: $spacing-s;
+    right: $spacing-s;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+}
+
+// ==================================
+// SLIDESHOW COLUMN
+// ==================================
+
+.slideshowColumn {
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    min-height: 280px;
+  }
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slideshowImage {
+  @include touril-image;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @include mobile {
+    position: relative;
+    min-height: 280px;
+  }
+}
+
+// ==================================
+// SLIDESHOW CONTROLS (ARROWS)
+// ==================================
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  @include flex-center;
+  background-color: rgba($color-primary, 0.6);
+  color: $color-text-light;
+  border: none;
+  border-radius: $border-radius-sharp;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all $transition-duration-normal $transition-timing-fast;
+  font-weight: $font-weight-light;
+
+  &:hover {
+    background-color: rgba($color-primary, 0.85);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+.arrowPrev {
+  left: $spacing-m;
+
+  @include mobile {
+    left: $spacing-s;
+  }
+}
+
+.arrowNext {
+  right: $spacing-m;
+
+  @include mobile {
+    right: $spacing-s;
+  }
+}
+
+// ==================================
+// SLIDESHOW DOT INDICATORS
+// ==================================
+
+.dots {
+  position: absolute;
+  bottom: $spacing-m;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: $spacing-s;
+  z-index: 5;
+
+  @include mobile {
+    bottom: $spacing-s;
+    gap: 6px;
+  }
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: $border-radius-full;
+  background-color: rgba($color-text-light, 0.5);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all $transition-duration-normal $transition-timing-fast;
+
+  &:hover {
+    background-color: rgba($color-text-light, 0.7);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+
+  @include mobile {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.dotActive {
+  background-color: $color-accent;
+  width: 12px;
+
+  @include mobile {
+    width: 10px;
+  }
+}
+
+// ==================================
+// IMAGE COUNTER
+// ==================================
+
+.counter {
+  position: absolute;
+  bottom: $spacing-m;
+  right: $spacing-m;
+  z-index: 5;
+  @include touril-text;
+  font-size: $font-size-body-small;
+  color: $color-text-light;
+  background-color: rgba($color-primary, 0.6);
+  padding: $spacing-xs $spacing-s;
+  border-radius: $border-radius-sharp;
+
+  @include mobile {
+    bottom: $spacing-s;
+    right: $spacing-s;
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}
+
+// ==================================
+// CONTENT COLUMN
+// ==================================
+
+.contentColumn {
+  padding: $spacing-xl $spacing-xxl;
+  background-color: $color-bg-primary;
+
+  @include tablet {
+    padding: $spacing-l $spacing-xl;
+  }
+
+  @include mobile {
+    padding: $spacing-m $spacing-l;
+  }
+}
+
+.contentInner {
+  max-width: 560px;
+
+  @include mobile {
+    max-width: 100%;
+  }
+}
+
+// ==================================
+// DARK VARIANT (odd-index cards)
+// ==================================
+
+.dark {
+  .contentColumn {
+    background-color: $color-primary;
+  }
+
+  .title {
+    color: $color-text-light;
+  }
+
+  .subtitle {
+    color: rgba($color-text-light, 0.7);
+  }
+
+  .description {
+    color: rgba($color-text-light, 0.85);
+  }
+
+  .actions {
+    border-top-color: rgba($color-text-light, 0.2);
+  }
+
+  .reserveButton {
+    background-color: $color-accent;
+    color: $color-primary;
+
+    &:hover {
+      background-color: darken($color-accent, 8%);
+    }
+  }
+
+  .closeButton {
+    background-color: rgba($color-text-light, 0.2);
+
+    &:hover {
+      background-color: rgba($color-text-light, 0.35);
+    }
+  }
+}
+
+// ==================================
+// TYPOGRAPHY
+// ==================================
+
+.title {
+  @include touril-text;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-light;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  margin-bottom: $spacing-s;
+
+  @include mobile {
+    font-size: $font-size-h4;
+  }
+}
+
+.subtitle {
+  @include touril-body;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-m;
+  font-weight: $font-weight-medium;
+}
+
+.description {
+  @include touril-body;
+  color: $color-text-primary;
+  margin-bottom: $spacing-m;
+
+  // Reason: Style nested CMS content for consistent appearance
+  p {
+    margin-bottom: $spacing-m;
+  }
+
+  ul,
+  ol {
+    margin-bottom: $spacing-m;
+    margin-left: $spacing-l;
+  }
+
+  li {
+    margin-bottom: $spacing-s;
+  }
+
+  strong {
+    font-weight: $font-weight-semibold;
+  }
+}
+
+// ==================================
+// ACTIONS / BUTTONS
+// ==================================
+
+.actions {
+  padding-top: $spacing-l;
+  border-top: $border-width-thin solid $color-border-light;
+}
+
+.reserveButton {
+  @include touril-button-primary;
+  padding: $spacing-s $spacing-xl;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-extra-wide;
+  text-transform: uppercase;
+
+  @include mobile {
+    padding: $spacing-s $spacing-m;
+    font-size: $font-size-body-small;
+  }
+}
+
+// ==================================
+// REDUCED MOTION & ACCESSIBILITY
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .expandedCard {
+    animation: none;
+  }
+
+  .arrow,
+  .dot,
+  .closeButton,
+  .counter {
+    transition: none;
+  }
+}
+
+// ==================================
+// PRINT STYLES
+// ==================================
+
+@media print {
+  .expandedCard {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    height: auto;
+  }
+
+  .closeButton,
+  .arrow,
+  .dots,
+  .counter {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .slideshowImage {
+    position: relative;
+  }
+}

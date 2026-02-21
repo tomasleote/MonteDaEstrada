@@ -1,0 +1,70 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ============================================
+// RoomCardGallery Component Styles
+// ============================================
+// Gallery orchestrator managing expand/collapse state
+// with smooth transition effects
+
+/**
+ * Gallery wrapper
+ * Displays room cards stacked vertically
+ */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0; // Reason: Cards are stacked tightly, no gap between them
+}
+
+/**
+ * Wrapper for each card (collapsed or expanded)
+ * Ensures full-width layout for both card states
+ */
+.cardWrapper {
+  width: 100%;
+}
+
+/**
+ * Expanded card wrapper
+ * Provides smooth scroll positioning and transition effects
+ */
+.expandedWrapper {
+  width: 100%;
+  // Reason: 80px matches the header height for proper scroll positioning
+  scroll-margin-top: 80px;
+  animation: expandIn $transition-duration-normal $transition-timing-normal;
+
+  // Reason: Respect user's motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    scroll-margin-top: 80px;
+  }
+}
+
+/**
+ * Expand-in animation
+ * Smooth fade and scale effect when card expands
+ */
+@keyframes expandIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Reason: Respect prefers-reduced-motion for all animations
+@media (prefers-reduced-motion: reduce) {
+  .gallery {
+    * {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+    }
+  }
+}

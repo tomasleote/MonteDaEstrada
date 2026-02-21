@@ -1,0 +1,225 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// ROOM CARD LAYOUT & STRUCTURE
+// ==================================
+
+.roomCard {
+  display: flex;
+  width: 100%;
+  min-height: 450px;
+  background-color: $color-bg-primary;
+  transition: none;
+
+  // On mobile, convert to single column (image on top)
+  @include mobile {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+.roomCardReversed {
+  flex-direction: row-reverse;
+
+  // On mobile, image still appears on top regardless of reverse
+  @include mobile {
+    flex-direction: column;
+  }
+}
+
+// ==================================
+// IMAGE COLUMN
+// ==================================
+
+.imageColumn {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+
+  @include mobile {
+    min-height: 280px;
+  }
+}
+
+.image {
+  @include touril-image;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform 0.6s $transition-timing-normal;
+
+  // Reason: Subtle zoom on hover creates elegant engagement without disrupting layout
+  .roomCard:hover & {
+    transform: scale(1.03);
+  }
+}
+
+// ==================================
+// CONTENT COLUMN
+// ==================================
+
+.contentColumn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xxl;
+  background-color: $color-bg-secondary;
+
+  @include mobile {
+    padding: $spacing-l;
+  }
+}
+
+.contentColumnDark {
+  background-color: $color-primary;
+
+  .title {
+    color: $color-text-light;
+  }
+
+  .subtitle {
+    color: rgba($color-text-light, 0.7);
+  }
+
+  .infoButton {
+    color: $color-text-light;
+    border-color: rgba($color-text-light, 0.5);
+
+    &:hover {
+      border-color: $color-text-light;
+      color: $color-text-light;
+      background-color: rgba($color-text-light, 0.1);
+    }
+  }
+}
+
+// ==================================
+// CONTENT INNER WRAPPER
+// ==================================
+
+.contentInner {
+  max-width: 420px;
+  width: 100%;
+}
+
+// ==================================
+// TYPOGRAPHY
+// ==================================
+
+.title {
+  @include touril-text;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-light;
+  line-height: $line-height-tight;
+  color: $color-text-primary;
+  margin-bottom: $spacing-s;
+
+  @include mobile {
+    font-size: $font-size-h4;
+  }
+}
+
+.subtitle {
+  @include touril-body;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-xl;
+}
+
+// ==================================
+// ACTIONS / BUTTONS
+// ==================================
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+}
+
+.reserveButton {
+  @include touril-button-primary;
+  padding: $spacing-s $spacing-xl;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-extra-wide;
+  text-transform: uppercase;
+
+  // Ensure button inherits text color in dark mode
+  .contentColumnDark & {
+    background-color: $color-accent;
+    color: $color-text-primary;
+
+    &:hover:not(:disabled) {
+      background-color: $color-accent-dark;
+    }
+  }
+}
+
+.infoButton {
+  background: none;
+  border: $border-width-thin solid $color-border;
+  color: $color-text-primary;
+  padding: $spacing-s $spacing-xl;
+  font-size: $font-size-body;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-extra-wide;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all $transition-duration-normal $transition-timing-fast;
+  font-family: $font-family-primary;
+
+  &:hover {
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+
+  @include focus-visible;
+
+  // Reason: Touch device support for button activation
+  @include touch-device {
+    &:active {
+      opacity: $opacity-hover;
+    }
+  }
+}
+
+// ==================================
+// REDUCED MOTION & ACCESSIBILITY
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    transition: none;
+  }
+
+  .infoButton {
+    transition: none;
+  }
+
+  .roomCard:hover .image {
+    transform: none;
+  }
+}
+
+// ==================================
+// PRINT STYLES
+// ==================================
+
+@media print {
+  .roomCard {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .image {
+    transform: none;
+  }
+
+  .actions {
+    display: none;
+  }
+}
