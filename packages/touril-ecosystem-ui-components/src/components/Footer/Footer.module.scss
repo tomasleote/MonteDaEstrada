@@ -1,31 +1,36 @@
 // ==================================
-// Footer Component Styles - Touril Design
+// Footer Component Styles — Boutique Collection
 // ==================================
+// Layout: flex-wrap + float-grid (restored original structure)
+// Brand: Deep Brown bg (#3D3B38), Cream text (#F5F3F0), Clay hover (#B8925F)
+// 48px top/bottom padding; 1px Warm Gray divider above
+
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
 .footer {
-  background-color: $color-bg-dark;
-  color: $color-text-muted;
+  background-color: $color-deep-brown;
+  color: $color-cream;
   padding: $spacing-xxl $spacing-m;
   margin-top: 14px;
-  font-family: $font-family-primary;
-  font-size: $font-size-body;
-  letter-spacing: $letter-spacing-touril;
-  line-height: $line-height-base;
+  font-family: $font-body;
+  font-size: $font-size-body-small;
+  letter-spacing: $letter-spacing-body;
+  line-height: $line-height-relaxed;
+  border-top: $border-width-footer-divider solid $color-warm-gray;
 
-  // All links inherit muted color and get gold hover
+  // All links: cream default, clay hover
   a {
-    color: $color-text-muted;
+    color: $color-cream;
     text-decoration: none;
     transition: color $transition-normal $ease-standard;
 
     &:hover {
-      color: $color-accent;
+      color: $color-clay;
     }
 
     &:focus-visible {
-      outline: 2px solid $color-accent;
+      outline: 2px solid $color-clay;
       outline-offset: 2px;
     }
   }
@@ -70,10 +75,9 @@
 
 // Navigation items: floated grid cells (desktop)
 .navItem {
-  // Desktop: float grid (3 columns, ~160px wide each)
   float: left;
   width: $footer-nav-item-width;
-  margin: 0 $spacing-xl $spacing-s 0; // 32px right gap, 8px bottom gap
+  margin: 0 $spacing-xl $spacing-s 0;
 
   @media (max-width: $breakpoint-desktop) {
     float: none;
@@ -82,11 +86,14 @@
   }
 }
 
-// Navigation links: compact vertical spacing (15px line-height at 14px font)
+// Navigation links: compact vertical spacing
 .navLink {
   display: block;
-  font-size: $font-size-body;
-  line-height: $line-height-footer-nav; // 1.07 = 15px at 14px font
+  font-size: $font-size-body-small;
+  line-height: $line-height-footer-nav;
+  color: rgba($color-cream, 0.75);
+
+  &:hover { color: $color-clay; }
 }
 
 // Right column: Address + Legal information
@@ -109,11 +116,10 @@
 }
 
 // Contact block: first column (~234px) — Morada + Contactos
-// Touril audit: P1 width ~234px with 20px right padding
 .contactBlock {
   flex: 0 0 234px;
   padding-right: $spacing-m;
-  line-height: $line-height-relaxed; // 1.71 for spacious contact info
+  line-height: $line-height-relaxed;
 
   @media (max-width: $breakpoint-desktop) {
     flex: none;
@@ -122,8 +128,7 @@
   }
 }
 
-// Legal block: second column (fills remaining ~365px) — Reclamações + CNIACC
-// Touril audit: P2 width ~365px with 20px right padding
+// Legal block: second column (fills remaining) — Reclamações + CNIACC
 .legalBlock {
   flex: 1;
   padding-right: $spacing-m;
@@ -138,8 +143,11 @@
 // Bold labels for sections (Morada, Contactos, Entidade)
 .addressLabel {
   display: block;
-  font-weight: $font-weight-bold;
-  color: $color-text-muted;
+  font-weight: $font-weight-medium;
+  color: $color-cream;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-subheading;
+  font-size: $font-size-caption;
   margin-top: $spacing-s;
 
   &:first-child {
@@ -152,24 +160,27 @@
   margin: $spacing-s 0 0;
   padding: 0;
   line-height: $line-height-relaxed;
+  color: rgba($color-cream, 0.75);
 }
 
 // Paragraph for contact links (phone, email)
 .contactParagraph {
   margin: 0;
   padding: 0;
+  color: rgba($color-cream, 0.75);
 }
 
 // Paragraph for legal links and info
 .legalParagraph {
   margin: 0;
   padding: 0;
+  color: rgba($color-cream, 0.75);
 }
 
 // Bottom section: Social icons + copyright
 .blockSocial {
   max-width: $footer-content-max-width;
-  margin: $spacing-xxxl auto 0; // 48px top margin
+  margin: $spacing-xxxl auto 0;
   text-align: center;
 }
 
@@ -177,26 +188,30 @@
 .socialList {
   list-style: none;
   padding: 0;
-  margin: 0 0 $spacing-xl; // 32px bottom margin
+  margin: 0 0 $spacing-xl;
 }
 
 // Individual social icon container
 .socialItem {
   display: inline-block;
-  margin: 0 $spacing-l $spacing-m 0; // 24px right, 16px bottom
+  margin: 0 $spacing-l $spacing-m 0;
 
   &:last-child {
     margin-right: 0;
   }
 }
 
-// Social icon link: 45×45px square
+// Social icon link
 .socialLink {
   display: inline-block;
   width: $size-social-icon;
   height: $size-social-icon;
   line-height: $size-social-icon;
   text-align: center;
+  color: rgba($color-cream, 0.75);
+  transition: color $transition-normal $ease-standard;
+
+  &:hover { color: $color-clay; }
 
   img {
     width: 100%;
@@ -207,13 +222,29 @@
 
   span {
     display: inline-block;
-    font-weight: $font-weight-bold;
+    font-weight: $font-weight-medium;
   }
 }
 
 // Copyright notice
 .copyright {
   margin: 0;
-  color: $color-text-light;
-  font-size: $font-size-body;
+  color: rgba($color-cream, 0.5);
+  font-size: $font-size-caption;
+  letter-spacing: $letter-spacing-body;
+}
+
+// ============================================
+// ACCESSIBILITY
+// ============================================
+
+@media (prefers-contrast: more) {
+  .footer { color: $color-cream; }
+  .navLink, .addressParagraph, .contactParagraph, .legalParagraph {
+    color: $color-cream;
+  }
+}
+
+@media print {
+  .footer { background: transparent !important; color: #000 !important; }
 }

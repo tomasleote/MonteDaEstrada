@@ -121,28 +121,7 @@ const QuartosPage = () => {
           onReserveClick={handleReserveClick}
         />
       </ScrollReveal>
-
-      {/* CTA Section */}
-      <Section background="primary" padding="medium" animate>
-        <Container>
-          <ScrollReveal variant="fadeIn">
-            <div className={styles.cta}>
-              <h2 className={styles.ctaTitle}>Explore o Monte da Estrada</h2>
-              <div className={styles.ctaButtons}>
-                <Button variant="secondary" href="/galeria">
-                  Ver Galeria
-                </Button>
-                <Button variant="outline" href="/atividades">
-                  Atividades
-                </Button>
-                <Button variant="outline" href="/redondezas">
-                  A Região
-                </Button>
-              </div>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      
     </div>
   );
 };

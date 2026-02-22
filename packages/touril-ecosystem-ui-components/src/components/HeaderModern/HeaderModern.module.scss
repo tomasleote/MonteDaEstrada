@@ -1,8 +1,8 @@
 // ==================================
-// HeaderModern Component Styles
+// HeaderModern — Boutique Collection
 // ==================================
-// Luxury hotel header with scroll-triggered transformations
-// Uses Touril design system tokens and responsive behavior
+// Spec: Deep Brown bg (#3D3B38), Cream text (#F5F3F0), Clay accents (#B8925F)
+// Desktop: 72px | Mobile: 64px | Sticky, fixed, z-index: 1030
 
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
@@ -18,21 +18,40 @@
   right: 0;
   z-index: $z-index-fixed;
   width: 100%;
-  height: 80px;
-  padding: $spacing-s $spacing-m;
+  height: 72px;
+  padding: 0 $spacing-xl;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: transparent;
-  transition: all $transition-duration-slow $transition-timing-normal;
-  backdrop-filter: none;
+  transition: background-color $transition-duration-slow $transition-timing-normal,
+              box-shadow $transition-duration-slow $transition-timing-normal;
 
   @include tablet {
-    padding: $spacing-s $spacing-l;
+    padding: 0 $spacing-l;
+    height: 68px;
   }
 
-  @include desktop {
-    padding: $spacing-s $spacing-xl;
+  @include mobile {
+    padding: 0 $spacing-m;
+    height: 64px;
+  }
+}
+
+// Scrolled state — fades in the deep brown background
+.headerScrolled {
+  background-color: $color-deep-brown;
+  border-bottom: 1px solid rgba($color-warm-gray, 0.2);
+}
+
+.headerPropertiesOpen {}
+.headerMenuOpen {}
+
+.hamburgerOpen {
+  .hamburgerLine {
+    &:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    &:nth-child(2) { opacity: 0; }
+    &:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
   }
 }
 
@@ -54,77 +73,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
 
-  @include mobile {
-    display: none;
-  }
+  @include mobile { display: none; }
 }
 
 .rightZone {
   display: flex;
   align-items: center;
-  gap: $spacing-s;
+  gap: $spacing-m;
   flex-shrink: 0;
   z-index: 1;
 }
 
-// Scrolled state - header expands and darkens
-.headerScrolled {
-  height: 110px;
-  background-color: $color-primary;
-  box-shadow: $shadow-medium;
-  backdrop-filter: blur(4px);
-
-  // Mobile only - adjust nav position
-  @include mobile {
-    height: auto;
-    padding-top: $spacing-m;
-    padding-bottom: $spacing-m;
-  }
-}
-
-// When Propriedades dropdown is open, apply scrolled-like styling
-.headerPropertiesOpen {
-  height: 110px;
-  background-color: $color-primary;
-  box-shadow: $shadow-medium;
-  backdrop-filter: blur(4px);
-  transition: all $transition-duration-normal $transition-timing-normal;
-
-  @include mobile {
-    height: auto;
-    padding-top: $spacing-m;
-    padding-bottom: $spacing-m;
-  }
-}
-
-// Mobile menu open state
-.headerMenuOpen {
-  .mobileMenu {
-    display: flex;
-  }
-}
-
-// Hamburger transforms to X when menu is open
-.hamburgerOpen {
-  .hamburgerLine {
-    &:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    &:nth-child(2) {
-      opacity: 0;
-    }
-
-    &:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -6px);
-    }
-  }
-}
-
 // ============================================
-// LEFT ZONE: LOGO / BRAND
+// LOGO / BRAND
 // ============================================
 
 .brandLink {
@@ -140,20 +102,15 @@
   max-width: 180px;
   object-fit: contain;
   display: block;
-  transition: height $transition-duration-normal $transition-timing-normal;
-
-  .headerScrolled & {
-    height: 36px;
-  }
 }
 
 .brandTextLeft {
-  @include touril-text;
-  font-size: 28px;
-  font-weight: $font-weight-light;
-  letter-spacing: $letter-spacing-extra-wide;
+  font-family: $font-display;
+  font-size: 18px;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-headline;
   text-transform: uppercase;
-  color: $color-text-light;
+  color: $color-cream;
   white-space: nowrap;
 }
 
@@ -166,23 +123,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all $transition-duration-normal $transition-timing-normal;
 
-  @include mobile {
-    display: none;
-  }
+  @include mobile { display: none; }
 }
 
 .navList {
-  @include flex-row($spacing-l);
+  @include flex-row($spacing-xs);
   list-style: none;
   margin: 0;
   padding: 0;
-
-  @include mobile {
-    flex-direction: column;
-    gap: $spacing-m;
-  }
 }
 
 .navItem {
@@ -192,12 +141,12 @@
 }
 
 .navLink {
-  @include touril-text;
-  font-size: $font-size-body;
+  font-family: $font-body;
+  font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.75px;
   text-transform: uppercase;
-  color: $color-text-light;
+  color: $color-cream;
   text-decoration: none;
   display: block;
   padding: $spacing-s $spacing-m;
@@ -206,45 +155,49 @@
 
   @include focus-visible;
 
-  &:hover {
-    color: $color-accent;
-  }
+  &:hover { color: $color-clay; }
 
-  // Active link indicator
+  // Active: clay + 2px bottom underline per spec
   &.navLinkActive {
-    color: $color-accent;
-  }
+    color: $color-clay;
 
-  @include mobile {
-    padding: $spacing-m 0;
-    font-size: 16px;
-    letter-spacing: 1px;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: $spacing-m;
+      right: $spacing-m;
+      height: 2px;
+      background-color: $color-clay;
+    }
   }
 }
 
-
 // ============================================
-// PROPRIEDADES DROPDOWN
+// PROPERTIES DROPDOWN (Collection Switcher)
 // ============================================
 
 .propertiesDropdown {
   position: relative;
-  margin-left: $spacing-m;
   flex-shrink: 0;
+  margin-left: $spacing-s;
+  // Vertical separator on left side
+  padding-left: $spacing-m;
+  border-left: 1px solid rgba($color-warm-gray, 0.3);
 
   @include mobile { display: none; }
 }
 
 .propertiesToggle {
-  @include touril-text;
-  font-size: $font-size-body;
-  font-weight: $font-weight-regular;
-  letter-spacing: 2px;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.75px;
   text-transform: uppercase;
-  color: $color-text-light;
+  color: $color-cream;
   background-color: transparent;
   border: none;
-  padding: $spacing-s $spacing-xs;
+  padding: $spacing-xs;
   cursor: pointer;
   min-height: $touch-target-min;
   display: flex;
@@ -255,7 +208,7 @@
 
   @include focus-visible;
 
-  &:hover { opacity: $opacity-hover; }
+  &:hover { color: $color-clay; }
 }
 
 .propertiesArrow {
@@ -274,20 +227,18 @@
   top: calc(100% + 8px);
   right: 0;
   width: max-content;
-  max-width: clamp(240px, 25vw, 400px);
-  background-color: $color-primary;
-  border-top: 1px solid rgba($color-text-light, 0.25);
+  min-width: 200px;
+  background-color: $color-deep-brown;
+  border-top: 1px solid rgba($color-warm-gray, 0.25);
   list-style: none;
   margin: 0;
   padding: $spacing-s 0;
   z-index: $z-index-dropdown;
-  box-shadow: $shadow-medium;
-  // Reason: visibility+pointer-events instead of display:none so that
-  // opacity and transform transitions can animate smoothly
+  // Reason: visibility+pointer-events for smooth transition animations
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   transition: opacity $transition-duration-normal $transition-timing-normal,
               transform $transition-duration-normal $transition-timing-normal,
               visibility 0s linear $transition-duration-normal;
@@ -304,32 +255,31 @@
 }
 
 .propertyItem {
-  @include touril-text;
+  font-family: $font-body;
   display: block;
   padding: $spacing-s $spacing-l;
-  font-size: $font-size-body;
+  font-size: $font-size-body-small;
   font-weight: $font-weight-regular;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: 0.75px;
   text-decoration: none;
-  color: $color-text-light;
+  color: $color-cream;
   transition: color $transition-duration-normal $transition-timing-fast,
               background-color $transition-duration-normal $transition-timing-fast;
 
   @include focus-visible;
 
   &:hover {
-    color: $color-accent;
-    background-color: rgba($color-text-light, 0.05);
+    color: $color-clay;
+    background-color: rgba($color-warm-gray, 0.06);
   }
 
   &.propertyItemActive {
-    color: $color-accent;
+    color: $color-clay;
   }
 }
 
 // ============================================
-// HAMBURGER MENU (MOBILE)
+// HAMBURGER (MOBILE ONLY)
 // ============================================
 
 .hamburger {
@@ -353,21 +303,17 @@
 }
 
 .hamburgerLine {
-  width: 24px;
-  height: 2px;
-  background-color: $color-text-light;
+  width: 22px;
+  height: 1.5px;
+  background-color: $color-clay; // Clay-colored hamburger per spec
   margin: 4px 0;
   transition: transform $transition-duration-normal $transition-timing-normal,
               opacity $transition-duration-normal $transition-timing-normal;
   display: block;
-
-  .headerScrolled & {
-    background-color: $color-text-light;
-  }
 }
 
 // ============================================
-// MOBILE MENU (OVERLAY)
+// MOBILE MENU (FULL-SCREEN OVERLAY)
 // ============================================
 
 .mobileMenu {
@@ -377,16 +323,16 @@
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: $color-bg-overlay;
-  backdrop-filter: blur(4px);
+  background-color: $color-deep-brown;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   z-index: $z-index-modal - 1;
-  padding-top: 80px; // Below fixed header
-  animation: slideInUp $transition-duration-normal $transition-timing-normal;
+  padding-top: 64px;
+}
+
+.headerMenuOpen .mobileMenu {
+  display: flex;
 }
 
 .mobileNav {
@@ -399,122 +345,53 @@
   @include flex-column;
   list-style: none;
   margin: 0;
-  padding: $spacing-l;
+  padding: $spacing-l $spacing-m $spacing-m;
   gap: 0;
 }
 
 .mobileNavLink {
-  @include touril-text;
+  font-family: $font-body;
   font-size: 16px;
   font-weight: $font-weight-medium;
-  letter-spacing: 1px;
+  letter-spacing: 0.75px;
   text-transform: uppercase;
-  color: $color-text-light;
+  color: $color-cream;
   text-decoration: none;
   padding: $spacing-m $spacing-s;
-  border-bottom: $border-width-thin solid rgba($color-text-light, 0.1);
+  border-bottom: 1px solid rgba($color-warm-gray, 0.12);
   transition: color $transition-duration-normal $transition-timing-fast;
   display: block;
 
   @include focus-visible;
 
-  &:hover,
-  &.mobileNavLinkActive {
-    color: $color-accent;
-  }
-
-  &:last-child {
-    border-bottom: none;
-  }
+  &:hover, &.mobileNavLinkActive { color: $color-clay; }
+  &:last-child { border-bottom: none; }
 }
 
 // ============================================
-// MOBILE MENU: PROPRIEDADES
+// MOBILE: COLLECTION SECTION
 // ============================================
 
 .mobilePropertiesList {
   list-style: none;
   margin: 0;
-  padding: 0;
-  border-top: $border-width-thin solid rgba($color-text-light, 0.1);
+  padding: $spacing-m $spacing-m $spacing-xl;
+  border-top: 1px solid rgba($color-warm-gray, 0.12);
 }
 
 // ============================================
-// SCREEN READER ONLY TEXT
+// SCREEN READER ONLY
 // ============================================
 
-.srOnly {
-  @include sr-only;
-}
-
-// ============================================
-// ANIMATIONS
-// ============================================
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// ============================================
-// RESPONSIVE BEHAVIOR
-// ============================================
-
-// Tablet-specific adjustments (768px - 1023px)
-@include tablet {
-  .header {
-    height: 75px;
-    padding: $spacing-s $spacing-l;
-  }
-
-  .headerScrolled {
-    height: 100px;
-  }
-
-  .navLink {
-    font-size: 13px;
-    padding: $spacing-s;
-    letter-spacing: 1.2px;
-  }
-}
-
-// Desktop-specific adjustments (1024px+)
-@include desktop {
-  .header {
-    height: 80px;
-    padding: $spacing-s $spacing-xl;
-  }
-
-  .headerScrolled {
-    height: 110px;
-  }
-
-  .navLink {
-    font-size: 14px;
-    letter-spacing: 1.5px;
-
-    &:hover {
-      color: $color-accent;
-    }
-  }
-}
+.srOnly { @include sr-only; }
 
 // ============================================
 // ACCESSIBILITY
 // ============================================
 
-// Reduced motion support
 @media (prefers-reduced-motion: reduce) {
   .header,
   .headerScrolled,
-  .headerPropertiesOpen,
   .navLink,
   .propertiesToggle,
   .propertiesMenu,
@@ -525,25 +402,11 @@
   }
 }
 
-// High contrast mode support
 @media (prefers-contrast: more) {
-  .navLink {
-    font-weight: $font-weight-bold;
-  }
-
-  .hamburgerLine {
-    height: 3px;
-  }
+  .navLink { font-weight: $font-weight-semibold; }
+  .hamburgerLine { height: 2px; }
 }
 
-// ============================================
-// PRINT STYLES
-// ============================================
-
 @media print {
-  .header,
-  .headerScrolled,
-  .mobileMenu {
-    display: none !important;
-  }
+  .header, .mobileMenu { display: none !important; }
 }

@@ -42,8 +42,8 @@
   height: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(10, 2, 3, 0.3) 0%,
-    rgba(10, 2, 3, 0.6) 100%
+    rgba($color-deep-brown, 0.3) 0%,
+    rgba($color-deep-brown, 0.6) 100%
   );
   display: flex;
   align-items: center;
@@ -61,8 +61,7 @@
   font-size: $font-size-4xl;
   font-weight: $font-weight-bold;
   margin-bottom: $spacing-m;
-  letter-spacing: $letter-spacing-tight;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: $letter-spacing-headline;
 
   @include tablet {
     font-size: $font-size-3xl;
@@ -80,7 +79,6 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: $line-height-relaxed;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
   @include mobile {
     font-size: $font-size-md;
@@ -103,7 +101,7 @@
   font-weight: $font-weight-bold;
   color: $color-primary;
   margin-bottom: $spacing-l;
-  letter-spacing: $letter-spacing-tight;
+  letter-spacing: $letter-spacing-headline;
 
   @include mobile {
     font-size: $font-size-2xl;
@@ -173,7 +171,6 @@
     border-color: $color-accent;
     color: $color-primary;
     transform: translateY(-2px);
-    box-shadow: $shadow-medium;
   }
 
   &.active {
@@ -181,7 +178,6 @@
     border-color: $color-accent;
     color: $color-primary;
     font-weight: $font-weight-semibold;
-    box-shadow: $shadow-medium;
   }
 
   &:focus {
@@ -230,7 +226,7 @@
 
   // Reason: Lift animation on hover creates premium, interactive feel
   &:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     box-shadow: $shadow-strong;
 
     .cardImage img {
@@ -276,7 +272,7 @@
   position: absolute;
   top: $spacing-m;
   right: $spacing-m;
-  background-color: rgba(10, 2, 3, 0.85);
+  background-color: rgba($color-deep-brown, 0.85);
   color: $color-neutral-white;
   padding: $spacing-xs $spacing-m;
   border-radius: $border-radius-rounded;
@@ -348,7 +344,7 @@
   font-size: $font-size-3xl;
   font-weight: $font-weight-bold;
   margin-bottom: $spacing-l;
-  letter-spacing: $letter-spacing-tight;
+  letter-spacing: $letter-spacing-headline;
 
   @include mobile {
     font-size: $font-size-2xl;

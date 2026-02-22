@@ -4,24 +4,22 @@
 
 .card {
   background-color: $color-bg-primary;
-  border-radius: $border-radius-rounded;
-  box-shadow: $shadow-subtle;
+  border-radius: $border-radius-sharp;
+  box-shadow: none;
   padding: $spacing-l;
   border: 1px solid $color-border-light;
-  @include motion-transition(box-shadow);
+  transition: border-color $transition-duration-normal $transition-timing-normal;
 
-  // Hover shadow handled by Motion library for hoverable cards.
-  // CSS transition provides the shadow change for non-hoverable cards.
   &.hoverable {
     cursor: pointer;
 
     &:hover {
-      box-shadow: $shadow-hover;
+      border-color: $color-warm-gray;
     }
   }
 
   &:focus-within {
-    box-shadow: $shadow-medium;
-    outline: 2px solid $color-primary;
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }

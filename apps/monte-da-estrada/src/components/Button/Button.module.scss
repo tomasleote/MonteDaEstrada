@@ -1,27 +1,28 @@
 // ==================================
-// Button Component Styles
+// Button Component Styles — Boutique Collection
 // ==================================
+// Brand: 0px radius, no shadows, Clay primary, generous letter-spacing.
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
-@use '@/motion/motion' as *;
 
 .button {
-  @include button-base;
-
   // Size variants
   &.small {
     padding: $spacing-xs $spacing-m;
-    font-size: $font-size-sm;
+    font-size: $font-size-caption;
+    min-height: 36px;
   }
 
   &.medium {
-    padding: $spacing-s $spacing-l;
-    font-size: $font-size-base;
+    padding: $spacing-s $spacing-xl;
+    font-size: $font-size-body-small;
+    min-height: $touch-target-min;
   }
 
   &.large {
-    padding: $spacing-m $spacing-xl;
-    font-size: $font-size-md;
+    padding: $spacing-m $spacing-xxl;
+    font-size: $font-size-body;
+    min-height: $touch-target-comfortable;
   }
 
   // Style variants

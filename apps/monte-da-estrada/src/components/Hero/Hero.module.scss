@@ -130,12 +130,11 @@
   @include text-elegance(
     $font-size-h1,
     $line-height-tight,
-    $letter-spacing-wide,
-    $font-family-primary
+    $letter-spacing-headline,
+    $font-display
   );
-  color: $color-text-light;
+  color: $color-cream;
   margin-bottom: $spacing-l;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
   @include mobile {
     @include responsive-font($font-size-h3, $font-size-h1);
@@ -153,12 +152,11 @@
   @include text-elegance(
     $font-size-body-large,
     $line-height-relaxed,
-    $letter-spacing-normal,
-    $font-family-secondary
+    $letter-spacing-body,
+    $font-body
   );
-  color: $color-accent-light;
+  color: rgba(245, 243, 240, 0.8);  // cream at 80% opacity
   margin-bottom: $spacing-xxxl;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   font-weight: $font-weight-light;
 
   @include mobile {
@@ -186,22 +184,11 @@
 
 .cta {
   @include button-primary;
-  @include motion-hover-lift(2px);
   padding: $spacing-m $spacing-xxl;
   font-size: $font-size-body-large;
-  font-weight: $font-weight-semibold;
-  letter-spacing: $letter-spacing-wide;
-  box-shadow: $shadow-strong;
-  border: none;
-  font-family: $font-family-secondary;
-
-  &:hover {
-    box-shadow: $shadow-hover;
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  font-family: $font-body;
 
   @include mobile {
     padding: $spacing-m $spacing-xl;
@@ -229,8 +216,7 @@
 .scrollArrow {
   display: block;
   font-size: $font-size-h2;
-  color: $color-text-light;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: $color-cream;
 }
 
 // Bounce animation for scroll indicator (CSS-only — runs indefinitely)

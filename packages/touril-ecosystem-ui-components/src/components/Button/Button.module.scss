@@ -1,0 +1,140 @@
+// ==================================
+// Button — Boutique Collection
+// ==================================
+// Brand rules: 0px radius, no shadow, Clay primary, generous letter-spacing
+// Primary: Clay bg (#B8925F) + Deep Brown text (#3D3B38)
+// Secondary: Transparent bg + Clay border + Clay text
+// Ghost: Transparent bg + Cream border + Cream text (for dark bg use)
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ============================================
+// BASE
+// ============================================
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;         // Brand rule: 0px everywhere
+  border: none;
+  box-shadow: none;         // Brand rule: no shadows
+  font-family: $font-body;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transition-duration-normal $ease-standard,
+              color $transition-duration-normal $ease-standard,
+              border-color $transition-duration-normal $ease-standard;
+  white-space: nowrap;
+  touch-action: manipulation;
+
+  &.disabled,
+  &:disabled {
+    opacity: $opacity-disabled;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// SIZES
+// ============================================
+
+.small {
+  font-size: $font-size-caption;
+  padding: $spacing-xs $spacing-m;
+  min-height: 36px;
+}
+
+.medium {
+  font-size: $font-size-body-small;
+  padding: $spacing-s $spacing-xl;
+  min-height: $touch-target-min;
+}
+
+.large {
+  font-size: $font-size-body;
+  padding: $spacing-m $spacing-xxl;
+  min-height: $touch-target-comfortable;
+}
+
+// ============================================
+// VARIANTS
+// ============================================
+
+// Primary: Clay bg + Deep Brown text
+.primary {
+  background-color: $color-clay;
+  color: $color-deep-brown;
+  border: 1px solid $color-clay;
+
+  &:hover:not(.disabled):not(:disabled) {
+    background-color: $color-accent-dark;
+    border-color: $color-accent-dark;
+    color: $color-cream;
+  }
+
+  &:active:not(.disabled):not(:disabled) {
+    background-color: $color-accent-dark;
+  }
+}
+
+// Secondary: Transparent + Clay border + Clay text
+.secondary {
+  background-color: transparent;
+  color: $color-clay;
+  border: 1px solid $color-clay;
+
+  &:hover:not(.disabled):not(:disabled) {
+    background-color: $color-clay;
+    color: $color-deep-brown;
+  }
+
+  &:active:not(.disabled):not(:disabled) {
+    background-color: $color-accent-dark;
+    border-color: $color-accent-dark;
+    color: $color-cream;
+  }
+}
+
+// Ghost: Transparent + Cream border + Cream text (for dark backgrounds)
+.ghost {
+  background-color: transparent;
+  color: $color-cream;
+  border: 1px solid rgba($color-cream, 0.5);
+
+  &:hover:not(.disabled):not(:disabled) {
+    border-color: $color-cream;
+    color: $color-cream;
+    background-color: rgba($color-cream, 0.08);
+  }
+}
+
+// ============================================
+// TOUCH DEVICE FEEDBACK
+// ============================================
+
+@media (hover: none) and (pointer: coarse) {
+  .button:active:not(.disabled):not(:disabled) {
+    transform: scale(0.98);
+    transition: transform 0.1s ease-out;
+  }
+}
+
+// ============================================
+// REDUCED MOTION
+// ============================================
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}

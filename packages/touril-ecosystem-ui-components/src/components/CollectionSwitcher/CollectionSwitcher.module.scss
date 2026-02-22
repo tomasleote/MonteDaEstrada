@@ -1,0 +1,137 @@
+// ==================================
+// CollectionSwitcher — Boutique Collection
+// ==================================
+// Spec (Desktop inline):
+//   [ Monte da Estrada · Monte do Papa-Léguas ]
+//   Separator: · (middle dot)
+//   Active: Clay #B8925F underline
+//   Inactive: Cream #F5F3F0 text, hover → Clay
+//   Font: Inter, 12px, Medium (500), 0.75px letter-spacing
+//
+// Spec (Mobile stacked):
+//   "Também na nossa coleção:"
+//   → Monte do Papa-Léguas (link)
+
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ============================================
+// INLINE VARIANT (desktop header)
+// ============================================
+
+.inline {
+  display: flex;
+  align-items: center;
+}
+
+.inlineList {
+  display: flex;
+  align-items: center;
+  gap: $spacing-s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.inlineItem {
+  display: flex;
+  align-items: center;
+}
+
+.separator {
+  color: rgba($color-cream, 0.4);
+  font-size: 12px;
+  line-height: 1;
+  user-select: none;
+}
+
+.inlineLink {
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.75px;
+  color: rgba($color-cream, 0.7);
+  text-decoration: none;
+  transition: color $transition-duration-normal $ease-standard;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-clay;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
+}
+
+.inlineLinkActive {
+  color: $color-clay;
+  cursor: default;
+
+  // Underline for active property
+  text-decoration: underline;
+  text-decoration-color: $color-clay;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: $color-clay;
+  }
+}
+
+// ============================================
+// STACKED VARIANT (mobile menu)
+// ============================================
+
+.stacked {
+  padding: $spacing-m $spacing-m $spacing-xl;
+  border-top: 1px solid rgba($color-warm-gray, 0.12);
+}
+
+.stackedLabel {
+  font-family: $font-body;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-cool-taupe;
+  text-transform: uppercase;
+  margin-bottom: $spacing-s;
+}
+
+.stackedList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stackedLink {
+  font-family: $font-body;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.75px;
+  color: $color-cream;
+  text-decoration: none;
+  display: block;
+  padding: $spacing-s 0;
+  transition: color $transition-duration-normal $ease-standard;
+
+  &:hover {
+    color: $color-clay;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
+}
+
+// ============================================
+// ACCESSIBILITY
+// ============================================
+
+@media (prefers-reduced-motion: reduce) {
+  .inlineLink,
+  .stackedLink {
+    transition: none;
+  }
+}

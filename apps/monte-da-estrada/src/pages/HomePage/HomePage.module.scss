@@ -48,11 +48,6 @@
   overflow: hidden;
   border-radius: $border-radius-rounded;
   cursor: pointer;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-medium;
-  }
 }
 
 .highlightCard {
@@ -88,7 +83,6 @@
 .infoBlock {
   background-color: $color-bg-secondary;
   padding: $spacing-xxxl;
-  border-radius: $border-radius-rounded;
   border: 1px solid $color-border-light;
 }
 
@@ -133,7 +127,7 @@
         content: '•';
         position: absolute;
         left: 0;
-        color: $color-accent;
+        color: $color-clay;
         font-weight: bold;
       }
     }

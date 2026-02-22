@@ -28,10 +28,10 @@ const navLinks = [
   { label: 'Galeria', to: '/galeria' },
 ]
 
-// Properties for HeaderModern dropdown
+// Properties for HeaderModern collection switcher dropdown
 const properties = [
-  { name: 'Monte da Estrada', url: '#monte-da-estrada' },
-  { name: 'Monte do Papa Léguas', url: '#monte-do-papa-leguas' },
+  { id: 'monte-da-estrada', name: 'Monte da Estrada', url: 'https://montedaestrada.com' },
+  { id: 'papa-leguas', name: 'Monte do Papa-Léguas', url: 'https://montedopapaleguas.pt' },
 ]
 
 // Footer address/contact information
@@ -109,11 +109,11 @@ function App() {
         onLanguageChange={handleLanguageChange}
         scrollThreshold={50}
         properties={properties}
-        currentPropertyUrl="#monte-da-estrada"
+        currentPropertyUrl="https://montedaestrada.com"
         showProperties={true}
       />
 
-      <main id="main-content" style={{ minHeight: '100vh' }}>
+      <main id="main-content" style={{ flex: 1 }}>
         <AnimatePresence mode="wait">
           <AnimatedPage key={location.pathname}>
             <Suspense fallback={<LoadingSpinner />}>

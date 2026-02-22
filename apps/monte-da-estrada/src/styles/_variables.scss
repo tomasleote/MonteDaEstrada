@@ -1,73 +1,102 @@
 // ==================================
-// DESIGN TOKENS - Monte da Estrada
+// DESIGN TOKENS — Boutique Collection
+// Monte da Estrada · Monte do Papa-Léguas
 // ==================================
-// Herdade do Touril-inspired design system
-// Exact colors extracted from herdadedotouril.com
+// Brand rules: 0px radius, no shadows, Clay primary, generous letter-spacing.
+// Fonts: Basis Grotesque (display) / Inter (body). Open-source fallbacks used if
+// commercial licenses are not in place.
 
 // ============================================
-// COLOR PALETTE
+// BOUTIQUE COLLECTION PALETTE
 // ============================================
 
-// Primary Brand Colors (Black & Dark Tones)
-$color-primary: #0A0203;           // Deep black (exact from header)
-$color-primary-light: #222222;     // Lighter black/charcoal
-$color-primary-lighter: #333333;   // Medium charcoal
+$color-cream:        #F5F3F0;  // Primary background
+$color-off-white:    #FAFAF8;  // Card backgrounds
+$color-warm-gray:    #DDD9D5;  // Dividers, borders
+$color-deep-brown:   #3D3B38;  // Primary text, header/footer bg
+$color-clay:         #B8925F;  // Accent, CTAs, links on dark
+$color-charcoal:     #4A4845;  // Secondary text
+$color-cool-taupe:   #A89F98;  // Muted text, labels
+$color-light-taupe:  #C8C0B8;  // Disabled state
+$color-pale-gray:    #EEECE9;  // Hover backgrounds
 
-// Accent Colors (Gold/Yellow - Exact from Touril)
-$color-accent: #FBAB18;             // Bright gold/yellow (exact from logo & buttons)
-$color-accent-dark: #E09600;        // Darker gold (calculated darker variant)
-$color-accent-light: #FFD580;       // Light gold/cream
+// Extended palette
+$color-accent-dark:  #9A7A50;  // Clay darkened for hover states
+$color-accent-light: #D4B48C;  // Clay lightened
 
-// Neutral Palette (White & Gray Tones)
-$color-neutral-white: #FFFFFF;      // Pure white
-$color-neutral-off-white: #F8F8F8;  // Off-white (exact from site)
-$color-neutral-light-gray: #EAEAEA; // Light gray
-$color-neutral-gray: #CACACA;       // Medium gray (exact from site)
-$color-neutral-dark-gray: #777777;  // Dark gray (exact from site)
-$color-neutral-black: #0A0A0A;      // Very dark black
+// Semantic tokens
+$color-header-bg:    $color-deep-brown;
+$color-footer-bg:    $color-deep-brown;
+$color-header-text:  $color-cream;
+$color-header-accent: $color-clay;
 
-// Text Colors (Exact from Touril)
-$color-text-primary: #0A0203;       // Main text (very dark black)
-$color-text-secondary: #777777;     // Secondary text (exact gray from site)
-$color-text-muted: #999999;         // Muted/placeholder (exact from site)
-$color-text-light: #FFFFFF;         // Light text on dark backgrounds
+// ============================================
+// BACKWARD-COMPATIBLE ALIASES
+// (components using old names automatically get new brand values)
+// ============================================
 
-// Semantic Colors (using gold/yellow tones instead of green)
-$color-success: #FBAB18;            // Gold (matches brand accent)
-$color-warning: #E67E22;            // Orange
-$color-error: #E80000;              // Red (exact from site)
-$color-info: #3498DB;               // Blue
+$color-primary:             $color-deep-brown;
+$color-primary-light:       $color-charcoal;
+$color-primary-lighter:     $color-charcoal;
+$color-accent:              $color-clay;
+$color-accent-dark:         #9A7A50;   // keep as concrete value for Sass math
 
-// Backgrounds (White, Cream, and Black)
-$color-bg-primary: #FFFFFF;              // Pure white
-$color-bg-secondary: #F8F8F8;            // Off-white (exact from site)
-$color-bg-tertiary: #FEFEFE;             // Very light off-white (exact from site)
-$color-bg-dark: #0A0203;                 // Black background (exact from header)
-$color-bg-overlay: rgba(10, 2, 3, 0.6);  // Semi-transparent black overlay (using exact black)
+$color-neutral-white:       #FFFFFF;
+$color-neutral-off-white:   $color-off-white;
+$color-neutral-light-gray:  $color-warm-gray;
+$color-neutral-gray:        $color-cool-taupe;
+$color-neutral-dark-gray:   $color-charcoal;
+$color-neutral-black:       $color-deep-brown;
 
-// Borders (Exact from Touril)
-$color-border: #CACACA;              // Medium gray border (exact from site)
-$color-border-light: #EAEAEA;        // Light gray border (exact from site)
-$color-border-dark: #777777;         // Dark gray border (exact from site)
-$color-border-medium: #CACACA;       // Deprecated alias
+$color-text-primary:        $color-deep-brown;
+$color-text-secondary:      $color-charcoal;
+$color-text-muted:          $color-cool-taupe;
+$color-text-light:          $color-cream;
 
-// Deprecated color aliases (for backwards compatibility)
-$color-primary-dark: $color-primary;
-$color-secondary: $color-accent;
+$color-success: #5C8A4A;  // Olive green (natural, fits Alentejo)
+$color-warning: #E67E22;
+$color-error:   #C0392B;
+$color-info:    #3498DB;
+
+$color-bg-primary:   $color-cream;
+$color-bg-secondary: $color-off-white;
+$color-bg-tertiary:  $color-pale-gray;
+$color-bg-dark:      $color-deep-brown;
+$color-bg-overlay:   rgba(61, 59, 56, 0.6);
+
+$color-border:        $color-warm-gray;
+$color-border-light:  $color-pale-gray;
+$color-border-dark:   $color-charcoal;
+$color-border-medium: $color-warm-gray;
+
+// Deprecated aliases
+$color-primary-dark:    $color-primary;
+$color-secondary:       $color-accent;
 $color-secondary-light: $color-accent-light;
-$color-secondary-dark: $color-accent-dark;
-$color-bg-dark: #0A0203;  // Updated to exact black
+$color-secondary-dark:  $color-accent-dark;
+
+// CSS custom property for per-property secondary color override
+:root {
+  --color-property-secondary: #{$color-charcoal};
+}
 
 // ============================================
 // TYPOGRAPHY
 // ============================================
 
-// Font Families
-$font-family-primary: 'Playfair Display', 'Georgia', serif;     // Display/headings
-$font-family-secondary: 'Lato', 'Segoe UI', sans-serif;         // Body text
-$font-family-mono: 'Courier New', monospace;
+// Font Families — Boutique Collection
+// Basis Grotesque: commercial license required (Colophon Foundry)
+// DM Sans: open-source fallback (Google Fonts)
+$font-display:    'Basis Grotesque', 'DM Sans', -apple-system, sans-serif;   // H1-H4
+$font-body:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;    // Body
+$font-editorial:  'GT Sectra', 'Lora', Georgia, serif;                       // Pull quotes
 
-// Font Sizes (REM-based for scalability)
+// Backward-compatible aliases
+$font-family-primary:   $font-display;
+$font-family-secondary: $font-body;
+$font-family-mono:      'Courier New', monospace;
+
+// Font Sizes
 $font-size-h1: 3.5rem;      // 56px
 $font-size-h2: 2.75rem;     // 44px
 $font-size-h3: 2.125rem;    // 34px
@@ -75,220 +104,229 @@ $font-size-h4: 1.5rem;      // 24px
 $font-size-h5: 1.25rem;     // 20px
 $font-size-h6: 1rem;        // 16px
 
-$font-size-body-large: 1.125rem;    // 18px
-$font-size-body: 1rem;              // 16px
-$font-size-body-small: 0.875rem;    // 14px
-$font-size-body-extra-small: 0.75rem; // 12px
+$font-size-body-large: 1.125rem;      // 18px
+$font-size-body:       1rem;          // 16px
+$font-size-body-small: 0.875rem;      // 14px
+$font-size-caption:    0.75rem;       // 12px
+$font-size-label:      0.875rem;      // 14px
 
-$font-size-caption: 0.75rem;        // 12px
-$font-size-label: 0.875rem;         // 14px
-
-// Deprecated (kept for backwards compatibility)
-$font-size-xs: 0.75rem;    // 12px
-$font-size-sm: 0.875rem;   // 14px
-$font-size-base: 1rem;     // 16px
-$font-size-md: 1.125rem;   // 18px
-$font-size-lg: 1.25rem;    // 20px
-$font-size-xl: 1.5rem;     // 24px
-$font-size-2xl: 2rem;      // 32px
-$font-size-3xl: 2.5rem;    // 40px
-$font-size-4xl: 3rem;      // 48px
+// Deprecated size aliases
+$font-size-xs:          0.75rem;
+$font-size-sm:          0.875rem;
+$font-size-base:        1rem;
+$font-size-md:          1.125rem;
+$font-size-lg:          1.25rem;
+$font-size-xl:          1.5rem;
+$font-size-2xl:         2rem;
+$font-size-3xl:         2.5rem;
+$font-size-4xl:         3rem;
+$font-size-body-extra-small: 0.75rem;
 
 // Font Weights
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-medium: 500;
+$font-weight-light:    300;
+$font-weight-regular:  400;
+$font-weight-medium:   500;
 $font-weight-semibold: 600;
-$font-weight-bold: 700;
+$font-weight-bold:     700;
 
 // Line Heights
-$line-height-tight: 1.2;
-$line-height-base: 1.5;
-$line-height-relaxed: 1.75;
-$line-height-loose: 2;
+$line-height-tight:   1.2;
+$line-height-base:    1.5;
+$line-height-relaxed: 1.65;
+$line-height-loose:   2;
 
-// Letter Spacing
-$letter-spacing-tight: -0.5px;
-$letter-spacing-normal: 0;
-$letter-spacing-wide: 0.5px;
-$letter-spacing-extra-wide: 1px;
-
-// Deprecated line-height aliases (for backwards compatibility)
+// Deprecated alias
 $line-height-normal: $line-height-base;
 
+// Letter Spacing — Boutique Collection
+$letter-spacing-headline:    1px;     // H1 / H2
+$letter-spacing-subheading:  0.75px;  // H3 / H4 / button labels
+$letter-spacing-body:        0.5px;   // Body / captions
+$letter-spacing-touril:      0.75px;  // Alias — used in shared component SCSS
+
+// Deprecated letter-spacing
+$letter-spacing-tight:      -0.5px;
+$letter-spacing-normal:     0;
+$letter-spacing-wide:       $letter-spacing-body;
+$letter-spacing-extra-wide: $letter-spacing-headline;
+
 // ============================================
-// SPACING SYSTEM
+// SPACING SYSTEM (8px grid)
 // ============================================
 
-// Base spacing unit (8px system)
 $spacing-unit: 8px;
 
-// Spacing scale
-$spacing-xs: $spacing-unit * 0.5;   // 4px
-$spacing-s: $spacing-unit * 1;      // 8px
-$spacing-m: $spacing-unit * 2;      // 16px
-$spacing-l: $spacing-unit * 3;      // 24px
-$spacing-xl: $spacing-unit * 4;     // 32px
-$spacing-xxl: $spacing-unit * 5;    // 40px
-$spacing-xxxl: $spacing-unit * 6;   // 48px
+$spacing-xs:   $spacing-unit * 0.5;  // 4px
+$spacing-s:    $spacing-unit * 1;    // 8px
+$spacing-m:    $spacing-unit * 2;    // 16px
+$spacing-l:    $spacing-unit * 3;    // 24px
+$spacing-xl:   $spacing-unit * 4;    // 32px
+$spacing-xxl:  $spacing-unit * 5;    // 40px
+$spacing-xxxl: $spacing-unit * 6;    // 48px  ← minimum section padding (brand rule)
 
-// Deprecated (kept for backwards compatibility)
-$spacing-sm: $spacing-unit;          // 8px
-$spacing-md: $spacing-unit * 2;      // 16px
+// Deprecated spacing aliases
+$spacing-sm:  $spacing-unit;
+$spacing-md:  $spacing-unit * 2;
 $spacing-2xl: $spacing-unit * 6;     // 48px
 $spacing-3xl: $spacing-unit * 8;     // 64px
 $spacing-4xl: $spacing-unit * 10;    // 80px
 
 // Semantic spacing
-$margin-section: $spacing-xxxl;
-$padding-section: $spacing-xxxl;
-$gap-grid: $spacing-l;
-$gap-flex: $spacing-m;
+$margin-section:  $spacing-xxxl;
+$padding-section: $spacing-xxxl;  // min 48px; prefer 80px for hero sections
+$gap-grid:        $spacing-l;
+$gap-flex:        $spacing-m;
 
 // ============================================
 // LAYOUT
 // ============================================
-// Container widths
-$container-max-width: 1200px;
-$container-padding: $spacing-l;  // 24px
 
-// Grid
+$container-max-width:      1200px;
+$container-padding:        $spacing-l;
+$footer-content-max-width: 1200px;
+
 $grid-columns: 12;
-$grid-gap: $spacing-m;  // 16px
+$grid-gap:     $spacing-m;
 
 // ============================================
 // RESPONSIVE BREAKPOINTS
 // ============================================
 
-$breakpoint-mobile: 480px;
-$breakpoint-tablet: 768px;
-$breakpoint-desktop: 1024px;
+$breakpoint-mobile:       480px;
+$breakpoint-tablet:       768px;
+$breakpoint-desktop:      1024px;
 $breakpoint-desktop-wide: 1440px;
 
-// Container widths
-$container-mobile: 100%;
-$container-tablet: 90%;
-$container-desktop: 1200px;
+$container-mobile:       100%;
+$container-tablet:       90%;
+$container-desktop:      1200px;
 $container-desktop-wide: 1320px;
 
-// Deprecated (kept for backwards compatibility)
-$breakpoint-xs: 480px;
-$breakpoint-sm: 640px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
+// Deprecated breakpoint aliases
+$breakpoint-xs:  480px;
+$breakpoint-sm:  640px;
+$breakpoint-md:  768px;
+$breakpoint-lg:  1024px;
+$breakpoint-xl:  1280px;
 $breakpoint-2xl: 1536px;
 
 // ============================================
 // BORDERS & RADIUS
 // ============================================
+// Brand rule: 0px everywhere — no softened corners.
 
-$border-width-thin: 1px;
+$border-width-thin:   1px;
 $border-width-medium: 2px;
-$border-width-thick: 4px;
+$border-width-thick:  4px;
 
-$border-radius-sharp: 0px;
-$border-radius-slight: 4px;
-$border-radius-rounded: 8px;
-$border-radius-full: 50%;
+$border-radius-sharp:   0px;   // Brand standard
+$border-radius-slight:  0px;   // Was 4px — flattened per brand
+$border-radius-rounded: 0px;   // Was 8px — flattened per brand
+$border-radius-full:    50%;   // For circular avatars only
 
-// Deprecated (kept for backwards compatibility)
-$border-radius-sm: $border-radius-slight;
-$border-radius-md: $border-radius-rounded;
-$border-radius-lg: 12px;
-$border-radius-xl: 16px;
-$border-radius-2xl: 24px;
+// Deprecated radius aliases
+$border-radius-sm:  0px;
+$border-radius-md:  0px;
+$border-radius-lg:  0px;
+$border-radius-xl:  0px;
+$border-radius-2xl: 0px;
 
 // ============================================
 // VISUAL EFFECTS
 // ============================================
+// Brand rule: no decorative shadows. Only the subtle elevation shadow is permitted.
 
-// Shadows (Luxury aesthetic - subtle)
-$shadow-subtle: 0 1px 3px rgba(26, 26, 26, 0.08);
-$shadow-medium: 0 4px 12px rgba(26, 26, 26, 0.12);
-$shadow-strong: 0 12px 32px rgba(26, 26, 26, 0.16);
-$shadow-hover: 0 8px 24px rgba(26, 26, 26, 0.15);
+$shadow-subtle: 0 1px 3px rgba(61, 59, 56, 0.06);
+$shadow-medium: none;   // Brand rule: no decorative shadows
+$shadow-strong: none;
+$shadow-hover:  none;
 
-// Deprecated (kept for backwards compatibility)
-$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-$shadow-md: 0 1px 3px rgba(0, 0, 0, 0.5);
-$shadow-lg: 0 1px 4px rgba(0, 0, 0, 0.6);
-$shadow-xl: 0 4px 12px rgba(0, 0, 0, 0.15);
+// Deprecated shadow aliases
+$shadow-sm: $shadow-subtle;
+$shadow-md: none;
+$shadow-lg: none;
+$shadow-xl: none;
 
 // Transitions
-$transition-timing-slow: cubic-bezier(0.4, 0, 0.2, 1);      // Material Motion
-$transition-timing-normal: cubic-bezier(0.4, 0, 0.6, 1);    // Ease in-out
-$transition-timing-fast: cubic-bezier(0.4, 0, 1, 1);        // Ease out
+$transition-timing-slow:   cubic-bezier(0.4, 0, 0.2, 1);
+$transition-timing-normal: cubic-bezier(0.4, 0, 0.6, 1);
+$transition-timing-fast:   cubic-bezier(0.4, 0, 1, 1);
+$transition-timing-standard: cubic-bezier(0.4, 0, 0.6, 1);
 
-$transition-duration-quick: 150ms;
+$transition-duration-quick:  150ms;
 $transition-duration-normal: 300ms;
-$transition-duration-slow: 500ms;
+$transition-duration-slow:   500ms;
 
-// Deprecated (kept for backwards compatibility)
-$transition-fast: 0.2s;
+// Deprecated transition shorthands
+$transition-fast:   0.2s;
 $transition-normal: 0.4s;
-$transition-slow: 0.6s;
+$transition-slow:   0.6s;
 
-// Easing functions
-$ease-standard: ease;
-$ease-in-out: cubic-bezier(0.37, 0, 0.63, 1);
-$ease-out-back: cubic-bezier(0.87, 0, 0.13, 1);
+// Easing functions (CSS)
+$ease-standard:  cubic-bezier(0.4, 0, 0.6, 1);
+$ease-in-out:    cubic-bezier(0.37, 0, 0.63, 1);
+$ease-out-back:  cubic-bezier(0.87, 0, 0.13, 1);
 
-// Combined transitions
-$transition-all-fast: all $transition-fast $ease-standard;
+// Combined CSS transitions (legacy)
+$transition-all-fast:   all $transition-fast $ease-standard;
 $transition-all-normal: all $transition-normal $ease-standard;
-$transition-opacity: opacity $transition-fast $ease-in-out;
-$transition-transform: transform $transition-normal $ease-out-back;
+$transition-opacity:    opacity $transition-fast $ease-in-out;
+$transition-transform:  transform $transition-normal $ease-out-back;
 
 // Opacity
-$opacity-hover: 0.85;
+$opacity-hover:    0.85;
 $opacity-disabled: 0.5;
-$opacity-overlay: 0.7;
+$opacity-overlay:  0.7;
 
-// ------------------------------------
-// FLUID TYPOGRAPHY (using clamp)
-// ------------------------------------
-// Formula: clamp(min, preferred, max)
-// Preferred size scales with viewport width
+// ============================================
+// FLUID TYPOGRAPHY
+// ============================================
 
 :root {
-  // Fluid font sizes (scale from mobile to desktop)
-  --font-size-xs-fluid: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);    // 12px → 14px
-  --font-size-sm-fluid: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);      // 14px → 16px
-  --font-size-base-fluid: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);      // 16px → 18px
-  --font-size-lg-fluid: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);     // 18px → 20px
-  --font-size-xl-fluid: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);      // 20px → 24px
-  --font-size-2xl-fluid: clamp(1.5rem, 1.3rem + 1vw, 2rem);           // 24px → 32px
-  --font-size-3xl-fluid: clamp(2rem, 1.7rem + 1.5vw, 2.5rem);         // 32px → 40px
-  --font-size-4xl-fluid: clamp(2.5rem, 2rem + 2.5vw, 3rem);           // 40px → 48px
+  // Fluid font sizes
+  --font-size-xs-fluid:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm-fluid:   clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base-fluid: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg-fluid:   clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl-fluid:   clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl-fluid:  clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-3xl-fluid:  clamp(2rem, 1.7rem + 1.5vw, 2.5rem);
+  --font-size-4xl-fluid:  clamp(2.5rem, 2rem + 2.5vw, 3rem);
 
-  // Fluid spacing (scale with viewport)
-  --spacing-xs-fluid: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);        // 4px → 8px
-  --spacing-sm-fluid: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);            // 8px → 16px
-  --spacing-md-fluid: clamp(1rem, 0.8rem + 1vw, 1.5rem);              // 16px → 24px
-  --spacing-lg-fluid: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);            // 24px → 32px
-  --spacing-xl-fluid: clamp(2rem, 1.6rem + 2vw, 3rem);                // 32px → 48px
+  // Fluid spacing
+  --spacing-xs-fluid: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+  --spacing-sm-fluid: clamp(0.5rem, 0.4rem + 0.5vw, 1rem);
+  --spacing-md-fluid: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --spacing-lg-fluid: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --spacing-xl-fluid: clamp(2rem, 1.6rem + 2vw, 3rem);
 }
 
-// ------------------------------------
-// TOUCH TARGETS (44×44px minimum recommended)
-// ------------------------------------
-$touch-target-min: 44px;
-$touch-target-comfortable: 48px;
-$touch-target-large: 56px;
+// ============================================
+// TOUCH TARGETS
+// ============================================
 
-// Touch-friendly spacing (thumb-zone optimization)
+$touch-target-min:        44px;
+$touch-target-comfortable: 48px;
+$touch-target-large:      56px;
+
 $touch-spacing-sm: 8px;
 $touch-spacing-md: 16px;
 $touch-spacing-lg: 24px;
 
-// ------------------------------------
+// ============================================
+// COMPONENT SIZES
+// ============================================
+
+$size-social-icon: 20px;
+
+// ============================================
 // Z-INDEX LAYERS
-// ------------------------------------
-$z-index-dropdown: 1000;
-$z-index-sticky: 1020;
-$z-index-fixed: 1030;
-$z-index-modal-backdrop: 1040;
-$z-index-modal: 1050;
-$z-index-popover: 1060;
-$z-index-tooltip: 1070;
+// ============================================
+
+$z-index-dropdown:        1000;
+$z-index-sticky:          1020;
+$z-index-fixed:           1030;
+$z-index-modal-backdrop:  1040;
+$z-index-modal:           1050;
+$z-index-popover:         1060;
+$z-index-tooltip:         1070;

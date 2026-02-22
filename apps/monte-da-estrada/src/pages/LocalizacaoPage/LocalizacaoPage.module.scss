@@ -66,7 +66,6 @@
   @include h1;
   color: $color-text-light;
   margin-bottom: $spacing-l;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
   @include mobile {
     font-size: $font-size-3xl;
@@ -77,7 +76,6 @@
   font-size: $font-size-lg;
   color: $color-text-light;
   line-height: $line-height-relaxed;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   max-width: 700px;
   margin: 0 auto;
 
@@ -107,13 +105,7 @@
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      $color-accent,
-      transparent
-    );
-    border-radius: $border-radius-slight;
+    background: $color-clay;
   }
 
   @include mobile {
@@ -161,18 +153,12 @@
 
 .mapWrapper {
   width: 100%;
-  border-radius: $border-radius-lg;
   overflow: hidden;
-  box-shadow: $shadow-medium;
   border: 1px solid $color-border-light;
   background-color: $color-bg-secondary;
 
   // Smooth transition for map container
   transition: box-shadow $transition-duration-normal $transition-timing-normal;
-
-  &:hover {
-    box-shadow: $shadow-hover;
-  }
 }
 
 .addressBox {
@@ -182,24 +168,18 @@
     $color-bg-secondary 100%
   );
   padding: $spacing-xl;
-  border-radius: $border-radius-lg;
   border: 1px solid $color-border-light;
   border-left: 4px solid $color-accent;
   height: fit-content;
   box-shadow: $shadow-subtle;
   transition: all $transition-duration-normal $transition-timing-normal;
 
-  &:hover {
-    box-shadow: $shadow-medium;
-    transform: translateY(-2px);
-  }
-
   h3 {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
     color: $color-primary;
     margin-bottom: $spacing-l;
-    letter-spacing: $letter-spacing-wide;
+    letter-spacing: $letter-spacing-subheading;
   }
 
   @include tablet {
@@ -238,7 +218,6 @@
   padding: $spacing-xl;
   background-color: $color-bg-primary;
   border: 1px solid $color-border-light;
-  border-radius: $border-radius-lg;
   box-shadow: $shadow-subtle;
   transition: all $transition-duration-normal $transition-timing-normal;
   position: relative;
@@ -252,17 +231,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(
-      to right,
-      $color-accent,
-      $color-accent-dark
-    );
-  }
-
-  &:hover {
-    box-shadow: $shadow-hover;
-    transform: translateY(-4px);
-    border-color: $color-accent;
+    background-color: $color-clay;
   }
 
   @include mobile {
@@ -340,15 +309,8 @@
   text-align: center;
   background-color: $color-bg-primary;
   border: 1px solid $color-border-light;
-  border-radius: $border-radius-lg;
   box-shadow: $shadow-subtle;
   transition: all $transition-duration-normal $transition-timing-normal;
-
-  &:hover {
-    box-shadow: $shadow-hover;
-    transform: translateY(-4px);
-    border-color: $color-accent;
-  }
 
   @include mobile {
     padding: $spacing-l;
@@ -386,15 +348,8 @@
   text-align: center;
   background-color: $color-bg-primary;
   border: 1px solid $color-border-light;
-  border-radius: $border-radius-lg;
   box-shadow: $shadow-subtle;
   transition: all $transition-duration-normal $transition-timing-normal;
-
-  &:hover {
-    box-shadow: $shadow-medium;
-    transform: translateY(-2px);
-    border-color: $color-accent;
-  }
 
   @include mobile {
     padding: $spacing-m;
@@ -437,32 +392,9 @@
   padding: $spacing-xl;
   background-color: $color-bg-primary;
   border: 1px solid $color-border-light;
-  border-radius: $border-radius-lg;
   box-shadow: $shadow-subtle;
   transition: all $transition-duration-normal $transition-timing-normal;
   position: relative;
-
-  // Decorative corner accent
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(
-      135deg,
-      transparent 50%,
-      rgba($color-accent, 0.1) 50%
-    );
-    border-top-right-radius: $border-radius-lg;
-  }
-
-  &:hover {
-    box-shadow: $shadow-hover;
-    transform: translateY(-2px);
-    border-color: $color-accent;
-  }
 
   @include mobile {
     padding: $spacing-l;
@@ -486,8 +418,7 @@
     left: 0;
     width: 50px;
     height: 2px;
-    background-color: $color-accent;
-    border-radius: $border-radius-slight;
+    background-color: $color-clay;
   }
 
   @include mobile {
@@ -590,8 +521,7 @@
 .contactFormWrapper {
   background-color: $color-bg-secondary;
   padding: $spacing-xxxl;
-  border-radius: $border-radius-lg;
-  box-shadow: $shadow-subtle;
+  box-shadow: none;
   border: 1px solid $color-border-light;
 
   @include mobile {
@@ -627,26 +557,24 @@
     }
 
     .submitButton {
-      background-color: $color-primary;
-      color: $color-text-light;
+      background-color: $color-clay;
+      color: $color-deep-brown;
       border: none;
       padding: $spacing-m $spacing-xl;
-      border-radius: $border-radius-rounded;
+      border-radius: 0px;
       font-weight: $font-weight-semibold;
       font-size: $font-size-md;
       cursor: pointer;
       transition: all $transition-duration-normal $transition-timing-normal;
-      box-shadow: $shadow-subtle;
+      box-shadow: none;
 
       &:hover:not(:disabled) {
-        background-color: $color-primary-light;
-        box-shadow: $shadow-medium;
-        transform: translateY(-2px);
+        background-color: $color-clay;
       }
 
       &:active:not(:disabled) {
         transform: translateY(0);
-        box-shadow: $shadow-subtle;
+        box-shadow: none;
       }
 
       &:focus {

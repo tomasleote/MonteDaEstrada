@@ -15,18 +15,17 @@
 @mixin luxury-card {
   background-color: $color-bg-primary;
   border: 1px solid $color-border-light;
-  border-radius: $border-radius-slight;
-  box-shadow: $shadow-subtle;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  border-radius: $border-radius-sharp;
+  box-shadow: none;
+  transition: border-color $transition-duration-normal $transition-timing-normal;
 
   &:hover {
-    box-shadow: $shadow-hover;
-    transform: translateY(-2px);
+    border-color: $color-warm-gray;
   }
 
   &:focus-within {
-    box-shadow: $shadow-medium;
-    outline: 2px solid $color-primary;
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }
 
@@ -373,10 +372,11 @@
 
 // Heading styles
 @mixin heading-base {
-  font-family: $font-family-primary;
-  font-weight: $font-weight-semibold;
+  font-family: $font-display;
+  font-weight: $font-weight-medium;
   line-height: $line-height-tight;
   color: $color-text-primary;
+  letter-spacing: $letter-spacing-headline;
   margin-bottom: $spacing-m;
 }
 
@@ -421,10 +421,11 @@
 
 // Body text
 @mixin text-body {
-  font-family: $font-family-secondary;
+  font-family: $font-body;
   font-size: $font-size-body;
   font-weight: $font-weight-regular;
-  line-height: $line-height-base;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
   color: $color-text-primary;
 }
 
@@ -475,51 +476,67 @@
   }
 }
 
-// Primary button
+// Primary button — Clay bg + Deep Brown text (Boutique Collection brand)
 @mixin button-primary {
   @include button-base;
-  @include touch-ripple($color-primary);
+  @include touch-ripple($color-clay);
   @include touch-press;
-  background-color: $color-primary;
-  color: $color-text-light;
+  background-color: $color-clay;
+  color: $color-deep-brown;
+  border: 1px solid $color-clay;
+  letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
-    background-color: $color-primary-light;
-    box-shadow: $shadow-medium;
+    background-color: $color-accent-dark;
+    border-color: $color-accent-dark;
+    color: $color-cream;
   }
 
-  &:focus {
-    outline: 2px solid $color-primary;
+  &:focus-visible {
+    outline: 2px solid $color-clay;
     outline-offset: 2px;
   }
 }
 
-// Secondary button (now gold accent)
+// Secondary button — Transparent + Clay border + Clay text
 @mixin button-secondary {
   @include button-base;
-  @include touch-ripple($color-accent);
+  @include touch-ripple($color-clay);
   @include touch-press;
-  background-color: $color-accent;
-  color: $color-text-primary;
+  background-color: transparent;
+  color: $color-clay;
+  border: 1px solid $color-clay;
+  letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
-    background-color: $color-accent-dark;
-    box-shadow: $shadow-medium;
+    background-color: $color-clay;
+    color: $color-deep-brown;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }
 
-// Outline button
+// Outline button — Transparent + Deep Brown border + Deep Brown text
 @mixin button-outline {
   @include button-base;
-  @include touch-highlight($color-primary);
+  @include touch-highlight($color-deep-brown);
   @include touch-press;
   background-color: transparent;
-  color: $color-primary;
-  border: $border-width-medium solid $color-primary;
+  color: $color-deep-brown;
+  border: 1px solid $color-deep-brown;
+  letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
-    background-color: $color-primary;
-    color: $color-text-light;
+    background-color: $color-deep-brown;
+    color: $color-cream;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }
 
@@ -529,15 +546,14 @@
 
 @mixin card {
   background-color: $color-bg-primary;
-  border-radius: $border-radius-rounded;
-  box-shadow: $shadow-subtle;
+  border-radius: $border-radius-sharp;
+  box-shadow: none;
   padding: $spacing-l;
-  transition: $transition-all-fast;
   border: 1px solid $color-border-light;
+  transition: border-color $transition-duration-normal $transition-timing-normal;
 
   &:hover {
-    box-shadow: $shadow-hover;
-    transform: translateY(-2px);
+    border-color: $color-warm-gray;
   }
 }
 
@@ -822,7 +838,7 @@
 // Focus visible (modern focus styles)
 @mixin focus-visible {
   &:focus-visible {
-    outline: 2px solid $color-accent;
+    outline: 2px solid $color-clay;
     outline-offset: 2px;
   }
 }
