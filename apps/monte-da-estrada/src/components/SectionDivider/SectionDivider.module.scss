@@ -1,0 +1,78 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-l 0;
+  width: 100%;
+  gap: $spacing-m;
+}
+
+.line {
+  height: 1px;
+  background-color: $color-border-light;
+  transform-origin: center;
+}
+
+// ------------------------------------
+// VARIANTS
+// ------------------------------------
+
+// Simple: single centered line
+.simple {
+  padding: $spacing-xl $spacing-xxl;
+
+  .line {
+    flex: 1;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+// Ornament: two lines flanking a diamond symbol
+.ornament {
+  padding: $spacing-xl $spacing-xxl;
+
+  .line {
+    flex: 1;
+    max-width: 120px;
+  }
+}
+
+.ornament .ornament-symbol,
+.ornament > span {
+  color: $color-accent;
+  font-size: $font-size-body-small;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+// Reason: Override the span styling specifically for the ornament diamond
+.ornament {
+  .ornament,
+  span {
+    color: $color-accent;
+    font-size: $font-size-body-small;
+    line-height: 1;
+  }
+}
+
+// ------------------------------------
+// RESPONSIVE
+// ------------------------------------
+
+@include mobile {
+  .divider {
+    padding: $spacing-m 0;
+  }
+
+  .simple .line {
+    max-width: 120px;
+  }
+
+  .ornament .line {
+    max-width: 80px;
+  }
+}

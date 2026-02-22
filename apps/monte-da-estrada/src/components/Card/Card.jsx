@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'motion/react';
+import { cardInteraction } from '@/motion';
 import styles from './Card.module.scss';
 
 /**
- * Card component - content card with shadow and hover effect
+ * Card component - content card with shadow and motion hover effect
  */
 const Card = ({ children, hoverable, className, ...rest }) => {
   const cardClasses = [
@@ -13,6 +15,19 @@ const Card = ({ children, hoverable, className, ...rest }) => {
   ]
     .filter(Boolean)
     .join(' ');
+
+  if (hoverable) {
+    return (
+      <motion.div
+        className={cardClasses}
+        whileHover={cardInteraction.hover}
+        whileTap={cardInteraction.tap}
+        {...rest}
+      >
+        {children}
+      </motion.div>
+    );
+  }
 
   return (
     <div className={cardClasses} {...rest}>

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'motion/react';
+import { heroTitle, heroSubtitle, heroCta } from '@/motion';
 import styles from './Hero.module.scss';
 
 /**
@@ -7,7 +9,7 @@ import styles from './Hero.module.scss';
  * Features:
  * - Full-screen or custom height
  * - Background image with overlay
- * - Centered content
+ * - Centered content with choreographed motion entrance
  * - Optional CTA button
  * - Parallax effect (optional)
  */
@@ -51,19 +53,34 @@ const Hero = ({
       <div className={`${styles.content} ${styles[`align-${align}`]}`}>
         <div className={styles.textWrapper}>
           {title && (
-            <h1 className={styles.title}>
+            <motion.h1
+              className={styles.title}
+              initial="hidden"
+              animate="visible"
+              variants={heroTitle}
+            >
               {title}
-            </h1>
+            </motion.h1>
           )}
 
           {subtitle && (
-            <p className={styles.subtitle}>
+            <motion.p
+              className={styles.subtitle}
+              initial="hidden"
+              animate="visible"
+              variants={heroSubtitle}
+            >
               {subtitle}
-            </p>
+            </motion.p>
           )}
 
           {ctaText && (
-            <div className={styles.ctaWrapper}>
+            <motion.div
+              className={styles.ctaWrapper}
+              initial="hidden"
+              animate="visible"
+              variants={heroCta}
+            >
               {ctaLink ? (
                 <a
                   href={ctaLink}
@@ -80,15 +97,21 @@ const Hero = ({
                   {ctaText}
                 </button>
               )}
-            </div>
+            </motion.div>
           )}
         </div>
       </div>
 
       {/* Scroll indicator (optional) */}
-      <div className={styles.scrollIndicator} aria-hidden="true">
+      <motion.div
+        className={styles.scrollIndicator}
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+      >
         <span className={styles.scrollArrow}>↓</span>
-      </div>
+      </motion.div>
     </section>
   );
 };

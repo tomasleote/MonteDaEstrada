@@ -38,23 +38,19 @@
   "highlights": [
     {
       "title": "Tranquilidade Absoluta",
-      "description": "Desfrute do silêncio e da paz do campo alentejano",
-      "icon": "🌾"
+      "description": "Desfrute do silêncio e da paz do campo alentejano"
     },
     {
       "title": "Natureza Envolvente",
-      "description": "Paisagens deslumbrantes e contacto direto com a natureza",
-      "icon": "🌳"
+      "description": "Paisagens deslumbrantes e contacto direto com a natureza"
     },
     {
       "title": "Conforto Moderno",
-      "description": "Instalações renovadas com todas as comodidades",
-      "icon": "🏡"
+      "description": "Instalações renovadas com todas as comodidades"
     },
     {
       "title": "Localização Privilegiada",
-      "description": "Próximo das praias da Costa Vicentina",
-      "icon": "🌊"
+      "description": "Próximo das praias da Costa Vicentina"
     }
   ],
   "information": {

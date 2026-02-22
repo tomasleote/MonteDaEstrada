@@ -5,6 +5,7 @@ import Section from '@/components/Section';
 import Container from '@/components/Container';
 import Button from '@/components/Button';
 import { RoomCardGallery } from '@touril-ecosystem/ui-components';
+import { ScrollReveal } from '@/motion';
 import styles from './QuartosPage.module.scss';
 import { quartosImages } from '@/assets/images/quartos';
 import { seoConfig } from '@/utils/seo-config';
@@ -114,28 +115,32 @@ const QuartosPage = () => {
         overlay={0.5}
       />
 
-      <RoomCardGallery
-        rooms={rooms}
-        onReserveClick={handleReserveClick}
-      />
+      <ScrollReveal>
+        <RoomCardGallery
+          rooms={rooms}
+          onReserveClick={handleReserveClick}
+        />
+      </ScrollReveal>
 
       {/* CTA Section */}
-      <Section background="primary" padding="medium">
+      <Section background="primary" padding="medium" animate>
         <Container>
-          <div className={styles.cta}>
-            <h2 className={styles.ctaTitle}>Explore o Monte da Estrada</h2>
-            <div className={styles.ctaButtons}>
-              <Button variant="secondary" href="/galeria">
-                Ver Galeria
-              </Button>
-              <Button variant="outline" href="/atividades">
-                Atividades
-              </Button>
-              <Button variant="outline" href="/redondezas">
-                A Região
-              </Button>
+          <ScrollReveal variant="fadeIn">
+            <div className={styles.cta}>
+              <h2 className={styles.ctaTitle}>Explore o Monte da Estrada</h2>
+              <div className={styles.ctaButtons}>
+                <Button variant="secondary" href="/galeria">
+                  Ver Galeria
+                </Button>
+                <Button variant="outline" href="/atividades">
+                  Atividades
+                </Button>
+                <Button variant="outline" href="/redondezas">
+                  A Região
+                </Button>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </Container>
       </Section>
     </div>

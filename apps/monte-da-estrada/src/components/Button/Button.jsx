@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { buttonInteraction } from '@/motion';
 import styles from './Button.module.scss';
 
 /**
- * Reusable button component with multiple variants
- * Can render as button or Link (React Router)
+ * Reusable button component with multiple variants and motion feedback.
+ * Can render as button or Link (React Router).
  */
 const Button = ({
   children,
@@ -27,26 +29,37 @@ const Button = ({
     .filter(Boolean)
     .join(' ');
 
-  // If href is provided, render as Link
+  // Motion props for interactive feedback
+  const motionProps = disabled
+    ? {}
+    : {
+        whileHover: buttonInteraction.hover,
+        whileTap: buttonInteraction.tap,
+      };
+
+  // If href is provided, render as animated Link
   if (href) {
     return (
-      <Link to={href} className={buttonClasses} {...rest}>
-        {children}
-      </Link>
+      <motion.div {...motionProps} style={{ display: 'inline-block' }}>
+        <Link to={href} className={buttonClasses} {...rest}>
+          {children}
+        </Link>
+      </motion.div>
     );
   }
 
-  // Otherwise render as button
+  // Otherwise render as animated button
   return (
-    <button
+    <motion.button
       type={type}
       className={buttonClasses}
       onClick={onClick}
       disabled={disabled}
+      {...motionProps}
       {...rest}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

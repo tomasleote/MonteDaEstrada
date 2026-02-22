@@ -3,6 +3,7 @@
 // ==================================
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
+@use '@/motion/motion' as *;
 
 .button {
   @include button-base;

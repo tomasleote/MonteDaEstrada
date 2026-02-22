@@ -1,13 +1,27 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
+@use '@/motion/motion' as *;
 
 .card {
-  @include card;
+  background-color: $color-bg-primary;
+  border-radius: $border-radius-rounded;
+  box-shadow: $shadow-subtle;
+  padding: $spacing-l;
+  border: 1px solid $color-border-light;
+  @include motion-transition(box-shadow);
 
+  // Hover shadow handled by Motion library for hoverable cards.
+  // CSS transition provides the shadow change for non-hoverable cards.
   &.hoverable {
+    cursor: pointer;
+
     &:hover {
-      box-shadow: $shadow-lg;
-      transform: translateY(-2px);
+      box-shadow: $shadow-hover;
     }
+  }
+
+  &:focus-within {
+    box-shadow: $shadow-medium;
+    outline: 2px solid $color-primary;
   }
 }

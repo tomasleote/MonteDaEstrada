@@ -1,7 +1,9 @@
 import { Suspense, lazy, useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'motion/react'
 import { HeaderModern, Footer } from '@touril-ecosystem/ui-components'
 import LoadingSpinner from './components/LoadingSpinner'
+import AnimatedPage from '@/motion/components/AnimatedPage'
 import useScrollToTop from './hooks/useScrollToTop'
 
 // Lazy load page components for better performance
@@ -74,6 +76,9 @@ function App() {
   // Scroll to top on route change
   useScrollToTop()
 
+  // Current location for page transitions
+  const location = useLocation()
+
   // Language state for header (EN/PT)
   const [currentLanguage, setCurrentLanguage] = useState('PT')
 
@@ -109,24 +114,26 @@ function App() {
       />
 
       <main id="main-content" style={{ minHeight: '100vh' }}>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/quartos" element={<QuartosPage />} />
-            <Route path="/atividades" element={<AtividadesPage />} />
-            <Route path="/redondezas" element={<RedondezasPage />} />
-            <Route path="/localizacao" element={<LocalizacaoPage />} />
-            <Route path="/galeria" element={<GaleriaPage />} />
+        <AnimatePresence mode="wait">
+          <AnimatedPage key={location.pathname}>
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes location={location}>
+                {/* Public Routes */}
+                <Route path="/" element={<HomePage />} />
+                <Route path="/quartos" element={<QuartosPage />} />
+                <Route path="/atividades" element={<AtividadesPage />} />
+                <Route path="/redondezas" element={<RedondezasPage />} />
+                <Route path="/localizacao" element={<LocalizacaoPage />} />
+                <Route path="/galeria" element={<GaleriaPage />} />
 
-            {/* Admin Panel - Powered by Decap CMS */}
-            {/* Access the admin panel at: /admin */}
-            {/* Authentication handled by Netlify Identity */}
-            {/* Content management handled by Decap CMS (Git-based) */}
-
-            {/* Old localStorage-based admin routes removed - now using Decap CMS */}
-          </Routes>
-        </Suspense>
+                {/* Admin Panel - Powered by Decap CMS */}
+                {/* Access the admin panel at: /admin */}
+                {/* Authentication handled by Netlify Identity */}
+                {/* Content management handled by Decap CMS (Git-based) */}
+              </Routes>
+            </Suspense>
+          </AnimatedPage>
+        </AnimatePresence>
       </main>
 
       <Footer

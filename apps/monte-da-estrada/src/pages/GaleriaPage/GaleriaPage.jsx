@@ -5,6 +5,7 @@ import Container from '@/components/Container';
 import Section from '@/components/Section';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Lightbox from '@/components/Lightbox';
+import { ScrollReveal, StaggerChildren } from '@/motion';
 import styles from './GaleriaPage.module.scss';
 import galeriaData from '@/data/galeria.json';
 import { seoConfig } from '@/utils/seo-config';
@@ -53,50 +54,53 @@ const GaleriaPage = () => {
       />
 
       {/* Gallery Grid Section */}
-      <Section padding="large">
+      <Section padding="large" animate>
         <Container>
-          <div className={styles.header}>
-            <h2 className={styles.pageTitle}>{galeriaData.title}</h2>
-            <p className={styles.pageDescription}>{galeriaData.description}</p>
-          </div>
+          <ScrollReveal>
+            <div className={styles.header}>
+              <h2 className={styles.pageTitle}>{galeriaData.title}</h2>
+              <p className={styles.pageDescription}>{galeriaData.description}</p>
+            </div>
+          </ScrollReveal>
 
           {/* Masonry Grid Gallery */}
-          <div className={styles.galleryGrid}>
+          <StaggerChildren className={styles.galleryGrid}>
             {allGalleryImages.map((image, index) => (
-              <div
-                key={index}
-                className={styles.galleryItem}
-              >
-                <ResponsiveImage
-                  src={image.src}
-                  alt={image.alt}
-                  aspectRatio="4/3"
-                  objectFit="cover"
-                  className={styles.galleryImage}
-                  onClick={() => handleImageClick(index)}
-                  loading="lazy"
-                />
-                <div className={styles.imageOverlay}>
-                  <span className={styles.imageTitle}>{image.title}</span>
+              <StaggerChildren.Item key={index}>
+                <div className={styles.galleryItem}>
+                  <ResponsiveImage
+                    src={image.src}
+                    alt={image.alt}
+                    aspectRatio="4/3"
+                    objectFit="cover"
+                    className={styles.galleryImage}
+                    onClick={() => handleImageClick(index)}
+                    loading="lazy"
+                  />
+                  <div className={styles.imageOverlay}>
+                    <span className={styles.imageTitle}>{image.title}</span>
+                  </div>
                 </div>
-              </div>
+              </StaggerChildren.Item>
             ))}
-          </div>
+          </StaggerChildren>
         </Container>
       </Section>
 
       {/* Information Section */}
-      <Section background="light" padding="large">
+      <Section background="light" padding="large" animate>
         <Container>
-          <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}>{galeriaData.photographyInfo.title}</h3>
-            <p className={styles.infoText}>{galeriaData.photographyInfo.description}</p>
-            <div className={styles.creditsList}>
-              {galeriaData.photographyInfo.credits.map((credit, index) => (
-                <p key={index} className={styles.credit}>{credit}</p>
-              ))}
+          <ScrollReveal variant="fadeUpSubtle">
+            <div className={styles.infoBlock}>
+              <h3 className={styles.infoTitle}>{galeriaData.photographyInfo.title}</h3>
+              <p className={styles.infoText}>{galeriaData.photographyInfo.description}</p>
+              <div className={styles.creditsList}>
+                {galeriaData.photographyInfo.credits.map((credit, index) => (
+                  <p key={index} className={styles.credit}>{credit}</p>
+                ))}
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </Container>
       </Section>
 

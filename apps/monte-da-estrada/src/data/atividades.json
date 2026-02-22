@@ -17,8 +17,7 @@
         "Praia de Odeceixe",
         "Praia dos Alteirinhos",
         "Praia do Tonel"
-      ],
-      "icon": "🏖️"
+      ]
     },
     {
       "category": "Caminhadas",
@@ -29,8 +28,7 @@
         "Rota Vicentina - Caminho Histórico",
         "Trilhos locais na herdade",
         "Observação de aves"
-      ],
-      "icon": "🥾"
+      ]
     },
     {
       "category": "Cultura",
@@ -42,8 +40,7 @@
         "Museu Regional de Beja",
         "Mértola - Vila Museu",
         "Artesanato local"
-      ],
-      "icon": "🏛️"
+      ]
     },
     {
       "category": "Gastronomia",
@@ -55,8 +52,7 @@
         "Provas de vinho na região",
         "Queijos e enchidos regionais",
         "Doçaria conventual"
-      ],
-      "icon": "🍷"
+      ]
     },
     {
       "category": "Natureza",
@@ -68,8 +64,7 @@
         "Paisagens do montado",
         "Pôr do sol no campo",
         "Céu estrelado sem poluição luminosa"
-      ],
-      "icon": "🦅"
+      ]
     },
     {
       "category": "Desporto",
@@ -81,8 +76,7 @@
         "Passeios a cavalo",
         "Pesca desportiva",
         "Canoagem no rio Mira"
-      ],
-      "icon": "🚴"
+      ]
     }
   ],
   "amenities": {
