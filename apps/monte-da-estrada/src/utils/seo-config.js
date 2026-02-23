@@ -40,6 +40,18 @@ export const seoConfig = {
     keywords: 'galeria, fotos, imagens, monte da estrada, alentejo, quartos',
     image: '/images/hero-galeria.jpg',
   },
+  descobrir: {
+    title: 'Descobrir',
+    description: 'Explore o território à volta do Monte da Estrada: praias da Costa Vicentina, trilhos da Rota Vicentina, vilas históricas e a paisagem única do Alentejo.',
+    keywords: 'descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada',
+    image: '/images/hero-atividades.jpg',
+  },
+  contacto: {
+    title: 'Contacto',
+    description: 'Entre em contacto com o Monte da Estrada. Reservas, perguntas, ou como chegar de Lisboa, Porto e Faro. Estamos aqui.',
+    keywords: 'contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar, localização, direções',
+    image: '/images/hero-localizacao.jpg',
+  },
 };
 
 export default seoConfig;

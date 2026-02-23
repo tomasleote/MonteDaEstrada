@@ -18,6 +18,20 @@ export { default as RoomExpandedCard } from './components/RoomExpandedCard';
 export { default as RoomCardGallery } from './components/RoomCardGallery';
 
 // ============================================
+// HOMEPAGE EDITORIAL COMPONENTS
+// ============================================
+
+export { default as SectionEyebrow } from './components/SectionEyebrow';
+export { default as ImmersiveHero } from './components/ImmersiveHero';
+export { default as EditorialAnchor } from './components/EditorialAnchor';
+export { default as EditorialSplitSection } from './components/EditorialSplitSection';
+export { default as RoomGrid } from './components/RoomGrid';
+export { default as FullBleedImage } from './components/FullBleedImage';
+export { default as ActivityHighlights } from './components/ActivityHighlights';
+export { default as BookingSection } from './components/BookingSection';
+export { default as GalleryPreview } from './components/GalleryPreview';
+
+// ============================================
 // CONSTANTS
 // ============================================
 

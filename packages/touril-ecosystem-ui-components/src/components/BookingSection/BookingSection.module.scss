@@ -1,0 +1,131 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// BOOKING SECTION
+// ==================================
+
+.section {
+  background-color: $color-deep-brown;
+  color: $color-cream;
+  padding: $space-section;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+
+  @include mobile {
+    padding: 80px $spacing-m;
+  }
+}
+
+// ==================================
+// SECTION HEADER
+// ==================================
+
+.eyebrow {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-clay;
+  margin-bottom: $spacing-m;
+}
+
+.heading {
+  font-family: $font-editorial;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-cream;
+  margin: 0 0 $spacing-xl 0;
+  line-height: $line-height-tight;
+}
+
+.description {
+  font-family: $font-body;
+  font-size: 1rem;
+  color: rgba($color-cream, 0.85);
+  line-height: 1.8;
+  margin: 0 0 $spacing-xxxl 0;
+}
+
+// ==================================
+// CONTACT OPTIONS
+// ==================================
+
+.contactOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xxxl;
+  flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-l;
+  }
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-s;
+  color: $color-cream;
+  text-decoration: none;
+  transition: color $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    color: $color-clay;
+  }
+
+  @include focus-ring;
+}
+
+.icon {
+  font-size: 1.25rem;
+  line-height: 1;
+  color: $color-clay;
+}
+
+.contactText {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+// ==================================
+// CTA BUTTON
+// ==================================
+
+.ctaButton {
+  @include boutique-button-primary;
+  padding: $spacing-m $spacing-xl;
+  font-size: 1rem;
+  display: inline-flex;
+  margin-bottom: $spacing-l;
+}
+
+// ==================================
+// NOTE
+// ==================================
+
+.note {
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: rgba($color-cream, 0.5);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .contactItem:hover {
+    color: $color-cream;
+  }
+}

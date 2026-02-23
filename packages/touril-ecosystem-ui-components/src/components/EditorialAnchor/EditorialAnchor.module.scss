@@ -1,0 +1,106 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// EDITORIAL ANCHOR SECTION
+// ==================================
+
+.section {
+  background-color: $color-cream;
+  padding: 120px $spacing-l;
+  margin: 0 auto;
+  max-width: 640px;
+  text-align: center;
+
+  @include mobile {
+    padding: 80px $spacing-m;
+  }
+}
+
+// ==================================
+// TYPOGRAPHY
+// ==================================
+
+.propertyName {
+  font-family: $font-editorial;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-l 0;
+  line-height: $line-height-tight;
+}
+
+.tagline {
+  font-family: $font-display;
+  font-size: 1.25rem;
+  font-weight: $font-weight-light;
+  letter-spacing: 0.5px;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-m 0;
+  line-height: $line-height-subheading;
+}
+
+.body {
+  font-family: $font-body;
+  font-size: 1rem;
+  color: $color-charcoal;
+  line-height: 1.8;
+  margin: 0 0 $spacing-xl 0;
+}
+
+.contact {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $color-cool-taupe;
+  letter-spacing: 1px;
+  margin: 0 0 $spacing-xl 0;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color $transition-duration-normal $transition-timing-normal;
+
+    &:hover {
+      color: $color-clay;
+    }
+
+    @include focus-ring;
+  }
+}
+
+// ==================================
+// CTA
+// ==================================
+
+.cta {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $color-clay;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  margin-top: $spacing-xl;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include focus-ring;
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .propertyName,
+  .tagline,
+  .body,
+  .contact,
+  .cta {
+    animation: none;
+  }
+}

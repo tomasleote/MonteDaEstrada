@@ -1,5 +1,5 @@
 import { Suspense, lazy, useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'motion/react'
 import { HeaderModern, Footer } from '@touril-ecosystem/ui-components'
 import LoadingSpinner from './components/LoadingSpinner'
@@ -9,9 +9,8 @@ import useScrollToTop from './hooks/useScrollToTop'
 // Lazy load page components for better performance
 const HomePage = lazy(() => import('./pages/HomePage'))
 const QuartosPage = lazy(() => import('./pages/QuartosPage'))
-const AtividadesPage = lazy(() => import('./pages/AtividadesPage'))
-const RedondezasPage = lazy(() => import('./pages/RedondezasPage'))
-const LocalizacaoPage = lazy(() => import('./pages/LocalizacaoPage'))
+const DescobrirPage = lazy(() => import('./pages/DescobrirPage'))
+const ContactoPage = lazy(() => import('./pages/ContactoPage'))
 const GaleriaPage = lazy(() => import('./pages/GaleriaPage'))
 
 // NOTE: Admin panel now powered by Decap CMS
@@ -20,12 +19,11 @@ const GaleriaPage = lazy(() => import('./pages/GaleriaPage'))
 
 // Navigation links for HeaderModern
 const navLinks = [
-  { label: 'Início', to: '/' },
+  { label: 'Casa', to: '/' },
   { label: 'Quartos', to: '/quartos' },
-  { label: 'Atividades', to: '/atividades' },
-  { label: 'Redondezas', to: '/redondezas' },
-  { label: 'Localização', to: '/localizacao' },
+  { label: 'Descobrir', to: '/descobrir' },
   { label: 'Galeria', to: '/galeria' },
+  { label: 'Contacto', to: '/contacto' },
 ]
 
 // Properties for HeaderModern collection switcher dropdown
@@ -64,12 +62,11 @@ const footerLegalInfo = {
 
 // Footer navigation links
 const footerNavLinks = [
-  { text: 'Início', href: '/' },
+  { text: 'Casa', href: '/' },
   { text: 'Quartos', href: '/quartos' },
-  { text: 'Atividades', href: '/atividades' },
-  { text: 'Redondezas', href: '/redondezas' },
-  { text: 'Localização', href: '/localizacao' },
+  { text: 'Descobrir', href: '/descobrir' },
   { text: 'Galeria', href: '/galeria' },
+  { text: 'Contacto', href: '/contacto' },
 ]
 
 function App() {
@@ -121,10 +118,14 @@ function App() {
                 {/* Public Routes */}
                 <Route path="/" element={<HomePage />} />
                 <Route path="/quartos" element={<QuartosPage />} />
-                <Route path="/atividades" element={<AtividadesPage />} />
-                <Route path="/redondezas" element={<RedondezasPage />} />
-                <Route path="/localizacao" element={<LocalizacaoPage />} />
+                <Route path="/descobrir" element={<DescobrirPage />} />
                 <Route path="/galeria" element={<GaleriaPage />} />
+                <Route path="/contacto" element={<ContactoPage />} />
+
+                {/* Legacy redirects — preserve old URLs */}
+                <Route path="/atividades" element={<Navigate to="/descobrir" replace />} />
+                <Route path="/redondezas" element={<Navigate to="/descobrir" replace />} />
+                <Route path="/localizacao" element={<Navigate to="/contacto" replace />} />
 
                 {/* Admin Panel - Powered by Decap CMS */}
                 {/* Access the admin panel at: /admin */}

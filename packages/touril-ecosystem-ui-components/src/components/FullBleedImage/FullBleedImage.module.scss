@@ -1,0 +1,121 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// FULL BLEED IMAGE CONTAINER
+// ==================================
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+// ==================================
+// IMAGE
+// ==================================
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+// ==================================
+// CAPTION
+// ==================================
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 40px $spacing-l $spacing-l;
+  margin: 0;
+}
+
+.captionGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, rgba(61, 59, 56, 0), rgba(61, 59, 56, 0.5));
+  z-index: -1;
+  pointer-events: none;
+}
+
+.captionText {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-cream;
+  text-align: center;
+  max-width: 600px;
+  line-height: $line-height-tight;
+}
+
+// ==================================
+// PHOTOGRAPHER CREDIT
+// ==================================
+
+.credit {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 2;
+  font-family: $font-body;
+  font-size: 0.65rem;
+  color: rgba($color-cream, 0.6);
+}
+
+// ==================================
+// RESPONSIVE
+// ==================================
+
+@include mobile {
+  .container {
+    height: 50vh;
+  }
+
+  .caption {
+    padding: 24px $spacing-m $spacing-m;
+  }
+
+  .captionText {
+    font-size: 1.125rem;
+  }
+
+  .credit {
+    bottom: 12px;
+    right: 12px;
+    font-size: 0.6rem;
+  }
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .caption,
+  .credit {
+    animation: none;
+  }
+}

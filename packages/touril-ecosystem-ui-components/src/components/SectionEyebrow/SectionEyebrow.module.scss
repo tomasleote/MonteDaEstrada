@@ -1,0 +1,32 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// SECTION EYEBROW STYLES
+// ==================================
+
+.eyebrow {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 0.75rem;  // 12px
+  font-weight: $font-weight-medium;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-clay;
+  margin-bottom: $spacing-m;
+
+  // Text alignment variants
+  &.alignLeft {
+    text-align: left;
+  }
+
+  &.alignCenter {
+    text-align: center;
+    display: block;
+  }
+
+  &.alignRight {
+    text-align: right;
+    display: block;
+  }
+}

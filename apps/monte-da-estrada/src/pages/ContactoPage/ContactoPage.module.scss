@@ -1,0 +1,297 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+.contactoPage {
+  width: 100%;
+}
+
+// ============================================
+// HERO
+// ============================================
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 400px;
+  max-height: 580px;
+  overflow: hidden;
+
+  @include tablet {
+    height: 50vh;
+    min-height: 350px;
+  }
+
+  @include mobile {
+    height: 40vh;
+    min-height: 280px;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($color-primary, 0.5) 0%,
+    rgba($color-primary, 0.35) 50%,
+    rgba($color-primary, 0.65) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+}
+
+.heroContent {
+  padding-bottom: $spacing-xxxl;
+  color: $color-text-light;
+
+  @include mobile {
+    padding-bottom: $spacing-xxl;
+  }
+}
+
+.heroTitle {
+  @include h1;
+  color: $color-text-light;
+  margin-bottom: $spacing-m;
+  font-size: clamp($font-size-h2, 5vw, $font-size-h1);
+  letter-spacing: $letter-spacing-headline;
+
+  @include mobile {
+    font-size: $font-size-h3;
+  }
+}
+
+.heroDescription {
+  font-size: $font-size-lg;
+  line-height: $line-height-relaxed;
+  color: rgba($color-text-light, 0.95);
+  max-width: 500px;
+  letter-spacing: $letter-spacing-body;
+
+  @include mobile {
+    font-size: $font-size-base;
+  }
+}
+
+// ============================================
+// EYEBROW LABEL
+// ============================================
+
+.eyebrow {
+  display: block;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: $spacing-s;
+}
+
+// ============================================
+// CONTACT GRID (form + info side by side)
+// ============================================
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xxxl;
+  align-items: start;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: $spacing-xxl;
+  }
+}
+
+.contactInfo {
+  // intentionally left for layout
+}
+
+.sectionTitle {
+  @include h2;
+  color: $color-primary;
+  margin-bottom: $spacing-xl;
+  letter-spacing: $letter-spacing-headline;
+}
+
+.contactIntro {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-xxl;
+  letter-spacing: $letter-spacing-body;
+}
+
+.contactDetails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.contactLabel {
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  color: $color-accent;
+}
+
+.contactValue {
+  font-size: $font-size-base;
+  color: $color-primary;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-body;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.contactAddress {
+  font-size: $font-size-base;
+  color: $color-primary;
+  font-style: normal;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+}
+
+.contactFormWrapper {
+  // intentionally left for layout
+}
+
+// ============================================
+// MAP
+// ============================================
+
+.mapWrapper {
+  width: 100%;
+  overflow: hidden;
+  margin-top: $spacing-xl;
+}
+
+// ============================================
+// DIRECTIONS
+// ============================================
+
+.centeredText {
+  text-align: center;
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin-bottom: $spacing-xxl;
+  letter-spacing: $letter-spacing-body;
+}
+
+.directionCard {
+  height: 100%;
+}
+
+.directionTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-m;
+  letter-spacing: $letter-spacing-subheading;
+}
+
+.directionMeta {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin-bottom: $spacing-l;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+
+  strong {
+    color: $color-primary;
+  }
+}
+
+.routeList {
+  padding-left: $spacing-l;
+  margin: 0;
+
+  li {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-s;
+    letter-spacing: $letter-spacing-body;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// ============================================
+// PUBLIC TRANSPORT
+// ============================================
+
+.transportCard {
+  height: 100%;
+}
+
+.transportType {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin-bottom: $spacing-s;
+  letter-spacing: $letter-spacing-subheading;
+}
+
+.transportDescription {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-relaxed;
+  margin: 0;
+  letter-spacing: $letter-spacing-body;
+}
+
+// ============================================
+// DISTANCES GRID
+// ============================================
+
+.distanceCard {
+  text-align: center;
+  padding: $spacing-l;
+}
+
+.distanceLocation {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $color-primary;
+  margin: 0 0 $spacing-s 0;
+  letter-spacing: $letter-spacing-subheading;
+}
+
+.distanceInfo {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-medium;
+  color: $color-accent;
+  margin: 0 0 $spacing-xs 0;
+  letter-spacing: $letter-spacing-body;
+}
+
+.distanceDuration {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  margin: 0;
+  letter-spacing: $letter-spacing-body;
+}

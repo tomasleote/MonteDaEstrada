@@ -1,23 +1,115 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
-import Hero from '@/components/Hero';
-import Container from '@/components/Container';
-import Section from '@/components/Section';
-import Grid from '@/components/Grid';
-import Card from '@/components/Card';
-import Button from '@/components/Button';
-import ResponsiveImage from '@/components/ResponsiveImage';
-import { ScrollReveal, StaggerChildren, AnimatedText, fadeUp, scaleIn, imageZoom } from '@/motion';
-import styles from './HomePage.module.scss';
-import homeDataOriginal from '@/data/home.json';
-import { seoConfig } from '@/utils/seo-config';
-import useEditableContent from '@/hooks/useEditableContent';
+import {
+  ImmersiveHero,
+  EditorialAnchor,
+  EditorialSplitSection,
+  FullBleedImage,
+  RoomGrid,
+  ActivityHighlights,
+  BookingSection,
+  GalleryPreview,
+} from '@touril-ecosystem/ui-components';
 import { homeImages } from '@/assets/images/home';
+import { quartosImages } from '@/assets/images/quartos';
+import { galeriaImages } from '@/assets/images/galeria';
+import { seoConfig } from '@/utils/seo-config';
+import styles from './HomePage.module.scss';
+
+// ──────────────────────────────────────────────
+// Section data — editorial content for the homepage
+// These are the 6 room previews shown in the RoomGrid teaser.
+// Full room detail lives at /quartos (different depth, different user intent).
+// ──────────────────────────────────────────────
+
+const homeRooms = [
+  {
+    id: 'suite-deluxe',
+    title: 'Suite Deluxe',
+    subtitle: 'Vista panorâmica sobre o Alentejo',
+    imageSrc: quartosImages.rooms[4].src,
+    imageAlt: quartosImages.rooms[4].alt,
+  },
+  {
+    id: 'comfort-alentejo',
+    title: 'Quarto Comfort',
+    subtitle: 'Terraço privativo com vista para o campo',
+    imageSrc: quartosImages.rooms[1].src,
+    imageAlt: quartosImages.rooms[1].alt,
+  },
+  {
+    id: 'garden-view',
+    title: 'Vista Jardim',
+    subtitle: 'Serenidade e conforto no coração do monte',
+    imageSrc: quartosImages.rooms[2].src,
+    imageAlt: quartosImages.rooms[2].alt,
+  },
+  {
+    id: 'monte-classic',
+    title: 'Quarto Monte',
+    subtitle: 'Autenticidade alentejana em cada detalhe',
+    imageSrc: quartosImages.rooms[6].src,
+    imageAlt: quartosImages.rooms[6].alt,
+  },
+  {
+    id: 'twin-campo',
+    title: 'Quarto Twin',
+    subtitle: 'Duas camas e vista aberta para o campo',
+    imageSrc: quartosImages.rooms[3].src,
+    imageAlt: quartosImages.rooms[3].alt,
+  },
+  {
+    id: 'familiar',
+    title: 'Quarto Familiar',
+    subtitle: 'Espaço amplo, privacidade garantida',
+    imageSrc: quartosImages.rooms[8].src,
+    imageAlt: quartosImages.rooms[8].alt,
+  },
+];
+
+// 5 editorial activity cards — teasers, not exhaustive lists.
+// Full activity detail lives at /descobrir.
+const activityItems = [
+  {
+    title: 'Praias',
+    description: 'Costa Vicentina a 18 km — Zambujeira, Carvalhal, Odeceixe.',
+    distance: '18 km',
+  },
+  {
+    title: 'Rota Vicentina',
+    description: 'O Trilho dos Pescadores passa a minutos da porta.',
+    distance: '1 km',
+  },
+  {
+    title: 'Natureza',
+    description: 'Cegonhas, águias e montado. O Alentejo não precisa de mais.',
+    distance: '0 km',
+  },
+  {
+    title: 'Gastronomia',
+    description: 'Restaurantes em São Teotónio, vinho alentejano, produtos locais.',
+    distance: '5 km',
+  },
+  {
+    title: 'Ciclismo',
+    description: 'Estradas de terra batida através do montado sem trânsito.',
+    distance: '0 km',
+  },
+];
+
+// 3 images for the asymmetric gallery preview grid.
+// Uses property exterior shots for the 2/3-width slot.
+const galleryPreviewImages = [
+  homeImages.gallery[0], // Main entrance — tall portrait slot (left)
+  galeriaImages.gallery[0], // Property detail — square top-right
+  homeImages.gallery[5], // Property exterior — square bottom-right
+];
+
+// ──────────────────────────────────────────────
+// Page component
+// ──────────────────────────────────────────────
 
 const HomePage = () => {
-  // Use editable content hook to load from localStorage if edited
-  const homeData = useEditableContent('home', homeDataOriginal);
   return (
     <div className={styles.homePage}>
       <SEO
@@ -26,154 +118,109 @@ const HomePage = () => {
         keywords={seoConfig.home.keywords}
         image={seoConfig.home.image}
       />
-      {/* Hero Section */}
-      <Hero
-        backgroundImage={homeImages.hero.src}
-        title={homeData.hero.title}
-        subtitle={homeData.hero.subtitle}
-        ctaText="Ver Quartos"
-        ctaLink="/quartos"
-        height="100vh"
+
+      {/* S1 — Immersive Hero ────────────────────────────────── */}
+      {/* Full-viewport exterior photography + single-line headline */}
+      <ImmersiveHero
+        imageSrc={homeImages.hero.src}
+        imageAlt={homeImages.hero.alt}
+        headline="Uma casa no interior do Alentejo."
+        scrollLabel="Descobrir"
       />
 
-      {/* Welcome Section */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <div className={styles.welcome}>
-              <AnimatedText as="h2" stagger className={styles.welcomeTitle}>
-                {homeData.welcome.title}
-              </AnimatedText>
-              {homeData.welcome.paragraphs.map((paragraph, index) => (
-                <ScrollReveal key={index} variant="fadeUpSubtle" delay={0.1 * (index + 1)}>
-                  <p className={styles.welcomeText}>
-                    {paragraph}
-                  </p>
-                </ScrollReveal>
-              ))}
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      {/* S2 — Editorial Anchor ──────────────────────────────── */}
+      {/* Property name + manifesto paragraphs + contact, no images */}
+      <EditorialAnchor
+        propertyName="Monte da Estrada"
+        tagline="Seis quartos, uma casa, um monte."
+        body="A 18 quilómetros do Atlântico e a anos-luz do ruído."
+        email="montedaestradazambujeiradomar@gmail.com"
+        phone="+351 960 254 072"
+        ctaLabel="Sobre a casa"
+        ctaHref="/descobrir"
+      />
 
-      {/* Gallery Section */}
-      <Section background="light" padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <h2 className={styles.sectionTitle}>Descubra o Monte da Estrada</h2>
-          </ScrollReveal>
-          <StaggerChildren className={styles.galleryGrid}>
-            {homeImages.gallery.slice(0, 6).map((image, index) => (
-              <StaggerChildren.Item key={index}>
-                <motion.div
-                  className={styles.galleryItem}
-                  whileHover={imageZoom.hover}
-                >
-                  <ResponsiveImage
-                    src={image.src}
-                    alt={image.alt}
-                    aspectRatio="4/3"
-                    objectFit="cover"
-                    loading={index < 3 ? 'eager' : 'lazy'}
-                  />
-                </motion.div>
-              </StaggerChildren.Item>
-            ))}
-          </StaggerChildren>
-        </Container>
-      </Section>
+      {/* S3 — A Casa — Editorial Split ──────────────────────── */}
+      {/* Property architecture story: image left, prose right */}
+      <EditorialSplitSection
+        eyebrow="A Casa"
+        heading="Arquitectura de monte, revisitada."
+        body={[
+          'A casa existia antes de ser hotel. Os muros de cal e o pavimento antigo mantêm-se — não por falta de alternativa, mas por escolha.',
+          'Não tentamos impressionar. Tentamos que fique.',
+        ]}
+        imageSrc={homeImages.gallery[0].src}
+        imageAlt={homeImages.gallery[0].alt}
+        imagePosition="left"
+        ctaLabel="Conhecer a casa"
+        ctaHref="/descobrir"
+      />
 
-      {/* Highlights Section */}
-      <Section background="light" padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <h2 className={styles.sectionTitle}>Porquê Escolher o Monte da Estrada?</h2>
-          </ScrollReveal>
-          <StaggerChildren speed="slow">
-            <Grid columns={4} gap="large">
-              {homeData.highlights.map((highlight, index) => (
-                <StaggerChildren.Item key={index}>
-                  <Card className={styles.highlightCard}>
-                    <div className={styles.highlightIcon}>{highlight.icon}</div>
-                    <h3 className={styles.highlightTitle}>{highlight.title}</h3>
-                    <p className={styles.highlightDescription}>{highlight.description}</p>
-                  </Card>
-                </StaggerChildren.Item>
-              ))}
-            </Grid>
-          </StaggerChildren>
-        </Container>
-      </Section>
+      {/* S4 — Quartos — Room Grid ───────────────────────────── */}
+      {/* 6-card portrait grid. Teaser only — /quartos has full detail */}
+      <RoomGrid
+        eyebrow="Quartos"
+        heading="Seis quartos. Cada um, o seu."
+        subHeading="Não há dois iguais. A luz da manhã entra diferente em cada divisão. Escolha pelo que quer acordar a ver."
+        rooms={homeRooms}
+        ctaLabel="Ver todos os quartos"
+        ctaHref="/quartos"
+      />
 
-      {/* Information Section */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <div className={styles.infoGrid}>
-              <div className={styles.infoBlock}>
-                <h2 className={styles.infoTitle}>{homeData.information.title}</h2>
-                <StaggerChildren speed="slow" className={styles.infoContent}>
-                  <StaggerChildren.Item>
-                    <div className={styles.infoItem}>
-                      <h4>Horários</h4>
-                      <p><strong>Check-in:</strong> {homeData.information.checkIn}</p>
-                      <p><strong>Check-out:</strong> {homeData.information.checkOut}</p>
-                    </div>
-                  </StaggerChildren.Item>
-                  <StaggerChildren.Item>
-                    <div className={styles.infoItem}>
-                      <h4>Políticas</h4>
-                      <ul>
-                        {homeData.information.policies.map((policy, index) => (
-                          <li key={index}>{policy}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </StaggerChildren.Item>
-                  <StaggerChildren.Item>
-                    <div className={styles.infoItem}>
-                      <h4>Incluído</h4>
-                      <ul>
-                        {homeData.information.included.map((item, index) => (
-                          <li key={index}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </StaggerChildren.Item>
-                </StaggerChildren>
-              </div>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      {/* S5 — Full Bleed Photography Break ─────────────────── */}
+      {/* Emotional beat between rooms and territory sections */}
+      <FullBleedImage
+        imageSrc={homeImages.gallery[7].src}
+        alt={homeImages.gallery[7].alt}
+        caption="Costa Vicentina, 18 km."
+        height="70vh"
+      />
 
-      {/* CTA Section */}
-      <Section background="primary" padding="large" animate>
-        <Container>
-          <ScrollReveal variant="fadeIn">
-            <div className={styles.cta}>
-              <AnimatedText as="h2" className={styles.ctaTitle}>
-                Pronto para a sua escapadinha no Alentejo?
-              </AnimatedText>
-              <ScrollReveal variant="fadeUpSubtle" delay={0.15}>
-                <p className={styles.ctaText}>
-                  Reserve já o seu quarto e venha descobrir a tranquilidade do campo alentejano.
-                </p>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeUp" delay={0.3}>
-                <div className={styles.ctaButtons}>
-                  <Button variant="secondary" size="large" href="/quartos">
-                    Ver Quartos e Preços
-                  </Button>
-                  <Button variant="outline" size="large" href="/galeria">
-                    Ver Galeria
-                  </Button>
-                </div>
-              </ScrollReveal>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      {/* S6 — O Território — Editorial Split ───────────────── */}
+      {/* Geographic positioning: text left, landscape right */}
+      <EditorialSplitSection
+        eyebrow="O Território"
+        heading="Entre o Alentejo e o Atlântico."
+        body={[
+          'A Rota Vicentina passa a minutos. Zambujeira do Mar fica a 18 quilómetros. O Alentejo interior está à porta.',
+          'Isto não é isolamento. É uma posição.',
+        ]}
+        imageSrc={homeImages.gallery[4].src}
+        imageAlt="Vista panorâmica da paisagem alentejana"
+        imagePosition="right"
+        background="offwhite"
+        ctaLabel="Explorar as redondezas"
+        ctaHref="/descobrir"
+      />
+
+      {/* S7 — Atividades — Activity Highlights ─────────────── */}
+      {/* 5 editorial activity cards: icon + title + distance */}
+      <ActivityHighlights
+        eyebrow="Atividades"
+        heading="Aqui não há agenda. A não ser a sua."
+        items={activityItems}
+        ctaLabel="Ver todas as atividades"
+        ctaHref="/descobrir"
+      />
+
+      {/* S8 — Booking Section ───────────────────────────────── */}
+      {/* Dark section with direct booking contact + WhatsApp */}
+      <BookingSection
+        eyebrow="Reservas"
+        heading="Marque a sua estadia."
+        fallbackEmail="montedaestradazambujeiradomar@gmail.com"
+        fallbackPhone="+351 960 254 072"
+        whatsappNumber="351960254072"
+      />
+
+      {/* S9 — Gallery Preview ───────────────────────────────── */}
+      {/* Asymmetric 3-image preview → links to /galeria */}
+      <GalleryPreview
+        eyebrow="Galeria"
+        images={galleryPreviewImages}
+        ctaLabel="Ver galeria completa"
+        ctaHref="/galeria"
+      />
     </div>
   );
 };

@@ -1,0 +1,203 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// EDITORIAL SPLIT SECTION LAYOUT
+// ==================================
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  background-color: $color-cream;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+// ==================================
+// BACKGROUND VARIANTS
+// ==================================
+
+.backgroundCream {
+  background-color: $color-cream;
+}
+
+.backgroundOffwhite {
+  background-color: $color-off-white;
+}
+
+// ==================================
+// IMAGE POSITIONING
+// ==================================
+
+.imageLeft {
+  .imageColumn {
+    order: 1;
+  }
+
+  .textColumn {
+    order: 2;
+  }
+}
+
+.imageRight {
+  .imageColumn {
+    order: 2;
+  }
+
+  .textColumn {
+    order: 1;
+  }
+
+  @include mobile {
+    .imageColumn {
+      order: 1;
+    }
+
+    .textColumn {
+      order: 2;
+    }
+  }
+}
+
+// ==================================
+// IMAGE COLUMN
+// ==================================
+
+.imageColumn {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+
+  @include mobile {
+    min-height: 300px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.credit {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  font-family: $font-body;
+  font-size: 0.65rem;
+  color: rgba($color-cream, 0.6);
+  margin: 0;
+  padding: $spacing-s;
+  z-index: 1;
+}
+
+// ==================================
+// TEXT COLUMN
+// ==================================
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  background-color: inherit;
+
+  @include tablet {
+    padding: 48px;
+  }
+
+  @include mobile {
+    padding: 32px $spacing-m;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-clay;
+  margin-bottom: $spacing-m;
+  align-self: flex-start;
+}
+
+// ==================================
+// TYPOGRAPHY
+// ==================================
+
+.heading {
+  font-family: $font-display;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xl 0;
+  line-height: $line-height-tight;
+}
+
+.bodyParagraph {
+  font-family: $font-body;
+  font-size: 1rem;
+  color: $color-charcoal;
+  line-height: 1.75;
+  margin: 0 0 $spacing-m 0;
+
+  &:last-of-type {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+// ==================================
+// CTA
+// ==================================
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $color-clay;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  transition: all $transition-duration-normal $transition-timing-normal;
+  width: fit-content;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include focus-ring;
+}
+
+.arrow {
+  margin-left: 4px;
+  transition: transform $transition-duration-normal $transition-timing-normal;
+}
+
+.cta:hover .arrow {
+  transform: translateX(4px);
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .cta:hover .arrow {
+    transform: none;
+  }
+}

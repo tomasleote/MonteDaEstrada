@@ -1,0 +1,178 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// ACTIVITY HIGHLIGHTS SECTION
+// ==================================
+
+.section {
+  padding: $space-section;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include mobile {
+    padding: 80px $spacing-m;
+  }
+}
+
+.backgroundCream {
+  background-color: $color-cream;
+}
+
+.backgroundOffwhite {
+  background-color: $color-off-white;
+}
+
+// ==================================
+// SECTION HEADER
+// ==================================
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-xxl;
+}
+
+.eyebrow {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.75rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-clay;
+  margin-bottom: $spacing-m;
+}
+
+.heading {
+  font-family: $font-display;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  margin: 0;
+  line-height: $line-height-tight;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ==================================
+// ACTIVITY GRID
+// ==================================
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xxl;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-l;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-l;
+  }
+}
+
+// ==================================
+// ACTIVITY CARD
+// ==================================
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  transition: all $transition-duration-normal $transition-timing-normal;
+}
+
+.icon {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: $spacing-m;
+  line-height: 1;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: 1.125rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xs 0;
+  line-height: $line-height-tight;
+}
+
+.description {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $color-charcoal;
+  line-height: 1.65;
+  margin: 0 0 $spacing-m 0;
+}
+
+.distance {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.75rem;
+  color: $color-clay;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: $spacing-m;
+  border-top: 1px solid $color-clay;
+  padding-top: $spacing-m;
+  min-width: 100%;
+  opacity: 0;
+  transition: opacity $transition-duration-normal $transition-timing-normal;
+}
+
+// Reason: Border appears on hover for interactive feedback
+.card:hover .distance {
+  opacity: 1;
+}
+
+// ==================================
+// CTA CONTAINER
+// ==================================
+
+.ctaContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.cta {
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $color-clay;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include focus-ring;
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .distance {
+    opacity: 1;
+    border-color: transparent;
+  }
+
+  .card:hover .distance {
+    opacity: 1;
+  }
+}
