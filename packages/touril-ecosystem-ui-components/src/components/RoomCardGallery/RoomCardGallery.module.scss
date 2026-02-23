@@ -1,70 +1,50 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-// ============================================
-// RoomCardGallery Component Styles
-// ============================================
-// Gallery orchestrator managing expand/collapse state
-// with smooth transition effects
+// ==================================
+// ROOM CARD GALLERY — Container
+// Boutique Collection editorial style
+// ==================================
 
-/**
- * Gallery wrapper
- * Displays room cards stacked vertically
- */
 .gallery {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  gap: 0; // Reason: Cards are stacked tightly, no gap between them
+  gap: 0; // Cards stack flush — no gap
 }
 
-/**
- * Wrapper for each card (collapsed or expanded)
- * Ensures full-width layout for both card states
- */
+// Individual card wrapper
 .cardWrapper {
   width: 100%;
+  transition: all 300ms ease-in-out;
 }
 
-/**
- * Expanded card wrapper
- * Provides smooth scroll positioning and transition effects
- */
+// Expanded card wrapper
 .expandedWrapper {
   width: 100%;
-  // Reason: 80px matches the header height for proper scroll positioning
-  scroll-margin-top: 80px;
-  animation: expandIn $transition-duration-normal $transition-timing-normal;
-
-  // Reason: Respect user's motion preferences
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-    scroll-margin-top: 80px;
-  }
+  position: relative;
+  animation: expandIn 400ms ease-in-out;
 }
 
-/**
- * Expand-in animation
- * Smooth fade and scale effect when card expands
- */
+// Animation for expanded state
 @keyframes expandIn {
   from {
     opacity: 0;
-    transform: scale(0.98);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
 
-// Reason: Respect prefers-reduced-motion for all animations
+// Accessibility: respect motion preferences
 @media (prefers-reduced-motion: reduce) {
-  .gallery {
-    * {
-      animation-duration: 1ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 1ms !important;
-    }
+  .expandedWrapper {
+    animation: none;
+  }
+
+  .cardWrapper {
+    transition: none;
   }
 }

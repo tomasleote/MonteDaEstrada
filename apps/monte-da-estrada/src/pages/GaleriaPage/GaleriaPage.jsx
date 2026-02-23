@@ -1,40 +1,64 @@
 import React, { useState, useMemo } from 'react';
 import SEO from '@/components/SEO';
 import Hero from '@/components/Hero';
-import Container from '@/components/Container';
-import Section from '@/components/Section';
-import ResponsiveImage from '@/components/ResponsiveImage';
 import Lightbox from '@/components/Lightbox';
-import { ScrollReveal, StaggerChildren } from '@/motion';
+import { CategoryNav } from '@touril-ecosystem/ui-components';
+import { ScrollReveal } from '@/motion';
 import styles from './GaleriaPage.module.scss';
 import galeriaData from '@/data/galeria.json';
 import { seoConfig } from '@/utils/seo-config';
 import { galeriaImages } from '@/assets/images/galeria';
 import { homeImages } from '@/assets/images/home';
 import { exteriorImages } from '@/assets/images/exterior';
+import { descobrirImages } from '@/assets/images/descobrir';
+import { descobrirAttractions } from '@/assets/images/redondezas';
+
+// ── CategoryNav items ──────────────────────────────────────────
+const NAV_ITEMS = [
+  { id: 'o-monte', label: 'O Monte' },
+  { id: 'a-regiao', label: 'A Região' },
+];
+
+// ── Section editorial copy ─────────────────────────────────────
+const SECTION_COPY = {
+  oMonte: {
+    eyebrow: 'GALERIA · O MONTE',
+    title: 'O Espaço',
+    body: 'Um monte alentejano recuperado com critério — jardins, piscina, terraços e o silêncio do campo a enquadrar cada momento.',
+  },
+  aRegiao: {
+    eyebrow: 'GALERIA · A REGIÃO',
+    title: 'O Território',
+    body: 'A Costa Vicentina e o Alentejo Litoral: praias selvagens, vilas branqueadas a cal e uma natureza que impõe respeito.',
+  },
+};
 
 const GaleriaPage = () => {
+  const [lightboxImages, setLightboxImages] = useState([]);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Combine all gallery images from different sources
-  const allGalleryImages = useMemo(() => {
-    return [
-      ...galeriaImages.gallery,
-      ...homeImages.gallery,
-      ...exteriorImages.amenities
-    ];
-  }, []);
+  // ── O Monte — estate images ────────────────────────────────
+  const oMonteImages = useMemo(() => [
+    ...galeriaImages.gallery,
+    ...homeImages.gallery,
+    ...exteriorImages.amenities,
+  ], []);
 
-  // Reason: Open lightbox at specific image index
-  const handleImageClick = (index) => {
-    setCurrentImageIndex(index);
+  // ── A Região — territory images ────────────────────────────
+  const aRegiaoImages = useMemo(() => [
+    ...descobrirImages.beaches,
+    ...descobrirImages.experiences,
+    ...descobrirAttractions.attractions,
+  ], []);
+
+  const openLightbox = (images, index) => {
+    setLightboxImages(images);
+    setLightboxIndex(index);
     setLightboxOpen(true);
   };
 
-  const handleCloseLightbox = () => {
-    setLightboxOpen(false);
-  };
+  const closeLightbox = () => setLightboxOpen(false);
 
   return (
     <div className={styles.galeriaPage}>
@@ -45,71 +69,89 @@ const GaleriaPage = () => {
         image={seoConfig.galeria.image}
       />
 
-      {/* Hero Section */}
-      <Hero
-        backgroundImage={galeriaData.hero.image}
-        title={galeriaData.hero.title}
-        subtitle={galeriaData.hero.subtitle}
-        height="60vh"
-      />
+      {/* Hero — id used by CategoryNav to know when to appear */}
+      <div id="galeria-hero">
+        <Hero
+          backgroundImage={galeriaData.hero.image}
+          title={galeriaData.hero.title}
+          subtitle={galeriaData.hero.subtitle}
+          height="60vh"
+        />
+      </div>
 
-      {/* Gallery Grid Section */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <div className={styles.header}>
-              <h2 className={styles.pageTitle}>{galeriaData.title}</h2>
-              <p className={styles.pageDescription}>{galeriaData.description}</p>
+      {/* Sticky sub-navigation */}
+      <CategoryNav items={NAV_ITEMS} targetId="galeria-hero" headerHeight={72} />
+
+      {/* ── O Monte ─────────────────────────────────────────── */}
+      <section id="o-monte" className={styles.section}>
+        <ScrollReveal>
+          <header className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>{SECTION_COPY.oMonte.eyebrow}</span>
+            <h2 className={styles.sectionTitle}>{SECTION_COPY.oMonte.title}</h2>
+            <p className={styles.sectionBody}>{SECTION_COPY.oMonte.body}</p>
+          </header>
+        </ScrollReveal>
+
+        <div className={styles.masonryGrid}>
+          {oMonteImages.map((image, index) => (
+            <div
+              key={`o-monte-${index}`}
+              className={styles.masonryItem}
+              onClick={() => openLightbox(oMonteImages, index)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Ver imagem: ${image.title || image.alt}`}
+              onKeyDown={(e) => e.key === 'Enter' && openLightbox(oMonteImages, index)}
+            >
+              <img
+                src={image.src}
+                alt={image.alt || image.title || 'Monte da Estrada'}
+                loading="lazy"
+                className={styles.masonryImage}
+              />
             </div>
-          </ScrollReveal>
+          ))}
+        </div>
+      </section>
 
-          {/* Masonry Grid Gallery */}
-          <StaggerChildren className={styles.galleryGrid}>
-            {allGalleryImages.map((image, index) => (
-              <StaggerChildren.Item key={index}>
-                <div className={styles.galleryItem}>
-                  <ResponsiveImage
-                    src={image.src}
-                    alt={image.alt}
-                    aspectRatio="4/3"
-                    objectFit="cover"
-                    className={styles.galleryImage}
-                    onClick={() => handleImageClick(index)}
-                    loading="lazy"
-                  />
-                  <div className={styles.imageOverlay}>
-                    <span className={styles.imageTitle}>{image.title}</span>
-                  </div>
-                </div>
-              </StaggerChildren.Item>
-            ))}
-          </StaggerChildren>
-        </Container>
-      </Section>
+      {/* ── A Região ─────────────────────────────────────────── */}
+      <section id="a-regiao" className={`${styles.section} ${styles.sectionAlt}`}>
+        <ScrollReveal>
+          <header className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>{SECTION_COPY.aRegiao.eyebrow}</span>
+            <h2 className={styles.sectionTitle}>{SECTION_COPY.aRegiao.title}</h2>
+            <p className={styles.sectionBody}>{SECTION_COPY.aRegiao.body}</p>
+          </header>
+        </ScrollReveal>
 
-      {/* Information Section */}
-      <Section background="light" padding="large" animate>
-        <Container>
-          <ScrollReveal variant="fadeUpSubtle">
-            <div className={styles.infoBlock}>
-              <h3 className={styles.infoTitle}>{galeriaData.photographyInfo.title}</h3>
-              <p className={styles.infoText}>{galeriaData.photographyInfo.description}</p>
-              <div className={styles.creditsList}>
-                {galeriaData.photographyInfo.credits.map((credit, index) => (
-                  <p key={index} className={styles.credit}>{credit}</p>
-                ))}
-              </div>
+        <div className={styles.masonryGrid}>
+          {aRegiaoImages.map((image, index) => (
+            <div
+              key={`a-regiao-${index}`}
+              className={styles.masonryItem}
+              onClick={() => openLightbox(aRegiaoImages, index)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Ver imagem: ${image.title || image.alt}`}
+              onKeyDown={(e) => e.key === 'Enter' && openLightbox(aRegiaoImages, index)}
+            >
+              <img
+                src={image.src}
+                alt={image.alt || image.title || 'A Região'}
+                loading="lazy"
+                className={styles.masonryImage}
+              />
             </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+          ))}
+        </div>
+      </section>
 
-      {/* Lightbox */}
+      {/* Lightbox — section-scoped images */}
       <Lightbox
-        images={allGalleryImages}
-        initialIndex={currentImageIndex}
+        images={lightboxImages}
+        initialIndex={lightboxIndex}
         isOpen={lightboxOpen}
-        onClose={handleCloseLightbox}
+        onClose={closeLightbox}
       />
     </div>
   );

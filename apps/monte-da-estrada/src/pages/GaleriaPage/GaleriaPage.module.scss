@@ -5,136 +5,145 @@
   width: 100%;
 }
 
-.header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto $spacing-xxxl;
+// ── Section wrapper ──────────────────────────────────────────
+.section {
+  padding: $spacing-xxxl $spacing-l ($spacing-xxxl * 2);
+  max-width: $container-max-width;
+  margin: 0 auto;
+
+  @include responsive($breakpoint-tablet) {
+    padding: $spacing-xxl $spacing-m $spacing-xxxl;
+  }
 }
 
-.pageTitle {
-  @include h1;
-  color: $color-primary;
-  margin-bottom: $spacing-m;
+.sectionAlt {
+  background-color: $color-sand;
+  // Reason: alternate bg creates editorial breathing room between the two narratives
+  max-width: 100%;
+  padding-left: max($spacing-l, calc((100vw - #{$container-max-width}) / 2));
+  padding-right: max($spacing-l, calc((100vw - #{$container-max-width}) / 2));
 }
 
-.pageDescription {
-  font-size: $font-size-lg;
-  color: $color-text-secondary;
+// ── Editorial section header ────────────────────────────────
+.sectionHeader {
+  max-width: 640px;
+  margin: 0 0 $spacing-xxxl;
+}
+
+.eyebrow {
+  display: block;
+  font-family: $font-display;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-cool-taupe;
+  text-transform: uppercase;
+  margin-bottom: $spacing-s;
+}
+
+.sectionTitle {
+  font-family: $font-display;
+  font-size: $font-size-h2;
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-m;
+  line-height: $line-height-tight;
+
+  @include responsive($breakpoint-tablet) {
+    font-size: $font-size-h3;
+  }
+}
+
+.sectionBody {
+  font-family: $font-body;
+  font-size: $font-size-body;
+  color: $color-charcoal;
   line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  max-width: 560px;
+  margin: 0;
 }
 
-// Masonry/Responsive Grid Layout
-.galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: $spacing-l;
-  margin-top: $spacing-xxxl;
+// ── Masonry grid ─────────────────────────────────────────────
+.masonryGrid {
+  column-count: 3;
+  column-gap: $spacing-s;
 
-  // Reason: 3 columns on desktop
-  @media (min-width: $breakpoint-desktop) {
-    grid-template-columns: repeat(3, 1fr);
+  @include responsive($breakpoint-desktop) {
+    column-count: 2;
   }
 
-  // Reason: 2 columns on tablet
-  @media (min-width: $breakpoint-tablet) and (max-width: calc($breakpoint-desktop - 1px)) {
-    grid-template-columns: repeat(2, 1fr);
+  @include responsive($breakpoint-tablet) {
+    column-count: 2;
+    column-gap: $spacing-xs;
   }
 
-  // Reason: 1 column on mobile
-  @media (max-width: calc($breakpoint-tablet - 1px)) {
-    grid-template-columns: 1fr;
-    gap: $spacing-m;
+  @include responsive($breakpoint-mobile) {
+    column-count: 1;
   }
 }
 
-// Luxury Card Styling with Hover Effects
-.galleryItem {
+// ── Individual item ──────────────────────────────────────────
+.masonryItem {
+  break-inside: avoid;
+  margin-bottom: $spacing-s;
   position: relative;
   overflow: hidden;
-  border-radius: $border-radius-rounded;
-  background-color: $color-bg-secondary;
-  box-shadow: $shadow-subtle;
   cursor: pointer;
-  transition: $transition-all-normal;
+  display: block;
 
-  &:hover {
-    transform: translateY(-4px);
+  // Reason: 0px radius enforced by brand — no softened corners
+  border-radius: 0;
 
-    .imageOverlay {
-      opacity: 1;
-    }
-
-    .galleryImage {
-      transform: scale(1.05);
-    }
+  &:hover .masonryImage {
+    transform: scale(1.025);
   }
 
-  &:focus-within {
-    outline: 2px solid $color-accent;
+  &:hover .imageOverlay {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
     outline-offset: 2px;
   }
+
+  @include responsive($breakpoint-mobile) {
+    margin-bottom: $spacing-xs;
+  }
 }
 
-.galleryImage {
+.masonryImage {
   width: 100%;
-  height: 100%;
-  transition: transform $transition-normal $ease-out-back;
+  height: auto;
+  display: block;
+  transition: transform 350ms $ease-out-back;
 }
 
-// Elegant Overlay with Title
+// ── Hover overlay with title ──────────────────────────────────
 .imageOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: $spacing-l;
+  padding: $spacing-xl $spacing-m $spacing-m;
   background: linear-gradient(
     to top,
-    rgba($color-primary, 0.9) 0%,
-    rgba($color-primary, 0.7) 50%,
-    rgba($color-primary, 0) 100%
+    rgba($color-deep-brown, 0.88) 0%,
+    rgba($color-deep-brown, 0.6) 50%,
+    rgba($color-deep-brown, 0) 100%
   );
   opacity: 0;
-  transition: opacity $transition-normal $ease-in-out;
+  transition: opacity 300ms $ease-in-out;
 }
 
 .imageTitle {
   display: block;
-  color: $color-text-light;
-  font-size: $font-size-md;
+  font-family: $font-display;
+  font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
-  text-align: center;
-}
-
-// Information Section
-.infoBlock {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.infoTitle {
-  @include h2;
-  color: $color-primary;
-  margin-bottom: $spacing-l;
-}
-
-.infoText {
-  font-size: $font-size-md;
-  color: $color-text-secondary;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-xl;
-}
-
-.creditsList {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
-}
-
-.credit {
-  font-size: $font-size-sm;
-  color: $color-text-muted;
-  font-style: italic;
+  color: $color-cream;
+  text-transform: uppercase;
 }

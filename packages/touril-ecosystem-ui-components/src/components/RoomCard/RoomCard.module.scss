@@ -2,31 +2,50 @@
 @use '../../styles/mixins' as *;
 
 // ==================================
-// ROOM CARD — Collapsed state
-// Boutique Collection editorial style
+// ROOM CARD — Two-column layout
+// Boutique Collection styling updates
 // ==================================
 
-.card {
-  background-color: $color-off-white; // #FAFAF8
-  border-radius: 0; // Geometric precision
+.roomCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 520px;
+  border-radius: 0;
   box-shadow: none;
   overflow: hidden;
-  transition: all 300ms ease-in-out;
 
-  &:hover {
-    // Subtle visual feedback on hover
-    .image {
-      filter: brightness(1.05);
-    }
+  @include tablet {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
   }
 }
 
-// Image container — full-width, portrait aspect
-.imageWrapper {
-  width: 100%;
-  height: 320px;
+.roomCardReversed {
+  grid-template-columns: 1fr 1fr;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Image column (left or right depending on position)
+.imageColumn {
+  position: relative;
   overflow: hidden;
   background-color: $color-warm-gray;
+
+  .roomCardReversed & {
+    order: 2;
+
+    @include tablet {
+      order: unset;
+    }
+  }
 }
 
 .image {
@@ -34,64 +53,146 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: filter 300ms ease-in-out, opacity 300ms ease-in-out;
+  transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+
+  .roomCard:hover & {
+    filter: brightness(1.05);
+  }
 }
 
-// Content section — room details
-.content {
-  padding: $spacing-l; // 24px
+// Content column (right or left depending on position)
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-color: $color-off-white;
+  padding: $spacing-xxl;
+  transition: background-color 300ms ease-in-out;
+
+  @include tablet {
+    padding: $spacing-xl;
+  }
+
+  @include mobile {
+    padding: $spacing-l;
+  }
+
+  .roomCardReversed & {
+    order: 1;
+
+    @include tablet {
+      order: unset;
+    }
+  }
 }
 
-// Room number (optional visual accent)
-.roomNumber {
-  display: block;
-  font-family: $font-body;
-  font-size: $font-size-small; // 12px
-  font-weight: $font-weight-regular;
-  letter-spacing: $letter-spacing-body;
-  color: $color-warm-gray;
-  margin-bottom: $spacing-s; // 8px
-  text-transform: uppercase;
+// Dark variant — charcoal background, cream text
+.contentColumnDark {
+  background-color: $color-charcoal;
+
+  .title {
+    color: $color-cream;
+  }
+
+  .subtitle {
+    color: rgba($color-cream, 0.75);
+  }
+
+  .reserveButton {
+    color: $color-cream;
+  }
+
+  .infoButton {
+    color: $color-cream;
+    border-color: $color-cream;
+
+    &:hover {
+      background-color: $color-cream;
+      color: $color-charcoal;
+    }
+  }
+
+  @include tablet {
+    background-color: $color-off-white;
+
+    .title { color: $color-deep-brown; }
+    .subtitle { color: $color-deep-brown; }
+    .reserveButton { color: $color-deep-brown; }
+    .infoButton {
+      color: $color-deep-brown;
+      border-color: $color-deep-brown;
+
+      &:hover {
+        background-color: $color-deep-brown;
+        color: $color-cream;
+      }
+    }
+  }
 }
 
-// Room title (H3/H4 level)
+.contentInner {
+  // No specific styling needed, flex parent handles layout
+}
+
+// Typography
 .title {
   font-family: $font-display;
-  font-size: $font-size-h4; // 24px
-  font-weight: $font-weight-regular; // 400 — not 500
+  font-size: $font-size-h3;
+  font-weight: $font-weight-light;
   line-height: $line-height-tight;
-  letter-spacing: $letter-spacing-subheading; // 0.75px
-  color: $color-deep-brown;
-  margin: 0 0 $spacing-s 0;
-}
-
-// Room subtitle (body copy)
-.subtitle {
-  font-family: $font-body;
-  font-size: $font-size-body; // 16px
-  font-weight: $font-weight-regular;
-  line-height: $line-height-relaxed;
-  letter-spacing: $letter-spacing-body; // 0.5px
+  letter-spacing: $letter-spacing-headline;
   color: $color-deep-brown;
   margin: 0 0 $spacing-m 0;
+
+  @include mobile {
+    font-size: $font-size-h4;
+  }
 }
 
-// CTA button
-.button {
-  display: inline-block;
-  padding: $spacing-s $spacing-l; // 8px 24px
-  background-color: $color-clay;
-  color: $color-deep-brown;
+.subtitle {
   font-family: $font-body;
-  font-size: $font-size-small; // 14px
-  font-weight: $font-weight-medium; // 500
-  letter-spacing: $letter-spacing-subheading; // 0.75px
-  text-decoration: none;
+  font-size: $font-size-body-large;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xl 0;
+
+  @include mobile {
+    font-size: $font-size-body;
+    margin-bottom: $spacing-l;
+  }
+}
+
+// Actions (buttons)
+.actions {
+  display: flex;
+  gap: $spacing-m;
+  flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-s;
+  }
+}
+
+.reserveButton,
+.infoButton {
+  padding: $spacing-s $spacing-l;
+  font-family: $font-body;
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
   border: none;
   border-radius: 0;
   cursor: pointer;
   transition: all 300ms ease-in-out;
+  text-transform: uppercase;
+
+  @include mobile {
+    width: 100%;
+    text-align: center;
+  }
 
   &:hover,
   &:focus {
@@ -99,9 +200,20 @@
     transform: scale(1.02);
     outline: none;
   }
+}
 
-  @include mobile {
-    width: 100%;
-    text-align: center;
+.reserveButton {
+  background-color: $color-clay;
+  color: $color-deep-brown;
+}
+
+.infoButton {
+  background-color: transparent;
+  color: $color-deep-brown;
+  border: 1px solid $color-deep-brown;
+
+  &:hover {
+    background-color: $color-deep-brown;
+    color: $color-cream;
   }
 }
