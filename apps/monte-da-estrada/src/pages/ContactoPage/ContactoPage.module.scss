@@ -1,29 +1,76 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
-.contactoPage {
+// ==================================
+// CONTACTO PAGE — Boutique Collection
+// Structure mirrors DescobrirPage: minimal wrappers,
+// section backgrounds and layout handled here.
+// Brand rules: 0px radius, no shadows, generous whitespace.
+// ==================================
+
+.page {
   width: 100%;
 }
 
-// ============================================
-// HERO
-// ============================================
+// ==================================
+// SHARED CONTAINER
+// ==================================
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 $spacing-m;
+  }
+}
+
+// ==================================
+// SHARED HEADING PATTERNS
+// ==================================
+
+// Light-weight H2 — editorial standard (font-weight: 300, not 500)
+// Matches DescobrirPage .sectionHeading pattern exactly.
+.sectionHeading {
+  font-family: $font-display;
+  font-size: clamp($font-size-h4, 3vw, $font-size-h2);
+  font-weight: $font-weight-light; // 300 — editorial restraint
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-headline; // 1px
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xxl 0;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+// Same heading on dark (map) background — cream text
+.sectionHeadingLight {
+  @extend .sectionHeading;
+  color: $color-cream;
+}
+
+// ==================================
+// S1 — HERO (55vh, editorial, cream-tinted overlay)
+// ==================================
 
 .hero {
   position: relative;
   width: 100%;
-  height: 60vh;
-  min-height: 400px;
-  max-height: 580px;
+  height: 55vh;
+  min-height: 380px;
+  max-height: 560px;
   overflow: hidden;
 
   @include tablet {
     height: 50vh;
-    min-height: 350px;
+    min-height: 320px;
   }
 
   @include mobile {
-    height: 40vh;
+    height: 45vh;
     min-height: 280px;
   }
 }
@@ -35,14 +82,14 @@
   object-position: center;
 }
 
+// Gradient: nearly transparent at top, deep brown at bottom (brand: no color overlay)
 .heroOverlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba($color-primary, 0.5) 0%,
-    rgba($color-primary, 0.35) 50%,
-    rgba($color-primary, 0.65) 100%
+    rgba($color-cream, 0.08) 0%,
+    rgba($color-deep-brown, 0.55) 100%
   );
   display: flex;
   align-items: flex-end;
@@ -50,7 +97,6 @@
 
 .heroContent {
   padding-bottom: $spacing-xxxl;
-  color: $color-text-light;
 
   @include mobile {
     padding-bottom: $spacing-xxl;
@@ -58,78 +104,80 @@
 }
 
 .heroTitle {
-  @include h1;
-  color: $color-text-light;
-  margin-bottom: $spacing-m;
-  font-size: clamp($font-size-h2, 5vw, $font-size-h1);
-  letter-spacing: $letter-spacing-headline;
+  font-family: $font-display;
+  font-size: clamp($font-size-h3, 5vw, $font-size-h1);
+  font-weight: $font-weight-light; // 300 — editorial restraint
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-headline; // 1px
+  color: $color-cream;
+  margin: 0 0 $spacing-m 0;
 
   @include mobile {
     font-size: $font-size-h3;
   }
 }
 
-.heroDescription {
-  font-size: $font-size-lg;
+.heroSubtitle {
+  font-family: $font-body;
+  font-size: $font-size-body-large; // 18px
+  font-weight: $font-weight-regular;
   line-height: $line-height-relaxed;
-  color: rgba($color-text-light, 0.95);
-  max-width: 500px;
   letter-spacing: $letter-spacing-body;
+  color: rgba($color-cream, 0.90);
+  max-width: 480px;
+  margin: 0;
 
   @include mobile {
-    font-size: $font-size-base;
+    font-size: $font-size-body;
   }
 }
 
-// ============================================
-// EYEBROW LABEL
-// ============================================
+// ==================================
+// S2 — CONTACT SECTION (Cream)
+// ==================================
 
-.eyebrow {
-  display: block;
-  font-size: $font-size-caption;
-  font-weight: $font-weight-medium;
-  letter-spacing: $letter-spacing-subheading;
-  text-transform: uppercase;
-  color: $color-accent;
-  margin-bottom: $spacing-s;
+.contactSection {
+  background-color: $color-cream;
+  padding: 80px 0;
 }
 
-// ============================================
-// CONTACT GRID (form + info side by side)
-// ============================================
-
+// 50/50 grid: info left, form right. Generous gap for whitespace rule.
 .contactGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: $spacing-xxxl;
-  align-items: start;
+  gap: $spacing-xxxl * 2; // ~96px — generous column separation
 
   @include tablet {
     grid-template-columns: 1fr;
     gap: $spacing-xxl;
   }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+  }
 }
 
 .contactInfo {
-  // intentionally left for layout
+  // Layout placeholder
 }
 
-.sectionTitle {
-  @include h2;
-  color: $color-primary;
-  margin-bottom: $spacing-xl;
-  letter-spacing: $letter-spacing-headline;
+.contactFormWrapper {
+  // Layout placeholder
 }
 
 .contactIntro {
-  font-size: $font-size-base;
-  color: $color-text-secondary;
+  font-family: $font-body;
+  font-size: $font-size-body; // 16px
+  font-weight: $font-weight-regular;
   line-height: $line-height-relaxed;
-  margin-bottom: $spacing-xxl;
   letter-spacing: $letter-spacing-body;
+  color: $color-charcoal;
+  margin: 0 0 $spacing-xxl 0;
+  max-width: 440px;
 }
 
+// Contact detail list
 .contactDetails {
   list-style: none;
   padding: 0;
@@ -145,153 +193,151 @@
   gap: $spacing-xs;
 }
 
+// Clay uppercase label — matches SectionEyebrow aesthetic
 .contactLabel {
-  font-size: $font-size-caption;
+  font-family: $font-body;
+  font-size: $font-size-caption; // 12px
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;
-  color: $color-accent;
+  color: $color-clay;
 }
 
 .contactValue {
-  font-size: $font-size-base;
-  color: $color-primary;
-  text-decoration: none;
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
   letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  text-decoration: none;
+  transition: color $transition-duration-normal $transition-timing-normal;
 
   &:hover {
-    color: $color-accent;
+    color: $color-clay;
   }
 }
 
 .contactAddress {
-  font-size: $font-size-base;
-  color: $color-primary;
-  font-style: normal;
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  font-style: normal; // <address> defaults to italic — override
   line-height: $line-height-relaxed;
   letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
 }
 
-.contactFormWrapper {
-  // intentionally left for layout
-}
+// ==================================
+// S4 — MAP SECTION (Deep Brown — dark reversal)
+// Same visual pattern as Redondezas section on DescobrirPage.
+// SectionEyebrow clay text reads well against deep brown bg.
+// ==================================
 
-// ============================================
-// MAP
-// ============================================
+.mapSection {
+  background-color: $color-deep-brown;
+  padding: 80px 0;
+}
 
 .mapWrapper {
   width: 100%;
   overflow: hidden;
   margin-top: $spacing-xl;
+  // Subtle frame so the map doesn't float formlessly on dark bg
+  border: 1px solid rgba($color-cream, 0.10);
 }
 
-// ============================================
-// DIRECTIONS
-// ============================================
+// ==================================
+// S5 — DIRECTIONS SECTION (Sand)
+// $color-sand: #EDE8E2 — warmer than cream, distinct from off-white.
+// ==================================
 
-.centeredText {
-  text-align: center;
-  font-size: $font-size-base;
-  color: $color-text-secondary;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-xxl;
-  letter-spacing: $letter-spacing-body;
+.directionsSection {
+  background-color: $color-sand;
+  padding: 80px 0;
 }
 
-.directionCard {
-  height: 100%;
-}
+// 3-column grid — geometric precision
+.directionsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
 
-.directionTitle {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-semibold;
-  color: $color-primary;
-  margin-bottom: $spacing-m;
-  letter-spacing: $letter-spacing-subheading;
-}
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-l;
+  }
 
-.directionMeta {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  margin-bottom: $spacing-l;
-  line-height: $line-height-relaxed;
-  letter-spacing: $letter-spacing-body;
-
-  strong {
-    color: $color-primary;
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-l;
   }
 }
 
+// Minimal architectural panel: clay top-border accent, no fills, no shadows
+.directionPanel {
+  border-top: 2px solid $color-clay; // The architectural precision accent
+  padding-top: $spacing-l;
+}
+
+// City name: display font, light weight, editorial
+.directionCity {
+  font-family: $font-display;
+  font-size: $font-size-h4; // 24px
+  font-weight: $font-weight-light; // 300
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-s 0;
+}
+
+// Distance · Time: clay, compact, medium weight
+.directionMeta {
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-clay;
+  margin: 0 0 $spacing-l 0;
+  display: flex;
+  align-items: center;
+  gap: $spacing-s;
+}
+
+.directionMetaItem {
+  // Inline span — inherits parent styles
+}
+
+.directionMetaDivider {
+  color: $color-cool-taupe;
+}
+
+// Route steps: numbered list, Inter body, charcoal
 .routeList {
   padding-left: $spacing-l;
   margin: 0;
-
-  li {
-    font-size: $font-size-sm;
-    color: $color-text-secondary;
-    line-height: $line-height-relaxed;
-    margin-bottom: $spacing-s;
-    letter-spacing: $letter-spacing-body;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
 }
 
-// ============================================
-// PUBLIC TRANSPORT
-// ============================================
-
-.transportCard {
-  height: 100%;
-}
-
-.transportType {
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
-  color: $color-primary;
-  margin-bottom: $spacing-s;
-  letter-spacing: $letter-spacing-subheading;
-}
-
-.transportDescription {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
+.routeStep {
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  font-weight: $font-weight-regular;
   line-height: $line-height-relaxed;
-  margin: 0;
   letter-spacing: $letter-spacing-body;
+  color: $color-charcoal;
 }
 
-// ============================================
-// DISTANCES GRID
-// ============================================
+// ==================================
+// REDUCED MOTION
+// ==================================
 
-.distanceCard {
-  text-align: center;
-  padding: $spacing-l;
-}
-
-.distanceLocation {
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
-  color: $color-primary;
-  margin: 0 0 $spacing-s 0;
-  letter-spacing: $letter-spacing-subheading;
-}
-
-.distanceInfo {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-medium;
-  color: $color-accent;
-  margin: 0 0 $spacing-xs 0;
-  letter-spacing: $letter-spacing-body;
-}
-
-.distanceDuration {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  margin: 0;
-  letter-spacing: $letter-spacing-body;
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .contactGrid,
+  .mapWrapper,
+  .directionsGrid {
+    transition: none;
+  }
 }

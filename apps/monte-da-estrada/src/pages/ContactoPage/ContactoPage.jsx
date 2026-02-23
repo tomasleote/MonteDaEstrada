@@ -1,28 +1,39 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
-import Container from '@/components/Container';
-import Section from '@/components/Section';
-import Grid from '@/components/Grid';
-import Card from '@/components/Card';
 import Map from '@/components/Map';
 import ContactForm from '@/components/ContactForm';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import {
+  SectionEyebrow,
+  EditorialPullQuote,
+  viewport,
+  variants,
+  stagger,
+} from '@touril-ecosystem/ui-components';
 import { homeImages } from '@/assets/images/home';
-import { ScrollReveal, StaggerChildren, AnimatedText } from '@/motion';
-import styles from './ContactoPage.module.scss';
 import localizacaoData from '@/data/localizacao.json';
+import styles from './ContactoPage.module.scss';
 
 const ContactoPage = () => {
+  const directions = [
+    localizacaoData.directions.fromLisbon,
+    localizacaoData.directions.fromFaro,
+    localizacaoData.directions.fromPorto,
+  ];
+
   return (
-    <div className={styles.contactoPage}>
+    <div className={styles.page}>
       <SEO
         title="Contacto"
-        description="Entre em contacto com o Monte da Estrada. Reservas, perguntas ou simplesmente olá — estamos aqui. Veja também como chegar de Lisboa, Porto ou Faro."
-        keywords="contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar, localização"
+        description="Planeie a sua visita ao Monte da Estrada. Estamos aqui para ajudar — reservas, perguntas ou simplesmente olá. Veja como chegar de Lisboa, Porto ou Faro."
+        keywords="contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar"
         image="/images/hero-localizacao.jpg"
       />
 
-      {/* Hero */}
+      {/* S1 — Page Hero ─────────────────────────────────────── */}
+      {/* 55vh editorial header. Cream-tinted overlay (brand: 10-15% max). */}
+      {/* Copy: direct, warm, confident — not generic "Contact Us". */}
       <div className={styles.hero}>
         <ResponsiveImage
           src={homeImages.gallery[1].src}
@@ -30,181 +41,196 @@ const ContactoPage = () => {
           className={styles.heroImage}
           loading="eager"
           lazy={false}
-          aspectRatio="21/9"
         />
         <div className={styles.heroOverlay}>
-          <Container>
-            <div className={styles.heroContent}>
-              <AnimatedText as="h1" className={styles.heroTitle}>
-                Contacto
-              </AnimatedText>
-              <ScrollReveal variant="fadeUpSubtle" delay={0.2}>
-                <p className={styles.heroDescription}>
-                  Reservas, perguntas ou simplesmente olá.
-                </p>
-              </ScrollReveal>
-            </div>
-          </Container>
+          <div className={styles.container}>
+            <motion.div
+              className={styles.heroContent}
+              variants={variants.fadeUp}
+              initial="hidden"
+              animate="visible"
+            >
+              <h1 className={styles.heroTitle}>
+                Planeie a sua visita.
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Estamos cá para ajudar — de segunda a domingo.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </div>
 
-      {/* Contact — form + direct contact */}
-      <Section padding="large" animate>
-        <Container>
+      {/* S2 — Contact Grid ───────────────────────────────────── */}
+      {/* Left: contact info (eyebrow + H2 + details). Right: form. */}
+      {/* Cream background. No Section wrapper — direct HTML like DescobrirPage. */}
+      <section className={styles.contactSection}>
+        <div className={styles.container}>
           <div className={styles.contactGrid}>
-            <div className={styles.contactInfo}>
-              <ScrollReveal>
-                <span className={styles.eyebrow}>Fale Connosco</span>
-                <h2 className={styles.sectionTitle}>Entre em contacto.</h2>
-                <p className={styles.contactIntro}>
-                  Respondemos a todas as mensagens em menos de 24 horas. Para reservas urgentes,
-                  preferimos o telefone ou WhatsApp.
-                </p>
-              </ScrollReveal>
 
-              <ScrollReveal delay={0.1}>
-                <ul className={styles.contactDetails}>
-                  <li className={styles.contactItem}>
-                    <span className={styles.contactLabel}>Telefone / WhatsApp</span>
-                    <a
-                      href={`tel:${localizacaoData.address.phone || '+351960254072'}`}
-                      className={styles.contactValue}
-                    >
-                      {localizacaoData.address.phone || '+351 960 254 072'}
-                    </a>
-                  </li>
-                  <li className={styles.contactItem}>
-                    <span className={styles.contactLabel}>Email</span>
-                    <a
-                      href="mailto:montedaestradazambujeiradomar@gmail.com"
-                      className={styles.contactValue}
-                    >
-                      montedaestradazambujeiradomar@gmail.com
-                    </a>
-                  </li>
-                  <li className={styles.contactItem}>
-                    <span className={styles.contactLabel}>Morada</span>
-                    <address className={styles.contactAddress}>
-                      {localizacaoData.address.name}<br />
-                      {localizacaoData.address.street}<br />
-                      {localizacaoData.address.postalCode} {localizacaoData.address.city}<br />
-                      {localizacaoData.address.region}, {localizacaoData.address.country}
-                    </address>
-                  </li>
-                  <li className={styles.contactItem}>
-                    <span className={styles.contactLabel}>Check-in / Check-out</span>
-                    <span className={styles.contactValue}>15h00 / 12h00</span>
-                  </li>
-                </ul>
-              </ScrollReveal>
-            </div>
+            {/* Left — Contact info */}
+            <motion.div
+              className={styles.contactInfo}
+              variants={variants.fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport.default}
+            >
+              <SectionEyebrow label="Contacto" />
+              <h2 className={styles.sectionHeading}>
+                Estamos aqui para ajudar.
+              </h2>
+              <p className={styles.contactIntro}>
+                Respondemos a todas as mensagens em menos de 24 horas.
+                Para reservas com datas próximas, preferimos o telefone
+                ou WhatsApp.
+              </p>
 
-            <div className={styles.contactFormWrapper}>
-              <ScrollReveal delay={0.15}>
-                <ContactForm />
-              </ScrollReveal>
-            </div>
+              <ul className={styles.contactDetails}>
+                <li className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Telefone / WhatsApp</span>
+                  <a
+                    href={`tel:${localizacaoData.address.phone || '+351960254072'}`}
+                    className={styles.contactValue}
+                  >
+                    {localizacaoData.address.phone || '+351 960 254 072'}
+                  </a>
+                </li>
+                <li className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Email</span>
+                  <a
+                    href="mailto:montedaestradazambujeiradomar@gmail.com"
+                    className={styles.contactValue}
+                  >
+                    montedaestradazambujeiradomar@gmail.com
+                  </a>
+                </li>
+                <li className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Morada</span>
+                  <address className={styles.contactAddress}>
+                    {localizacaoData.address.name}<br />
+                    {localizacaoData.address.street}<br />
+                    {localizacaoData.address.postalCode} {localizacaoData.address.city}<br />
+                    {localizacaoData.address.region}, {localizacaoData.address.country}
+                  </address>
+                </li>
+                <li className={styles.contactItem}>
+                  <span className={styles.contactLabel}>Check-in / Check-out</span>
+                  <span className={styles.contactValue}>15h00 / 12h00</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Right — Contact form */}
+            <motion.div
+              className={styles.contactFormWrapper}
+              variants={variants.fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport.default}
+              transition={{ delay: 0.15 }}
+            >
+              <ContactForm />
+            </motion.div>
+
           </div>
-        </Container>
-      </Section>
+        </div>
+      </section>
 
-      {/* Map */}
-      <Section background="secondary" padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <span className={styles.eyebrow}>Como Chegar</span>
-            <h2 className={styles.sectionTitle}>Encontre-nos.</h2>
-          </ScrollReveal>
-          <ScrollReveal variant="fadeIn">
-            <div className={styles.mapWrapper}>
-              <Map
-                latitude={localizacaoData.address.coordinates.latitude}
-                longitude={localizacaoData.address.coordinates.longitude}
-                title={`Mapa — ${localizacaoData.address.street}, ${localizacaoData.address.city}`}
-                height="480px"
-              />
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      {/* S4 — Map / Localização (Deep Brown) ─────────────────── */}
+      {/* Dark background reversal — same pattern as Redondezas on DescobrirPage. */}
+      {/* SectionEyebrow renders in clay, which reads well on deep brown. */}
+      <section className={styles.mapSection}>
+        <div className={styles.container}>
+          <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            <SectionEyebrow label="Localização" />
+            <h2 className={styles.sectionHeadingLight}>
+              Encontre-nos.
+            </h2>
+          </motion.div>
+          <motion.div
+            className={styles.mapWrapper}
+            variants={variants.fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+            transition={{ delay: 0.2 }}
+          >
+            <Map
+              latitude={localizacaoData.address.coordinates.latitude}
+              longitude={localizacaoData.address.coordinates.longitude}
+              title={`Mapa — ${localizacaoData.address.street}, ${localizacaoData.address.city}`}
+              height="480px"
+            />
+          </motion.div>
+        </div>
+      </section>
 
-      {/* Directions from major cities */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <h2 className={styles.sectionTitle}>{localizacaoData.directions.title}</h2>
-          </ScrollReveal>
-          <StaggerChildren speed="slow">
-            <Grid columns={3} gap="large">
-              {[
-                localizacaoData.directions.fromLisbon,
-                localizacaoData.directions.fromFaro,
-                localizacaoData.directions.fromPorto,
-              ].map((direction, index) => (
-                <StaggerChildren.Item key={index}>
-                  <Card className={styles.directionCard}>
-                    <h3 className={styles.directionTitle}>{direction.title}</h3>
-                    <p className={styles.directionMeta}>
-                      <strong>Distância:</strong> {direction.distance}
-                      <br />
-                      <strong>Tempo:</strong> {direction.duration}
-                    </p>
-                    <ol className={styles.routeList}>
-                      {direction.route.map((step, i) => (
-                        <li key={i}>{step}</li>
-                      ))}
-                    </ol>
-                  </Card>
-                </StaggerChildren.Item>
-              ))}
-            </Grid>
-          </StaggerChildren>
-        </Container>
-      </Section>
+      {/* S5 — Directions (Sand) ──────────────────────────────── */}
+      {/* Sand background ($color-sand) — lighter than cream, warmer than off-white. */}
+      {/* Direction panels replace <Card>: minimal, architectural, no fills. */}
+      <section className={styles.directionsSection}>
+        <div className={styles.container}>
+          <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            <SectionEyebrow label="Como Chegar" />
+            <h2 className={styles.sectionHeading}>
+              {localizacaoData.directions.title}
+            </h2>
+          </motion.div>
 
-      {/* Public Transport + Distances */}
-      <Section background="secondary" padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <h2 className={styles.sectionTitle}>{localizacaoData.publicTransport.title}</h2>
-            <p className={styles.centeredText}>{localizacaoData.publicTransport.description}</p>
-          </ScrollReveal>
-          <StaggerChildren>
-            <Grid columns={3} gap="large">
-              {localizacaoData.publicTransport.options.map((option, index) => (
-                <StaggerChildren.Item key={index}>
-                  <Card className={styles.transportCard}>
-                    <h3 className={styles.transportType}>{option.type}</h3>
-                    <p className={styles.transportDescription}>{option.description}</p>
-                  </Card>
-                </StaggerChildren.Item>
-              ))}
-            </Grid>
-          </StaggerChildren>
-        </Container>
-      </Section>
+          <motion.div
+            className={styles.directionsGrid}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: stagger.default,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            {directions.map((direction, index) => (
+              <motion.div
+                key={index}
+                className={styles.directionPanel}
+                variants={variants.fadeUp}
+              >
+                <h3 className={styles.directionCity}>{direction.title}</h3>
+                <p className={styles.directionMeta}>
+                  <span className={styles.directionMetaItem}>
+                    {direction.distance}
+                  </span>
+                  <span className={styles.directionMetaDivider}>·</span>
+                  <span className={styles.directionMetaItem}>
+                    {direction.duration}
+                  </span>
+                </p>
+                <ol className={styles.routeList}>
+                  {direction.route.map((step, i) => (
+                    <li key={i} className={styles.routeStep}>{step}</li>
+                  ))}
+                </ol>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
 
-      {/* Distances grid */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <h2 className={styles.sectionTitle}>{localizacaoData.distances.title}</h2>
-          </ScrollReveal>
-          <StaggerChildren speed="fast">
-            <Grid columns={3} gap="medium">
-              {localizacaoData.distances.items.map((item, index) => (
-                <StaggerChildren.Item key={index}>
-                  <Card className={styles.distanceCard}>
-                    <h4 className={styles.distanceLocation}>{item.location}</h4>
-                    <p className={styles.distanceInfo}>{item.distance}</p>
-                    <p className={styles.distanceDuration}>{item.duration}</p>
-                  </Card>
-                </StaggerChildren.Item>
-              ))}
-            </Grid>
-          </StaggerChildren>
-        </Container>
-      </Section>
     </div>
   );
 };

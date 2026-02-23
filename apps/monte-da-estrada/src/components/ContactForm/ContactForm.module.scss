@@ -1,15 +1,14 @@
 // ==================================
-// ContactForm Component Styles
+// ContactForm — Boutique Collection
+// Brand rules: 0px radius, clay focus (no shadow), medium label weight.
 // ==================================
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
-@use 'sass:color';
 
 .form {
   @include flex-column;
   gap: $spacing-l;
   width: 100%;
-  max-width: 600px;
 }
 
 .field {
@@ -17,76 +16,132 @@
   gap: $spacing-xs;
 }
 
+// Labels: Inter 12px, medium weight, uppercase, clay — matching page eyebrow pattern
 .label {
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-  font-size: $font-size-base;
+  font-family: $font-body;
+  font-size: $font-size-caption; // 12px
+  font-weight: $font-weight-medium; // 500 — not semibold
+  letter-spacing: $letter-spacing-subheading; // 0.75px
+  text-transform: uppercase;
+  color: $color-clay;
 }
 
 .required {
-  color: $color-error;
+  color: $color-clay;
+  opacity: 0.6;
 }
 
+// Inputs: 0px radius, warm-gray border, clay focus (NO shadow — brand rule)
 .input,
 .textarea {
-  @include input-base;
+  width: 100%;
+  padding: $spacing-m;
+  border: $border-width-thin solid $color-warm-gray;
+  border-radius: 0; // Brand rule: 0px everywhere
+  font-family: $font-body;
+  font-size: $font-size-body; // 16px
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  background-color: $color-off-white;
+  transition: border-color $transition-duration-normal $transition-timing-normal;
+
+  &:focus {
+    outline: none;
+    border-color: $color-clay; // Clay accent only — no box-shadow (brand rule)
+  }
+
+  &::placeholder {
+    color: $color-cool-taupe;
+    font-style: normal;
+  }
+
+  &:disabled {
+    background-color: $color-pale-gray;
+    cursor: not-allowed;
+    opacity: $opacity-disabled;
+  }
 }
 
+// Error state: red border, no shadow
 .input.error,
 .textarea.error {
   border-color: $color-error;
 
   &:focus {
     border-color: $color-error;
-    box-shadow: 0 0 0 3px rgba($color-error, 0.1);
   }
 }
 
 .textarea {
   resize: vertical;
-  min-height: 120px;
-  font-family: $font-family-primary;
+  min-height: 140px;
 }
 
+// Inline field error text
 .errorMessage {
+  font-family: $font-body;
+  font-size: $font-size-caption; // 12px
+  letter-spacing: $letter-spacing-body;
   color: $color-error;
-  font-size: $font-size-sm;
-  margin-top: $spacing-xs;
 }
 
+// Submit button: Clay bg, Deep Brown text, opacity+scale on hover (brand brief spec)
 .submitButton {
-  @include button-primary;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  font-size: $font-size-md;
   padding: $spacing-m $spacing-xl;
-  margin-top: $spacing-m;
+  margin-top: $spacing-s;
+  background-color: $color-clay;
+  color: $color-deep-brown;
+  border: 1px solid $color-clay;
+  border-radius: 0; // Brand rule
+  font-family: $font-body;
+  font-size: $font-size-label; // 14px
+  font-weight: $font-weight-medium; // 500
+  letter-spacing: $letter-spacing-subheading; // 0.75px
+  cursor: pointer;
+  transition: opacity $transition-duration-normal $transition-timing-normal,
+              transform $transition-duration-normal $transition-timing-normal,
+              background-color $transition-duration-normal $transition-timing-normal;
+
+  &:hover:not(:disabled) {
+    opacity: 0.85;
+    transform: scale(1.02); // Brand brief hover spec
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: $opacity-disabled;
     cursor: not-allowed;
-  }
-
-  @include mobile {
-    padding: $spacing-s $spacing-l;
+    transform: none;
   }
 }
 
+// Success feedback: clay left border, no fill, no radius
 .successMessage {
-  padding: $spacing-m;
-  background-color: rgba($color-success, 0.1);
-  border-left: 4px solid $color-success;
-  color: color.adjust($color-success, $lightness: -15%);
-  border-radius: $border-radius-md;
-  font-size: $font-size-base;
-  line-height: $line-height-normal;
+  padding: $spacing-m 0 $spacing-m $spacing-l;
+  border-left: 2px solid $color-clay;
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  line-height: $line-height-relaxed;
 }
 
+// Error feedback: error border, no fill, no radius
 .errorMessageBox {
-  padding: $spacing-m;
-  background-color: rgba($color-error, 0.1);
-  border-left: 4px solid $color-error;
-  color: color.adjust($color-error, $lightness: -10%);
-  border-radius: $border-radius-md;
-  font-size: $font-size-base;
-  line-height: $line-height-normal;
+  padding: $spacing-m 0 $spacing-m $spacing-l;
+  border-left: 2px solid $color-error;
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  line-height: $line-height-relaxed;
 }
