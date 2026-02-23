@@ -1,0 +1,147 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// BEACH CARD — Cinematic 16:9 landscape card
+// Beaches deserve width: 2-column grid, wider and more immersive than 3-col.
+// Content overlaid via gradient scrim at image bottom.
+// Hover: image scales 1.03 + golden hour warm overlay (rgba clay, 0.08).
+// No card background, no box shadow — the photography IS the card.
+// ==================================
+
+.card {
+  display: block;
+  overflow: hidden;
+  cursor: default;
+}
+
+// ==================================
+// IMAGE WRAPPER — 16:9 cinematic ratio, all layers inside
+// ==================================
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  @include hover-device {
+    &:hover {
+      .image {
+        transform: scale(1.03);
+      }
+
+      .goldenOverlay {
+        // Golden hour warm overlay — unique to BeachCard
+        background-color: rgba(184, 146, 95, 0.08); // $color-clay at 8% opacity
+      }
+    }
+  }
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform $transition-duration-slow $transition-timing-slow;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// ==================================
+// SCRIM — bottom gradient for content legibility
+// ==================================
+
+.scrim {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 65%;
+  // Reason: gradient from deep brown at base to transparent — text readable at all photo types
+  background: linear-gradient(
+    to top,
+    rgba(61, 59, 56, 0.78) 0%,
+    rgba(61, 59, 56, 0.3) 50%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+// ==================================
+// GOLDEN OVERLAY — warm hover treatment unique to BeachCard
+// clay (#B8925F) at 0% → 8% opacity — evokes Atlantic golden hour
+// ==================================
+
+.goldenOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(184, 146, 95, 0); // transparent initially
+  z-index: 2;
+  pointer-events: none;
+  transition: background-color $transition-duration-normal $transition-timing-normal;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// ==================================
+// CONTENT OVERLAY — sits above both scrim and golden overlay
+// ==================================
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: $spacing-l $spacing-xl $spacing-xl $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+
+  @include mobile {
+    padding: $spacing-m $spacing-l $spacing-l $spacing-l;
+  }
+}
+
+// Distance badge — clay, uppercase, small
+.distance {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.6875rem; // 11px
+  font-weight: $font-weight-medium;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-clay;
+  line-height: 1;
+}
+
+// Beach name — light weight, cream, prominent
+.name {
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: $font-weight-light; // 300 — editorial standard
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-cream;
+  line-height: $line-height-tight;
+  margin: 0;
+}
+
+// Description — small, softer cream
+.description {
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-body;
+  color: rgba($color-cream, 0.8);
+  line-height: $line-height-base;
+  margin: 0;
+}

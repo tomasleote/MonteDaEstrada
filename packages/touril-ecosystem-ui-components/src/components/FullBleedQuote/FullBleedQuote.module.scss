@@ -1,0 +1,146 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// FULL BLEED QUOTE
+// FullBleedImage variant with editorial quote overlay.
+// 50vh (shorter than FullBleedImage's 70vh).
+// Single parallax element on the page (0.85x scroll speed).
+// Uses $font-editorial — the contemplative third voice.
+// ==================================
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ==================================
+// PARALLAX IMAGE
+// ==================================
+
+.image {
+  position: absolute;
+  top: -10%; // Reason: Extra 20% height to allow parallax movement without gaps
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+// ==================================
+// GRADIENT SCRIM
+// Darker than FullBleedImage: needs more contrast for serif text legibility.
+// ==================================
+
+.scrim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($color-deep-brown, 0.3),
+    rgba($color-deep-brown, 0.55)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+// ==================================
+// QUOTE OVERLAY
+// ==================================
+
+.quoteOverlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl $container-padding;
+  width: 100%;
+  max-width: 760px;
+}
+
+.blockquote {
+  margin: 0;
+  text-align: center;
+}
+
+// ==================================
+// QUOTE TEXT — the second place $font-editorial appears
+// (the first is EditorialPullQuote)
+// ==================================
+
+.quoteText {
+  font-family: $font-editorial; // GT Sectra / Lora
+  font-size: clamp(1.375rem, 2.5vw, 2rem);
+  font-weight: $font-weight-regular;
+  font-style: italic; // Italic — shared trait with EditorialPullQuote
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  color: $color-cream;
+  margin: 0 0 $spacing-m 0;
+}
+
+// ==================================
+// ATTRIBUTION
+// ==================================
+
+.attribution {
+  margin: 0;
+}
+
+.cite {
+  font-family: $font-body;
+  font-size: $font-size-caption; // 12px
+  font-style: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.7);
+}
+
+// ==================================
+// RESPONSIVE
+// ==================================
+
+@include mobile {
+  .container {
+    height: 40vh;
+  }
+
+  .quoteOverlay {
+    padding: $spacing-l $spacing-m;
+  }
+
+  .quoteText {
+    font-size: clamp(1.125rem, 4vw, 1.375rem);
+  }
+}
+
+// ==================================
+// REDUCED MOTION
+// Disables parallax and all transforms.
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .image {
+    top: 0;
+    height: 100%;
+    transform: none !important; // Override Framer Motion inline parallax style
+  }
+
+  .container,
+  .quoteOverlay {
+    animation: none;
+    transition: none;
+  }
+}

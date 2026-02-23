@@ -5,11 +5,13 @@ import {
   EditorialAnchor,
   EditorialSplitSection,
   FullBleedImage,
+  AmenityStrip,
   RoomGrid,
   ActivityHighlights,
   BookingSection,
   GalleryPreview,
 } from '@touril-ecosystem/ui-components';
+import atividadesData from '@/data/atividades.json';
 import { homeImages } from '@/assets/images/home';
 import { quartosImages } from '@/assets/images/quartos';
 import { galeriaImages } from '@/assets/images/galeria';
@@ -124,7 +126,7 @@ const HomePage = () => {
       <ImmersiveHero
         imageSrc={homeImages.hero.src}
         imageAlt={homeImages.hero.alt}
-        headline="Uma casa no interior do Alentejo."
+        headline="A sua casa no interior do Alentejo."
         scrollLabel="Descobrir"
       />
 
@@ -155,6 +157,10 @@ const HomePage = () => {
         ctaLabel="Conhecer a casa"
         ctaHref="/descobrir"
       />
+
+       {/* S3.5 — Amenity Strip ─────────────────────────────── */}
+      {/* Premium "at a glance" — icon + label pairs, no descriptions */}
+      <AmenityStrip amenities={atividadesData.amenities.items} />
 
       {/* S4 — Quartos — Room Grid ───────────────────────────── */}
       {/* 6-card portrait grid. Teaser only — /quartos has full detail */}

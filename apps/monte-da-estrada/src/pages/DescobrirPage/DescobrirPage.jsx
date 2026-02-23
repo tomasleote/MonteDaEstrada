@@ -1,40 +1,68 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import SEO from '@/components/SEO';
-import Container from '@/components/Container';
-import Section from '@/components/Section';
-import Grid from '@/components/Grid';
-import Card from '@/components/Card';
-import ResponsiveImage from '@/components/ResponsiveImage';
-import { ScrollReveal, StaggerChildren, AnimatedText } from '@/motion';
-import styles from './DescobrirPage.module.scss';
-import atividadesDataOriginal from '@/data/atividades.json';
+import {
+  DiscoveryHero,
+  CategoryNav,
+  EditorialSplitSection,
+  ExperienceCard,
+  EditorialPullQuote,
+  FullBleedQuote,
+  BeachCard,
+  AttractionPinCard,
+  DistanceFilterBar,
+  SectionEyebrow,
+  BookingSection,
+  viewport,
+  stagger,
+  duration,
+} from '@touril-ecosystem/ui-components';
+import descobrirData from '@/data/descobrir.json';
 import { atividadesImages } from '@/assets/images/atividades';
 import { redondezasImages } from '@/assets/images/redondezas';
-import useEditableContent from '@/hooks/useEditableContent';
+import { homeImages } from '@/assets/images/home';
+import styles from './DescobrirPage.module.scss';
+
+// ──────────────────────────────────────────────
+// CategoryNav anchor items — 3 acts
+// ──────────────────────────────────────────────
+
+const NAV_ITEMS = [
+  { id: 'experiencias', label: 'Experiências' },
+  { id: 'praias', label: 'Praias' },
+  { id: 'redondezas', label: 'Redondezas' },
+];
+
+// ──────────────────────────────────────────────
+// Distance filter options for the Redondezas section
+// ──────────────────────────────────────────────
+
+const DISTANCE_FILTERS = [
+  { value: 'all', label: 'Tudo' },
+  { value: '20', label: '< 20 km' },
+  { value: '40', label: '< 40 km' },
+  { value: '50', label: '< 50 km' },
+];
+
+// ──────────────────────────────────────────────
+// Page component
+// ──────────────────────────────────────────────
 
 const DescobrirPage = () => {
-  const atividadesData = useEditableContent('atividades', atividadesDataOriginal);
-  const [selectedFilter, setSelectedFilter] = useState('all');
+  const [distanceFilter, setDistanceFilter] = useState('all');
 
-  // Distance filter logic from RedondezasPage
-  const attractionsByProximity = {
-    closest: redondezasImages.attractions.filter((a) => parseInt(a.distance) <= 10),
-    nearby: redondezasImages.attractions.filter(
-      (a) => parseInt(a.distance) > 10 && parseInt(a.distance) <= 20
-    ),
-    regional: redondezasImages.attractions.filter(
-      (a) => parseInt(a.distance) > 20 && parseInt(a.distance) <= 35
-    ),
-    extended: redondezasImages.attractions.filter((a) => parseInt(a.distance) > 35),
-  };
-
-  const filteredAttractions =
-    selectedFilter === 'all'
-      ? redondezasImages.attractions
-      : attractionsByProximity[selectedFilter] || [];
+  // Reason: Parse distance strings like "4 km" → numeric for filtering
+  const filteredAttractions = useMemo(() => {
+    if (distanceFilter === 'all') return descobrirData.attractions;
+    const maxKm = parseInt(distanceFilter, 10);
+    return descobrirData.attractions.filter((a) => {
+      const km = parseInt(a.distance, 10);
+      return !isNaN(km) && km <= maxKm;
+    });
+  }, [distanceFilter]);
 
   return (
-    <div className={styles.descobrirPage}>
+    <div className={styles.page}>
       <SEO
         title="Descobrir"
         description="Explore o território à volta do Monte da Estrada: praias da Costa Vicentina, trilhos da Rota Vicentina, vilas históricas e a paisagem única do Alentejo interior."
@@ -42,199 +70,197 @@ const DescobrirPage = () => {
         image="/images/hero-atividades.jpg"
       />
 
-      {/* Hero */}
-      <div className={styles.hero}>
-        <div className={styles.heroImageWrapper}>
-          <ResponsiveImage
-            src={atividadesImages.heroes[0].src}
-            alt={atividadesImages.heroes[0].alt}
-            className={styles.heroImage}
-            loading="eager"
-            lazy={false}
-            objectFit="cover"
-          />
-          <div className={styles.heroOverlay} />
-        </div>
-        <Container>
-          <div className={styles.heroContent}>
-            <AnimatedText as="h1" className={styles.heroTitle}>
-              Descobrir
-            </AnimatedText>
-            <ScrollReveal variant="fadeUpSubtle" delay={0.2}>
-              <p className={styles.heroDescription}>
-                O Alentejo interior a uma hora de Lisboa. O Atlântico a dezoito quilómetros.
-              </p>
-            </ScrollReveal>
-          </div>
-        </Container>
+      {/* S1 — DiscoveryHero ──────────────────────────────────────── */}
+      {/* 65vh territory photography + eyebrow + headline + subtitle */}
+      <div id="discovery-hero">
+        <DiscoveryHero
+          imageSrc={atividadesImages.heroes[0].src}
+          imageAlt="Costa Vicentina e Alentejo — território do Monte da Estrada"
+          eyebrow="Descobrir"
+          headline="O território é a experiência."
+          subtitle="18 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo."
+        />
       </div>
 
-      {/* O Território — editorial intro */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <div className={styles.territorioIntro}>
-              <span className={styles.eyebrow}>O Território</span>
-              <h2 className={styles.territorioHeading}>Entre o Alentejo e o Atlântico.</h2>
-              <p className={styles.territorioParagraph}>
-                A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito
-                quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio —
-                está aqui mesmo à porta.
-              </p>
-              <p className={styles.territorioParagraph}>
-                Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a
-                praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente
-                faz falta.
-              </p>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+      {/* S2 — CategoryNav (sticky) ───────────────────────────────── */}
+      {/* Experiências · Praias · Redondezas — appears when hero exits */}
+      <CategoryNav
+        items={NAV_ITEMS}
+        targetId="discovery-hero"
+        headerHeight={72}
+      />
 
-      {/* O Que Fazer — activity cards */}
-      <Section background="secondary" padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <span className={styles.eyebrow}>O Que Fazer</span>
-            <h2 className={styles.sectionTitle}>Aqui não há agenda. A não ser a sua.</h2>
-          </ScrollReveal>
-          <StaggerChildren speed="slow" className={styles.activitiesGrid}>
-            {atividadesData.activities.map((activity, index) => {
-              const imageIndex = index % atividadesImages.activities.length;
-              const activityImage = atividadesImages.activities[imageIndex];
+      {/* S3 — O Território — EditorialSplitSection ───────────────── */}
+      {/* Prose + landscape image. Cream background. */}
+      <EditorialSplitSection
+        eyebrow="O Território"
+        heading="Entre o Alentejo e o Atlântico."
+        body={[
+          'A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio — está aqui mesmo à porta.',
+          'Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente faz falta.',
+        ]}
+        imageSrc={homeImages.gallery[4].src}
+        imageAlt="Vista panorâmica da paisagem alentejana"
+        imagePosition="left"
+      />
 
-              return (
-                <StaggerChildren.Item key={index}>
-                  <div className={styles.activityCard}>
-                    <div className={styles.activityImageWrapper}>
-                      <ResponsiveImage
-                        src={activityImage.src}
-                        alt={activityImage.alt}
-                        className={styles.activityImage}
-                        aspectRatio="16/9"
-                        objectFit="cover"
-                      />
-                      <div className={styles.activityImageOverlay}>
-                        <span className={styles.activityIcon}>{activity.icon}</span>
-                      </div>
-                    </div>
-                    <div className={styles.activityContent}>
-                      <h3 className={styles.activityTitle}>{activity.title}</h3>
-                      <p className={styles.activityDescription}>{activity.description}</p>
-                      <ul className={styles.highlightsList}>
-                        {activity.highlights.map((highlight, idx) => (
-                          <li key={idx}>{highlight}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </StaggerChildren.Item>
-              );
-            })}
-          </StaggerChildren>
-        </Container>
-      </Section>
+      {/* S4 — Experiências — ExperienceCard grid ─────────────────── */}
+      {/* 6 curated experiences in a 3-col portrait grid on sand bg */}
+      <section id="experiencias" className={styles.experiencesSection}>
+        <div className={styles.container}>
+          <SectionEyebrow label="Experiências" />
+          <h2 className={styles.sectionHeading}>Aqui não há agenda. A não ser a sua.</h2>
 
-      {/* As Redondezas — distance-filtered attractions */}
-      <Section padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <span className={styles.eyebrow}>As Redondezas</span>
-            <h2 className={styles.sectionTitle}>O que fica perto.</h2>
-          </ScrollReveal>
-
-          <ScrollReveal variant="fadeIn">
-            <div className={styles.filterContainer}>
-              <div className={styles.filterButtons}>
-                {[
-                  { key: 'all', label: `Tudo (${redondezasImages.attractions.length})` },
-                  { key: 'closest', label: `0–10 km (${attractionsByProximity.closest.length})` },
-                  { key: 'nearby', label: `11–20 km (${attractionsByProximity.nearby.length})` },
-                  {
-                    key: 'regional',
-                    label: `21–35 km (${attractionsByProximity.regional.length})`,
-                  },
-                  { key: 'extended', label: `35+ km (${attractionsByProximity.extended.length})` },
-                ].map(({ key, label }) => (
-                  <button
-                    key={key}
-                    className={`${styles.filterButton} ${selectedFilter === key ? styles.active : ''}`}
-                    onClick={() => setSelectedFilter(key)}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </ScrollReveal>
-
-          <StaggerChildren className={styles.attractionsGrid} key={selectedFilter}>
-            {filteredAttractions.map((attraction, index) => (
-              <StaggerChildren.Item key={index}>
-                <article className={styles.attractionCard}>
-                  <div className={styles.imageWrapper}>
-                    <ResponsiveImage
-                      src={attraction.src}
-                      alt={attraction.alt}
-                      className={styles.cardImage}
-                      aspectRatio="4/3"
-                      objectFit="cover"
-                    />
-                    <div className={styles.distanceBadge}>{attraction.distance}</div>
-                  </div>
-                  <div className={styles.cardContent}>
-                    <h3 className={styles.cardTitle}>{attraction.title}</h3>
-                    <p className={styles.cardLocation}>{attraction.location}</p>
-                  </div>
-                </article>
-              </StaggerChildren.Item>
+          <motion.div
+            className={styles.experiencesGrid}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: stagger.default,
+                  delayChildren: 0.05,
+                },
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            {descobrirData.experiences.map((exp, index) => (
+              <ExperienceCard
+                key={index}
+                category={exp.category}
+                categoryLabel={exp.categoryLabel}
+                title={exp.title}
+                description={exp.description}
+                highlights={exp.highlights}
+                imageSrc={exp.imageSrc}
+                imageAlt={exp.imageAlt}
+              />
             ))}
-          </StaggerChildren>
+          </motion.div>
+        </div>
+      </section>
 
-          {filteredAttractions.length === 0 && (
-            <p className={styles.noResults}>Sem atrações nesta distância.</p>
-          )}
-        </Container>
-      </Section>
+      {/* S5 — EditorialPullQuote ──────────────────────────────────── */}
+      {/* Contemplative pause. Clay left border. Italic serif. */}
+      <EditorialPullQuote
+        quote="O território não se visita. Habita-se, mesmo que por poucos dias."
+        attribution="Monte da Estrada"
+        background="cream"
+      />
 
-      {/* Na Casa — property amenities */}
-      <Section background="secondary" padding="large" animate>
-        <Container>
-          <ScrollReveal>
-            <span className={styles.eyebrow}>Na Casa</span>
-            <h2 className={styles.sectionTitle}>{atividadesData.amenities.title}</h2>
-          </ScrollReveal>
-          <StaggerChildren>
-            <Grid columns={4} gap="large">
-              {atividadesData.amenities.items.map((amenity, index) => (
-                <StaggerChildren.Item key={index}>
-                  <Card className={styles.amenityCard}>
-                    <h3 className={styles.amenityName}>{amenity.name}</h3>
-                    <p className={styles.amenityDescription}>{amenity.description}</p>
-                  </Card>
-                </StaggerChildren.Item>
+      {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
+      {/* Coastal photography + editorial serif quote overlay (50vh, parallax) */}
+      <FullBleedQuote
+        imageSrc={redondezasImages.attractions[6].src}
+        alt="Zambujeira do Mar — falésias e Atlântico"
+        quote="A última costa selvagem da Europa ocidental começa aqui."
+        attribution="Parque Natural do Sudoeste Alentejano e Costa Vicentina"
+      />
+
+      {/* S7 — Praias — BeachCard grid ────────────────────────────── */}
+      {/* 5 cinematic 16:9 beach cards in a 2-col layout */}
+      <section id="praias" className={styles.beachesSection}>
+        <div className={styles.container}>
+          <SectionEyebrow label="Praias" />
+          <h2 className={styles.sectionHeading}>18 km de costa. Escolha a sua.</h2>
+
+          <motion.div
+            className={styles.beachesGrid}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.08,
+                  delayChildren: 0.05,
+                },
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            {descobrirData.beaches.map((beach, index) => (
+              <BeachCard
+                key={index}
+                name={beach.name}
+                distance={beach.distance}
+                description={beach.description}
+                imageSrc={beach.imageSrc}
+                imageAlt={beach.imageAlt}
+              />
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* S8 — As Redondezas — Dark section ───────────────────────── */}
+      {/* Deep brown bg with charcoal AttractionPinCards + DistanceFilterBar */}
+      <section id="redondezas" className={styles.redondezasSection}>
+        <div className={styles.container}>
+          <SectionEyebrow label="Redondezas" />
+          <h2 className={styles.sectionHeadingLight}>O que fica perto.</h2>
+
+          <DistanceFilterBar
+            options={DISTANCE_FILTERS}
+            activeFilter={distanceFilter}
+            onFilterChange={setDistanceFilter}
+          />
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={distanceFilter}
+              className={styles.attractionsGrid}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: stagger.fast,
+                    delayChildren: 0.05,
+                  },
+                },
+                exit: {
+                  opacity: 0,
+                  transition: { duration: duration.micro * 1.5 },
+                },
+              }}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+            >
+              {filteredAttractions.map((attraction, index) => (
+                <AttractionPinCard
+                  key={`${attraction.title}-${index}`}
+                  title={attraction.title}
+                  location={attraction.location}
+                  distance={attraction.distance}
+                  description={attraction.description}
+                  imageSrc={attraction.imageSrc}
+                  imageAlt={attraction.imageAlt}
+                />
               ))}
-            </Grid>
-          </StaggerChildren>
-        </Container>
-      </Section>
 
-      {/* CTA */}
-      <Section background="primary" padding="large" animate>
-        <Container>
-          <ScrollReveal variant="fadeIn">
-            <div className={styles.cta}>
-              <h2 className={styles.ctaTitle}>Pronto para vir?</h2>
-              <p className={styles.ctaText}>
-                Reserve a sua estadia e venha descobrir o Alentejo ao seu ritmo.
-              </p>
-              <a href="/quartos" className={styles.ctaButton}>
-                Ver Quartos e Reservar
-              </a>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </Section>
+              {filteredAttractions.length === 0 && (
+                <p className={styles.noResults}>Sem atrações nesta distância.</p>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* S9 — BookingSection ──────────────────────────────────────── */}
+      {/* Reused from HomePage — dark CTA with contact options */}
+      <BookingSection
+        eyebrow="Reservas"
+        heading="Marque a sua estadia."
+        fallbackEmail="montedaestradazambujeiradomar@gmail.com"
+        fallbackPhone="+351 960 254 072"
+        whatsappNumber="351960254072"
+      />
     </div>
   );
 };

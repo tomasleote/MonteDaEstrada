@@ -32,6 +32,35 @@ export { default as BookingSection } from './components/BookingSection';
 export { default as GalleryPreview } from './components/GalleryPreview';
 
 // ============================================
+// DISCOVERY ECOSYSTEM COMPONENTS (Phase A)
+// ============================================
+
+export { default as DiscoveryHero } from './components/DiscoveryHero';
+export { default as ExperienceCard } from './components/ExperienceCard';
+export { default as EditorialPullQuote } from './components/EditorialPullQuote';
+
+// ============================================
+// DISCOVERY ECOSYSTEM COMPONENTS (Phase B)
+// ============================================
+
+export { default as CategoryNav } from './components/CategoryNav';
+export { default as BeachCard } from './components/BeachCard';
+
+// ============================================
+// DISCOVERY ECOSYSTEM COMPONENTS (Phase C)
+// ============================================
+
+export { default as FullBleedQuote } from './components/FullBleedQuote';
+export { default as AttractionPinCard } from './components/AttractionPinCard';
+export { default as DistanceFilterBar } from './components/DistanceFilterBar';
+
+// ============================================
+// DISCOVERY ECOSYSTEM COMPONENTS (Phase E)
+// ============================================
+
+export { default as AmenityStrip } from './components/AmenityStrip';
+
+// ============================================
 // CONSTANTS
 // ============================================
 

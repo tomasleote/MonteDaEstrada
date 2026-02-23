@@ -1,0 +1,116 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// EDITORIAL PULL QUOTE
+// The only component using $font-editorial (GT Sectra/Lora) — italic serif.
+// 3px clay left border — the single structural use of clay on the Discovery page.
+// 80px vertical padding — whitespace IS the design.
+// Triggers at 40% viewport visibility to force a deliberate pause.
+// ==================================
+
+.section {
+  width: 100%;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.backgroundCream {
+  background-color: $color-cream;
+}
+
+.backgroundSand {
+  background-color: $color-sand;
+}
+
+// ==================================
+// CONTAINER
+// ==================================
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 $spacing-m;
+  }
+}
+
+// ==================================
+// BLOCKQUOTE — 3px clay left border
+// This is the single structural use of clay on the Discovery page.
+// Everywhere else, clay is typographic (labels) or interactive (hover states).
+// ==================================
+
+.blockquote {
+  margin: 0;
+  padding: $spacing-m 0 $spacing-m $spacing-xl; // generous left padding after the border
+  border-left: 3px solid $color-clay;
+  max-width: 680px;
+}
+
+// ==================================
+// QUOTE TEXT — the only italic on the entire site
+// $font-editorial: GT Sectra / Lora — the contemplative third voice.
+// Maximum typographic contrast against the display and body fonts.
+// ==================================
+
+.quoteText {
+  font-family: $font-editorial; // GT Sectra / Lora — appears in exactly 2 places on the site
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: $font-weight-regular;
+  font-style: italic; // The only italic on the entire site
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-m 0;
+}
+
+// ==================================
+// ATTRIBUTION
+// ==================================
+
+.attribution {
+  margin: 0;
+}
+
+.cite {
+  font-family: $font-body;
+  font-size: $font-size-caption; // 12px
+  font-style: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-cool-taupe;
+}
+
+// ==================================
+// RESPONSIVE
+// ==================================
+
+@include mobile {
+  .section {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .blockquote {
+    padding-left: $spacing-l;
+  }
+
+  .quoteText {
+    font-size: clamp(1.1rem, 4vw, 1.375rem);
+  }
+}
+
+// ==================================
+// REDUCED MOTION
+// Framer Motion handles reduced motion via its own hooks (halves duration, skips delay).
+// This CSS rule is a fallback for environments without Framer Motion.
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    transition: none;
+  }
+}

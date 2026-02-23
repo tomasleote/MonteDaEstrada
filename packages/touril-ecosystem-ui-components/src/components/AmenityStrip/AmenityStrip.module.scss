@@ -1,0 +1,102 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// AMENITY STRIP
+// Horizontal scrollable strip of icon + label pairs.
+// Background: cream with warm-gray top/bottom borders.
+// The amenities are a whisper, not a feature list.
+// ==================================
+
+.strip {
+  width: 100%;
+  background-color: $color-cream;
+  border-top: 1px solid $color-warm-gray;
+  border-bottom: 1px solid $color-warm-gray;
+  padding: $spacing-xl 0;
+  overflow: hidden;
+}
+
+// ==================================
+// INNER — centered flex row on desktop, horizontal scroll on mobile
+// ==================================
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xl;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 $spacing-m;
+    gap: $spacing-l;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+// ==================================
+// ITEM — icon + label pair
+// ==================================
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-s;
+  flex-shrink: 0;
+  min-width: 80px;
+}
+
+// ==================================
+// ICON — minimal line-art SVG
+// ==================================
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: $color-cool-taupe;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// ==================================
+// LABEL — 11px uppercase, cool-taupe
+// No descriptions. Just the name.
+// ==================================
+
+.label {
+  font-family: $font-body;
+  font-size: 11px; // Whispered — matches category label pattern
+  font-weight: $font-weight-regular;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-cool-taupe;
+  text-align: center;
+  white-space: nowrap;
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .strip {
+    transition: none;
+  }
+}

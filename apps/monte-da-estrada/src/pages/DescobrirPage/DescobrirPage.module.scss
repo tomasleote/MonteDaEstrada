@@ -1,331 +1,71 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
-.descobrirPage {
+// ==================================
+// DESCOBRIR PAGE
+// Simplified wrapper — most styling lives in shared library components.
+// Page SCSS handles section backgrounds, grid layouts, and the dark Redondezas section.
+// ==================================
+
+.page {
   width: 100%;
 }
 
-// ============================================
-// HERO
-// ============================================
+// ==================================
+// SHARED CONTAINER
+// ==================================
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  min-height: 400px;
-  max-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  @include tablet {
-    height: 50vh;
-    min-height: 350px;
-  }
-
-  @include mobile {
-    height: 40vh;
-    min-height: 300px;
-  }
-}
-
-.heroImageWrapper {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.heroImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.heroOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba($color-primary, 0.5) 0%,
-    rgba($color-primary, 0.35) 50%,
-    rgba($color-primary, 0.65) 100%
-  );
-  z-index: 1;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 900px;
+.container {
+  max-width: $container-max-width;
   margin: 0 auto;
-  padding: $spacing-xl $spacing-m;
-  color: $color-text-light;
-}
-
-.heroTitle {
-  @include h1;
-  color: $color-text-light;
-  margin-bottom: $spacing-m;
-  font-size: clamp($font-size-h2, 5vw, $font-size-h1);
-  letter-spacing: $letter-spacing-headline;
+  padding: 0 $container-padding;
 
   @include mobile {
-    font-size: $font-size-h3;
+    padding: 0 $spacing-m;
   }
 }
 
-.heroDescription {
-  font-size: $font-size-lg;
-  line-height: $line-height-relaxed;
-  color: rgba($color-text-light, 0.95);
-  max-width: 600px;
-  margin: 0 auto;
-  letter-spacing: $letter-spacing-body;
+// ==================================
+// SECTION HEADINGS
+// Font-weight 300 — consistent with all Discovery page headings.
+// ==================================
 
-  @include mobile {
-    font-size: $font-size-base;
-  }
-}
-
-// ============================================
-// EYEBROW LABEL
-// ============================================
-
-.eyebrow {
-  display: block;
-  font-size: $font-size-caption;
-  font-weight: $font-weight-medium;
-  letter-spacing: $letter-spacing-subheading;
-  text-transform: uppercase;
-  color: $color-accent;
-  margin-bottom: $spacing-s;
-}
-
-// ============================================
-// O TERRITÓRIO — editorial intro
-// ============================================
-
-.territorioIntro {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.territorioHeading {
-  @include h2;
-  color: $color-primary;
-  margin-bottom: $spacing-xl;
+.sectionHeading {
+  font-family: $font-display;
+  font-size: clamp($font-size-h4, 3vw, $font-size-h2);
+  font-weight: $font-weight-light; // 300 — editorial restraint
+  line-height: $line-height-tight;
   letter-spacing: $letter-spacing-headline;
-}
-
-.territorioParagraph {
-  font-size: $font-size-lg;
-  line-height: $line-height-relaxed;
-  color: $color-text-secondary;
-  margin-bottom: $spacing-l;
-  letter-spacing: $letter-spacing-body;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  @include mobile {
-    font-size: $font-size-base;
-  }
-}
-
-// ============================================
-// SECTION TITLES
-// ============================================
-
-.sectionTitle {
-  @include h2;
-  color: $color-primary;
-  margin-bottom: $spacing-xxxl;
-  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xxl 0;
 
   @include mobile {
     margin-bottom: $spacing-xl;
   }
 }
 
-// ============================================
-// ACTIVITY CARDS (O QUE FAZER)
-// ============================================
-
-.activitiesGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-xxl;
-
-  @include tablet {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-xl;
-  }
-
-  @include mobile {
-    grid-template-columns: 1fr;
-    gap: $spacing-l;
-  }
+.sectionHeadingLight {
+  @extend .sectionHeading;
+  color: $color-cream;
 }
 
-.activityCard {
-  @include luxury-card;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  background-color: $color-bg-primary;
-  transition: transform $transition-duration-normal $transition-timing-normal;
+// ==================================
+// S4 — EXPERIENCES SECTION (Sand background)
+// ==================================
 
-  &:hover {
-    transform: translateY(-3px);
-
-    .activityImage {
-      transform: scale(1.05);
-    }
-  }
+.experiencesSection {
+  background-color: $color-sand;
+  padding: 80px 0;
 }
 
-.activityImageWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background-color: $color-bg-secondary;
-}
-
-.activityImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform $transition-duration-slow $transition-timing-normal;
-}
-
-.activityImageOverlay {
-  @include image-overlay-gradient($color-primary, 0.25, 'to bottom');
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &::before {
-    z-index: 1;
-  }
-}
-
-.activityIcon {
-  position: relative;
-  z-index: 2;
-  font-size: $font-size-4xl;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
-}
-
-.activityContent {
-  padding: $spacing-xl;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
-  @include mobile {
-    padding: $spacing-l;
-  }
-}
-
-.activityTitle {
-  @include h3;
-  color: $color-primary;
-  margin: 0 0 $spacing-m 0;
-  letter-spacing: $letter-spacing-subheading;
-}
-
-.activityDescription {
-  font-size: $font-size-base;
-  color: $color-text-secondary;
-  line-height: $line-height-relaxed;
-  margin-bottom: $spacing-l;
-  letter-spacing: $letter-spacing-body;
-}
-
-.highlightsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    padding-left: $spacing-l;
-    position: relative;
-    margin-bottom: $spacing-s;
-    line-height: $line-height-normal;
-    font-size: $font-size-sm;
-    color: $color-text-primary;
-    letter-spacing: $letter-spacing-body;
-
-    &::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: $color-accent;
-      font-weight: $font-weight-medium;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-// ============================================
-// DISTANCE FILTER (AS REDONDEZAS)
-// ============================================
-
-.filterContainer {
-  margin-bottom: $spacing-xxl;
-}
-
-.filterButtons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-s;
-}
-
-.filterButton {
-  padding: $spacing-s $spacing-l;
-  border: 1px solid $color-warm-gray;
-  background: transparent;
-  color: $color-text-secondary;
-  font-family: $font-body;
-  font-size: $font-size-sm;
-  font-weight: $font-weight-medium;
-  letter-spacing: $letter-spacing-body;
-  cursor: pointer;
-  transition: all $transition-duration-quick $transition-timing-normal;
-
-  &:hover {
-    border-color: $color-accent;
-    color: $color-accent;
-  }
-
-  &.active {
-    background-color: $color-primary;
-    border-color: $color-primary;
-    color: $color-text-light;
-  }
-}
-
-// ============================================
-// ATTRACTION CARDS
-// ============================================
-
-.attractionsGrid {
+.experiencesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: $spacing-xl;
 
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-l;
   }
 
   @include mobile {
@@ -334,131 +74,53 @@
   }
 }
 
-.attractionCard {
-  display: flex;
-  flex-direction: column;
-  background-color: $color-bg-primary;
-  overflow: hidden;
+// ==================================
+// S7 — BEACHES SECTION (Cream background)
+// ==================================
 
-  &:hover .cardImage {
-    transform: scale(1.04);
+.beachesSection {
+  background-color: $color-cream;
+  padding: 80px 0;
+}
+
+.beachesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-l;
   }
 }
 
-.imageWrapper {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 4 / 3;
+// ==================================
+// S8 — REDONDEZAS SECTION (Dark — deep brown background)
+// Strongest visual break on the page.
+// ==================================
+
+.redondezasSection {
+  background-color: $color-deep-brown;
+  padding: 80px 0;
 }
 
-.cardImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform $transition-duration-slow $transition-timing-normal;
-}
+.attractionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-l;
 
-.distanceBadge {
-  position: absolute;
-  top: $spacing-m;
-  right: $spacing-m;
-  background-color: $color-accent;
-  color: $color-text-light;
-  font-family: $font-body;
-  font-size: $font-size-xs;
-  font-weight: $font-weight-medium;
-  letter-spacing: $letter-spacing-body;
-  padding: 4px $spacing-s;
-}
-
-.cardContent {
-  padding: $spacing-l $spacing-m;
-}
-
-.cardTitle {
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
-  color: $color-primary;
-  margin: 0 0 $spacing-xs 0;
-  letter-spacing: $letter-spacing-subheading;
-}
-
-.cardLocation {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  margin: 0;
-  letter-spacing: $letter-spacing-body;
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-m;
+  }
 }
 
 .noResults {
+  grid-column: 1 / -1;
   text-align: center;
-  color: $color-text-secondary;
-  font-size: $font-size-base;
+  color: rgba($color-cream, 0.5);
+  font-family: $font-body;
+  font-size: $font-size-body;
+  letter-spacing: $letter-spacing-body;
   padding: $spacing-xxl 0;
-}
-
-// ============================================
-// AMENITIES (NA CASA)
-// ============================================
-
-.amenityCard {
-  text-align: center;
-  padding: $spacing-xl;
-
-  @include mobile {
-    padding: $spacing-l;
-  }
-}
-
-.amenityName {
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
-  color: $color-primary;
-  margin-bottom: $spacing-s;
-  letter-spacing: $letter-spacing-subheading;
-}
-
-.amenityDescription {
-  font-size: $font-size-sm;
-  color: $color-text-secondary;
-  line-height: $line-height-normal;
-  margin: 0;
-  letter-spacing: $letter-spacing-body;
-}
-
-// ============================================
-// CTA
-// ============================================
-
-.cta {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.ctaTitle {
-  @include h2;
-  color: $color-text-light;
-  margin-bottom: $spacing-m;
-  letter-spacing: $letter-spacing-headline;
-}
-
-.ctaText {
-  font-size: $font-size-lg;
-  color: rgba($color-text-light, 0.9);
-  margin-bottom: $spacing-xxl;
-  line-height: $line-height-relaxed;
-  letter-spacing: $letter-spacing-body;
-
-  @include mobile {
-    font-size: $font-size-base;
-    margin-bottom: $spacing-xl;
-  }
-}
-
-.ctaButton {
-  @include button-secondary;
-  font-size: $font-size-base;
-  padding: $spacing-m $spacing-xxl;
-  display: inline-block;
 }

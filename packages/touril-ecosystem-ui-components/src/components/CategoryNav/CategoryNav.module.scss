@@ -1,0 +1,157 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// CATEGORY NAV — Sticky section navigation
+// Sits below the fixed header (top set via inline style from JS).
+// Slides in when the hero exits the viewport; slides out on return.
+// Active underline animates between items via Framer Motion layoutId.
+// Mobile: horizontal scroll with CSS fade-edge masks; active item auto-centers.
+// ==================================
+
+.nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  // top: set via inline style (headerHeight px) in component
+  z-index: $z-index-sticky; // 1020 — below header (1030)
+  background-color: $color-cream;
+  border-bottom: 1px solid $color-warm-gray;
+  height: 48px;
+}
+
+// ==================================
+// WRAPPER — provides horizontal scroll + fade-edge masks on mobile
+// ==================================
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+
+  // Fade-edge masks — indicate scrollable content on mobile
+  @include mobile {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 28px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, $color-cream 40%, transparent);
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, $color-cream 40%, transparent);
+    }
+  }
+}
+
+// ==================================
+// INNER — flex row of nav items
+// Desktop: centered; Mobile: scrollable row
+// ==================================
+
+.inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 $container-padding;
+  gap: $spacing-s;
+
+  @include mobile {
+    padding: 0 $spacing-m;
+    gap: 0;
+    overflow-x: auto;
+    // Hide scrollbar while keeping scroll functionality
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+}
+
+// ==================================
+// ITEM — individual anchor link
+// ==================================
+
+.item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 $spacing-m;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color $transition-duration-normal $transition-timing-normal;
+
+  // Accessible focus ring
+  @include focus-ring;
+
+  @include hover-device {
+    &:hover {
+      color: $color-deep-brown;
+
+      .label {
+        color: $color-deep-brown;
+      }
+    }
+  }
+}
+
+.label {
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-cool-taupe;
+  transition: color $transition-duration-normal $transition-timing-normal;
+}
+
+// Active item — clay label
+.itemActive .label {
+  color: $color-deep-brown;
+  font-weight: $font-weight-medium;
+}
+
+// ==================================
+// UNDERLINE — Framer Motion layoutId element
+// Positioned absolute inside the item, animates between items.
+// ==================================
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: $spacing-m;
+  right: $spacing-m;
+  height: 2px;
+  background-color: $color-clay;
+  // Framer Motion handles the layout animation; no CSS transform here
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
+  }
+
+  .item {
+    transition: none;
+  }
+
+  .label {
+    transition: none;
+  }
+}

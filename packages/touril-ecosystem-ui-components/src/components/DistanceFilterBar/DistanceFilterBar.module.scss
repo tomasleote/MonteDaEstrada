@@ -1,0 +1,135 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// DISTANCE FILTER BAR
+// Designed for dark backgrounds (Redondezas section).
+// Cream text, rgba(cream, 0.2) borders.
+// Active state: clay border + clay text (no fill — refinement, not toggle).
+// ==================================
+
+.filterBar {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-m;
+  margin-bottom: $spacing-xl;
+}
+
+// ==================================
+// LABEL — "Filtrar por distância"
+// ==================================
+
+.label {
+  font-family: $font-body;
+  font-size: 11px; // Whispered — same pattern as category labels
+  font-weight: $font-weight-regular;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba($color-cream, 0.5);
+}
+
+// ==================================
+// BUTTON ROW
+// ==================================
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-s;
+}
+
+// ==================================
+// FILTER BUTTON
+// Default: cream text, transparent bg, rgba(cream, 0.2) border.
+// Active: clay border + clay text — no fill.
+// ==================================
+
+.filterButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-s $spacing-m;
+  min-height: $touch-target-min;
+
+  background: transparent;
+  border: 1px solid rgba($color-cream, 0.2);
+  border-radius: 0px; // Brand rule: 0px everywhere
+  cursor: pointer;
+
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-body;
+  color: rgba($color-cream, 0.7);
+
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  @include hover-device {
+    &:hover:not(.active) {
+      border-color: rgba($color-cream, 0.4);
+      color: $color-cream;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
+
+  // Active state — clay border + clay text, no fill
+  &.active {
+    border-color: $color-clay;
+    color: $color-clay;
+  }
+}
+
+// ==================================
+// ACTIVE INDICATOR
+// Animated bottom line via Framer Motion layoutId.
+// ==================================
+
+.activeIndicator {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: $color-clay;
+}
+
+// ==================================
+// RESPONSIVE
+// ==================================
+
+@include mobile {
+  .buttons {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .filterButton {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .filterButton {
+    transition: none;
+  }
+
+  .activeIndicator {
+    transition: none;
+  }
+}

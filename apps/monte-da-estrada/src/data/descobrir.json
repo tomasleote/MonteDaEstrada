@@ -1,0 +1,162 @@
+{
+  "experiences": [
+    {
+      "category": "gastronomia",
+      "categoryLabel": "Gastronomia",
+      "title": "Piqueniques para Caminhantes",
+      "description": "Cestas de piquenique leve para quem parte para os trilhos — fruta local, queijo de ovelha e pão de São Teotónio.",
+      "highlights": ["Fruta local", "Queijo de Ovelha", "Pão de São Teotónio"],
+      "imageSrc": "/images/experiences/picnic-caminhantes.jpg",
+      "imageAlt": "Cesta de piquenique com produtos locais no campo"
+    },
+    {
+      "category": "gastronomia",
+      "categoryLabel": "Gastronomia",
+      "title": "Cesta de Piquenique Romântico",
+      "description": "Piquenique completo para dois — vinho regional, enchidos alentejanos, manta e um ponto de vista à escolha.",
+      "highlights": ["Vinho regional", "Enchidos alentejanos", "Manta incluída"],
+      "imageSrc": "/images/experiences/picnic-romantico.jpg",
+      "imageAlt": "Cesta de piquenique romântico com vinho e enchidos"
+    },
+    {
+      "category": "gastronomia",
+      "categoryLabel": "Gastronomia",
+      "title": "Prova de Vinhos Regionais",
+      "description": "Uma prova guiada pelos vinhos atlânticos e alentejanos. Feita no monte, ao ritmo certo.",
+      "highlights": ["Vinhos do Alentejo", "Vinhos atlânticos", "Guiada no monte"],
+      "imageSrc": "/images/experiences/prova-vinhos.jpg",
+      "imageAlt": "Copos de vinho com paisagem alentejana ao fundo"
+    },
+    {
+      "category": "natureza",
+      "categoryLabel": "Natureza Ativa",
+      "title": "Caminhadas na Rota Vicentina",
+      "description": "O Trilho dos Pescadores parte a minutos do monte. Falésias, praias escondidas e mar aberto.",
+      "highlights": ["Trilho dos Pescadores", "Falésias costeiras", "Praias desertas"],
+      "imageSrc": "/images/experiences/rota-vicentina.jpg",
+      "imageAlt": "Caminheiro na Rota Vicentina com vista para o Atlântico"
+    },
+    {
+      "category": "natureza",
+      "categoryLabel": "Natureza Ativa",
+      "title": "Trilhos em E-bike",
+      "description": "Explore os caminhos de montado e os pedaços de Alentejo onde os carros não chegam. Em e-bike, ao seu ritmo.",
+      "highlights": ["E-bike incluída", "Trilhos de montado", "Sem trânsito"],
+      "imageSrc": "/images/experiences/ebike-trilhos.jpg",
+      "imageAlt": "E-bike apoiada em tronco com montado alentejano ao fundo"
+    },
+    {
+      "category": "paisagens",
+      "categoryLabel": "Paisagens",
+      "title": "Sunset Chaser",
+      "description": "Excursão de Jeep até ao miradouro perfeito, com vinho e petiscos no momento certo.",
+      "highlights": ["Excursão de Jeep", "Vinho & petiscos", "Pôr do sol garantido"],
+      "imageSrc": "/images/experiences/sunset-chaser.jpg",
+      "imageAlt": "Pôr do sol atlântico visto de miradouro no Alentejo"
+    },
+    {
+      "category": "bem-estar",
+      "categoryLabel": "Bem-Estar",
+      "title": "Massagens",
+      "description": "Massagem de relaxamento no Touril, seguida de uma bebida no Pool Bar. O descanso completo.",
+      "highlights": ["Massagem no Touril", "Pool Bar incluído", "Por marcação"],
+      "imageSrc": "/images/experiences/massagens.jpg",
+      "imageAlt": "Área de bem-estar e piscina do Touril"
+    }
+  ],
+  "beaches": [
+    {
+      "name": "Zambujeira do Mar",
+      "distance": "10 km",
+      "description": "Praia selvagem encaixada em falésias de xisto. O Atlântico puro.",
+      "imageSrc": "/images/beaches/zambujeira.jpg",
+      "imageAlt": "Zambujeira do Mar com falésias e mar azul-turquesa"
+    },
+    {
+      "name": "Carvalhal",
+      "distance": "15 km",
+      "description": "Extensa e ventosa, favorita dos surfistas e dos que querem praia sem multidão.",
+      "imageSrc": "/images/beaches/carvalhal.jpg",
+      "imageAlt": "Praia do Carvalhal com ondas e dunas ao fundo"
+    },
+    {
+      "name": "Alteirinhos",
+      "distance": "20 km",
+      "description": "Praia de acesso difícil e beleza improvável. Para os que procuram o inesperado.",
+      "imageSrc": "/images/beaches/alteirinhos.jpg",
+      "imageAlt": "Praia dos Alteirinhos vista do alto das falésias"
+    },
+    {
+      "name": "Odeceixe",
+      "distance": "35 km",
+      "description": "Onde o rio encontra o mar. Protegida do vento, ideal para famílias.",
+      "imageSrc": "/images/beaches/odeceixe.jpg",
+      "imageAlt": "Praia de Odeceixe com estuário do rio Seixe"
+    },
+    {
+      "name": "Tonel",
+      "distance": "50 km",
+      "description": "A praia de Sagres. Vento forte, cor impossível, fim do mundo europeu.",
+      "imageSrc": "/images/beaches/tonel.jpg",
+      "imageAlt": "Praia do Tonel em Sagres com fortaleza ao fundo"
+    }
+  ],
+  "attractions": [
+    {
+      "title": "São Teotónio",
+      "location": "Vila",
+      "distance": "4 km",
+      "description": "A vila mais próxima. Mercado semanal às sextas-feiras, padaria, talho e mercearia local.",
+      "imageSrc": "/images/attractions/sao-teotonio.jpg",
+      "imageAlt": "Centro histórico de São Teotónio"
+    },
+    {
+      "title": "Rota Vicentina",
+      "location": "Trilho · Costa Vicentina",
+      "distance": "2 km",
+      "description": "O Trilho dos Pescadores começa a dois quilómetros do monte. 230 km de costa selvagem.",
+      "imageSrc": "/images/attractions/rota-vicentina.jpg",
+      "imageAlt": "Trilho dos Pescadores na Costa Vicentina"
+    },
+    {
+      "title": "Zambujeira do Mar",
+      "location": "Praia",
+      "distance": "10 km",
+      "description": "A mais próxima e uma das mais belas. Falésias de xisto e Atlântico aberto.",
+      "imageSrc": "/images/attractions/zambujeira.jpg",
+      "imageAlt": "Praia de Zambujeira do Mar"
+    },
+    {
+      "title": "Odemira",
+      "location": "Cidade",
+      "distance": "15 km",
+      "description": "Cidade ribeirinha com mercado, restaurantes e serviços. À beira do Rio Mira.",
+      "imageSrc": "/images/attractions/odemira.jpg",
+      "imageAlt": "Odemira com o Rio Mira"
+    },
+    {
+      "title": "Parque Natural do Sudoeste Alentejano",
+      "location": "Reserva Natural",
+      "distance": "0 km",
+      "description": "O monte está dentro do parque. A última costa selvagem da Europa ocidental.",
+      "imageSrc": "/images/attractions/parque-natural.jpg",
+      "imageAlt": "Paisagem costeira do Parque Natural do Sudoeste Alentejano"
+    },
+    {
+      "title": "Aljezur",
+      "location": "Vila Histórica",
+      "distance": "40 km",
+      "description": "Vila mourisca com castelo e mercado de artesanato. Porta da Costa Vicentina algarvia.",
+      "imageSrc": "/images/attractions/aljezur.jpg",
+      "imageAlt": "Aljezur com castelo mourisca ao fundo"
+    },
+    {
+      "title": "Mértola",
+      "location": "Vila Histórica",
+      "distance": "90 km",
+      "description": "A vila museu do Alentejo profundo. Castelo islâmico, mesquita convertida e tempo parado.",
+      "imageSrc": "/images/attractions/mertola.jpg",
+      "imageAlt": "Mértola com castelo e Rio Guadiana"
+    }
+  ]
+}

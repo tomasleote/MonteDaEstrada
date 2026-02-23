@@ -1,0 +1,133 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+// ==================================
+// EXPERIENCE CARD — Portrait 3:4 magazine card
+// No card background, no box shadow — transparent with bottom border.
+// Category label: 11px, 2px letter-spacing — whispered classification.
+// Highlights: inline tags with middot separator.
+// Hover: image scales 1.03, border transitions to clay. No vertical lift.
+// ==================================
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $color-warm-gray;
+  transition: border-color $transition-duration-normal $transition-timing-normal;
+
+  @include hover-device {
+    &:hover {
+      border-color: $color-clay;
+
+      .image {
+        transform: scale(1.03);
+      }
+    }
+  }
+}
+
+// ==================================
+// IMAGE — Portrait 3:4 aspect ratio
+// ==================================
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform $transition-duration-slow $transition-timing-slow;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+// ==================================
+// CARD CONTENT
+// ==================================
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-s;
+  padding: $spacing-l 0 $spacing-xl 0;
+}
+
+// Whispered category label — 11px (smaller than 12px caption), 2px letter-spacing
+.categoryLabel {
+  display: block;
+  font-family: $font-body;
+  font-size: 0.6875rem; // 11px — intentionally smaller than caption
+  font-weight: $font-weight-medium;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: $color-clay;
+  line-height: 1;
+}
+
+.title {
+  font-family: $font-display;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: $font-weight-light; // 300 — editorial standard
+  letter-spacing: $letter-spacing-subheading;
+  color: $color-deep-brown;
+  line-height: $line-height-base;
+  margin: 0;
+}
+
+.description {
+  font-family: $font-body;
+  font-size: $font-size-body-small; // 14px
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-body;
+  color: $color-charcoal;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+// ==================================
+// HIGHLIGHTS — inline tags with middot separator
+// Matches category label size: 11px
+// ==================================
+
+.highlights {
+  font-family: $font-body;
+  font-size: 0.6875rem; // 11px — matching category label
+  letter-spacing: 0.5px;
+  color: $color-cool-taupe;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.highlightTag {
+  display: inline;
+}
+
+.separator {
+  color: $color-warm-gray;
+  user-select: none;
+}
+
+// ==================================
+// RESPONSIVE
+// ==================================
+
+@include mobile {
+  .imageWrapper {
+    // Slightly less tall portrait on small screens
+    aspect-ratio: 4 / 5;
+  }
+
+  .content {
+    padding: $spacing-m 0 $spacing-l 0;
+    gap: $spacing-xs;
+  }
+}
