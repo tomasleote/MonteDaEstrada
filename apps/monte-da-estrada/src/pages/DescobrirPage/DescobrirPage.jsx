@@ -18,9 +18,9 @@ import {
   duration,
 } from '@touril-ecosystem/ui-components';
 import descobrirData from '@/data/descobrir.json';
-import { atividadesImages } from '@/assets/images/atividades';
-import { redondezasImages } from '@/assets/images/redondezas';
 import { homeImages } from '@/assets/images/home';
+import { descobrirImages } from '@/assets/images/descobrir';
+import { descobrirAttractions } from '@/assets/images/redondezas';
 import styles from './DescobrirPage.module.scss';
 
 // ──────────────────────────────────────────────
@@ -74,11 +74,11 @@ const DescobrirPage = () => {
       {/* 65vh territory photography + eyebrow + headline + subtitle */}
       <div id="discovery-hero">
         <DiscoveryHero
-          imageSrc={atividadesImages.heroes[0].src}
-          imageAlt="Costa Vicentina e Alentejo — território do Monte da Estrada"
-          eyebrow="Descobrir"
+          imageSrc={descobrirImages.hero.src}
+          imageAlt={descobrirImages.hero.alt}
+          eyebrow={descobrirImages.hero.title}
           headline="O território é a experiência."
-          subtitle="18 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo."
+          subtitle="110 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo."
         />
       </div>
 
@@ -127,18 +127,23 @@ const DescobrirPage = () => {
             whileInView="visible"
             viewport={viewport.default}
           >
-            {descobrirData.experiences.map((exp, index) => (
-              <ExperienceCard
-                key={index}
-                category={exp.category}
-                categoryLabel={exp.categoryLabel}
-                title={exp.title}
-                description={exp.description}
-                highlights={exp.highlights}
-                imageSrc={exp.imageSrc}
-                imageAlt={exp.imageAlt}
-              />
-            ))}
+            {descobrirData.experiences.map((exp, index) => {
+              // Use imported images for all experiences
+              const imageSrc = descobrirImages.experiences[index]?.src || exp.imageSrc;
+
+              return (
+                <ExperienceCard
+                  key={index}
+                  category={exp.category}
+                  categoryLabel={exp.categoryLabel}
+                  title={exp.title}
+                  description={exp.description}
+                  highlights={exp.highlights}
+                  imageSrc={imageSrc}
+                  imageAlt={exp.imageAlt}
+                />
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -154,7 +159,7 @@ const DescobrirPage = () => {
       {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
       {/* Coastal photography + editorial serif quote overlay (50vh, parallax) */}
       <FullBleedQuote
-        imageSrc={redondezasImages.attractions[6].src}
+        imageSrc={descobrirImages.beaches[4].src}
         alt="Zambujeira do Mar — falésias e Atlântico"
         quote="A última costa selvagem da Europa ocidental começa aqui."
         attribution="Parque Natural do Sudoeste Alentejano e Costa Vicentina"
@@ -165,7 +170,7 @@ const DescobrirPage = () => {
       <section id="praias" className={styles.beachesSection}>
         <div className={styles.container}>
           <SectionEyebrow label="Praias" />
-          <h2 className={styles.sectionHeading}>18 km de costa. Escolha a sua.</h2>
+          <h2 className={styles.sectionHeading}>110 km de costa. Escolha a sua.</h2>
 
           <motion.div
             className={styles.beachesGrid}
@@ -183,16 +188,20 @@ const DescobrirPage = () => {
             whileInView="visible"
             viewport={viewport.default}
           >
-            {descobrirData.beaches.map((beach, index) => (
-              <BeachCard
-                key={index}
-                name={beach.name}
-                distance={beach.distance}
-                description={beach.description}
-                imageSrc={beach.imageSrc}
-                imageAlt={beach.imageAlt}
-              />
-            ))}
+            {descobrirData.beaches.map((beach, index) => {
+              const imageSrc = descobrirImages.beaches[index]?.src || beach.imageSrc;
+              return (
+                <BeachCard
+                  key={index}
+                  name={beach.name}
+                  distance={beach.distance}
+                  description={beach.description}
+                  imageSrc={imageSrc}
+                  imageAlt={beach.imageAlt}
+                  mapUrl={beach.mapUrl}
+                />
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -232,17 +241,21 @@ const DescobrirPage = () => {
               animate="visible"
               exit="exit"
             >
-              {filteredAttractions.map((attraction, index) => (
-                <AttractionPinCard
-                  key={`${attraction.title}-${index}`}
-                  title={attraction.title}
-                  location={attraction.location}
-                  distance={attraction.distance}
-                  description={attraction.description}
-                  imageSrc={attraction.imageSrc}
-                  imageAlt={attraction.imageAlt}
-                />
-              ))}
+              {filteredAttractions.map((attraction, index) => {
+                const imageSrc = descobrirAttractions.attractions[index]?.src || attraction.imageSrc;
+                return (
+                  <AttractionPinCard
+                    key={`${attraction.title}-${index}`}
+                    title={attraction.title}
+                    location={attraction.location}
+                    distance={attraction.distance}
+                    description={attraction.description}
+                    imageSrc={imageSrc}
+                    imageAlt={attraction.imageAlt}
+                    mapUrl={attraction.mapUrl}
+                  />
+                );
+              })}
 
               {filteredAttractions.length === 0 && (
                 <p className={styles.noResults}>Sem atrações nesta distância.</p>
@@ -254,13 +267,15 @@ const DescobrirPage = () => {
 
       {/* S9 — BookingSection ──────────────────────────────────────── */}
       {/* Reused from HomePage — dark CTA with contact options */}
-      <BookingSection
-        eyebrow="Reservas"
-        heading="Marque a sua estadia."
-        fallbackEmail="montedaestradazambujeiradomar@gmail.com"
-        fallbackPhone="+351 960 254 072"
-        whatsappNumber="351960254072"
-      />
+      <div className={styles.bookingSection}>
+        <BookingSection
+          eyebrow="Reservas"
+          heading="Marque a sua estadia."
+          fallbackEmail="montedaestradazambujeiradomar@gmail.com"
+          fallbackPhone="+351 960 254 072"
+          whatsappNumber="351960254072"
+        />
+      </div>
     </div>
   );
 };

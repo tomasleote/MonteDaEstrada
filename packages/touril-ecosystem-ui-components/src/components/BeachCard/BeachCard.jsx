@@ -19,17 +19,33 @@ import styles from './BeachCard.module.scss';
  * @param {string} props.description - One-line beach description
  * @param {string} props.imageSrc - Landscape image URL
  * @param {string} props.imageAlt - Image alt text
+ * @param {string} props.mapUrl - Optional Google Maps URL to open in new tab
  * @param {string} props.className - Additional CSS classes
  * @returns {React.ReactElement}
  */
-function BeachCard({ name, distance, description, imageSrc, imageAlt, className = '' }) {
+function BeachCard({ name, distance, description, imageSrc, imageAlt, mapUrl, className = '' }) {
+  const handleClick = () => {
+    if (mapUrl) {
+      window.open(mapUrl, '_blank');
+    }
+  };
+
   return (
     <motion.article
-      className={`${styles.card} ${className}`}
+      className={`${styles.card} ${className} ${mapUrl ? styles.clickable : ''}`}
       variants={variants.staggerItem}
       initial="hidden"
       whileInView="visible"
       viewport={viewport.default}
+      onClick={handleClick}
+      role={mapUrl ? 'button' : 'article'}
+      tabIndex={mapUrl ? 0 : -1}
+      onKeyDown={mapUrl ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
+      } : undefined}
     >
       <div className={styles.imageWrapper}>
         <img src={imageSrc} alt={imageAlt} className={styles.image} />
@@ -57,6 +73,7 @@ BeachCard.propTypes = {
   description: PropTypes.string,
   imageSrc: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
+  mapUrl: PropTypes.string,
   className: PropTypes.string,
 };
 

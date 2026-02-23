@@ -7,7 +7,7 @@ import Card from '@/components/Card';
 import Map from '@/components/Map';
 import ContactForm from '@/components/ContactForm';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { exteriorImages } from '@/assets/images/exterior';
+import { homeImages } from '@/assets/images/home';
 import { ScrollReveal, StaggerChildren, AnimatedText } from '@/motion';
 import styles from './ContactoPage.module.scss';
 import localizacaoData from '@/data/localizacao.json';
@@ -25,8 +25,8 @@ const ContactoPage = () => {
       {/* Hero */}
       <div className={styles.hero}>
         <ResponsiveImage
-          src={exteriorImages.hero.src}
-          alt={exteriorImages.hero.alt}
+          src={homeImages.gallery[1].src}
+          alt={homeImages.gallery[1].alt}
           className={styles.heroImage}
           loading="eager"
           lazy={false}

@@ -19,9 +19,14 @@ import homePropertyView12 from './home-property-view-12.jpg';
 
 export const homeImages = {
   hero: {
+    src: homePropertyView05,
+    alt: 'Monte da Estrada - Property grounds and outdoor spaces',
+    title: 'Welcome to Monte da Estrada'
+  },
+  galeriaHero: {
     src: homeHeroMonteExterior,
     alt: 'Monte da Estrada - Luxurious countryside property exterior view',
-    title: 'Welcome to Monte da Estrada'
+    title: 'Galeria'
   },
   gallery: [
     {

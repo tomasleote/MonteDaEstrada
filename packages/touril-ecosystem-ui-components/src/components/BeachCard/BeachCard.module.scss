@@ -13,6 +13,10 @@
   display: block;
   overflow: hidden;
   cursor: default;
+
+  &.clickable {
+    cursor: pointer;
+  }
 }
 
 // ==================================

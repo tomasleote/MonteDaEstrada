@@ -19,6 +19,7 @@ import styles from './AttractionPinCard.module.scss';
  * @param {string} props.description - Brief description
  * @param {string} props.imageSrc - Image URL
  * @param {string} props.imageAlt - Image alt text
+ * @param {string} props.mapUrl - Optional Google Maps URL to open in new tab
  * @param {string} props.className - Additional CSS classes
  * @returns {React.ReactElement}
  */
@@ -29,15 +30,30 @@ function AttractionPinCard({
   description,
   imageSrc,
   imageAlt,
+  mapUrl,
   className = '',
 }) {
+  const handleClick = () => {
+    if (mapUrl) {
+      window.open(mapUrl, '_blank');
+    }
+  };
   return (
     <motion.article
-      className={`${styles.card} ${className}`}
+      className={`${styles.card} ${className} ${mapUrl ? styles.clickable : ''}`}
       variants={variants.staggerItem}
       initial="hidden"
       whileInView="visible"
       viewport={viewport.default}
+      onClick={handleClick}
+      role={mapUrl ? 'button' : 'article'}
+      tabIndex={mapUrl ? 0 : -1}
+      onKeyDown={mapUrl ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick();
+        }
+      } : undefined}
     >
       {/* Image — square on desktop, 16:9 on mobile */}
       <div className={styles.imageWrapper}>
@@ -64,6 +80,7 @@ AttractionPinCard.propTypes = {
   description: PropTypes.string.isRequired,
   imageSrc: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
+  mapUrl: PropTypes.string,
   className: PropTypes.string,
 };
 

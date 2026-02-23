@@ -1,7 +1,7 @@
 {
   "hero": {
-    "image": "/src/assets/images/galeria/galeria-hero-acessos.jpg",
-    "alt": "Galeria de imagens do Monte da Estrada",
+    "image": "/src/assets/images/home/home-hero-monte-exterior.jpg",
+    "alt": "Monte da Estrada - Luxurious countryside property exterior view",
     "title": "Galeria",
     "subtitle": "Conheça o Monte da Estrada"
   },

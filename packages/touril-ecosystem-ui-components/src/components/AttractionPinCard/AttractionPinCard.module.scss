@@ -15,6 +15,11 @@
   background-color: $color-charcoal;
   overflow: hidden;
   transition: background-color $transition-duration-normal $transition-timing-normal;
+  cursor: default;
+
+  &.clickable {
+    cursor: pointer;
+  }
 
   @include hover-device {
     &:hover {

@@ -10,6 +10,7 @@ import {
   ActivityHighlights,
   BookingSection,
   GalleryPreview,
+  CategoryNav,
 } from '@touril-ecosystem/ui-components';
 import atividadesData from '@/data/atividades.json';
 import { homeImages } from '@/assets/images/home';
@@ -17,6 +18,19 @@ import { quartosImages } from '@/assets/images/quartos';
 import { galeriaImages } from '@/assets/images/galeria';
 import { seoConfig } from '@/utils/seo-config';
 import styles from './HomePage.module.scss';
+
+// ──────────────────────────────────────────────
+// CategoryNav anchor items — 5 main sections
+// ──────────────────────────────────────────────
+
+const NAV_ITEMS = [
+  { id: 'casa', label: 'Casa' },
+  { id: 'quartos', label: 'Quartos' },
+  { id: 'territorio', label: 'Território' },
+  { id: 'atividades', label: 'Atividades' },
+  { id: 'reservas', label: 'Reservas' },
+  { id: 'galeria', label: 'Galeria' },
+];
 
 // ──────────────────────────────────────────────
 // Section data — editorial content for the homepage
@@ -74,8 +88,8 @@ const homeRooms = [
 const activityItems = [
   {
     title: 'Praias',
-    description: 'Costa Vicentina a 18 km — Zambujeira, Carvalhal, Odeceixe.',
-    distance: '18 km',
+    description: 'Costa Vicentina (110 km) — Zambujeira, Carvalhal, Odeceixe.',
+    distance: '5-30 km',
   },
   {
     title: 'Rota Vicentina',
@@ -123,11 +137,20 @@ const HomePage = () => {
 
       {/* S1 — Immersive Hero ────────────────────────────────── */}
       {/* Full-viewport exterior photography + single-line headline */}
-      <ImmersiveHero
-        imageSrc={homeImages.hero.src}
-        imageAlt={homeImages.hero.alt}
-        headline="A sua casa no interior do Alentejo."
-        scrollLabel="Descobrir"
+      <div id="home-hero">
+        <ImmersiveHero
+          imageSrc={homeImages.hero.src}
+          imageAlt={homeImages.hero.alt}
+          headline="A sua casa no interior do Alentejo."
+          scrollLabel="Descobrir"
+        />
+      </div>
+
+      {/* CategoryNav — Sticky section navigation ──────────────── */}
+      <CategoryNav
+        items={NAV_ITEMS}
+        targetId="home-hero"
+        headerHeight={72}
       />
 
       {/* S2 — Editorial Anchor ──────────────────────────────── */}
@@ -135,7 +158,7 @@ const HomePage = () => {
       <EditorialAnchor
         propertyName="Monte da Estrada"
         tagline="Seis quartos, uma casa, um monte."
-        body="A 18 quilómetros do Atlântico e a anos-luz do ruído."
+        body="A 5 quilómetros do mar, dentro da Costa Vicentina."
         email="montedaestradazambujeiradomar@gmail.com"
         phone="+351 960 254 072"
         ctaLabel="Sobre a casa"
@@ -144,19 +167,21 @@ const HomePage = () => {
 
       {/* S3 — A Casa — Editorial Split ──────────────────────── */}
       {/* Property architecture story: image left, prose right */}
-      <EditorialSplitSection
-        eyebrow="A Casa"
-        heading="Arquitectura de monte, revisitada."
-        body={[
-          'A casa existia antes de ser hotel. Os muros de cal e o pavimento antigo mantêm-se — não por falta de alternativa, mas por escolha.',
-          'Não tentamos impressionar. Tentamos que fique.',
-        ]}
-        imageSrc={homeImages.gallery[0].src}
-        imageAlt={homeImages.gallery[0].alt}
-        imagePosition="left"
-        ctaLabel="Conhecer a casa"
-        ctaHref="/descobrir"
-      />
+      <div id="casa">
+        <EditorialSplitSection
+          eyebrow="A Casa"
+          heading="Arquitectura de monte, revisitada."
+          body={[
+            'A casa existia antes de ser hotel. Os muros de cal e o pavimento antigo mantêm-se — não por falta de alternativa, mas por escolha.',
+            'Não tentamos impressionar. Tentamos que fique.',
+          ]}
+          imageSrc={homeImages.gallery[0].src}
+          imageAlt={homeImages.gallery[0].alt}
+          imagePosition="left"
+          ctaLabel="Conhecer a casa"
+          ctaHref="/descobrir"
+        />
+      </div>
 
        {/* S3.5 — Amenity Strip ─────────────────────────────── */}
       {/* Premium "at a glance" — icon + label pairs, no descriptions */}
@@ -164,69 +189,79 @@ const HomePage = () => {
 
       {/* S4 — Quartos — Room Grid ───────────────────────────── */}
       {/* 6-card portrait grid. Teaser only — /quartos has full detail */}
-      <RoomGrid
-        eyebrow="Quartos"
-        heading="Seis quartos. Cada um, o seu."
-        subHeading="Não há dois iguais. A luz da manhã entra diferente em cada divisão. Escolha pelo que quer acordar a ver."
-        rooms={homeRooms}
-        ctaLabel="Ver todos os quartos"
-        ctaHref="/quartos"
-      />
+      <div id="quartos">
+        <RoomGrid
+          eyebrow="Quartos"
+          heading="Seis quartos. Cada um, o seu."
+          subHeading="Não há dois iguais. A luz da manhã entra diferente em cada divisão. Escolha pelo que quer acordar a ver."
+          rooms={homeRooms}
+          ctaLabel="Ver todos os quartos"
+          ctaHref="/quartos"
+        />
+      </div>
 
       {/* S5 — Full Bleed Photography Break ─────────────────── */}
       {/* Emotional beat between rooms and territory sections */}
       <FullBleedImage
         imageSrc={homeImages.gallery[7].src}
         alt={homeImages.gallery[7].alt}
-        caption="Costa Vicentina, 18 km."
+        caption="Costa Vicentina — 110 km de costa selvagem."
         height="70vh"
       />
 
       {/* S6 — O Território — Editorial Split ───────────────── */}
       {/* Geographic positioning: text left, landscape right */}
-      <EditorialSplitSection
-        eyebrow="O Território"
-        heading="Entre o Alentejo e o Atlântico."
-        body={[
-          'A Rota Vicentina passa a minutos. Zambujeira do Mar fica a 18 quilómetros. O Alentejo interior está à porta.',
-          'Isto não é isolamento. É uma posição.',
-        ]}
-        imageSrc={homeImages.gallery[4].src}
-        imageAlt="Vista panorâmica da paisagem alentejana"
-        imagePosition="right"
-        background="offwhite"
-        ctaLabel="Explorar as redondezas"
-        ctaHref="/descobrir"
-      />
+      <div id="territorio">
+        <EditorialSplitSection
+          eyebrow="O Território"
+          heading="Entre o Alentejo e o Atlântico."
+          body={[
+            'A Rota Vicentina passa a minutos — 110 km de costa selvagem. Zambujeira do Mar fica a 8 quilómetros. O Alentejo interior está à porta.',
+            'Isto não é isolamento. É uma posição.',
+          ]}
+          imageSrc={homeImages.gallery[4].src}
+          imageAlt="Vista panorâmica da paisagem alentejana"
+          imagePosition="right"
+          background="offwhite"
+          ctaLabel="Explorar as redondezas"
+          ctaHref="/descobrir"
+        />
+      </div>
 
       {/* S7 — Atividades — Activity Highlights ─────────────── */}
       {/* 5 editorial activity cards: icon + title + distance */}
-      <ActivityHighlights
-        eyebrow="Atividades"
-        heading="Aqui não há agenda. A não ser a sua."
-        items={activityItems}
-        ctaLabel="Ver todas as atividades"
-        ctaHref="/descobrir"
-      />
+      <div id="atividades">
+        <ActivityHighlights
+          eyebrow="Atividades"
+          heading="Aqui não há agenda. A não ser a sua."
+          items={activityItems}
+          ctaLabel="Ver todas as atividades"
+          ctaHref="/descobrir"
+        />
+      </div>
 
       {/* S8 — Booking Section ───────────────────────────────── */}
-      {/* Dark section with direct booking contact + WhatsApp */}
-      <BookingSection
-        eyebrow="Reservas"
-        heading="Marque a sua estadia."
-        fallbackEmail="montedaestradazambujeiradomar@gmail.com"
-        fallbackPhone="+351 960 254 072"
-        whatsappNumber="351960254072"
-      />
+      {/* Booking contact with white background for contrast */}
+      <div id="reservas" className={styles.reservasSection}>
+        <BookingSection
+          eyebrow="Reservas"
+          heading="Marque a sua estadia."
+          fallbackEmail="montedaestradazambujeiradomar@gmail.com"
+          fallbackPhone="+351 960 254 072"
+          whatsappNumber="351960254072"
+        />
+      </div>
 
       {/* S9 — Gallery Preview ───────────────────────────────── */}
       {/* Asymmetric 3-image preview → links to /galeria */}
-      <GalleryPreview
-        eyebrow="Galeria"
-        images={galleryPreviewImages}
-        ctaLabel="Ver galeria completa"
-        ctaHref="/galeria"
-      />
+      <div id="galeria">
+        <GalleryPreview
+          eyebrow="Galeria"
+          images={galleryPreviewImages}
+          ctaLabel="Ver galeria completa"
+          ctaHref="/galeria"
+        />
+      </div>
     </div>
   );
 };
