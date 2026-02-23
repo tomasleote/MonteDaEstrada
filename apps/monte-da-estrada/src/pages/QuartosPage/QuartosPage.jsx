@@ -1,14 +1,16 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
-import Hero from '@/components/Hero';
-import Section from '@/components/Section';
-import Container from '@/components/Container';
-import Button from '@/components/Button';
-import { RoomCardGallery } from '@touril-ecosystem/ui-components';
-import { ScrollReveal } from '@/motion';
-import styles from './QuartosPage.module.scss';
+import ResponsiveImage from '@/components/ResponsiveImage';
+import {
+  RoomCardGallery,
+  SectionEyebrow,
+  variants,
+  viewport,
+} from '@touril-ecosystem/ui-components';
 import { quartosImages } from '@/assets/images/quartos';
 import { seoConfig } from '@/utils/seo-config';
+import styles from './QuartosPage.module.scss';
 
 /**
  * Room data for the RoomCardGallery component.
@@ -88,13 +90,14 @@ const rooms = [
 ];
 
 /**
- * QuartosPage - Rooms page using the RoomCardGallery component.
- * Features a hero section, alternating room cards with expand-in-place
- * detail views, and a CTA section.
+ * QuartosPage - Rooms page with three-section editorial layout
+ * S1: Hero (55vh, editorial gradient)
+ * S2: Room Cards (Cream, RoomCardGallery)
+ * S3: Booking Section (Sand, HeyTravel placeholder)
  */
 const QuartosPage = () => {
   const handleReserveClick = (roomId) => {
-    // Reason: Open external booking or scroll to contact section
+    // TODO: Connect to HeyTravel widget in S3 booking section
     window.open('https://www.booking.com', '_blank', 'noopener,noreferrer');
   };
 
@@ -107,21 +110,93 @@ const QuartosPage = () => {
         image={seoConfig.quartos.image}
       />
 
-      <Hero
-        backgroundImage={quartosImages.hero.src}
-        title="Os Nossos Quartos"
-        subtitle="Descubra o conforto e a tranquilidade do Monte da Estrada"
-        height="60vh"
-        overlay={0.5}
-      />
-
-      <ScrollReveal>
-        <RoomCardGallery
-          rooms={rooms}
-          onReserveClick={handleReserveClick}
+      {/* ─────────────────────────────────────────── */}
+      {/* S1 — Page Hero (55vh, editorial pattern)   */}
+      {/* ─────────────────────────────────────────── */}
+      <section className={styles.hero}>
+        <ResponsiveImage
+          src={quartosImages.hero.src}
+          alt={quartosImages.hero.alt}
+          className={styles.heroImage}
+          loading="eager"
+          lazy={false}
         />
-      </ScrollReveal>
-      
+        <div className={styles.heroOverlay}>
+          <div className={styles.container}>
+            <motion.div
+              className={styles.heroContent}
+              variants={variants.fadeUp}
+              initial="hidden"
+              animate="visible"
+            >
+              <h1 className={styles.heroTitle}>
+                Os Nossos Quartos
+              </h1>
+              <p className={styles.heroSubtitle}>
+                Cada quarto é único. A luz entra diferente em cada um.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────── */}
+      {/* S2 — Room Cards Section (Cream, 80px pad) */}
+      {/* ─────────────────────────────────────────── */}
+      <section className={styles.roomsSection}>
+        <div className={styles.container}>
+          <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            <SectionEyebrow label="Quartos" />
+            <h2 className={styles.sectionHeading}>
+              Seis quartos. Cada um, o seu.
+            </h2>
+          </motion.div>
+
+          <RoomCardGallery
+            rooms={rooms}
+            onReserveClick={handleReserveClick}
+            className={styles.roomCardGallery}
+          />
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────── */}
+      {/* S3 — Booking Section (Sand, HeyTravel)    */}
+      {/* ─────────────────────────────────────────── */}
+      <section className={styles.bookingSection}>
+        <div className={styles.container}>
+          <motion.div
+            variants={variants.fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            <SectionEyebrow label="Reservas" />
+            <h2 className={styles.sectionHeading}>
+              O seu quarto espera.
+            </h2>
+            <p className={styles.bookingIntro}>
+              Reserve agora e descubra onde vai acordar.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className={styles.heyTravelPlaceholder}
+            variants={variants.fadeIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+            transition={{ delay: 0.2 }}
+          >
+            <p>Widget HeyTravel será integrado aqui</p>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };

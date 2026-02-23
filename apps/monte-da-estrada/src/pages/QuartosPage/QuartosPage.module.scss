@@ -1,27 +1,206 @@
 @use '@/styles/variables' as *;
 @use '@/styles/mixins' as *;
 
+// ==================================
+// QUARTOS PAGE — Boutique Collection
+// Structure mirrors ContactoPage: minimal wrappers,
+// section backgrounds and layout handled here.
+// Brand rules: 0px radius, no shadows, generous whitespace.
+// ==================================
+
 .quartosPage {
   width: 100%;
 }
 
-// ------------------------------------
-// CTA SECTION
-// ------------------------------------
+// ==================================
+// SHARED CONTAINER
+// ==================================
 
-.cta {
-  text-align: center;
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 $spacing-m;
+  }
 }
 
-.ctaTitle {
-  @include h2;
-  color: $color-text-light;
-  margin-bottom: $spacing-xl;
+// ==================================
+// SHARED HEADING PATTERNS
+// ==================================
+
+// Light-weight H2 — editorial standard (font-weight: 300, not 500)
+// Matches ContactoPage .sectionHeading pattern exactly.
+.sectionHeading {
+  font-family: $font-display;
+  font-size: clamp($font-size-h4, 3vw, $font-size-h2);
+  font-weight: $font-weight-light; // 300 — editorial restraint
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-headline; // 1px
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xxl 0;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+  }
 }
 
-.ctaButtons {
+// ==================================
+// S1 — HERO (55vh, editorial, cream-tinted overlay)
+// ==================================
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  min-height: 380px;
+  max-height: 560px;
+  overflow: hidden;
+
+  @include tablet {
+    height: 50vh;
+    min-height: 320px;
+  }
+
+  @include mobile {
+    height: 45vh;
+    min-height: 280px;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+// Gradient: nearly transparent at top, deep brown at bottom (brand: no color overlay)
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba($color-cream, 0.08) 0%,
+    rgba($color-deep-brown, 0.55) 100%
+  );
   display: flex;
-  gap: $spacing-l;
+  align-items: flex-end;
+}
+
+.heroContent {
+  padding-bottom: $spacing-xxxl;
+
+  @include mobile {
+    padding-bottom: $spacing-xxl;
+  }
+}
+
+.heroTitle {
+  font-family: $font-display;
+  font-size: clamp($font-size-h3, 5vw, $font-size-h1);
+  font-weight: $font-weight-light; // 300 — editorial restraint
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-headline; // 1px
+  color: $color-cream;
+  margin: 0 0 $spacing-m 0;
+
+  @include mobile {
+    font-size: $font-size-h3;
+  }
+}
+
+.heroSubtitle {
+  font-family: $font-body;
+  font-size: $font-size-body-large; // 18px
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  color: rgba($color-cream, 0.90);
+  max-width: 480px;
+  margin: 0;
+
+  @include mobile {
+    font-size: $font-size-body;
+  }
+}
+
+// ==================================
+// S2 — ROOMS SECTION (Cream, 80px padding)
+// ==================================
+
+.roomsSection {
+  background-color: $color-cream;
+  padding: 80px 0;
+
+  @include tablet {
+    padding: 60px 0;
+  }
+
+  @include mobile {
+    padding: 40px 0;
+  }
+}
+
+.roomCardGallery {
+  margin-top: $spacing-xxl;
+}
+
+// ==================================
+// S3 — BOOKING SECTION (Sand, 80px padding)
+// ==================================
+
+.bookingSection {
+  background-color: $color-sand;
+  padding: 80px 0;
+
+  @include tablet {
+    padding: 60px 0;
+  }
+
+  @include mobile {
+    padding: 40px 0;
+  }
+}
+
+.bookingIntro {
+  font-family: $font-body;
+  font-size: $font-size-body; // 16px
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  color: $color-charcoal;
+  margin: 0 0 $spacing-xxl 0;
+  max-width: 440px;
+}
+
+// HeyTravel placeholder — temporary styling during Phase 2
+.heyTravelPlaceholder {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  min-height: 400px;
+  background-color: rgba($color-deep-brown, 0.05);
+  border: 1px dashed rgba($color-deep-brown, 0.20);
+  border-radius: 0;
+
+  & p {
+    font-family: $font-body;
+    font-size: $font-size-body;
+    color: $color-charcoal;
+    margin: 0;
+  }
+}
+
+// ==================================
+// REDUCED MOTION
+// ==================================
+
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .roomCardGallery,
+  .bookingSection {
+    transition: none;
+  }
 }
