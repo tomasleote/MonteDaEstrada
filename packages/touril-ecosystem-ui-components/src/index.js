@@ -61,6 +61,12 @@ export { default as DistanceFilterBar } from './components/DistanceFilterBar';
 export { default as AmenityStrip } from './components/AmenityStrip';
 
 // ============================================
+// MAP COMPONENT
+// ============================================
+
+export { default as DiscoveryMap } from './components/DiscoveryMap';
+
+// ============================================
 // CONSTANTS
 // ============================================
 

@@ -50,6 +50,16 @@
 }
 
 // ==================================
+// S3.5 — DISCOVERY MAP
+// The DiscoveryMap component renders its own section wrapper internally.
+// This outer wrapper provides page-level containment only.
+// ==================================
+
+.mapSection {
+  position: relative; // Required for Framer Motion scroll offset calculation
+}
+
+// ==================================
 // S4 — EXPERIENCES SECTION (Sand background)
 // ==================================
 

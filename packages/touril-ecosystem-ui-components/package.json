@@ -4,6 +4,11 @@
   "version": "0.1.0",
   "description": "Shared React component library for the Touril Ecosystem (Monte da Estrada, Papa Leguas, and future sites)",
   "main": "src/index.js",
+  "peerDependencies": {
+    "maplibre-gl": ">=4.0.0",
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
   "scripts": {
     "build": "echo 'No build step yet — components are consumed directly via workspace'"
   }

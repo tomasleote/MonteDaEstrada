@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
 import {
   DiscoveryHero,
@@ -9,18 +9,16 @@ import {
   EditorialPullQuote,
   FullBleedQuote,
   BeachCard,
-  AttractionPinCard,
-  DistanceFilterBar,
   SectionEyebrow,
   BookingSection,
+  DiscoveryMap,
   viewport,
   stagger,
-  duration,
 } from '@touril-ecosystem/ui-components';
 import descobrirData from '@/data/descobrir.json';
+import mapLocations from '@/data/map-locations';
 import { homeImages } from '@/assets/images/home';
 import { descobrirImages } from '@/assets/images/descobrir';
-import { descobrirAttractions } from '@/assets/images/redondezas';
 import styles from './DescobrirPage.module.scss';
 
 // ──────────────────────────────────────────────
@@ -29,19 +27,8 @@ import styles from './DescobrirPage.module.scss';
 
 const NAV_ITEMS = [
   { id: 'experiencias', label: 'Experiências' },
-  { id: 'praias', label: 'Praias' },
-  { id: 'redondezas', label: 'Redondezas' },
-];
-
-// ──────────────────────────────────────────────
-// Distance filter options for the Redondezas section
-// ──────────────────────────────────────────────
-
-const DISTANCE_FILTERS = [
-  { value: 'all', label: 'Tudo' },
-  { value: '20', label: '< 20 km' },
-  { value: '40', label: '< 40 km' },
-  { value: '50', label: '< 50 km' },
+  { id: 'mapa',         label: 'Mapa' },
+  { id: 'praias',       label: 'Praias' },
 ];
 
 // ──────────────────────────────────────────────
@@ -49,17 +36,6 @@ const DISTANCE_FILTERS = [
 // ──────────────────────────────────────────────
 
 const DescobrirPage = () => {
-  const [distanceFilter, setDistanceFilter] = useState('all');
-
-  // Reason: Parse distance strings like "4 km" → numeric for filtering
-  const filteredAttractions = useMemo(() => {
-    if (distanceFilter === 'all') return descobrirData.attractions;
-    const maxKm = parseInt(distanceFilter, 10);
-    return descobrirData.attractions.filter((a) => {
-      const km = parseInt(a.distance, 10);
-      return !isNaN(km) && km <= maxKm;
-    });
-  }, [distanceFilter]);
 
   return (
     <div className={styles.page}>
@@ -103,6 +79,12 @@ const DescobrirPage = () => {
         imageAlt="Vista panorâmica da paisagem alentejana"
         imagePosition="left"
       />
+
+      {/* S3.5 — Discovery Map ─────────────────────────────────────── */}
+      {/* Interactive Insider's Guide — Our Collection + Owner's Spots + Curated */}
+      <section id="mapa" className={styles.mapSection}>
+        <DiscoveryMap locations={mapLocations} />
+      </section>
 
       {/* S4 — Experiências — ExperienceCard grid ─────────────────── */}
       {/* 6 curated experiences in a 3-col portrait grid on sand bg */}
@@ -206,8 +188,7 @@ const DescobrirPage = () => {
         </div>
       </section>
 
-      {/* S8 — As Redondezas — Dark section ───────────────────────── */}
-      {/* Deep brown bg with charcoal AttractionPinCards + DistanceFilterBar */}
+      {/* S8 — As Redondezas — COMMENTED OUT (replaced by DiscoveryMap)
       <section id="redondezas" className={styles.redondezasSection}>
         <div className={styles.container}>
           <SectionEyebrow label="Redondezas" />
@@ -264,6 +245,7 @@ const DescobrirPage = () => {
           </AnimatePresence>
         </div>
       </section>
+      */}
 
       {/* S9 — BookingSection ──────────────────────────────────────── */}
       {/* Reused from HomePage — dark CTA with contact options */}
