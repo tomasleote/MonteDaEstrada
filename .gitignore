@@ -16,3 +16,9 @@ pnpm-debug.log*
 .claude/
 .playwright-mcp/
 .firecrawl/
+CLAUDE.md
+docs/
+AI-Coding-Workflows-Foundation/
+examples/
+PRPs/
+validation/
