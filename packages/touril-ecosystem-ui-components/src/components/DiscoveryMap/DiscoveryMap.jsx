@@ -15,8 +15,8 @@ import styles from './DiscoveryMap.module.scss';
 // ── Constants ────────────────────────────────────────────────────────────────
 
 const STYLE_URL = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
-const DEFAULT_CENTER = [-8.68, 37.65]; // Centroid of the Monte da Estrada region
-const DEFAULT_ZOOM = 9;
+const DEFAULT_CENTER = [-8.778352, 37.588126]; // Centroid of the Monte da Estrada region
+const DEFAULT_ZOOM = 11;
 
 const FILTERS = [
   { value: 'all',          label: 'Todos' },
@@ -26,24 +26,31 @@ const FILTERS = [
   { value: 'curated',      label: 'Descobrir' },
 ];
 
-// Maps category key → CSS module class name for the marker dot
-const MARKER_CLASS = {
-  collection:   'markerCollection',
-  gastronomia:  'markerGastronomia',
-  beach:        'markerBeach',
-  curated:      'markerCurated',
+// Maps category key → CSS module class name for the inner dot element
+const DOT_CLASS = {
+  collection:   'dotCollection',
+  gastronomia:  'dotGastronomia',
+  beach:        'dotBeach',
+  curated:      'dotCurated',
 };
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
 /**
  * Creates the HTMLElement passed to MapLibre Marker as its custom element.
- * Returns a styled div based on the location's category.
+ * Reason: outer wrapper (markerWrapper) is the element MapLibre controls via
+ * `transform: translate(...)`. An inner dot div carries all visual styles and
+ * hover effects, keeping them isolated from MapLibre's positioning transforms.
  */
 function createMarkerEl(category) {
-  const el = document.createElement('div');
-  el.className = styles[MARKER_CLASS[category]] || styles.markerCurated;
-  return el;
+  const wrapper = document.createElement('div');
+  wrapper.className = styles.markerWrapper;
+
+  const dot = document.createElement('div');
+  dot.className = styles[DOT_CLASS[category]] || styles.dotCurated;
+
+  wrapper.appendChild(dot);
+  return wrapper;
 }
 
 // ── PopupPortal ──────────────────────────────────────────────────────────────
@@ -74,16 +81,28 @@ function PopupPortal({ container, location }) {
         </div>
         <h3 className={styles.popupName}>{location.name}</h3>
         <p className={styles.popupDescription}>{location.description}</p>
-        {location.mapUrl && (
-          <a
-            href={location.mapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.popupCta}
-          >
-            Ver no Mapa →
-          </a>
-        )}
+        <div className={styles.popupCtaGroup}>
+          {location.url && (
+            <a
+              href={location.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.popupCta}
+            >
+              Visitar →
+            </a>
+          )}
+          {location.mapUrl && (
+            <a
+              href={location.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.popupCta}
+            >
+              Ver no Mapa →
+            </a>
+          )}
+        </div>
       </div>
     </div>,
     container
@@ -151,6 +170,13 @@ function DiscoveryMap({
     // Fullscreen control
     map.addControl(new MapLibreGL.FullscreenControl(), 'top-right');
 
+    // Close all popups when clicking on the map (outside a marker)
+    map.on('click', () => {
+      popupsRef.current.forEach((p) => {
+        if (p.isOpen()) p.remove();
+      });
+    });
+
     map.on('load', () => setIsMapLoaded(true));
     mapRef.current = map;
 
@@ -179,7 +205,7 @@ function DiscoveryMap({
       // 1. Popup: create a container div; MapLibre owns it, React portals into it
       const popupContainer = document.createElement('div');
       const popup = new MapLibreGL.Popup({
-        offset:       14,
+        //offset:       14,
         closeButton:  false,
         closeOnClick: false,
         maxWidth:     'none',
@@ -191,8 +217,10 @@ function DiscoveryMap({
         .setLngLat(location.coordinates)
         .addTo(map);
 
-      // 3. Click handler: close all other open popups, toggle this one
-      el.addEventListener('click', () => {
+      // 3. Click handler: always show popup with location details
+      // stopPropagation prevents the map's click handler from immediately closing it
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
         popupsRef.current.forEach((p) => {
           if (p !== popup && p.isOpen()) p.remove();
         });

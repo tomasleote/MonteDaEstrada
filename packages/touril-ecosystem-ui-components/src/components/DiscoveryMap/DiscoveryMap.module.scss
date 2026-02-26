@@ -97,12 +97,23 @@
 }
 
 // ── Custom marker dots ────────────────────────────────────────────────────────
-// These classes are applied to the MapLibre Marker's custom DOM element.
-// All markers: circular with white halo border for contrast over the basemap.
+// Reason: MapLibre controls the outer marker element's `transform` for positioning.
+// All visual styles and hover effects go on an INNER div (.markerDot child) so they
+// are completely isolated from MapLibre's transforms — no position conflicts.
 
-%markerBase {
-  position: relative;
+// Outer wrapper — applied to the MapLibre marker element. Must not set position,
+// transform, or size properties that would interfere with MapLibre's positioning.
+.markerWrapper {
   cursor: pointer;
+  // Reason: flex centering ensures the inner dot is centered on the coordinate point,
+  // matching MapLibre's default anchor ('center') behavior.
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Inner dot — all visual styling and hover effects live here.
+%dotBase {
   border-radius: 50%; // structural — circular dot, not decorative
   border: 2px solid #fff;
   transition: transform $transition-duration-quick ease;
@@ -114,8 +125,8 @@
 }
 
 // Clay dot — Our Collection (most prominent)
-.markerCollection {
-  @extend %markerBase;
+.dotCollection {
+  @extend %dotBase;
   width: 14px;
   height: 14px;
   background: $color-clay;
@@ -123,8 +134,8 @@
 }
 
 // Gold dot — Beaches
-.markerBeach {
-  @extend %markerBase;
+.dotBeach {
+  @extend %dotBase;
   width: 12px;
   height: 12px;
   background: #D4A843;
@@ -132,8 +143,8 @@
 }
 
 // Terracotta dot — Gastronomia (restaurants & bars)
-.markerGastronomia {
-  @extend %markerBase;
+.dotGastronomia {
+  @extend %dotBase;
   width: 12px;
   height: 12px;
   background: #C25E3A;
@@ -141,8 +152,8 @@
 }
 
 // Warm-gray ring with deep-brown fill — Curated spots (subtle)
-.markerCurated {
-  @extend %markerBase;
+.dotCurated {
+  @extend %dotBase;
   width: 10px;
   height: 10px;
   background: $color-deep-brown;
@@ -227,6 +238,12 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.popupCtaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-m;
 }
 
 .popupCta {

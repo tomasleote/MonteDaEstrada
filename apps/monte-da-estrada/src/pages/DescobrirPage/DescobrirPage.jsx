@@ -15,7 +15,7 @@ import {
   viewport,
   stagger,
 } from '@touril-ecosystem/ui-components';
-import descobrirData from '@/data/descobrir.json';
+import descobrirData from '@/data/descobrir';
 import mapLocations from '@/data/map-locations';
 import { homeImages } from '@/assets/images/home';
 import { descobrirImages } from '@/assets/images/descobrir';

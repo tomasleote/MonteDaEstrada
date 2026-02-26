@@ -103,6 +103,22 @@
       "imageSrc": "/images/beaches/tonel.jpg",
       "imageAlt": "Praia do Tonel em Sagres com fortaleza ao fundo",
       "mapUrl": "https://maps.app.goo.gl/aMzy7JTXVZ74kfsh8"
+    },
+    {
+      "name": "Malhão",
+      "distance": "25 km",
+      "description": "Praia com areal extenso. Dunas, vento e Atlântico aberto.",
+      "imageSrc": "../assets/images/descobrir/malhao.jpg",
+      "imageAlt": "Praia do Malhão com dunas",
+      "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
+    },
+    {
+      "name": "Aivados",
+      "distance": "32 km",
+      "description": "Praia secreta entre rochas. Um dos segredos mais bem guardados da costa.",
+      "imageSrc": "../assets/images/descobrir/aivados.jpg",
+      "imageAlt": "Praia dos Aivados entre rochas",
+      "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
     }
   ],
   "attractions": [
@@ -159,6 +175,24 @@
       "imageSrc": "/images/attractions/almograve.jpg",
       "imageAlt": "Praia de Almograve com areias douradas",
       "mapUrl": "https://maps.app.goo.gl/TqBXHm9AgRMAgFXu8"
+    },
+    {
+      "title": "Malhão",
+      "location": "Praia",
+      "distance": "25 km",
+      "description": "Praia com areal extenso. Dunas, vento e Atlântico aberto.",
+      "imageSrc": "/assets/images/descobrir/malhao.jpg",
+      "imageAlt": "Praia do Malhão com dunas",
+      "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
+    },
+    {
+      "title": "Aivados",
+      "location": "Praia",
+      "distance": "32 km",
+      "description": "Praia secreta entre rochas. Um dos segredos mais bem guardados da costa.",
+      "imageSrc": "/assets/images/descobrir/aivados.jpg",
+      "imageAlt": "Praia dos Aivados entre rochas",
+      "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
     }
   ]
 }
