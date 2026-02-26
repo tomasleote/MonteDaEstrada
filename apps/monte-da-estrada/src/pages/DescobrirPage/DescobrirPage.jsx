@@ -26,8 +26,8 @@ import styles from './DescobrirPage.module.scss';
 // ──────────────────────────────────────────────
 
 const NAV_ITEMS = [
-  { id: 'experiencias', label: 'Experiências' },
   { id: 'mapa',         label: 'Mapa' },
+  { id: 'experiencias', label: 'Experiências' },
   { id: 'praias',       label: 'Praias' },
 ];
 
