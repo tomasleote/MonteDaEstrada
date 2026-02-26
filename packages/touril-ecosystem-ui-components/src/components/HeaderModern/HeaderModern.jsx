@@ -46,10 +46,15 @@ const HeaderModern = ({
   const location = useLocation();
 
   // Reason: Monitor scroll position to trigger header state transition
-  // from transparent (top of page) to dark (scrolled)
+  // from transparent (top of page) to dark (scrolled).
+  // Also closes the properties dropdown on any scroll — prevents the dropdown
+  // keeping headerScrolled applied after the user scrolls back to top.
+  // setIsPropertiesOpen is a stable React setter so calling it from a
+  // stale closure is safe; no-op when already false (no extra re-render).
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > scrollThreshold);
+      setIsPropertiesOpen(false);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -113,7 +118,7 @@ const HeaderModern = ({
 
   return (
     <header
-      className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''} ${
+      className={`${styles.header} ${(isScrolled || isPropertiesOpen) ? styles.headerScrolled : ''} ${
         isPropertiesOpen ? styles.headerPropertiesOpen : ''
       } ${
         isMenuOpen ? styles.headerMenuOpen : ''

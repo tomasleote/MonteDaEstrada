@@ -247,14 +247,14 @@
   // Reason: position:fixed anchors to viewport; top uses --header-height
   // inherited from .header so the gap is always correct on every breakpoint.
   position: fixed;
-  top: calc(var(--header-height) + 8px);
-  right: $spacing-xl; // mirror the header's right padding
+  top: calc(var(--header-height));
+  right: 0; // mirror the header's right padding
 
   @include tablet { right: $spacing-l; }
   width: max-content;
   min-width: 200px;
   background-color: $color-deep-brown;
-  border-top: 1px solid rgba($color-warm-gray, 0.25);
+  border: 1px solid rgba($color-warm-gray, 0.25);
   list-style: none;
   margin: 0;
   padding: $spacing-s 0;
@@ -288,18 +288,33 @@
   letter-spacing: 0.75px;
   text-decoration: none;
   color: $color-cream;
-  transition: color $transition-duration-normal $transition-timing-fast,
-              background-color $transition-duration-normal $transition-timing-fast;
+  position: relative;
+  transition: color $transition-duration-normal $transition-timing-fast;
 
   @include focus-visible;
 
+  // Underline track — same pattern as .navLink
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: $spacing-l;
+    right: $spacing-l;
+    height: 2px;
+    background-color: $color-clay;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   &:hover {
     color: $color-clay;
-    background-color: rgba($color-warm-gray, 0.06);
+    &::after { transform: scaleX(1); }
   }
 
   &.propertyItemActive {
     color: $color-clay;
+    &::after { transform: scaleX(1); }
   }
 }
 

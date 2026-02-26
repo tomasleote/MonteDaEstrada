@@ -208,8 +208,6 @@ const HomePage = () => {
       {/* Emotional beat between rooms and territory sections */}
       <FullBleedImage
         imageSrc={homeImages.gallery[7].src}
-        alt={homeImages.gallery[7].alt}
-        caption="Costa Vicentina — 110 km de costa selvagem."
         height="70vh"
       />
 
