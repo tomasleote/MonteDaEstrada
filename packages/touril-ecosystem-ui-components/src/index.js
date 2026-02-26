@@ -35,7 +35,8 @@ export { default as GalleryPreview } from './components/GalleryPreview';
 // DISCOVERY ECOSYSTEM COMPONENTS (Phase A)
 // ============================================
 
-export { default as DiscoveryHero } from './components/DiscoveryHero';
+// PageHero: canonical internal-page hero. DiscoveryHero is a backwards-compatible alias.
+export { default as PageHero, default as DiscoveryHero } from './components/PageHero';
 export { default as ExperienceCard } from './components/ExperienceCard';
 export { default as EditorialPullQuote } from './components/EditorialPullQuote';
 

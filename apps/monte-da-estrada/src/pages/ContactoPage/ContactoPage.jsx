@@ -3,8 +3,8 @@ import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
 import Map from '@/components/Map';
 import ContactForm from '@/components/ContactForm';
-import ResponsiveImage from '@/components/ResponsiveImage';
 import {
+  PageHero,
   SectionEyebrow,
   EditorialPullQuote,
   viewport,
@@ -32,34 +32,13 @@ const ContactoPage = () => {
       />
 
       {/* S1 — Page Hero ─────────────────────────────────────── */}
-      {/* 55vh editorial header. Cream-tinted overlay (brand: 10-15% max). */}
-      {/* Copy: direct, warm, confident — not generic "Contact Us". */}
-      <div className={styles.hero}>
-        <ResponsiveImage
-          src={homeImages.gallery[1].src}
-          alt={homeImages.gallery[1].alt}
-          className={styles.heroImage}
-          loading="eager"
-          lazy={false}
-        />
-        <div className={styles.heroOverlay}>
-          <div className={styles.container}>
-            <motion.div
-              className={styles.heroContent}
-              variants={variants.fadeUp}
-              initial="hidden"
-              animate="visible"
-            >
-              <h1 className={styles.heroTitle}>
-                Planeie a sua visita.
-              </h1>
-              <p className={styles.heroSubtitle}>
-                Estamos cá para ajudar — de segunda a domingo.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </div>
+      <PageHero
+        imageSrc={homeImages.gallery[1].src}
+        imageAlt={homeImages.gallery[1].alt}
+        eyebrow="Contacto"
+        headline="Planeie a sua visita."
+        subtitle="Estamos cá para ajudar — de segunda a domingo."
+      />
 
       {/* S2 — Contact Grid ───────────────────────────────────── */}
       {/* Left: contact info (eyebrow + H2 + details). Right: form. */}

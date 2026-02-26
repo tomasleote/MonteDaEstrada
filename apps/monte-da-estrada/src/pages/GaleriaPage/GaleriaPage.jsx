@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import SEO from '@/components/SEO';
-import Hero from '@/components/Hero';
 import Lightbox from '@/components/Lightbox';
-import { CategoryNav } from '@touril-ecosystem/ui-components';
+import { CategoryNav, PageHero } from '@touril-ecosystem/ui-components';
 import { ScrollReveal } from '@/motion';
 import styles from './GaleriaPage.module.scss';
 import galeriaData from '@/data/galeria.json';
@@ -71,11 +70,11 @@ const GaleriaPage = () => {
 
       {/* Hero — id used by CategoryNav to know when to appear */}
       <div id="galeria-hero">
-        <Hero
-          backgroundImage={galeriaData.hero.image}
-          title={galeriaData.hero.title}
+        <PageHero
+          imageSrc={galeriaData.hero.image}
+          imageAlt={galeriaData.hero.alt}
+          headline={galeriaData.hero.title}
           subtitle={galeriaData.hero.subtitle}
-          height="60vh"
         />
       </div>
 

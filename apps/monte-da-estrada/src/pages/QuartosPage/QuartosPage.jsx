@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
-import ResponsiveImage from '@/components/ResponsiveImage';
 import {
+  PageHero,
   RoomCardGallery,
   SectionEyebrow,
   variants,
@@ -135,34 +135,15 @@ const QuartosPage = () => {
       />
 
       {/* ─────────────────────────────────────────── */}
-      {/* S1 — Page Hero (55vh, editorial pattern)   */}
+      {/* S1 — Page Hero                             */}
       {/* ─────────────────────────────────────────── */}
-      <section className={styles.hero}>
-        <ResponsiveImage
-          src={quartosImages.hero.src}
-          alt={quartosImages.hero.alt}
-          className={styles.heroImage}
-          loading="eager"
-          lazy={false}
-        />
-        <div className={styles.heroOverlay}>
-          <div className={styles.container}>
-            <motion.div
-              className={styles.heroContent}
-              variants={variants.fadeUp}
-              initial="hidden"
-              animate="visible"
-            >
-              <h1 className={styles.heroTitle}>
-                Os Nossos Quartos
-              </h1>
-              <p className={styles.heroSubtitle}>
-                Cada quarto é único. A luz entra diferente em cada um.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        imageSrc={quartosImages.hero.src}
+        imageAlt={quartosImages.hero.alt}
+        eyebrow="Quartos"
+        headline="Os Nossos Quartos"
+        subtitle="Cada quarto é único. A luz entra diferente em cada um."
+      />
 
       {/* ─────────────────────────────────────────── */}
       {/* S2 — Room Cards Section (Cream, 80px pad) */}

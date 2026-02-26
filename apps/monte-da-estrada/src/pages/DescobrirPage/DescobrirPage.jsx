@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
 import {
-  DiscoveryHero,
+  PageHero,
   CategoryNav,
   EditorialSplitSection,
   ExperienceCard,
@@ -46,10 +46,10 @@ const DescobrirPage = () => {
         image="/images/hero-atividades.jpg"
       />
 
-      {/* S1 — DiscoveryHero ──────────────────────────────────────── */}
+      {/* S1 — PageHero ──────────────────────────────────────── */}
       {/* 65vh territory photography + eyebrow + headline + subtitle */}
       <div id="discovery-hero">
-        <DiscoveryHero
+        <PageHero
           imageSrc={descobrirImages.hero.src}
           imageAlt={descobrirImages.hero.alt}
           eyebrow={descobrirImages.hero.title}

@@ -2,9 +2,10 @@
 @use '../../styles/mixins' as *;
 
 // ==================================
-// DISCOVERY HERO — 65vh editorial hero
+// PAGE HERO — 65vh canonical editorial hero
+// Used by all internal pages (Descobrir, Galeria, Quartos, Contacto).
 // Shorter than ImmersiveHero (100vh → 65vh), more purposeful.
-// Lighter overlay (20%–55%) lets territory photography breathe.
+// Lighter overlay (20%–55%) lets photography breathe.
 // Three-part text stack: eyebrow · headline · subtitle.
 // No scroll indicator — shorter height reveals next section naturally.
 // ==================================
@@ -38,8 +39,8 @@
 
 // ==================================
 // LIGHTER GRADIENT OVERLAY
-// ImmersiveHero uses 25% → 60%; Discovery uses 20% → 55%
-// Territory photography must read clearly.
+// ImmersiveHero uses 25% → 60%; PageHero uses 20% → 55%
+// Photography must read clearly.
 // ==================================
 
 .overlay {
@@ -85,7 +86,7 @@
   margin: 0;
 }
 
-// Headline — font-weight 300, consistent with all editorial section headings
+// Headline — font-weight 300, consistent with editorial section headings
 .headline {
   font-family: $font-display;
   font-size: clamp(2.25rem, 4.5vw, 3.75rem);
