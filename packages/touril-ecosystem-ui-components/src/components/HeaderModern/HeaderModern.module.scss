@@ -155,21 +155,29 @@
 
   @include focus-visible;
 
-  &:hover { color: $color-clay; }
+  // Underline track — always present, hidden by scaleX(0) until hover/active
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: $spacing-m;
+    right: $spacing-m;
+    height: 2px;
+    background-color: $color-clay;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-  // Active: clay + 2px bottom underline per spec
+  &:hover {
+    color: $color-clay;
+    &::after { transform: scaleX(1); }
+  }
+
+  // Active: clay color + underline fully expanded
   &.navLinkActive {
     color: $color-clay;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: $spacing-m;
-      right: $spacing-m;
-      height: 2px;
-      background-color: $color-clay;
-    }
+    &::after { transform: scaleX(1); }
   }
 }
 
@@ -400,6 +408,8 @@
     transition: none;
     animation: none;
   }
+
+  .navLink::after { transition: none; }
 }
 
 @media (prefers-contrast: more) {

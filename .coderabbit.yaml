@@ -1,0 +1,82 @@
+# CodeRabbit Configuration — Touril Ecosystem / Monte da Estrada
+# Docs: https://docs.coderabbit.ai/guides/configure-coderabbit
+
+language: "en-US"
+
+# Review settings
+reviews:
+  profile: "chill"         # assertive | chill — assertive gives more detailed feedback
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true
+    drafts: false          # Skip draft PRs
+    base_branches:
+      - "main"
+
+# Path-level instructions for context-aware reviews
+path_instructions:
+  - path: "apps/monte-da-estrada/src/**/*.jsx"
+    instructions: |
+      This is a React guest house website using functional components and hooks only (no class components).
+      Check for:
+      - SCSS Modules usage — never inline styles or Tailwind classes
+      - PropTypes validation on all component props
+      - Accessibility: semantic HTML, alt texts, ARIA labels, keyboard nav
+      - Mobile-first responsive approach
+      - No hardcoded colors, fonts, or spacing (must use SCSS variables from @/styles/variables)
+      - Clean import paths using the @/ alias for src/
+      - Components must follow the structure: ComponentName/ComponentName.jsx + ComponentName.module.scss + index.js
+
+  - path: "apps/monte-da-estrada/src/**/*.module.scss"
+    instructions: |
+      SCSS Modules for a boutique guest house brand. Check for:
+      - All colors must use variables ($color-cream, $color-deep-brown, $color-clay, etc.) — never hardcoded hex values
+      - All typography must use $font-* variables — never hardcoded font-family, font-size, or font-weight
+      - All spacing must use $spacing-* variables or multiples — never hardcoded px values beyond border-radius
+      - @use imports must be: @use '@/styles/variables' as *; and @use '@/styles/mixins' as *;
+      - Border-radius must be 0px (flat design — boutique collection brand)
+      - No decorative box-shadows
+      - Mobile-first media queries using the $breakpoint-* variables
+
+  - path: "packages/touril-ecosystem-ui-components/src/**/*.jsx"
+    instructions: |
+      This is a shared component library used across multiple properties.
+      Check for:
+      - Components must be generic/reusable — no Monte da Estrada specific content hardcoded
+      - SCSS import path in shared lib: @use '../../styles/variables' as *; and @use '../../styles/mixins' as *;
+      - All exports must be added to packages/touril-ecosystem-ui-components/src/index.js
+      - No direct dependency on app-level assets or routes
+
+  - path: "apps/monte-da-estrada/public/admin/**"
+    instructions: |
+      Decap CMS configuration. Check for:
+      - Correct field types and required flags
+      - Image field paths matching the public/uploads structure
+      - Consistent slug patterns
+      - No secrets or API keys committed
+
+  - path: "**/__tests__/**"
+    instructions: |
+      Jest + React Testing Library tests. Each component should have:
+      - At least 1 rendering test
+      - At least 1 user interaction test (if applicable)
+      - At least 1 edge case test (empty state, loading state)
+      Ensure tests use @testing-library/user-event for interactions, not fireEvent.
+
+# Files to ignore during review
+path_filters:
+  - "!**/node_modules/**"
+  - "!**/dist/**"
+  - "!**/build/**"
+  - "!**/.netlify/**"
+  - "!**/package-lock.json"
+  - "!**/*.min.js"
+  - "!**/*.min.css"
+
+# Chat settings (for inline PR comments)
+chat:
+  auto_reply: true
