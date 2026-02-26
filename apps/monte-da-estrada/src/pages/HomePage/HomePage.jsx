@@ -27,7 +27,7 @@ const NAV_ITEMS = [
   { id: 'casa', label: 'Casa' },
   { id: 'quartos', label: 'Quartos' },
   { id: 'territorio', label: 'Território' },
-  { id: 'atividades', label: 'Atividades' },
+  { id: 'experiencias', label: 'Experiências' },
   { id: 'reservas', label: 'Reservas' },
   { id: 'galeria', label: 'Galeria' },
 ];
@@ -103,7 +103,7 @@ const activityItems = [
   },
   {
     title: 'Gastronomia',
-    description: 'Restaurantes em São Teotónio, vinho alentejano, produtos locais.',
+    description: 'Restaurantes, vinho alentejano, e produtos locais.',
     distance: '5 km',
   },
   {
@@ -111,6 +111,10 @@ const activityItems = [
     description: 'Estradas de terra batida através do montado sem trânsito.',
     distance: '0 km',
   },
+  { 
+    title: 'Massagens', 
+    description: 'Massagens terapêuticas e relaxantes na Herdade do Touril.', 
+    distance: '3 km' },
 ];
 
 // 3 images for the asymmetric gallery preview grid.
@@ -228,14 +232,14 @@ const HomePage = () => {
         />
       </div>
 
-      {/* S7 — Atividades — Activity Highlights ─────────────── */}
+      {/* S7 — Experiências — Activity Highlights ─────────────── */}
       {/* 5 editorial activity cards: icon + title + distance */}
-      <div id="atividades">
+      <div id="experiencias">
         <ActivityHighlights
-          eyebrow="Atividades"
+          eyebrow="Experiências"
           heading="Aqui não há agenda. A não ser a sua."
           items={activityItems}
-          ctaLabel="Ver todas as atividades"
+          ctaLabel="Ver todas as experiências"
           ctaHref="/descobrir"
         />
       </div>
