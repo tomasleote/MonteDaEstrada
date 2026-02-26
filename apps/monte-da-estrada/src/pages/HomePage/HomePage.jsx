@@ -150,7 +150,7 @@ const HomePage = () => {
       <CategoryNav
         items={NAV_ITEMS}
         targetId="home-hero"
-        headerHeight={72}
+        headerHeight={88}
       />
 
       {/* S2 — Editorial Anchor ──────────────────────────────── */}

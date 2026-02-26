@@ -63,7 +63,7 @@ const DescobrirPage = () => {
       <CategoryNav
         items={NAV_ITEMS}
         targetId="discovery-hero"
-        headerHeight={72}
+        headerHeight={88}
       />
 
       {/* S3 — O Território — EditorialSplitSection ───────────────── */}

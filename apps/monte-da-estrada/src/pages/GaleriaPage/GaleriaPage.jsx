@@ -79,7 +79,7 @@ const GaleriaPage = () => {
       </div>
 
       {/* Sticky sub-navigation */}
-      <CategoryNav items={NAV_ITEMS} targetId="galeria-hero" headerHeight={72} />
+      <CategoryNav items={NAV_ITEMS} targetId="galeria-hero" headerHeight={88} />
 
       {/* ── O Monte ─────────────────────────────────────────── */}
       <section id="o-monte" className={styles.section}>
