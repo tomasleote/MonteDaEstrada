@@ -16,6 +16,7 @@ import alteirinhos from './alteirinhos.png';
 import almograve from './almograve.jpg';
 import odeceixe from './odeceixe.jpg';
 import tonel from './tonel.jpg';
+import costaVicentina from './costaVicentina.jpg';
 
 export const descobrirImages = {
   hero: {
@@ -87,7 +88,11 @@ export const descobrirImages = {
       title: 'Tonel'
     }
   ],
-  attractions: []
+  attractions: [],
+  territory: {
+    src: costaVicentina,
+    alt: 'Vista panorâmica da paisagem alentejana',
+  },
 };
 
 export default descobrirImages;

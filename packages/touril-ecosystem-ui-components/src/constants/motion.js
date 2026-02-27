@@ -15,6 +15,7 @@ export const duration = {
   medium: 0.5,     // 500ms — section reveals, card entrances
   long: 0.7,       // 700ms — page transitions, hero animations
   cinematic: 1.0,  // 1000ms — initial page load, dramatic reveals
+  editorial: 0.9,  // 900ms — premium text reveals, editorial headings
 };
 
 // ============================================
@@ -27,6 +28,7 @@ export const ease = {
   standard: [0.4, 0, 0.2, 1],          // Material standard — versatile
   elegant: [0.25, 0.46, 0.45, 0.94],   // Gentle ease-out — refined movement
   emphasis: [0.34, 1.56, 0.64, 1],     // Slight overshoot — playful feedback
+  organic: [0.22, 1, 0.36, 1],         // Exponential-out — luxury hotel signature curve
 };
 
 // ============================================
@@ -48,6 +50,7 @@ export const distance = {
   subtle: 12,      // Micro-movements, small UI shifts
   default: 24,     // Standard reveal distance
   dramatic: 40,    // Emphatic entrance (hero elements)
+  headline: 32,    // Deep headline lift for cinematic reveals
 };
 
 // ============================================
@@ -125,6 +128,42 @@ export const variants = {
       opacity: 1,
       y: 0,
       transition: { duration: duration.medium, ease: ease.entrance },
+    },
+  },
+
+  // Line reveal — premium editorial heading entrance
+  lineReveal: {
+    hidden: {
+      clipPath: 'inset(100% 0 0 0)',
+      opacity: 0,
+      y: distance.headline,
+    },
+    visible: {
+      clipPath: 'inset(0% 0 0 0)',
+      opacity: 1,
+      y: 0,
+      transition: { duration: duration.editorial, ease: ease.organic },
+    },
+  },
+
+  // Editorial fade-up — slower organic body text reveal
+  editorialFadeUp: {
+    hidden: { opacity: 0, y: distance.default },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: duration.editorial, ease: ease.organic },
+    },
+  },
+
+  // Section stagger — choreographed section reveals
+  sectionStagger: {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05,
+      },
     },
   },
 };

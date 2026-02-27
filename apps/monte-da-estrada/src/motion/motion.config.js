@@ -15,6 +15,7 @@ export const duration = {
   medium: 0.5,     // 500ms — section reveals, card entrances
   long: 0.7,       // 700ms — page transitions, hero animations
   cinematic: 1.0,  // 1000ms — initial page load, dramatic reveals
+  editorial: 0.9,  // 900ms — premium text reveals, editorial headings
 };
 
 // ============================================
@@ -31,6 +32,7 @@ export const ease = {
   // Character curves
   elegant: [0.25, 0.46, 0.45, 0.94],   // Gentle ease-out — refined movement
   emphasis: [0.34, 1.56, 0.64, 1],     // Slight overshoot — playful feedback
+  organic: [0.22, 1, 0.36, 1],         // Exponential-out — luxury hotel signature curve
 };
 
 // ============================================
@@ -54,6 +56,7 @@ export const distance = {
   subtle: 12,      // Micro-movements, small UI shifts
   default: 24,     // Standard reveal distance
   dramatic: 40,    // Emphatic entrance (hero elements)
+  headline: 32,    // Deep headline lift for cinematic reveals
 };
 
 // ============================================

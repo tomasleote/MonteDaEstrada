@@ -16,9 +16,12 @@ export {
   scaleIn,
   fadeLeft,
   fadeRight,
+  lineReveal,
+  editorialFadeUp,
   staggerContainer,
   staggerContainerFast,
   staggerContainerSlow,
+  sectionStagger,
   heroTitle,
   heroSubtitle,
   heroCta,
@@ -32,3 +35,6 @@ export { default as AnimatedPage } from './components/AnimatedPage';
 export { default as ScrollReveal } from './components/ScrollReveal';
 export { default as StaggerChildren } from './components/StaggerChildren';
 export { default as AnimatedText } from './components/AnimatedText';
+export { default as RevealText } from './components/RevealText';
+export { default as RevealSection } from './components/RevealSection';
+export { default as ParallaxImage } from './components/ParallaxImage';

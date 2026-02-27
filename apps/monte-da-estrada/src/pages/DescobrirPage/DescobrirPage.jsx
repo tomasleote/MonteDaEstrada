@@ -17,7 +17,6 @@ import {
 } from '@touril-ecosystem/ui-components';
 import descobrirData from '@/data/descobrir';
 import mapLocations from '@/data/map-locations';
-import { homeImages } from '@/assets/images/home';
 import { descobrirImages } from '@/assets/images/descobrir';
 import styles from './DescobrirPage.module.scss';
 
@@ -75,7 +74,7 @@ const DescobrirPage = () => {
           'A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio — está aqui mesmo à porta.',
           'Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente faz falta.',
         ]}
-        imageSrc={homeImages.gallery[4].src}
+        imageSrc={descobrirImages.territory.src}
         imageAlt="Vista panorâmica da paisagem alentejana"
         imagePosition="left"
       />

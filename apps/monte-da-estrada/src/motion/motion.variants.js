@@ -129,6 +129,45 @@ export const fadeRight = {
 };
 
 // ============================================
+// LINE REVEAL — Premium editorial heading entrance
+// ============================================
+
+/** Line reveal — text slides up from behind a clipped mask edge.
+ *  The signature "luxury hotel" text entrance. Zero layout shift. */
+export const lineReveal = {
+  hidden: {
+    clipPath: 'inset(100% 0 0 0)',
+    opacity: 0,
+    y: distance.headline,
+  },
+  visible: {
+    clipPath: 'inset(0% 0 0 0)',
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: duration.editorial,
+      ease: ease.organic,
+    },
+  },
+};
+
+/** Editorial fade-up — slower, more organic version of fadeUp for body text */
+export const editorialFadeUp = {
+  hidden: {
+    opacity: 0,
+    y: distance.default,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: duration.editorial,
+      ease: ease.organic,
+    },
+  },
+};
+
+// ============================================
 // STAGGER CONTAINERS
 // ============================================
 
@@ -161,6 +200,17 @@ export const staggerContainerSlow = {
     transition: {
       staggerChildren: stagger.slow,
       delayChildren: 0.15,
+    },
+  },
+};
+
+/** Section stagger — orchestrates eyebrow → heading → body → CTA */
+export const sectionStagger = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
     },
   },
 };
