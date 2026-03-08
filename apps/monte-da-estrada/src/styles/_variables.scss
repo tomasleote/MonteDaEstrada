@@ -2,7 +2,7 @@
 // DESIGN TOKENS — Boutique Collection
 // Monte da Estrada · Monte do Papa-Léguas
 // ==================================
-// Brand rules: 0px radius, no shadows, Clay primary, generous letter-spacing.
+// Brand rules: 0px radius, no shadows, Brand Blue primary, generous letter-spacing.
 // Fonts: Basis Grotesque (display) / Inter (body). Open-source fallbacks used if
 // commercial licenses are not in place.
 
@@ -10,25 +10,37 @@
 // BOUTIQUE COLLECTION PALETTE
 // ============================================
 
-$color-cream:        #F5F3F0;  // Primary background
-$color-off-white:    #FAFAF8;  // Card backgrounds
-$color-warm-gray:    #DDD9D5;  // Dividers, borders
-$color-deep-brown:   #3D3B38;  // Primary text, header/footer bg
-$color-clay:         #B8925F;  // Accent, CTAs, links on dark
-$color-charcoal:     #4A4845;  // Secondary text
-$color-cool-taupe:   #A89F98;  // Muted text, labels
-$color-light-taupe:  #C8C0B8;  // Disabled state
-$color-pale-gray:    #EEECE9;  // Hover backgrounds
+// Brand Scale (derived from #94B1C9)
+$color-brand-50: #EDF2F6; // Lightest tint, hover backgrounds
+$color-brand-100: #D9E4ED; // Subtle accents, card highlights
+$color-brand-200: #BDCFDD; // Soft borders, muted states
+$color-brand-300: #A8C0D1; // Secondary accents
+$color-brand-400: #94B1C9; // Lighter variant
+$color-brand-500: #94B1C9; // Brand primary
+$color-brand-600: #7A9BB5; // Primary hover state
+$color-brand-700: #5F809A; // Active / pressed states
+$color-brand-800: #476074; // Dark accent
+$color-brand-900: #2C3E50; // Header/footer background
+
+$color-cream: #F5F3F0; // Primary background
+$color-off-white: #FAFAF8; // Card backgrounds
+$color-warm-gray: #DDD9D5; // Dividers, borders
+$color-deep-brown: #2C3E50; // Primary text, header/footer bg (dark slate)
+$color-clay: #94B1C9; // Accent, CTAs, links on dark (brand blue)
+$color-charcoal: #415B71; // Secondary text
+$color-cool-taupe: #8A9EAD; // Muted text, labels
+$color-light-taupe: #C5D3DE; // Disabled state
+$color-pale-gray: #EDF2F6; // Hover backgrounds
 
 // Extended palette
-$color-sand:         #EDE8E2;  // Discovery alternate sections — 3% warmer than cream
-$color-accent-dark:  #9A7A50;  // Clay darkened for hover states
-$color-accent-light: #D4B48C;  // Clay lightened
+$color-sand: #EDE8E2; // Discovery alternate sections — 3% warmer than cream
+$color-accent-dark: #7A9BB5; // Brand blue darkened for hover states
+$color-accent-light: #BDCFDD; // Brand blue lightened
 
 // Semantic tokens
-$color-header-bg:    $color-deep-brown;
-$color-footer-bg:    $color-deep-brown;
-$color-header-text:  $color-cream;
+$color-header-bg: $color-brand-900;
+$color-footer-bg: $color-brand-900;
+$color-header-text: $color-cream;
 $color-header-accent: $color-clay;
 
 // ============================================
@@ -36,45 +48,45 @@ $color-header-accent: $color-clay;
 // (components using old names automatically get new brand values)
 // ============================================
 
-$color-primary:             $color-deep-brown;
-$color-primary-light:       $color-charcoal;
-$color-primary-lighter:     $color-charcoal;
-$color-accent:              $color-clay;
-$color-accent-dark:         #9A7A50;   // keep as concrete value for Sass math
+$color-primary: $color-deep-brown;
+$color-primary-light: #4A6278;
+$color-primary-lighter: #6B8499;
+$color-accent: $color-clay;
+$color-accent-dark: #7A9BB5; // keep as concrete value for Sass math
 
-$color-neutral-white:       #FFFFFF;
-$color-neutral-off-white:   $color-off-white;
-$color-neutral-light-gray:  $color-warm-gray;
-$color-neutral-gray:        $color-cool-taupe;
-$color-neutral-dark-gray:   $color-charcoal;
-$color-neutral-black:       $color-deep-brown;
+$color-neutral-white: #FFFFFF;
+$color-neutral-off-white: $color-off-white;
+$color-neutral-light-gray: $color-warm-gray;
+$color-neutral-gray: $color-cool-taupe;
+$color-neutral-dark-gray: $color-charcoal;
+$color-neutral-black: $color-deep-brown;
 
-$color-text-primary:        $color-deep-brown;
-$color-text-secondary:      $color-charcoal;
-$color-text-muted:          $color-cool-taupe;
-$color-text-light:          $color-cream;
+$color-text-primary: $color-deep-brown;
+$color-text-secondary: $color-charcoal;
+$color-text-muted: $color-cool-taupe;
+$color-text-light: $color-cream;
 
-$color-success: #5C8A4A;  // Olive green (natural, fits Alentejo)
+$color-success: #5C8A4A; // Olive green (natural, fits Alentejo)
 $color-warning: #E67E22;
-$color-error:   #C0392B;
-$color-info:    #3498DB;
+$color-error: #C0392B;
+$color-info: #3498DB;
 
-$color-bg-primary:   $color-cream;
+$color-bg-primary: $color-cream;
 $color-bg-secondary: $color-off-white;
-$color-bg-tertiary:  $color-pale-gray;
-$color-bg-dark:      $color-deep-brown;
-$color-bg-overlay:   rgba(61, 59, 56, 0.6);
+$color-bg-tertiary: $color-pale-gray;
+$color-bg-dark: $color-deep-brown;
+$color-bg-overlay: rgba(44, 62, 80, 0.6);
 
-$color-border:        $color-warm-gray;
-$color-border-light:  $color-pale-gray;
-$color-border-dark:   $color-charcoal;
+$color-border: $color-warm-gray;
+$color-border-light: $color-pale-gray;
+$color-border-dark: $color-charcoal;
 $color-border-medium: $color-warm-gray;
 
 // Deprecated aliases
-$color-primary-dark:    $color-primary;
-$color-secondary:       $color-accent;
+$color-primary-dark: $color-primary;
+$color-secondary: $color-accent;
 $color-secondary-light: $color-accent-light;
-$color-secondary-dark:  $color-accent-dark;
+$color-secondary-dark: $color-accent-dark;
 
 // CSS custom property for per-property secondary color override
 :root {
@@ -88,67 +100,67 @@ $color-secondary-dark:  $color-accent-dark;
 // Font Families — Boutique Collection
 // Basis Grotesque: commercial license required (Colophon Foundry)
 // DM Sans: open-source fallback (Google Fonts)
-$font-display:    'Basis Grotesque', 'DM Sans', -apple-system, sans-serif;   // H1-H4
-$font-body:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;    // Body
-$font-editorial:  'GT Sectra', 'Lora', Georgia, serif;                       // Pull quotes
+$font-display: 'Basis Grotesque', 'DM Sans', -apple-system, sans-serif; // H1-H4
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; // Body
+$font-editorial: 'GT Sectra', 'Lora', Georgia, serif; // Pull quotes
 
 // Backward-compatible aliases
-$font-family-primary:   $font-display;
+$font-family-primary: $font-display;
 $font-family-secondary: $font-body;
-$font-family-mono:      'Courier New', monospace;
+$font-family-mono: 'Courier New', monospace;
 
 // Font Sizes
-$font-size-h1: 3.5rem;      // 56px
-$font-size-h2: 2.75rem;     // 44px
-$font-size-h3: 2.125rem;    // 34px
-$font-size-h4: 1.5rem;      // 24px
-$font-size-h5: 1.25rem;     // 20px
-$font-size-h6: 1rem;        // 16px
+$font-size-h1: 3.5rem; // 56px
+$font-size-h2: 2.75rem; // 44px
+$font-size-h3: 2.125rem; // 34px
+$font-size-h4: 1.5rem; // 24px
+$font-size-h5: 1.25rem; // 20px
+$font-size-h6: 1rem; // 16px
 
-$font-size-body-large: 1.125rem;      // 18px
-$font-size-body:       1rem;          // 16px
-$font-size-body-small: 0.875rem;      // 14px
-$font-size-caption:    0.75rem;       // 12px
-$font-size-label:      0.875rem;      // 14px
+$font-size-body-large: 1.125rem; // 18px
+$font-size-body: 1rem; // 16px
+$font-size-body-small: 0.875rem; // 14px
+$font-size-caption: 0.75rem; // 12px
+$font-size-label: 0.875rem; // 14px
 
 // Deprecated size aliases
-$font-size-xs:          0.75rem;
-$font-size-sm:          0.875rem;
-$font-size-base:        1rem;
-$font-size-md:          1.125rem;
-$font-size-lg:          1.25rem;
-$font-size-xl:          1.5rem;
-$font-size-2xl:         2rem;
-$font-size-3xl:         2.5rem;
-$font-size-4xl:         3rem;
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-4xl: 3rem;
 $font-size-body-extra-small: 0.75rem;
 
 // Font Weights
-$font-weight-light:    300;
-$font-weight-regular:  400;
-$font-weight-medium:   500;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
 $font-weight-semibold: 600;
-$font-weight-bold:     700;
+$font-weight-bold: 700;
 
 // Line Heights
-$line-height-tight:   1.2;
-$line-height-base:    1.5;
+$line-height-tight: 1.2;
+$line-height-base: 1.5;
 $line-height-relaxed: 1.65;
-$line-height-loose:   2;
+$line-height-loose: 2;
 
 // Deprecated alias
 $line-height-normal: $line-height-base;
 
 // Letter Spacing — Boutique Collection
-$letter-spacing-headline:    1px;     // H1 / H2
-$letter-spacing-subheading:  0.75px;  // H3 / H4 / button labels
-$letter-spacing-body:        0.5px;   // Body / captions
-$letter-spacing-touril:      0.75px;  // Alias — used in shared component SCSS
+$letter-spacing-headline: 1px; // H1 / H2
+$letter-spacing-subheading: 0.75px; // H3 / H4 / button labels
+$letter-spacing-body: 0.5px; // Body / captions
+$letter-spacing-touril: 0.75px; // Alias — used in shared component SCSS
 
 // Deprecated letter-spacing
-$letter-spacing-tight:      -0.5px;
-$letter-spacing-normal:     0;
-$letter-spacing-wide:       $letter-spacing-body;
+$letter-spacing-tight: -0.5px;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: $letter-spacing-body;
 $letter-spacing-extra-wide: $letter-spacing-headline;
 
 // ============================================
@@ -157,58 +169,58 @@ $letter-spacing-extra-wide: $letter-spacing-headline;
 
 $spacing-unit: 8px;
 
-$spacing-xs:   $spacing-unit * 0.5;  // 4px
-$spacing-s:    $spacing-unit * 1;    // 8px
-$spacing-m:    $spacing-unit * 2;    // 16px
-$spacing-l:    $spacing-unit * 3;    // 24px
-$spacing-xl:   $spacing-unit * 4;    // 32px
-$spacing-xxl:  $spacing-unit * 5;    // 40px
-$spacing-xxxl: $spacing-unit * 6;    // 48px  ← minimum section padding (brand rule)
+$spacing-xs: $spacing-unit * 0.5; // 4px
+$spacing-s: $spacing-unit * 1; // 8px
+$spacing-m: $spacing-unit * 2; // 16px
+$spacing-l: $spacing-unit * 3; // 24px
+$spacing-xl: $spacing-unit * 4; // 32px
+$spacing-xxl: $spacing-unit * 5; // 40px
+$spacing-xxxl: $spacing-unit * 6; // 48px  ← minimum section padding (brand rule)
 
 // Deprecated spacing aliases
-$spacing-sm:  $spacing-unit;
-$spacing-md:  $spacing-unit * 2;
-$spacing-2xl: $spacing-unit * 6;     // 48px
-$spacing-3xl: $spacing-unit * 8;     // 64px
-$spacing-4xl: $spacing-unit * 10;    // 80px
+$spacing-sm: $spacing-unit;
+$spacing-md: $spacing-unit * 2;
+$spacing-2xl: $spacing-unit * 6; // 48px
+$spacing-3xl: $spacing-unit * 8; // 64px
+$spacing-4xl: $spacing-unit * 10; // 80px
 
 // Semantic spacing
-$margin-section:  $spacing-xxxl;
-$padding-section: $spacing-xxxl;  // min 48px; prefer 80px for hero sections
-$gap-grid:        $spacing-l;
-$gap-flex:        $spacing-m;
+$margin-section: $spacing-xxxl;
+$padding-section: $spacing-xxxl; // min 48px; prefer 80px for hero sections
+$gap-grid: $spacing-l;
+$gap-flex: $spacing-m;
 
 // ============================================
 // LAYOUT
 // ============================================
 
-$container-max-width:      1200px;
-$container-padding:        $spacing-l;
+$container-max-width: 1200px;
+$container-padding: $spacing-l;
 $footer-content-max-width: 1200px;
 
 $grid-columns: 12;
-$grid-gap:     $spacing-m;
+$grid-gap: $spacing-m;
 
 // ============================================
 // RESPONSIVE BREAKPOINTS
 // ============================================
 
-$breakpoint-mobile:       480px;
-$breakpoint-tablet:       768px;
-$breakpoint-desktop:      1024px;
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
 $breakpoint-desktop-wide: 1440px;
 
-$container-mobile:       100%;
-$container-tablet:       90%;
-$container-desktop:      1200px;
+$container-mobile: 100%;
+$container-tablet: 90%;
+$container-desktop: 1200px;
 $container-desktop-wide: 1320px;
 
 // Deprecated breakpoint aliases
-$breakpoint-xs:  480px;
-$breakpoint-sm:  640px;
-$breakpoint-md:  768px;
-$breakpoint-lg:  1024px;
-$breakpoint-xl:  1280px;
+$breakpoint-xs: 480px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
 $breakpoint-2xl: 1536px;
 
 // ============================================
@@ -216,20 +228,20 @@ $breakpoint-2xl: 1536px;
 // ============================================
 // Brand rule: 0px everywhere — no softened corners.
 
-$border-width-thin:   1px;
+$border-width-thin: 1px;
 $border-width-medium: 2px;
-$border-width-thick:  4px;
+$border-width-thick: 4px;
 
-$border-radius-sharp:   0px;   // Brand standard
-$border-radius-slight:  0px;   // Was 4px — flattened per brand
-$border-radius-rounded: 0px;   // Was 8px — flattened per brand
-$border-radius-full:    50%;   // For circular avatars only
+$border-radius-sharp: 0px; // Brand standard
+$border-radius-slight: 0px; // Was 4px — flattened per brand
+$border-radius-rounded: 0px; // Was 8px — flattened per brand
+$border-radius-full: 50%; // For circular avatars only
 
 // Deprecated radius aliases
-$border-radius-sm:  0px;
-$border-radius-md:  0px;
-$border-radius-lg:  0px;
-$border-radius-xl:  0px;
+$border-radius-sm: 0px;
+$border-radius-md: 0px;
+$border-radius-lg: 0px;
+$border-radius-xl: 0px;
 $border-radius-2xl: 0px;
 
 // ============================================
@@ -238,9 +250,9 @@ $border-radius-2xl: 0px;
 // Brand rule: no decorative shadows. Only the subtle elevation shadow is permitted.
 
 $shadow-subtle: 0 1px 3px rgba(61, 59, 56, 0.06);
-$shadow-medium: none;   // Brand rule: no decorative shadows
+$shadow-medium: none; // Brand rule: no decorative shadows
 $shadow-strong: none;
-$shadow-hover:  none;
+$shadow-hover: none;
 
 // Deprecated shadow aliases
 $shadow-sm: $shadow-subtle;
@@ -249,35 +261,35 @@ $shadow-lg: none;
 $shadow-xl: none;
 
 // Transitions
-$transition-timing-slow:   cubic-bezier(0.4, 0, 0.2, 1);
+$transition-timing-slow: cubic-bezier(0.4, 0, 0.2, 1);
 $transition-timing-normal: cubic-bezier(0.4, 0, 0.6, 1);
-$transition-timing-fast:   cubic-bezier(0.4, 0, 1, 1);
+$transition-timing-fast: cubic-bezier(0.4, 0, 1, 1);
 $transition-timing-standard: cubic-bezier(0.4, 0, 0.6, 1);
 
-$transition-duration-quick:  150ms;
+$transition-duration-quick: 150ms;
 $transition-duration-normal: 300ms;
-$transition-duration-slow:   500ms;
+$transition-duration-slow: 500ms;
 
 // Deprecated transition shorthands
-$transition-fast:   0.2s;
+$transition-fast: 0.2s;
 $transition-normal: 0.4s;
-$transition-slow:   0.6s;
+$transition-slow: 0.6s;
 
 // Easing functions (CSS)
-$ease-standard:  cubic-bezier(0.4, 0, 0.6, 1);
-$ease-in-out:    cubic-bezier(0.37, 0, 0.63, 1);
-$ease-out-back:  cubic-bezier(0.87, 0, 0.13, 1);
+$ease-standard: cubic-bezier(0.4, 0, 0.6, 1);
+$ease-in-out: cubic-bezier(0.37, 0, 0.63, 1);
+$ease-out-back: cubic-bezier(0.87, 0, 0.13, 1);
 
 // Combined CSS transitions (legacy)
-$transition-all-fast:   all $transition-fast $ease-standard;
+$transition-all-fast: all $transition-fast $ease-standard;
 $transition-all-normal: all $transition-normal $ease-standard;
-$transition-opacity:    opacity $transition-fast $ease-in-out;
-$transition-transform:  transform $transition-normal $ease-out-back;
+$transition-opacity: opacity $transition-fast $ease-in-out;
+$transition-transform: transform $transition-normal $ease-out-back;
 
 // Opacity
-$opacity-hover:    0.85;
+$opacity-hover: 0.85;
 $opacity-disabled: 0.5;
-$opacity-overlay:  0.7;
+$opacity-overlay: 0.7;
 
 // ============================================
 // FLUID TYPOGRAPHY
@@ -285,14 +297,14 @@ $opacity-overlay:  0.7;
 
 :root {
   // Fluid font sizes
-  --font-size-xs-fluid:   clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-  --font-size-sm-fluid:   clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-xs-fluid: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm-fluid: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
   --font-size-base-fluid: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
-  --font-size-lg-fluid:   clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
-  --font-size-xl-fluid:   clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
-  --font-size-2xl-fluid:  clamp(1.5rem, 1.3rem + 1vw, 2rem);
-  --font-size-3xl-fluid:  clamp(2rem, 1.7rem + 1.5vw, 2.5rem);
-  --font-size-4xl-fluid:  clamp(2.5rem, 2rem + 2.5vw, 3rem);
+  --font-size-lg-fluid: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl-fluid: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl-fluid: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-3xl-fluid: clamp(2rem, 1.7rem + 1.5vw, 2.5rem);
+  --font-size-4xl-fluid: clamp(2.5rem, 2rem + 2.5vw, 3rem);
 
   // Fluid spacing
   --spacing-xs-fluid: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
@@ -306,9 +318,9 @@ $opacity-overlay:  0.7;
 // TOUCH TARGETS
 // ============================================
 
-$touch-target-min:        44px;
+$touch-target-min: 44px;
 $touch-target-comfortable: 48px;
-$touch-target-large:      56px;
+$touch-target-large: 56px;
 
 $touch-spacing-sm: 8px;
 $touch-spacing-md: 16px;
@@ -324,10 +336,10 @@ $size-social-icon: 20px;
 // Z-INDEX LAYERS
 // ============================================
 
-$z-index-dropdown:        1000;
-$z-index-sticky:          1020;
-$z-index-fixed:           1030;
-$z-index-modal-backdrop:  1040;
-$z-index-modal:           1050;
-$z-index-popover:         1060;
-$z-index-tooltip:         1070;
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;

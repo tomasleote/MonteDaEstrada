@@ -23,7 +23,7 @@
 
   @include hover-device {
     &:hover {
-      background-color: #555250; // charcoal lightened 4% — avoids Sass lighten() deprecation
+      background-color: $color-charcoal; // charcoal — subtle lift from dark section
 
       .image {
         opacity: 0.85;

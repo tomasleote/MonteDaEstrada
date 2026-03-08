@@ -6,8 +6,8 @@ import styles from './Button.module.scss';
  * Boutique Collection Button component.
  *
  * Variants:
- * - primary: Clay (#B8925F) background, Deep Brown text — for CTAs
- * - secondary: Transparent bg, Clay border + text — for secondary actions
+ * - primary: Brand Blue (#94B1C9) background, Dark Slate text — for CTAs
+ * - secondary: Transparent bg, Brand Blue border + text — for secondary actions
  * - ghost: Transparent bg, Cream border + text — for use on dark backgrounds
  *
  * Brand rules: 0px border-radius, no shadows, letter-spacing 0.75px.

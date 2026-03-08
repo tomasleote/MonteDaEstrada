@@ -46,6 +46,7 @@ const NAV_ITEMS = [
   { id: 'mapa', label: 'Mapa' },
   { id: 'experiencias', label: 'Experiências' },
   { id: 'praias', label: 'Praias' },
+  { id: 'parceiros', label: 'Parceiros' },
 ];
 
 // ──────────────────────────────────────────────

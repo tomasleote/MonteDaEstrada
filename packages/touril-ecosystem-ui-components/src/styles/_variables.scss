@@ -3,65 +3,77 @@
 // ==================================
 // Shared design system for Monte da Estrada + Monte do Papa-Léguas
 // Brand: Editorial, architectural, photography-forward
-// Palette: Cream backgrounds, deep brown typography, clay accent
+// Palette: Cream backgrounds, coastal slate typography, brand blue accent (#94B1C9)
 
 // ============================================
 // COLOR PALETTE — BOUTIQUE COLLECTION
 // ============================================
 
-// Primary Neutral Foundation
-$color-cream: #F5F3F0;            // Primary page background
-$color-sand: #EDE8E2;             // Discovery alternate sections — 3% warmer than cream
-$color-off-white: #FAFAF8;        // Cards, secondary sections
-$color-warm-gray: #DDD9D5;        // Borders, dividers
-$color-deep-brown: #3D3B38;       // Text, headers, footer UI
+// Brand Scale (derived from #94B1C9)
+$color-brand-50: #EDF2F6; // Lightest tint, hover backgrounds
+$color-brand-100: #D9E4ED; // Subtle accents, card highlights
+$color-brand-200: #BDCFDD; // Soft borders, muted states
+$color-brand-300: #A8C0D1; // Secondary accents
+$color-brand-400: #94B1C9; // Lighter variant
+$color-brand-500: #94B1C9; // Brand primary
+$color-brand-600: #7A9BB5; // Primary hover state
+$color-brand-700: #5F809A; // Active / pressed states
+$color-brand-800: #476074; // Dark accent
+$color-brand-900: #2C3E50; // Header/footer background
+
+// Primary Neutral Foundation (warm tones preserved)
+$color-cream: #F5F3F0; // Primary page background
+$color-sand: #EDE8E2; // Discovery alternate sections — 3% warmer than cream
+$color-off-white: #FAFAF8; // Cards, secondary sections
+$color-warm-gray: #DDD9D5; // Borders, dividers
+$color-deep-brown: #2C3E50; // Text, headers, footer UI (dark slate)
 
 // Primary Accent (restrained — CTAs and active states only)
-$color-clay: #B8925F;             // CTAs, highlights, active states
+$color-clay: #94B1C9; // CTAs, highlights, active states (brand blue)
 
 // Property-Specific Secondaries
-$color-charcoal: #4A4845;         // Monte da Estrada secondary
-$color-cool-taupe: #A89F98;       // Papa-Léguas secondary
-$color-light-taupe: #E8E5E0;      // Monte da Estrada tertiary
-$color-pale-gray: #E0DEDA;        // Papa-Léguas tertiary
+$color-charcoal: #415B71; // Monte da Estrada secondary
+$color-cool-taupe: #8A9EAD; // Papa-Léguas secondary
+$color-light-taupe: #C5D3DE; // Monte da Estrada tertiary
+$color-pale-gray: #EDF2F6; // Papa-Léguas tertiary
 
 // Semantic Colors
-$color-success: #B8925F;          // Matches brand accent
-$color-error: #C1440E;            // Warm red-brown
-$color-warning: #E8A35D;          // Light clay
-$color-info: #3D7BA8;             // Accessible blue
-$color-disabled: #CACAC7;         // Desaturated gray
+$color-success: #5C8A4A; // Olive green (natural, fits Alentejo)
+$color-error: #C1440E; // Warm red-brown
+$color-warning: #E8A35D; // Warm amber
+$color-info: #3D7BA8; // Accessible blue
+$color-disabled: #CACAC7; // Desaturated gray
 
 // Header / Footer Semantic Tokens
-$color-header-bg: #3D3B38;        // = $color-deep-brown
-$color-footer-bg: #3D3B38;        // = $color-deep-brown
-$color-header-text: #F5F3F0;      // = $color-cream
-$color-header-accent: #B8925F;    // = $color-clay
+$color-header-bg: $color-brand-900; // Dark slate for logo pop
+$color-footer-bg: $color-brand-900; // Dark slate
+$color-header-text: $color-cream; // Cream text on dark
+$color-header-accent: $color-clay; // Brand blue accent
 
 // ============================================
 // BACKWARD-COMPATIBLE ALIASES
 // (used by existing component SCSS — map to new brand values)
 // ============================================
 
-$color-primary: $color-deep-brown;           // was #0A0203 → now deep brown
-$color-primary-light: #5A5855;               // lighter deep-brown for hover states
-$color-primary-lighter: #7A7775;             // even lighter for muted states
-$color-accent: $color-clay;                  // was #FBAB18 → now clay
-$color-accent-dark: #9E7A4A;                 // darker clay for hover
-$color-accent-light: #D4B08A;               // lighter clay
-$color-bg-primary: $color-cream;             // was white → now cream
-$color-bg-secondary: $color-off-white;       // was off-white → now off-white brand
-$color-bg-tertiary: $color-off-white;        // very light section bg
-$color-bg-dark: $color-deep-brown;           // was black → now deep brown (header/footer)
-$color-bg-overlay: rgba(61, 59, 56, 0.7);   // semi-transparent deep brown overlay
-$color-text-primary: $color-deep-brown;      // was near-black → now deep brown
-$color-text-secondary: $color-charcoal;      // secondary text
-$color-text-muted: $color-cool-taupe;        // muted text — cool taupe
-$color-text-light: $color-cream;             // light text on dark backgrounds
-$color-border: $color-warm-gray;             // standard border
-$color-border-light: $color-warm-gray;       // light border
-$color-border-dark: $color-charcoal;         // dark border
-$color-border-medium: $color-warm-gray;      // alias
+$color-primary: $color-deep-brown; // Dark slate
+$color-primary-light: #4A6278; // Lighter slate for hover states
+$color-primary-lighter: #6B8499; // Even lighter for muted states
+$color-accent: $color-clay; // Brand blue
+$color-accent-dark: #7A9BB5; // Darker blue for hover
+$color-accent-light: #BDCFDD; // Lighter blue
+$color-bg-primary: $color-cream; // Warm cream bg
+$color-bg-secondary: $color-off-white; // Off-white sections
+$color-bg-tertiary: $color-off-white; // Very light section bg
+$color-bg-dark: $color-deep-brown; // Dark slate (header/footer)
+$color-bg-overlay: rgba(44, 62, 80, 0.7); // Semi-transparent slate overlay
+$color-text-primary: $color-deep-brown; // Dark slate text
+$color-text-secondary: $color-charcoal; // Secondary text
+$color-text-muted: $color-cool-taupe; // Muted text — coastal grey
+$color-text-light: $color-cream; // Light text on dark backgrounds
+$color-border: $color-warm-gray; // Standard border
+$color-border-light: $color-warm-gray; // Light border
+$color-border-dark: $color-charcoal; // Dark border
+$color-border-medium: $color-warm-gray; // Alias
 
 // Footer divider
 $color-footer-divider: rgba(221, 217, 213, 0.25); // warm-gray at 25% opacity
@@ -87,9 +99,9 @@ $color-neutral-black: $color-deep-brown;
 // Fallback: DM Sans (open source, similar geometric character)
 // Note: GT Sectra requires commercial license (grillitype.com)
 // Fallback: Lora (open source, contemporary serif)
-$font-display: 'Basis Grotesque', 'DM Sans', sans-serif;      // Display/headings
+$font-display: 'Basis Grotesque', 'DM Sans', sans-serif; // Display/headings
 $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; // Body text
-$font-editorial: 'GT Sectra', 'Lora', Georgia, serif;         // Editorial moments only
+$font-editorial: 'GT Sectra', 'Lora', Georgia, serif; // Editorial moments only
 
 // Backward-compatible aliases
 $font-family-primary: $font-display;
@@ -97,19 +109,19 @@ $font-family-secondary: $font-body;
 $font-family-mono: 'Courier New', monospace;
 
 // Font Sizes (REM-based for scalability)
-$font-size-h1: 3.5rem;       // 56px
-$font-size-h2: 2.75rem;      // 44px
-$font-size-h3: 2rem;         // 32px
-$font-size-h4: 1.5rem;       // 24px
-$font-size-h5: 1.125rem;     // 18px
-$font-size-h6: 1rem;         // 16px
+$font-size-h1: 3.5rem; // 56px
+$font-size-h2: 2.75rem; // 44px
+$font-size-h3: 2rem; // 32px
+$font-size-h4: 1.5rem; // 24px
+$font-size-h5: 1.125rem; // 18px
+$font-size-h6: 1rem; // 16px
 
-$font-size-body-large: 1.125rem;      // 18px
-$font-size-body: 1rem;                // 16px
-$font-size-body-small: 0.875rem;      // 14px
+$font-size-body-large: 1.125rem; // 18px
+$font-size-body: 1rem; // 16px
+$font-size-body-small: 0.875rem; // 14px
 $font-size-body-extra-small: 0.75rem; // 12px
-$font-size-caption: 0.75rem;          // 12px
-$font-size-label: 0.875rem;           // 14px
+$font-size-caption: 0.75rem; // 12px
+$font-size-label: 0.875rem; // 14px
 
 // Deprecated aliases (kept for compatibility)
 $font-size-xs: 0.75rem;
@@ -130,10 +142,10 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Line Heights (brand spec)
-$line-height-tight: 1.2;      // H1
-$line-height-base: 1.4;       // H2
+$line-height-tight: 1.2; // H1
+$line-height-base: 1.4; // H2
 $line-height-subheading: 1.4; // H3, H4
-$line-height-relaxed: 1.6;    // Body text (generous for readability)
+$line-height-relaxed: 1.6; // Body text (generous for readability)
 $line-height-loose: 2;
 
 // Deprecated line-height aliases
@@ -141,10 +153,10 @@ $line-height-normal: $line-height-base;
 $line-height-footer-nav: 1.07; // compact nav grid
 
 // Letter Spacing (critical for editorial quality)
-$letter-spacing-headline: 1px;       // H1, H2
-$letter-spacing-subheading: 0.75px;  // H3, H4, labels
-$letter-spacing-body: 0.5px;         // Body text, captions
-$letter-spacing-touril: 0.75px;      // Alias used by components
+$letter-spacing-headline: 1px; // H1, H2
+$letter-spacing-subheading: 0.75px; // H3, H4, labels
+$letter-spacing-body: 0.5px; // Body text, captions
+$letter-spacing-touril: 0.75px; // Alias used by components
 
 // Other letter-spacing aliases
 $letter-spacing-tight: -0.5px;
@@ -157,13 +169,13 @@ $letter-spacing-extra-wide: $letter-spacing-headline;
 // ============================================
 
 $spacing-unit: 8px;
-$spacing-xs: $spacing-unit * 0.5;   // 4px
-$spacing-s: $spacing-unit * 1;      // 8px
-$spacing-m: $spacing-unit * 2;      // 16px
-$spacing-l: $spacing-unit * 3;      // 24px
-$spacing-xl: $spacing-unit * 4;     // 32px
-$spacing-xxl: $spacing-unit * 6;    // 48px
-$spacing-xxxl: $spacing-unit * 6;   // 48px (alias)
+$spacing-xs: $spacing-unit * 0.5; // 4px
+$spacing-s: $spacing-unit * 1; // 8px
+$spacing-m: $spacing-unit * 2; // 16px
+$spacing-l: $spacing-unit * 3; // 24px
+$spacing-xl: $spacing-unit * 4; // 32px
+$spacing-xxl: $spacing-unit * 6; // 48px
+$spacing-xxxl: $spacing-unit * 6; // 48px (alias)
 $space-section: $spacing-unit * 10; // 80px — minimum section vertical padding
 
 // Deprecated spacing aliases
@@ -172,7 +184,7 @@ $spacing-md: $spacing-unit * 2;
 $spacing-2xl: $spacing-unit * 6;
 $spacing-3xl: $spacing-unit * 8;
 $spacing-4xl: $spacing-unit * 10;
-$spacing-section-touril: 80px;      // Updated: Boutique requires ≥64px (using 80px)
+$spacing-section-touril: 80px; // Updated: Boutique requires ≥64px (using 80px)
 
 // Semantic spacing
 $margin-section: $spacing-xxl;
@@ -227,8 +239,8 @@ $border-width-footer-divider: 1px;
 
 // Brand rule: 0px radius everywhere (architectural, geometric)
 $border-radius-sharp: 0px;
-$border-radius-slight: 0px;    // CHANGED: was 4px — now 0px per brand rules
-$border-radius-rounded: 0px;   // CHANGED: was 8px — now 0px per brand rules
+$border-radius-slight: 0px; // CHANGED: was 4px — now 0px per brand rules
+$border-radius-rounded: 0px; // CHANGED: was 8px — now 0px per brand rules
 $border-radius-full: 50%;
 
 // Deprecated radius aliases
@@ -260,10 +272,10 @@ $transition-timing-normal: cubic-bezier(0.4, 0, 0.6, 1);
 $transition-timing-fast: cubic-bezier(0.4, 0, 1, 1);
 $transition-timing-standard: cubic-bezier(0.4, 0, 0.6, 1); // alias
 
-$transition-duration-quick: 150ms;   // hover, focus
-$transition-duration-normal: 300ms;  // button change, fade
-$transition-duration-smooth: 400ms;  // navigation, menu
-$transition-duration-slow: 500ms;    // image load, submit
+$transition-duration-quick: 150ms; // hover, focus
+$transition-duration-normal: 300ms; // button change, fade
+$transition-duration-smooth: 400ms; // navigation, menu
+$transition-duration-slow: 500ms; // image load, submit
 
 // Deprecated transition aliases
 $transition-fast: 0.15s;

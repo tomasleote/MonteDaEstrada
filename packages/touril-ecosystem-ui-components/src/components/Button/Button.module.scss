@@ -1,9 +1,9 @@
 // ==================================
 // Button — Boutique Collection
 // ==================================
-// Brand rules: 0px radius, no shadow, Clay primary, generous letter-spacing
-// Primary: Clay bg (#B8925F) + Deep Brown text (#3D3B38)
-// Secondary: Transparent bg + Clay border + Clay text
+// Brand rules: 0px radius, no shadow, Brand Blue primary, generous letter-spacing
+// Primary: Brand Blue bg (#94B1C9) + Dark Slate text (#2C3E50)
+// Secondary: Transparent bg + Brand Blue border + Brand Blue text
 // Ghost: Transparent bg + Cream border + Cream text (for dark bg use)
 
 @use '../../styles/variables' as *;
@@ -17,17 +17,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0;         // Brand rule: 0px everywhere
+  border-radius: 0; // Brand rule: 0px everywhere
   border: none;
-  box-shadow: none;         // Brand rule: no shadows
+  box-shadow: none; // Brand rule: no shadows
   font-family: $font-body;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
   text-decoration: none;
   cursor: pointer;
   transition: background-color $transition-duration-normal $ease-standard,
-              color $transition-duration-normal $ease-standard,
-              border-color $transition-duration-normal $ease-standard;
+    color $transition-duration-normal $ease-standard,
+    border-color $transition-duration-normal $ease-standard;
   white-space: nowrap;
   touch-action: manipulation;
 

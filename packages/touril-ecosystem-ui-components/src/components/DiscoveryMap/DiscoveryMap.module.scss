@@ -1,6 +1,6 @@
 // DiscoveryMap.module.scss
 // Section wrapper, filter pills, marker dots and rich popup for the Discovery Map.
-// Brand: cream bg, deep brown text, clay accent. 0px border-radius everywhere.
+// Brand: cream bg, dark slate text, brand blue accent. 0px border-radius everywhere.
 
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
@@ -130,7 +130,7 @@
   width: 14px;
   height: 14px;
   background: $color-clay;
-  box-shadow: 0 0 0 1.5px rgba(184, 146, 95, 0.5);
+  box-shadow: 0 0 0 1.5px rgba($color-clay, 0.5);
 }
 
 // Gold dot — Beaches
@@ -138,7 +138,7 @@
   @extend %dotBase;
   width: 12px;
   height: 12px;
-  background: #D4A843;
+  background: #D4A843; // Map-specific: golden sand (beach category)
   box-shadow: 0 0 0 1.5px rgba(212, 168, 67, 0.45);
 }
 
@@ -147,7 +147,7 @@
   @extend %dotBase;
   width: 12px;
   height: 12px;
-  background: #C25E3A;
+  background: #C25E3A; // Map-specific: terracotta (restaurant category)
   box-shadow: 0 0 0 1px rgba(194, 94, 58, 0.4);
 }
 

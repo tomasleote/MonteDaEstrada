@@ -4,8 +4,8 @@
 // Spec (Desktop inline):
 //   [ Monte da Estrada · Monte do Papa-Léguas ]
 //   Separator: · (middle dot)
-//   Active: Clay #B8925F underline
-//   Inactive: Cream #F5F3F0 text, hover → Clay
+//   Active: Brand Blue #94B1C9 underline
+//   Inactive: Cream #F5F3F0 text, hover → Brand Blue
 //   Font: Inter, 12px, Medium (500), 0.75px letter-spacing
 //
 // Spec (Mobile stacked):
@@ -130,6 +130,7 @@
 // ============================================
 
 @media (prefers-reduced-motion: reduce) {
+
   .inlineLink,
   .stackedLink {
     transition: none;

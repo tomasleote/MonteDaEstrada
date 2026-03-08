@@ -5,7 +5,7 @@
 // BEACH CARD — Cinematic 16:9 landscape card
 // Beaches deserve width: 2-column grid, wider and more immersive than 3-col.
 // Content overlaid via gradient scrim at image bottom.
-// Hover: image scales 1.03 + golden hour warm overlay (rgba clay, 0.08).
+// Hover: image scales 1.03 + coastal blue warm overlay (rgba brand-blue, 0.08).
 // No card background, no box shadow — the photography IS the card.
 // ==================================
 
@@ -36,7 +36,7 @@
 
       .goldenOverlay {
         // Golden hour warm overlay — unique to BeachCard
-        background-color: rgba(184, 146, 95, 0.08); // $color-clay at 8% opacity
+        background-color: rgba($color-clay, 0.08); // brand blue at 8% opacity
       }
     }
   }
@@ -68,25 +68,23 @@
   right: 0;
   height: 65%;
   // Reason: gradient from deep brown at base to transparent — text readable at all photo types
-  background: linear-gradient(
-    to top,
-    rgba(61, 59, 56, 0.78) 0%,
-    rgba(61, 59, 56, 0.3) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(to top,
+      rgba($color-deep-brown, 0.78) 0%,
+      rgba($color-deep-brown, 0.3) 50%,
+      transparent 100%);
   z-index: 1;
   pointer-events: none;
 }
 
 // ==================================
-// GOLDEN OVERLAY — warm hover treatment unique to BeachCard
-// clay (#B8925F) at 0% → 8% opacity — evokes Atlantic golden hour
+// COASTAL OVERLAY — blue hover treatment unique to BeachCard
+// brand blue (#94B1C9) at 0% → 8% opacity — evokes Atlantic coastal light
 // ==================================
 
 .goldenOverlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(184, 146, 95, 0); // transparent initially
+  background-color: rgba($color-clay, 0); // transparent initially
   z-index: 2;
   pointer-events: none;
   transition: background-color $transition-duration-normal $transition-timing-normal;
