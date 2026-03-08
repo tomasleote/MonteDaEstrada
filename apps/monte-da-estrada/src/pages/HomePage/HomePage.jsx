@@ -9,14 +9,12 @@ import {
   SuiteAlentejanaSection,
   ActivityHighlights,
   BookingSection,
-  GalleryPreview,
   CategoryNav,
 } from '@touril-ecosystem/ui-components';
 import atividadesData from '@/data/atividades.json';
 import suiteAlentejanaData from '@/data/suiteAlentejana.json';
 import { homeImages } from '@/assets/images/home';
 import { quartosImages } from '@/assets/images/quartos';
-import { galeriaImages } from '@/assets/images/galeria';
 import { seoConfig } from '@/utils/seo-config';
 import styles from './HomePage.module.scss';
 
@@ -30,7 +28,6 @@ const NAV_ITEMS = [
   { id: 'territorio', label: 'Território' },
   { id: 'experiencias', label: 'Experiências' },
   { id: 'reservas', label: 'Reservas' },
-  { id: 'galeria', label: 'Galeria' },
 ];
 
 // ──────────────────────────────────────────────
@@ -77,14 +74,6 @@ const activityItems = [
     description: 'Massagens terapêuticas e relaxantes na Herdade do Touril.',
     distance: '3 km'
   },
-];
-
-// 3 images for the asymmetric gallery preview grid.
-// Uses property exterior shots for the 2/3-width slot.
-const galleryPreviewImages = [
-  homeImages.gallery[0], // Main entrance — tall portrait slot (left)
-  galeriaImages.gallery[0], // Property detail — square top-right
-  homeImages.gallery[5], // Property exterior — square bottom-right
 ];
 
 // ──────────────────────────────────────────────
@@ -218,16 +207,6 @@ const HomePage = () => {
         />
       </div>
 
-      {/* S9 — Gallery Preview ───────────────────────────────── */}
-      {/* Asymmetric 3-image preview → links to /galeria */}
-      <div id="galeria">
-        <GalleryPreview
-          eyebrow="Galeria"
-          images={galleryPreviewImages}
-          ctaLabel="Ver galeria completa"
-          ctaHref="/galeria"
-        />
-      </div>
     </div>
   );
 };
