@@ -68,6 +68,14 @@ export { default as AmenityStrip } from './components/AmenityStrip';
 export { default as DiscoveryMap } from './components/DiscoveryMap';
 
 // ============================================
+// SUITE ALENTEJANA COMPONENTS
+// ============================================
+
+export { default as SuiteAlentejanaSection } from './components/SuiteAlentejanaSection';
+export { default as SuiteCarousel } from './components/SuiteCarousel';
+export { default as AmenityGrid } from './components/AmenityGrid';
+
+// ============================================
 // CONSTANTS
 // ============================================
 

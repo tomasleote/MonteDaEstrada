@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'motion/react';
 import styles from './RoomCard.module.scss';
 
 /**
@@ -21,7 +22,8 @@ const RoomCard = ({
   const isImageRight = imagePosition === 'right';
 
   return (
-    <article
+    <motion.article
+      layoutId={`room-card-${roomId}`}
       className={`${styles.roomCard} ${isImageRight ? styles.roomCardReversed : ''} ${className}`}
       data-room-id={roomId}
     >
@@ -60,7 +62,7 @@ const RoomCard = ({
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 

@@ -12,6 +12,17 @@ import { exteriorImages } from '@/assets/images/exterior';
 import { descobrirImages } from '@/assets/images/descobrir';
 import { descobrirAttractions } from '@/assets/images/redondezas';
 
+import exterior1 from '@/assets/FOTOS MONTE DA ESTRADA/EXTERIOR 1.jpeg';
+import sala5 from '@/assets/FOTOS MONTE DA ESTRADA/SALA 5.jpeg';
+import sala3 from '@/assets/FOTOS MONTE DA ESTRADA/SALA 3.jpeg';
+import pormenor2 from '@/assets/FOTOS MONTE DA ESTRADA/PORMENOR 2.jpeg';
+import recepcao1 from '@/assets/FOTOS MONTE DA ESTRADA/RECPÇÃO 1.jpeg';
+import recepcao2 from '@/assets/FOTOS MONTE DA ESTRADA/RECPÇÃO 2.jpeg';
+import pormenor3 from '@/assets/FOTOS MONTE DA ESTRADA/PORMENOR 3.jpeg';
+import pormenor1 from '@/assets/FOTOS MONTE DA ESTRADA/PORMENOR 1.jpeg';
+import exterior2 from '@/assets/FOTOS MONTE DA ESTRADA/EXTERIOR 2.jpeg';
+import sala2 from '@/assets/FOTOS MONTE DA ESTRADA/SALA 2.jpeg';
+
 // ── CategoryNav items ──────────────────────────────────────────
 const NAV_ITEMS = [
   { id: 'o-monte', label: 'O Monte' },
@@ -23,7 +34,7 @@ const SECTION_COPY = {
   oMonte: {
     eyebrow: 'GALERIA · O MONTE',
     title: 'O Espaço',
-    body: 'Um monte alentejano recuperado com critério — jardins, piscina, terraços e o silêncio do campo a enquadrar cada momento.',
+    body: 'Um monte alentejano recuperado com critério — jardins, terraços e o silêncio do campo a enquadrar cada momento.',
   },
   aRegiao: {
     eyebrow: 'GALERIA · A REGIÃO',
@@ -39,9 +50,18 @@ const GaleriaPage = () => {
 
   // ── O Monte — estate images ────────────────────────────────
   const oMonteImages = useMemo(() => [
-    ...galeriaImages.gallery,
-    ...homeImages.gallery,
-    ...exteriorImages.amenities,
+    galeriaImages.gallery[0],
+    { src: exterior1, alt: 'Exterior do Monte' },
+    { src: sala5, alt: 'Sala de Estar - Perspetiva 1' },
+    { src: sala3, alt: 'Sala de Estar - Perspetiva 2' },
+    { src: pormenor2, alt: 'Detalhe Casa' },
+    { src: recepcao1, alt: 'Recepção - Perspetiva 1' },
+    { src: recepcao2, alt: 'Recepção - Perspetiva 2' },
+    { src: pormenor3, alt: 'Detalhe Interior 3' },
+    { src: pormenor1, alt: 'Detalhe Interior 1' },
+    { src: exterior2, alt: 'Exterior do Monte 2' },
+    { src: exterior1, alt: 'Exterior do Monte 1' },
+    { src: sala2, alt: 'Sala de Estar - Perspetiva 3' },
   ], []);
 
   // ── A Região — territory images ────────────────────────────

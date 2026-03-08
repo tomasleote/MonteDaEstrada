@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
 import {
@@ -19,15 +20,32 @@ import descobrirData from '@/data/descobrir';
 import mapLocations from '@/data/map-locations';
 import { descobrirImages } from '@/assets/images/descobrir';
 import styles from './DescobrirPage.module.scss';
+import bardapraiaLogo from '@/assets/images/logos/bardapraia.avif';
+import casasBrancasLogo from '@/assets/images/logos/casas_brancas.avif';
+import celsoLogo from '@/assets/images/logos/celso.avif';
+import manjedouraLogo from '@/assets/images/logos/manjedoura.avif';
+import rotaVicentinaLogo from '@/assets/images/logos/rota_vicentina.avif';
+import tourilLogo from '@/assets/images/logos/touril.avif';
+import visitAlentejoLogo from '@/assets/images/logos/visitAlentejo.avif';
+
+const logoMap = {
+  'bardapraia.avif': bardapraiaLogo,
+  'casas_brancas.avif': casasBrancasLogo,
+  'celso.avif': celsoLogo,
+  'manjedoura.avif': manjedouraLogo,
+  'rota_vicentina.avif': rotaVicentinaLogo,
+  'touril.avif': tourilLogo,
+  'visitAlentejo.avif': visitAlentejoLogo,
+};
 
 // ──────────────────────────────────────────────
 // CategoryNav anchor items — 3 acts
 // ──────────────────────────────────────────────
 
 const NAV_ITEMS = [
-  { id: 'mapa',         label: 'Mapa' },
+  { id: 'mapa', label: 'Mapa' },
   { id: 'experiencias', label: 'Experiências' },
-  { id: 'praias',       label: 'Praias' },
+  { id: 'praias', label: 'Praias' },
 ];
 
 // ──────────────────────────────────────────────
@@ -187,7 +205,54 @@ const DescobrirPage = () => {
         </div>
       </section>
 
-      {/* S8 — As Redondezas — COMMENTED OUT (replaced by DiscoveryMap)
+      {/* S8 — Parceiros — Grid of partner logos ────────────────────────────── */}
+      <section id="parceiros" className={styles.parceirosSection}>
+        <div className={styles.container}>
+          <SectionEyebrow label="Parceiros" />
+          <h2 className={styles.sectionHeading}>Quem está connosco.</h2>
+
+          <motion.div
+            className={styles.parceirosGrid}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport.default}
+          >
+            {descobrirData.parceiros.map((partner, index) => (
+              <motion.a
+                key={index}
+                href={partner.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.partnerCard}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+                }}
+              >
+                <img
+                  src={logoMap[partner.logo]}
+                  alt={`Logo de ${partner.name}`}
+                  className={styles.partnerLogo}
+                  title={partner.name}
+                  loading="lazy"
+                />
+              </motion.a>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* S9 — As Redondezas — COMMENTED OUT (replaced by DiscoveryMap)
       <section id="redondezas" className={styles.redondezasSection}>
         <div className={styles.container}>
           <SectionEyebrow label="Redondezas" />

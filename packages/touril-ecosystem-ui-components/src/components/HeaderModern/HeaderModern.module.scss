@@ -29,8 +29,8 @@
   justify-content: space-between;
   background-color: transparent;
   transition: background-color $transition-duration-slow $transition-timing-normal,
-              box-shadow $transition-duration-slow $transition-timing-normal,
-              height $transition-duration-slow $transition-timing-normal;
+    box-shadow $transition-duration-slow $transition-timing-normal,
+    height $transition-duration-slow $transition-timing-normal;
 
   @include tablet {
     --header-height: 68px;
@@ -57,13 +57,22 @@
 }
 
 .headerPropertiesOpen {}
+
 .headerMenuOpen {}
 
 .hamburgerOpen {
   .hamburgerLine {
-    &:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
-    &:nth-child(2) { opacity: 0; }
-    &:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+    &:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
   }
 }
 
@@ -86,7 +95,9 @@
   align-items: center;
   justify-content: center;
 
-  @include mobile { display: none; }
+  @include mobile {
+    display: none;
+  }
 }
 
 .rightZone {
@@ -109,11 +120,18 @@
 }
 
 .logoLeft {
-  height: 40px;
+  // Height for the default (transparent/top) state
+  height: 70px;
   width: auto;
   max-width: 180px;
   object-fit: contain;
   display: block;
+  transition: height $transition-duration-slow $transition-timing-normal;
+}
+
+// Height for the scrolled (dark background/expanded) state
+.headerScrolled .logoLeft {
+  height: 80px;
 }
 
 .brandTextLeft {
@@ -136,7 +154,9 @@
   justify-content: center;
   align-items: center;
 
-  @include mobile { display: none; }
+  @include mobile {
+    display: none;
+  }
 }
 
 .navList {
@@ -163,7 +183,7 @@
   display: block;
   padding: $spacing-s $spacing-m;
   transition: color $transition-duration-normal $transition-timing-fast,
-              font-size $transition-duration-slow $transition-timing-normal;
+    font-size $transition-duration-slow $transition-timing-normal;
   position: relative;
 
   @include focus-visible;
@@ -184,13 +204,19 @@
 
   &:hover {
     color: $color-clay;
-    &::after { transform: scaleX(1); }
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 
   // Active: clay color + underline fully expanded
   &.navLinkActive {
     color: $color-clay;
-    &::after { transform: scaleX(1); }
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -206,7 +232,9 @@
   padding-left: $spacing-m;
   border-left: 1px solid rgba($color-warm-gray, 0.3);
 
-  @include mobile { display: none; }
+  @include mobile {
+    display: none;
+  }
 }
 
 .propertiesToggle {
@@ -229,7 +257,9 @@
 
   @include focus-visible;
 
-  &:hover { color: $color-clay; }
+  &:hover {
+    color: $color-clay;
+  }
 }
 
 .propertiesArrow {
@@ -250,7 +280,10 @@
   top: calc(var(--header-height));
   right: 0; // mirror the header's right padding
 
-  @include tablet { right: $spacing-l; }
+  @include tablet {
+    right: $spacing-l;
+  }
+
   width: max-content;
   min-width: 200px;
   background-color: $color-deep-brown;
@@ -265,8 +298,8 @@
   pointer-events: none;
   transform: translateY(-8px);
   transition: opacity $transition-duration-normal $transition-timing-normal,
-              transform $transition-duration-normal $transition-timing-normal,
-              visibility 0s linear $transition-duration-normal;
+  transform $transition-duration-normal $transition-timing-normal,
+  visibility 0s linear $transition-duration-normal;
 }
 
 .propertiesMenuOpen {
@@ -275,8 +308,8 @@
   pointer-events: auto;
   transform: translateY(0);
   transition: opacity $transition-duration-normal $transition-timing-normal,
-              transform $transition-duration-normal $transition-timing-normal,
-              visibility 0s linear 0s;
+    transform $transition-duration-normal $transition-timing-normal,
+    visibility 0s linear 0s;
 }
 
 .propertyItem {
@@ -309,12 +342,18 @@
 
   &:hover {
     color: $color-clay;
-    &::after { transform: scaleX(1); }
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 
   &.propertyItemActive {
     color: $color-clay;
-    &::after { transform: scaleX(1); }
+
+    &::after {
+      transform: scaleX(1);
+    }
   }
 }
 
@@ -339,7 +378,9 @@
 }
 
 .hamburgerMobile {
-  @include desktop { display: none; }
+  @include desktop {
+    display: none;
+  }
 }
 
 .hamburgerLine {
@@ -348,7 +389,7 @@
   background-color: $color-clay; // Clay-colored hamburger per spec
   margin: 4px 0;
   transition: transform $transition-duration-normal $transition-timing-normal,
-              opacity $transition-duration-normal $transition-timing-normal;
+    opacity $transition-duration-normal $transition-timing-normal;
   display: block;
 }
 
@@ -404,8 +445,14 @@
 
   @include focus-visible;
 
-  &:hover, &.mobileNavLinkActive { color: $color-clay; }
-  &:last-child { border-bottom: none; }
+  &:hover,
+  &.mobileNavLinkActive {
+    color: $color-clay;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 // ============================================
@@ -423,13 +470,16 @@
 // SCREEN READER ONLY
 // ============================================
 
-.srOnly { @include sr-only; }
+.srOnly {
+  @include sr-only;
+}
 
 // ============================================
 // ACCESSIBILITY
 // ============================================
 
 @media (prefers-reduced-motion: reduce) {
+
   .header,
   .headerScrolled,
   .navLink,
@@ -441,14 +491,25 @@
     animation: none;
   }
 
-  .navLink::after { transition: none; }
+  .navLink::after {
+    transition: none;
+  }
 }
 
 @media (prefers-contrast: more) {
-  .navLink { font-weight: $font-weight-semibold; }
-  .hamburgerLine { height: 2px; }
+  .navLink {
+    font-weight: $font-weight-semibold;
+  }
+
+  .hamburgerLine {
+    height: 2px;
+  }
 }
 
 @media print {
-  .header, .mobileMenu { display: none !important; }
+
+  .header,
+  .mobileMenu {
+    display: none !important;
+  }
 }

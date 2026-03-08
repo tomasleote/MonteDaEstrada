@@ -5,7 +5,11 @@
       "categoryLabel": "Gastronomia",
       "title": "Piqueniques para Caminhantes",
       "description": "Cestas de piquenique leve para quem parte para os trilhos — fruta local, queijo de ovelha e pão de São Teotónio.",
-      "highlights": ["Fruta local", "Queijo de Ovelha", "Pão de São Teotónio"],
+      "highlights": [
+        "Fruta local",
+        "Queijo de Ovelha",
+        "Pão de São Teotónio"
+      ],
       "imageSrc": "/images/experiences/piquenique.jpg",
       "imageAlt": "Cesta de piquenique com produtos locais no campo"
     },
@@ -14,7 +18,11 @@
       "categoryLabel": "Gastronomia",
       "title": "Prova de Vinhos Regionais",
       "description": "Uma prova guiada pelos vinhos atlânticos e alentejanos. Feita no monte, ao ritmo certo.",
-      "highlights": ["Vinhos do Alentejo", "Vinhos atlânticos", "Guiada no monte"],
+      "highlights": [
+        "Vinhos do Alentejo",
+        "Vinhos atlânticos",
+        "Guiada no monte"
+      ],
       "imageSrc": "/images/experiences/vinhos.jpg",
       "imageAlt": "Copos de vinho com paisagem alentejana ao fundo"
     },
@@ -23,7 +31,11 @@
       "categoryLabel": "Natureza Ativa",
       "title": "Caminhadas na Rota Vicentina",
       "description": "O Trilho dos Pescadores parte a minutos do monte. Falésias, praias escondidas e mar aberto.",
-      "highlights": ["Trilho dos Pescadores", "Falésias costeiras", "Praias desertas"],
+      "highlights": [
+        "Trilho dos Pescadores",
+        "Falésias costeiras",
+        "Praias desertas"
+      ],
       "imageSrc": "/images/experiences/rotaVicentinaAI.jpg",
       "imageAlt": "Caminheiro na Rota Vicentina com vista para o Atlântico"
     },
@@ -32,7 +44,11 @@
       "categoryLabel": "Natureza Ativa",
       "title": "Trilhos em E-bike",
       "description": "Explore os caminhos de montado e os pedaços de Alentejo onde os carros não chegam. Em e-bike, ao seu ritmo.",
-      "highlights": ["E-bike incluída", "Trilhos de montado", "Sem trânsito"],
+      "highlights": [
+        "E-bike incluída",
+        "Trilhos de montado",
+        "Sem trânsito"
+      ],
       "imageSrc": "/images/experiences/ebike-trilhos.jpg",
       "imageAlt": "E-bike apoiada em tronco com montado alentejano ao fundo"
     },
@@ -41,7 +57,11 @@
       "categoryLabel": "Paisagens",
       "title": "Sunset Chaser",
       "description": "Excursão de Jeep até ao miradouro perfeito, com vinho e petiscos no momento certo.",
-      "highlights": ["Excursão de Jeep", "Vinho & petiscos", "Pôr do sol garantido"],
+      "highlights": [
+        "Excursão de Jeep",
+        "Vinho & petiscos",
+        "Pôr do sol garantido"
+      ],
       "imageSrc": "/images/experiences/sunset-chaser.jpg",
       "imageAlt": "Pôr do sol atlântico visto de miradouro no Alentejo"
     },
@@ -50,7 +70,11 @@
       "categoryLabel": "Bem-Estar",
       "title": "Massagens",
       "description": "Massagem de relaxamento no Touril, seguida de uma bebida no Pool Bar. O descanso completo.",
-      "highlights": ["Massagem no Touril", "Pool Bar incluído", "Por marcação"],
+      "highlights": [
+        "Massagem no Touril",
+        "Pool Bar incluído",
+        "Por marcação"
+      ],
       "imageSrc": "/images/experiences/massagens.jpg",
       "imageAlt": "Área de bem-estar e piscina do Touril"
     }
@@ -193,6 +217,43 @@
       "imageSrc": "/assets/images/descobrir/aivados.jpg",
       "imageAlt": "Praia dos Aivados entre rochas",
       "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
+    }
+  ],
+  "parceiros": [
+    {
+      "name": "Restaurante Herdade do Touril",
+      "url": "https://herdadedotouril.com/",
+      "logo": "touril.avif"
+    },
+    {
+      "name": "Bar da Praia - Almograve",
+      "url": "https://www.barpraiaalmograve.pt/",
+      "logo": "bardapraia.avif"
+    },
+    {
+      "name": "Manjedoura Restaurante Bar",
+      "url": "https://www.manjedoura.pt/",
+      "logo": "manjedoura.avif"
+    },
+    {
+      "name": "Tasca do Celso",
+      "url": "https://rotavicentina.com/restaurantes/tasca-do-celso/",
+      "logo": "celso.avif"
+    },
+    {
+      "name": "Rota Vicentina",
+      "url": "https://rotavicentina.com/",
+      "logo": "rota_vicentina.avif"
+    },
+    {
+      "name": "Casas Brancas",
+      "url": "https://www.casasbrancas.pt/",
+      "logo": "casas_brancas.avif"
+    },
+    {
+      "name": "Visit Alentejo",
+      "url": "https://www.visitalentejo.pt/pt/",
+      "logo": "visitAlentejo.avif"
     }
   ]
 }

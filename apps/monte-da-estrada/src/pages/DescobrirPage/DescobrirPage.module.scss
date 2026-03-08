@@ -142,3 +142,45 @@
 .bookingSection {
   margin-top: 20px;
 }
+
+// ==================================
+// S10 — PARCEIROS SECTION
+// ==================================
+
+.parceirosSection {
+  background-color: $color-sand;
+  padding: 80px 0;
+}
+
+.parceirosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: $spacing-xl;
+  align-items: center;
+  justify-items: center;
+  margin-top: $spacing-xl;
+}
+
+.partnerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform $transition-duration-normal $ease-out-back;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.partnerLogo {
+  max-height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity $transition-duration-normal $ease-out-back;
+
+  .partnerCard:hover & {
+    opacity: 1;
+  }
+}

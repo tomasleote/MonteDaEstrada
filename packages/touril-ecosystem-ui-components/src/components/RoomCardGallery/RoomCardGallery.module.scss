@@ -23,26 +23,10 @@
 .expandedWrapper {
   width: 100%;
   position: relative;
-  animation: expandIn 400ms ease-in-out;
-}
-
-// Animation for expanded state
-@keyframes expandIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 // Accessibility: respect motion preferences
 @media (prefers-reduced-motion: reduce) {
-  .expandedWrapper {
-    animation: none;
-  }
 
   .cardWrapper {
     transition: none;

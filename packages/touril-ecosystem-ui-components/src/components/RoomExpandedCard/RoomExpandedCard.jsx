@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { motion } from 'motion/react';
 import styles from './RoomExpandedCard.module.scss';
 
 /**
@@ -46,10 +47,10 @@ const RoomExpandedCard = ({
   const currentImage = images[currentIndex];
 
   return (
-    <section
-      className={`${styles.expandedCard} ${
-        isImageRight ? styles.expandedCardReversed : ''
-      } ${isDark ? styles.dark : ''} ${className}`}
+    <motion.section
+      layoutId={`room-card-${roomId}`}
+      className={`${styles.expandedCard} ${isImageRight ? styles.expandedCardReversed : ''
+        } ${isDark ? styles.dark : ''} ${className}`}
       data-room-id={roomId}
       role="region"
       aria-label={`Detalhes do quarto: ${title}`}
@@ -98,9 +99,8 @@ const RoomExpandedCard = ({
                     <button
                       key={index}
                       type="button"
-                      className={`${styles.dot} ${
-                        index === currentIndex ? styles.dotActive : ''
-                      }`}
+                      className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''
+                        }`}
                       onClick={() => setCurrentIndex(index)}
                       aria-label={`Ir para imagem ${index + 1}`}
                     />
@@ -136,7 +136,7 @@ const RoomExpandedCard = ({
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

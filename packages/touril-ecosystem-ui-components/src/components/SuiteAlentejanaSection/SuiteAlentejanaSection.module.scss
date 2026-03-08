@@ -1,0 +1,131 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.suiteSection {
+  width: 100%;
+  background-color: $color-cream;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 64px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 40px 24px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 32px 16px;
+  }
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-clay;
+  margin-bottom: 16px;
+}
+
+.heading {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: $color-deep-brown;
+  margin-bottom: 12px;
+  line-height: 1.2;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 40px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 32px;
+  }
+}
+
+.tagline {
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.75px;
+  color: $color-deep-brown;
+  margin-bottom: 32px;
+  line-height: 1.5;
+
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 18px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    color: $color-deep-brown;
+
+    @media (max-width: $breakpoint-tablet) {
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 16px 48px;
+  margin-top: 32px;
+  background-color: $color-clay;
+  color: $color-deep-brown;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.75px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  border-radius: 0; // Reason: Brand rule specifies 0px border-radius everywhere
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:active {
+    opacity: 0.75;
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    padding: 15px 40px;
+    font-size: 13px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    width: 100%;
+    align-self: stretch;
+    padding: 14px 32px;
+    font-size: 13px;
+  }
+}

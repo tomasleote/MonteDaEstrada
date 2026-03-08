@@ -83,8 +83,12 @@
     "title": "Comodidades no Monte",
     "items": [
       {
-        "name": "Piscina Exterior",
-        "description": "Piscina de água salgada para relaxar nos dias quentes (sazonal)"
+        "name": "Ar condicionado",
+        "description": "Controlo climático total para o máximo conforto"
+      },
+      {
+        "name": "Pequeno-almoço",
+        "description": "Pequeno-almoço com produtos regionais todos os dias"
       },
       {
         "name": "Jardim",

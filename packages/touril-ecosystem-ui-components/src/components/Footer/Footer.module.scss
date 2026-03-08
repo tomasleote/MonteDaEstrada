@@ -93,7 +93,9 @@
   line-height: $line-height-footer-nav;
   color: rgba($color-cream, 0.75);
 
-  &:hover { color: $color-clay; }
+  &:hover {
+    color: $color-clay;
+  }
 }
 
 // Right column: Address + Legal information
@@ -211,7 +213,9 @@
   color: rgba($color-cream, 0.75);
   transition: color $transition-normal $ease-standard;
 
-  &:hover { color: $color-clay; }
+  &:hover {
+    color: $color-clay;
+  }
 
   img {
     width: 100%;
@@ -239,12 +243,21 @@
 // ============================================
 
 @media (prefers-contrast: more) {
-  .footer { color: $color-cream; }
-  .navLink, .addressParagraph, .contactParagraph, .legalParagraph {
+  .footer {
+    color: $color-cream;
+  }
+
+  .navLink,
+  .addressParagraph,
+  .contactParagraph,
+  .legalParagraph {
     color: $color-cream;
   }
 }
 
 @media print {
-  .footer { background: transparent !important; color: #000 !important; }
+  .footer {
+    background: transparent !important;
+    color: #000 !important;
+  }
 }

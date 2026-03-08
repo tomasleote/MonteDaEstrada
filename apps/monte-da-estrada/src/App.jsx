@@ -4,6 +4,7 @@ import { AnimatePresence } from 'motion/react'
 import { HeaderModern, Footer } from '@touril-ecosystem/ui-components'
 import LoadingSpinner from './components/LoadingSpinner'
 import AnimatedPage from '@/motion/components/AnimatedPage'
+import logoBrancoAzul from '@/assets/images/logos/logo-azul-texto-branco.png'
 import useScrollToTop from './hooks/useScrollToTop'
 
 // Lazy load page components for better performance
@@ -35,15 +36,15 @@ const properties = [
 // Footer address/contact information
 const footerAddress = {
   name: 'Monte da Estrada',
-  street: 'Zambujeira do Mar',
-  postalCode: '7630-568 Odemira',
+  street: 'Malhadil – Zambujeira do Mar',
+  postalCode: '7630-611',
   region: 'Alentejo',
   country: 'Portugal',
   mobile: '+351 960 254 072',
-  email: 'montedaestradazambujeiradomar@gmail.com',
+  email: 'geral@montedaestrada.com',
   // TODO: Replace gpsCoords with exact property coordinates
-  gpsCoords: '37°31\'10"N / 8°46\'54"W',
-  gpsLink: 'https://maps.google.com/maps?q=Zambujeira+do+Mar,+7630-568+Odemira,+Portugal',
+  gpsCoords: '37.58841557051901, -8.778295719162255',
+  gpsLink: 'https://maps.app.goo.gl/iXs8og3TukTh4k397',
 }
 
 // Footer legal information
@@ -102,6 +103,8 @@ function App() {
       <HeaderModern
         links={navLinks}
         brandName="Monte da Estrada"
+        logoDefault={logoBrancoAzul}
+        logoScrolled={logoBrancoAzul}
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
         scrollThreshold={50}

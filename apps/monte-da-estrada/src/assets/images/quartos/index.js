@@ -23,9 +23,15 @@ import quartosRoom12 from './quartos-room-12.jpg';
 import quartosRoom13 from './quartos-room-13.jpg';
 import quartosRoom14 from './quartos-room-14.jpg';
 
+import quarto1 from '@/assets/FOTOS MONTE DA ESTRADA/QUARTO 1.jpeg';
+import quarto2 from '@/assets/FOTOS MONTE DA ESTRADA/QUARTO 2.jpeg';
+import quarto3 from '@/assets/FOTOS MONTE DA ESTRADA/QUARTO 3.jpeg';
+import quarto4 from '@/assets/FOTOS MONTE DA ESTRADA/QUARTO 4.jpeg';
+import quartoWC from '@/assets/FOTOS MONTE DA ESTRADA/QUARTO WC.jpeg';
+
 export const quartosImages = {
   hero: {
-    src: quartosHeroRoomsOverview,
+    src: quarto4,
     alt: 'Overview of our luxurious rooms at Monte da Estrada',
     title: 'Our Rooms'
   },
@@ -136,6 +142,13 @@ export const quartosImages = {
       title: 'Room 14',
       category: 'standard'
     }
+  ],
+  quartoDuploTwin: [
+    { src: quarto1, alt: 'Quarto - Vista 1' },
+    { src: quarto2, alt: 'Quarto - Vista 2' },
+    { src: quarto3, alt: 'Quarto - Vista 3' },
+    { src: quarto4, alt: 'Quarto - Vista 4' },
+    { src: quartoWC, alt: 'Quarto - Casa de Banho' }
   ]
 };
 

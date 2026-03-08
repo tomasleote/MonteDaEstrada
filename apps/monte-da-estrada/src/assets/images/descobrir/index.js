@@ -52,7 +52,7 @@ export const descobrirImages = {
     },
     {
       src: massagemAI,
-      alt: 'Área de bem-estar e piscina do Touril',
+      alt: 'Área de bem-estar do Touril',
       title: 'Massagens'
     }
   ],

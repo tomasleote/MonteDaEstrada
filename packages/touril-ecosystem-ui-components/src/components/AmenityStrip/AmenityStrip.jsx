@@ -9,11 +9,22 @@ import styles from './AmenityStrip.module.scss';
  * 24x24 viewBox, stroke-only, 1.5px stroke.
  */
 const AMENITY_ICONS = {
-  'Piscina Exterior': (
+  'Ar condicionado': (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 12c1.5-1.5 3-2 4.5 0s3 1.5 4.5 0 3-2 4.5 0 3 1.5 4.5 0" />
-      <path d="M2 17c1.5-1.5 3-2 4.5 0s3 1.5 4.5 0 3-2 4.5 0 3 1.5 4.5 0" />
-      <path d="M7 7V4a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3" />
+      <path d="M8 16a4 4 0 0 1-8 0" />
+      <path d="M16 16a4 4 0 0 1-8 0" />
+      <path d="M24 16a4 4 0 0 1-8 0" />
+      <path d="M2 12h20" />
+      <path d="M4 8h16" />
+    </svg>
+  ),
+  'Pequeno-almoço': (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M17 8h1a4 4 0 1 1 0 8h-1" />
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z" />
+      <line x1="6" x2="6" y1="2" y2="4" />
+      <line x1="10" x2="10" y1="2" y2="4" />
+      <line x1="14" x2="14" y1="2" y2="4" />
     </svg>
   ),
   'Jardim': (

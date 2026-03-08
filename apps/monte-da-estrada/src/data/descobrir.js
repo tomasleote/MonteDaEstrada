@@ -200,6 +200,43 @@ const descobrir = {
       mapUrl: 'https://maps.app.goo.gl/iBKwXiUTcYPmADNq9',
     },
   ],
+  parceiros: [
+    {
+      name: 'Restaurante Herdade do Touril',
+      url: 'https://herdadedotouril.com/',
+      logo: 'touril.avif',
+    },
+    {
+      name: 'Bar da Praia - Almograve',
+      url: 'https://www.barpraiaalmograve.pt/',
+      logo: 'bardapraia.avif',
+    },
+    {
+      name: 'Manjedoura Restaurante Bar',
+      url: 'https://www.manjedoura.pt/',
+      logo: 'manjedoura.avif',
+    },
+    {
+      name: 'Tasca do Celso',
+      url: 'https://rotavicentina.com/restaurantes/tasca-do-celso/',
+      logo: 'celso.avif',
+    },
+    {
+      name: 'Rota Vicentina',
+      url: 'https://rotavicentina.com/',
+      logo: 'rota_vicentina.avif',
+    },
+    {
+      name: 'Casas Brancas',
+      url: 'https://www.casasbrancas.pt/',
+      logo: 'casas_brancas.avif',
+    },
+    {
+      name: 'Visit Alentejo',
+      url: 'https://www.visitalentejo.pt/pt/',
+      logo: 'visitAlentejo.avif',
+    },
+  ],
 };
 
 export default descobrir;

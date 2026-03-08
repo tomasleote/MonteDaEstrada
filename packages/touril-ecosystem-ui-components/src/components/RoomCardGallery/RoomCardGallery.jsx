@@ -45,16 +45,7 @@ const RoomCardGallery = ({
     if (onReserveClick) onReserveClick(roomId);
   };
 
-  // Reason: Scroll to expanded card when a room is selected
-  // This ensures the expanded card is visible in the viewport
-  useEffect(() => {
-    if (selectedRoomId && expandedRef.current) {
-      expandedRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  }, [selectedRoomId]);
+
 
   return (
     <div className={`${styles.gallery} ${className}`}>

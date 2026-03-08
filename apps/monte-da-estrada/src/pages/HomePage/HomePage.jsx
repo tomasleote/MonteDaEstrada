@@ -6,13 +6,14 @@ import {
   EditorialSplitSection,
   FullBleedImage,
   AmenityStrip,
-  RoomGrid,
+  SuiteAlentejanaSection,
   ActivityHighlights,
   BookingSection,
   GalleryPreview,
   CategoryNav,
 } from '@touril-ecosystem/ui-components';
 import atividadesData from '@/data/atividades.json';
+import suiteAlentejanaData from '@/data/suiteAlentejana.json';
 import { homeImages } from '@/assets/images/home';
 import { quartosImages } from '@/assets/images/quartos';
 import { galeriaImages } from '@/assets/images/galeria';
@@ -33,54 +34,14 @@ const NAV_ITEMS = [
 ];
 
 // ──────────────────────────────────────────────
-// Section data — editorial content for the homepage
-// These are the 6 room previews shown in the RoomGrid teaser.
-// Full room detail lives at /quartos (different depth, different user intent).
+// Suite Alentejana carousel images
 // ──────────────────────────────────────────────
 
-const homeRooms = [
+const suiteCarouselImages = [
   {
-    id: 'suite-deluxe',
-    title: 'Suite Deluxe',
-    subtitle: 'Vista panorâmica sobre o Alentejo',
-    imageSrc: quartosImages.rooms[4].src,
-    imageAlt: quartosImages.rooms[4].alt,
-  },
-  {
-    id: 'comfort-alentejo',
-    title: 'Quarto Comfort',
-    subtitle: 'Terraço privativo com vista para o campo',
-    imageSrc: quartosImages.rooms[1].src,
-    imageAlt: quartosImages.rooms[1].alt,
-  },
-  {
-    id: 'garden-view',
-    title: 'Vista Jardim',
-    subtitle: 'Serenidade e conforto no coração do monte',
-    imageSrc: quartosImages.rooms[2].src,
-    imageAlt: quartosImages.rooms[2].alt,
-  },
-  {
-    id: 'monte-classic',
-    title: 'Quarto Monte',
-    subtitle: 'Autenticidade alentejana em cada detalhe',
-    imageSrc: quartosImages.rooms[6].src,
-    imageAlt: quartosImages.rooms[6].alt,
-  },
-  {
-    id: 'twin-campo',
-    title: 'Quarto Twin',
-    subtitle: 'Duas camas e vista aberta para o campo',
-    imageSrc: quartosImages.rooms[3].src,
-    imageAlt: quartosImages.rooms[3].alt,
-  },
-  {
-    id: 'familiar',
-    title: 'Quarto Familiar',
-    subtitle: 'Espaço amplo, privacidade garantida',
-    imageSrc: quartosImages.rooms[8].src,
-    imageAlt: quartosImages.rooms[8].alt,
-  },
+    src: quartosImages.quartoDuploTwin[1].src,
+    alt: 'Suite Alentejana com luz matinal e vista panorâmica',
+  }
 ];
 
 // 5 editorial activity cards — teasers, not exhaustive lists.
@@ -111,10 +72,11 @@ const activityItems = [
     description: 'Estradas de terra batida através do montado sem trânsito.',
     distance: '0 km',
   },
-  { 
-    title: 'Massagens', 
-    description: 'Massagens terapêuticas e relaxantes na Herdade do Touril.', 
-    distance: '3 km' },
+  {
+    title: 'Massagens',
+    description: 'Massagens terapêuticas e relaxantes na Herdade do Touril.',
+    distance: '3 km'
+  },
 ];
 
 // 3 images for the asymmetric gallery preview grid.
@@ -145,7 +107,7 @@ const HomePage = () => {
         <ImmersiveHero
           imageSrc={homeImages.hero.src}
           imageAlt={homeImages.hero.alt}
-          headline="A sua casa no interior do Alentejo."
+          headline="A sua casa no Litoral Alentejano."
           scrollLabel="Descobrir"
         />
       </div>
@@ -161,9 +123,9 @@ const HomePage = () => {
       {/* Property name + manifesto paragraphs + contact, no images */}
       <EditorialAnchor
         propertyName="Monte da Estrada"
-        tagline="Seis quartos, uma casa, um monte."
+        tagline="Oito quartos, uma casa, um monte."
         body="A 5 quilómetros do mar, dentro da Costa Vicentina."
-        email="montedaestradazambujeiradomar@gmail.com"
+        email="geral@montedaestrada.com"
         phone="+351 960 254 072"
         ctaLabel="Sobre a casa"
         ctaHref="/descobrir"
@@ -187,20 +149,22 @@ const HomePage = () => {
         />
       </div>
 
-       {/* S3.5 — Amenity Strip ─────────────────────────────── */}
+      {/* S3.5 — Amenity Strip ─────────────────────────────── */}
       {/* Premium "at a glance" — icon + label pairs, no descriptions */}
       <AmenityStrip amenities={atividadesData.amenities.items} />
 
-      {/* S4 — Quartos — Room Grid ───────────────────────────── */}
-      {/* 6-card portrait grid. Teaser only — /quartos has full detail */}
+      {/* S4 — Suite Alentejana — Editorial Suite Experience ────────────── */}
+      {/* Single premium suite with carousel, atmospheric copy, amenities, booking CTA */}
       <div id="quartos">
-        <RoomGrid
-          eyebrow="Quartos"
-          heading="Seis quartos. Cada um, o seu."
-          subHeading="Não há dois iguais. A luz da manhã entra diferente em cada divisão. Escolha pelo que quer acordar a ver."
-          rooms={homeRooms}
-          ctaLabel="Ver todos os quartos"
-          ctaHref="/quartos"
+        <SuiteAlentejanaSection
+          eyebrow={suiteAlentejanaData.eyebrow}
+          heading={suiteAlentejanaData.heading}
+          tagline={suiteAlentejanaData.tagline}
+          description={suiteAlentejanaData.description}
+          carouselImages={suiteCarouselImages}
+          amenities={suiteAlentejanaData.amenities}
+          ctaLabel={suiteAlentejanaData.ctaLabel}
+          ctaHref={suiteAlentejanaData.ctaHref}
         />
       </div>
 
@@ -218,7 +182,7 @@ const HomePage = () => {
           eyebrow="O Território"
           heading="Entre o Alentejo e o Atlântico."
           body={[
-            'A Rota Vicentina passa a minutos — 110 km de costa selvagem. Zambujeira do Mar fica a 8 quilómetros. O Alentejo interior está à porta.',
+            'O Trilho dos Pescadores passa a minutos — 110 km de costa selvagem. Zambujeira do Mar fica a 8 quilómetros. O Litoral Alentejano está à porta.',
             'Isto não é isolamento. É uma posição.',
           ]}
           imageSrc={homeImages.gallery[4].src}
@@ -248,7 +212,7 @@ const HomePage = () => {
         <BookingSection
           eyebrow="Reservas"
           heading="Marque a sua estadia."
-          fallbackEmail="montedaestradazambujeiradomar@gmail.com"
+          fallbackEmail="geral@montedaestrada.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
         />
