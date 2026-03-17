@@ -6,9 +6,9 @@ const SuiteCarousel = ({ images = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Auto-advance carousel every 5 seconds (unless hovering)
+  // Auto-advance carousel every 5 seconds (unless hovering or only 1 image)
   useEffect(() => {
-    if (isHovering || images.length === 0) return;
+    if (isHovering || images.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -60,36 +60,42 @@ const SuiteCarousel = ({ images = [] }) => {
       </AnimatePresence>
 
       {/* Navigation Dots */}
-      <div className={styles.dotsContainer}>
-        {images.map((_, index) => (
-          <motion.button
-            key={index}
-            className={`${styles.dot} ${
-              index === currentIndex ? styles.active : ''
-            }`}
-            onClick={() => handleDotClick(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            animate={{ opacity: index === currentIndex ? 1 : 0.5 }}
-            transition={{ duration: 0.3 }}
-          />
-        ))}
-      </div>
+      {images.length > 1 && (
+        <div className={styles.dotsContainer}>
+          {images.map((_, index) => (
+            <motion.button
+              key={index}
+              className={`${styles.dot} ${
+                index === currentIndex ? styles.active : ''
+              }`}
+              onClick={() => handleDotClick(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              animate={{ opacity: index === currentIndex ? 1 : 0.5 }}
+              transition={{ duration: 0.3 }}
+            />
+          ))}
+        </div>
+      )}
 
       {/* Left/Right Arrow Controls */}
-      <button
-        className={styles.arrowButton}
-        onClick={handlePrev}
-        aria-label="Previous slide"
-      >
-        ←
-      </button>
-      <button
-        className={styles.arrowButton}
-        onClick={handleNext}
-        aria-label="Next slide"
-      >
-        →
-      </button>
+      {images.length > 1 && (
+        <>
+          <button
+            className={styles.arrowButton}
+            onClick={handlePrev}
+            aria-label="Previous slide"
+          >
+            ←
+          </button>
+          <button
+            className={styles.arrowButton}
+            onClick={handleNext}
+            aria-label="Next slide"
+          >
+            →
+          </button>
+        </>
+      )}
     </div>
   );
 };

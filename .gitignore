@@ -1,24 +1,32 @@
-node_modules/
-dist/
-dist-ssr/
-*.local
-.DS_Store
+# Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-.env
-.env.*
-!.env.example
+lerna-debug.log*
 
-# AI / tool folders
-.claude/
-.playwright-mcp/
-.firecrawl/
-CLAUDE.md
-docs/
-AI-Coding-Workflows-Foundation/
-examples/
-PRPs/
-validation/
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.claude
+.firecrawl
+.playwright-mcp
+.vscode
+.AI-Coding-Workflows-Foundation
+examples
+PRPs
+validation

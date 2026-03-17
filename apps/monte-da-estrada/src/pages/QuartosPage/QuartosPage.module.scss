@@ -101,22 +101,13 @@
   max-width: 440px;
 }
 
-// HeyTravel placeholder — temporary styling during Phase 2
-.heyTravelPlaceholder {
+// Inline widget container
+.inlineWidgetContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
-  background-color: rgba($color-deep-brown, 0.05);
-  border: 1px dashed rgba($color-deep-brown, 0.20);
-  border-radius: 0;
-
-  & p {
-    font-family: $font-body;
-    font-size: $font-size-body;
-    color: $color-charcoal;
-    margin: 0;
-  }
+  width: 100%;
+  margin: 40px auto 0;
 }
 
 // ==================================

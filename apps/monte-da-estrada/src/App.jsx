@@ -6,6 +6,8 @@ import LoadingSpinner from './components/LoadingSpinner'
 import AnimatedPage from '@/motion/components/AnimatedPage'
 import logoBrancoAzul from '@/assets/images/logos/logo-azul-texto-branco.png'
 import useScrollToTop from './hooks/useScrollToTop'
+import BookingTab from './components/BookingTab'
+// Remove legacy BookingModal import
 
 // Lazy load page components for better performance
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -80,12 +82,8 @@ function App() {
   // Language state for header (EN/PT)
   const [currentLanguage, setCurrentLanguage] = useState('PT')
 
-  // Handler for reserve button click
-  const handleReservasClick = () => {
-    // TODO: Integrate with booking system
-    // For now, navigate to external booking page or show modal
-    window.location.href = 'https://www.booking.com/' // Replace with actual booking URL
-  }
+  // HeyTravel Direct Booking URL
+  const HEYTRAVEL_BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=[{"room":1,"adults":2,"children":0}]&complex=1828&lang=pt-PT&';
 
   // Handler for language change
   const handleLanguageChange = (lang) => {
@@ -111,34 +109,35 @@ function App() {
         properties={properties}
         currentPropertyUrl="https://montedaestrada.com"
         showProperties={true}
+        onBookingClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')}
       />
 
       <main id="main-content" style={{ flex: 1 }}>
-        <AnimatePresence mode="wait">
-          <AnimatedPage key={location.pathname}>
-            <Suspense fallback={<LoadingSpinner />}>
-              <Routes location={location}>
-                {/* Public Routes */}
-                <Route path="/" element={<HomePage />} />
-                <Route path="/quartos" element={<QuartosPage />} />
-                <Route path="/descobrir" element={<DescobrirPage />} />
-                <Route path="/galeria" element={<GaleriaPage />} />
-                <Route path="/contacto" element={<ContactoPage />} />
+          <AnimatePresence mode="wait">
+            <AnimatedPage key={location.pathname}>
+              <Suspense fallback={<LoadingSpinner />}>
+                <Routes location={location}>
+                  {/* Public Routes */}
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/quartos" element={<QuartosPage />} />
+                  <Route path="/descobrir" element={<DescobrirPage />} />
+                  <Route path="/galeria" element={<GaleriaPage />} />
+                  <Route path="/contacto" element={<ContactoPage />} />
 
-                {/* Legacy redirects — preserve old URLs */}
-                <Route path="/atividades" element={<Navigate to="/descobrir" replace />} />
-                <Route path="/redondezas" element={<Navigate to="/descobrir" replace />} />
-                <Route path="/localizacao" element={<Navigate to="/contacto" replace />} />
+                  {/* Legacy redirects — preserve old URLs */}
+                  <Route path="/atividades" element={<Navigate to="/descobrir" replace />} />
+                  <Route path="/redondezas" element={<Navigate to="/descobrir" replace />} />
+                  <Route path="/localizacao" element={<Navigate to="/contacto" replace />} />
 
-                {/* Admin Panel - Powered by Decap CMS */}
-                {/* Access the admin panel at: /admin */}
-                {/* Authentication handled by Netlify Identity */}
-                {/* Content management handled by Decap CMS (Git-based) */}
-              </Routes>
-            </Suspense>
-          </AnimatedPage>
-        </AnimatePresence>
-      </main>
+                  {/* Admin Panel - Powered by Decap CMS */}
+                  {/* Access the admin panel at: /admin */}
+                  {/* Authentication handled by Netlify Identity */}
+                  {/* Content management handled by Decap CMS (Git-based) */}
+                </Routes>
+              </Suspense>
+            </AnimatedPage>
+          </AnimatePresence>
+        </main>
 
       <Footer
         address={footerAddress}
@@ -146,6 +145,9 @@ function App() {
         legalInfo={footerLegalInfo}
         copyright={`© Monte da Estrada ${new Date().getFullYear()}`}
       />
+
+      {/* PRP-02: Persistent right-edge booking tab — desktop only */}
+      <BookingTab onClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')} />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import {
   PageHero,
   RoomCardGallery,
   SectionEyebrow,
+  InlineBookingWidget,
   variants,
   viewport,
 } from '@touril-ecosystem/ui-components';
@@ -65,9 +66,12 @@ const rooms = [
  * S3: Booking Section (Sand, HeyTravel placeholder)
  */
 const QuartosPage = () => {
-  const handleReserveClick = (roomId) => {
-    // TODO: Connect to HeyTravel widget in S3 booking section
-    window.open('https://www.booking.com', '_blank', 'noopener,noreferrer');
+  const handleReserveClick = () => {
+    // Smooth scroll to the booking section at the bottom of the page
+    const bookingSection = document.getElementById('reservas-inline');
+    if (bookingSection) {
+      bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -118,7 +122,7 @@ const QuartosPage = () => {
       {/* ─────────────────────────────────────────── */}
       {/* S3 — Booking Section (Sand, HeyTravel)    */}
       {/* ─────────────────────────────────────────── */}
-      <section className={styles.bookingSection}>
+      <section id="reservas-inline" className={styles.bookingSection}>
         <div className={styles.container}>
           <motion.div
             variants={variants.fadeUp}
@@ -135,16 +139,9 @@ const QuartosPage = () => {
             </p>
           </motion.div>
 
-          <motion.div
-            className={styles.heyTravelPlaceholder}
-            variants={variants.fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport.default}
-            transition={{ delay: 0.2 }}
-          >
-            <p>Widget HeyTravel será integrado aqui</p>
-          </motion.div>
+          <div className={styles.inlineWidgetContainer}>
+            <InlineBookingWidget />
+          </div>
         </div>
       </section>
     </div>

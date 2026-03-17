@@ -76,6 +76,12 @@ export { default as SuiteCarousel } from './components/SuiteCarousel';
 export { default as AmenityGrid } from './components/AmenityGrid';
 
 // ============================================
+// BOOKING COMPONENTS
+// ============================================
+
+export { default as InlineBookingWidget } from './components/BookingWidget';
+
+// ============================================
 // CONSTANTS
 // ============================================
 

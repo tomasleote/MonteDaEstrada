@@ -10,6 +10,7 @@
     "react-dom": ">=18.0.0"
   },
   "scripts": {
-    "build": "echo 'No build step yet — components are consumed directly via workspace'"
+    "build": "echo 'No build step yet — components are consumed directly via workspace'",
+    "test": "vitest run"
   }
 }

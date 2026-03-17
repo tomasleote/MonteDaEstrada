@@ -2,24 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'motion/react';
 import { variants, viewport } from '../../constants/motion';
+import InlineBookingWidget from '../BookingWidget/InlineBookingWidget';
 import styles from './BookingSection.module.scss';
 
 /**
- * BookingSection — Dark booking call-to-action section
- * Features contact options (email, phone, WhatsApp) and primary CTA button.
+ * BookingSection — Dark booking call-to-action section.
+ * When `onBookingClick` is provided, the primary CTA becomes a button that opens
+ * the BookingModal. Otherwise it falls back to a mailto: link (backward-compatible).
  *
  * @param {Object} props
  * @param {string} props.eyebrow - Eyebrow label (default: 'Reservas')
  * @param {string} props.heading - Main heading (default: 'Marque a sua estadia.')
- * @param {string} props.fallbackEmail - Contact email (required)
- * @param {string} props.fallbackPhone - Contact phone (required)
- * @param {string} props.whatsappNumber - Optional WhatsApp number (international format without +)
- * @param {string} props.className - Additional CSS classes
+ * @param {string} [props.description] - Body copy beneath the heading
+ * @param {string} [props.fallbackEmail] - Contact email
+ * @param {string} [props.fallbackPhone] - Contact phone
+ * @param {string} [props.whatsappNumber] - WhatsApp number (international format without +)
+ * @param {Function} [props.onBookingClick] - If provided, renders a booking CTA button
+ * @param {string} [props.bookingLabel] - Label for the booking button
+ * @param {string} [props.className] - Additional CSS classes
  * @returns {React.ReactElement}
  */
 function BookingSection({
   eyebrow = 'Reservas',
   heading = 'Marque a sua estadia.',
+  description = 'Seis quartos. Reserve diretamente para o melhor tarifário.',
   fallbackEmail,
   fallbackPhone,
   whatsappNumber,
@@ -41,20 +47,29 @@ function BookingSection({
       </motion.h2>
 
       <motion.p className={styles.description} variants={variants.fadeUp}>
-        Seis quartos. Reserve diretamente para o melhor tarifário.
+        {description}
       </motion.p>
 
-      {/* Contact Options */}
-      <motion.div className={styles.contactOptions} variants={variants.fadeUp}>
-        <a href={`mailto:${fallbackEmail}`} className={styles.contactItem}>
-          <span className={styles.icon}>✉</span>
-          <span className={styles.contactText}>{fallbackEmail}</span>
-        </a>
+      {/* Primary CTA — Inline Booking Widget */}
+      <motion.div variants={variants.fadeUp} className={styles.widgetContainer}>
+        <InlineBookingWidget />
+      </motion.div>
 
-        <a href={`tel:${fallbackPhone}`} className={styles.contactItem}>
-          <span className={styles.icon}>☎</span>
-          <span className={styles.contactText}>{fallbackPhone}</span>
-        </a>
+      {/* Contact Options — secondary, always visible */}
+      <motion.div className={styles.contactOptions} variants={variants.fadeUp}>
+        {fallbackEmail && (
+          <a href={`mailto:${fallbackEmail}`} className={styles.contactItem}>
+            <span className={styles.icon}>✉</span>
+            <span className={styles.contactText}>{fallbackEmail}</span>
+          </a>
+        )}
+
+        {fallbackPhone && (
+          <a href={`tel:${fallbackPhone}`} className={styles.contactItem}>
+            <span className={styles.icon}>☎</span>
+            <span className={styles.contactText}>{fallbackPhone}</span>
+          </a>
+        )}
 
         {whatsappNumber && (
           <a
@@ -69,15 +84,6 @@ function BookingSection({
         )}
       </motion.div>
 
-      {/* Primary CTA Button */}
-      <motion.a
-        href={`mailto:${fallbackEmail}`}
-        className={styles.ctaButton}
-        variants={variants.fadeUp}
-      >
-        Reservar Agora
-      </motion.a>
-
       {/* Note */}
       <motion.p className={styles.note} variants={variants.fadeUp}>
         Resposta em 24 horas.
@@ -89,8 +95,9 @@ function BookingSection({
 BookingSection.propTypes = {
   eyebrow: PropTypes.string,
   heading: PropTypes.string,
-  fallbackEmail: PropTypes.string.isRequired,
-  fallbackPhone: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  fallbackEmail: PropTypes.string,
+  fallbackPhone: PropTypes.string,
   whatsappNumber: PropTypes.string,
   className: PropTypes.string,
 };

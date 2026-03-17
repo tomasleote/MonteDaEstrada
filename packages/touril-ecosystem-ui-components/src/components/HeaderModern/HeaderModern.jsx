@@ -38,6 +38,8 @@ const HeaderModern = ({
   properties = [],
   currentPropertyUrl = typeof window !== 'undefined' ? window.location.origin : '',
   showProperties = true,
+  onBookingClick = null,
+  bookingLabel = 'Reservar',
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -179,8 +181,18 @@ const HeaderModern = ({
         </nav>
       </div>
 
-      {/* RIGHT ZONE: Propriedades Dropdown + Hamburger (mobile) */}
+      {/* RIGHT ZONE: Booking CTA + Propriedades Dropdown + Hamburger (mobile) */}
       <div className={styles.rightZone}>
+        {/* Booking CTA — only rendered when onBookingClick is provided */}
+        {onBookingClick && (
+          <button
+            className={styles.bookingCta}
+            onClick={onBookingClick}
+            aria-label={bookingLabel}
+          >
+            {bookingLabel}
+          </button>
+        )}
         {/* Propriedades dropdown */}
         {showProperties && properties.length > 0 && (
           <div className={styles.propertiesDropdown} ref={propertiesRef}>
@@ -292,6 +304,19 @@ const HeaderModern = ({
           </ul>
         )}
 
+        {/* Mobile booking CTA — full-width dark bar at bottom of menu */}
+        {onBookingClick && (
+          <button
+            className={styles.mobileBookingCta}
+            onClick={() => {
+              onBookingClick();
+              handleNavLinkClick();
+            }}
+          >
+            {bookingLabel}
+          </button>
+        )}
+
       </div>
 
       {/* Accessibility: SR-only skip links */}
@@ -341,6 +366,10 @@ HeaderModern.propTypes = {
   currentPropertyUrl: PropTypes.string,
   /** Whether to show the Propriedades dropdown */
   showProperties: PropTypes.bool,
+  /** Callback when booking CTA is clicked. If omitted, CTA is not rendered. */
+  onBookingClick: PropTypes.func,
+  /** Label for the booking CTA */
+  bookingLabel: PropTypes.string,
 };
 
 HeaderModern.defaultProps = {
@@ -356,6 +385,8 @@ HeaderModern.defaultProps = {
   properties: [],
   currentPropertyUrl: typeof window !== 'undefined' ? window.location.origin : '',
   showProperties: true,
+  onBookingClick: null,
+  bookingLabel: 'Reservar',
 };
 
 export default HeaderModern;

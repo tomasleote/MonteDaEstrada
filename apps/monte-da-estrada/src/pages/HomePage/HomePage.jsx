@@ -77,8 +77,6 @@ const activityItems = [
 ];
 
 // ──────────────────────────────────────────────
-// Page component
-// ──────────────────────────────────────────────
 
 const HomePage = () => {
   return (
@@ -160,7 +158,7 @@ const HomePage = () => {
       {/* S5 — Full Bleed Photography Break ─────────────────── */}
       {/* Emotional beat between rooms and territory sections */}
       <FullBleedImage
-        imageSrc={homeImages.gallery[7].src}
+        imageSrc={homeImages.gallery[2].src}
         height="70vh"
       />
 
@@ -174,7 +172,7 @@ const HomePage = () => {
             'O Trilho dos Pescadores passa a minutos — 110 km de costa selvagem. Zambujeira do Mar fica a 8 quilómetros. O Litoral Alentejano está à porta.',
             'Isto não é isolamento. É uma posição.',
           ]}
-          imageSrc={homeImages.gallery[4].src}
+          imageSrc={homeImages.gallery[1].src}
           imageAlt="Vista panorâmica da paisagem alentejana"
           imagePosition="right"
           background="offwhite"
@@ -201,6 +199,7 @@ const HomePage = () => {
         <BookingSection
           eyebrow="Reservas"
           heading="Marque a sua estadia."
+          description="Seis quartos. Reserve diretamente para o melhor tarifário."
           fallbackEmail="geral@montedaestrada.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"

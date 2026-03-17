@@ -56,9 +56,7 @@
   font-size: 1rem; // 16px — up from 14px
 }
 
-.headerPropertiesOpen {}
-
-.headerMenuOpen {}
+// Scrolled state modifiers, handled by dynamic classes
 
 .hamburgerOpen {
   .hamburgerLine {
@@ -464,6 +462,92 @@
   margin: 0;
   padding: $spacing-m $spacing-m $spacing-xl;
   border-top: 1px solid rgba($color-warm-gray, 0.12);
+}
+
+// ============================================
+// BOOKING CTA
+// ============================================
+
+// Desktop: plain uppercase text in right zone with underline-on-hover
+// STYLING FIX: Matches .navLink exactly so it feels integrated, not distinct.
+.bookingCta {
+  background: none;
+  border: none;
+  color: $color-cream;
+  font-family: $font-body;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: $spacing-s 0;
+  margin: 0 0 0 $spacing-m; // Only margin-left for right-zone spacing
+  position: relative;
+  transition: color $transition-duration-normal $transition-timing-fast,
+    font-size $transition-duration-slow $transition-timing-normal;
+
+  @include focus-visible;
+
+  // Underline track — left-to-right reveal on hover
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $color-clay;
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &:hover {
+    color: $color-clay;
+    &::after {
+      width: 100%;
+    }
+  }
+
+  // Active state match
+  &.active {
+    color: $color-clay;
+    &::after {
+      width: 100%;
+    }
+  }
+
+  // Scale nav text up when header is in scrolled/expanded state matching .navLink
+  // Note: Removed to keep CTA size explicitly identical to properties button (12px)
+
+  // Hide on mobile — mobile uses mobileBookingCta inside the hamburger menu
+  @include mobile {
+    display: none;
+  }
+}
+
+// Mobile: full-width dark bar at the bottom of the hamburger menu
+.mobileBookingCta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #1c1a17;
+  color: #f5f2ee;
+  border: none;
+  border-radius: 0;
+  padding: 16px;
+  margin-top: $spacing-xl;
+  font-family: $font-body;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+
+  @include focus-visible;
+
+  &:hover {
+    opacity: 0.85;
+  }
 }
 
 // ============================================

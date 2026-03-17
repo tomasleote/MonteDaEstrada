@@ -94,9 +94,13 @@ function CategoryNav({ items, targetId, headerHeight = 72, className = '' }) {
       className={`${styles.nav} ${className}`}
       aria-label="Descobrir — secções"
       style={{ top: `${headerHeight}px` }}
-      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: -8, pointerEvents: 'none' }}
-      initial={{ opacity: 0, y: -8 }}
-      transition={{ duration: 0.3, ease: ease.entrance }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: '-100%', pointerEvents: 'none' }}
+      initial={{ opacity: 0, y: '-100%' }}
+      transition={{ 
+        duration: isVisible ? 0.4 : 0.3, 
+        ease: isVisible ? [0.22, 1, 0.36, 1] : "easeIn",
+        opacity: { duration: isVisible ? 0.3 : 0.2, delay: isVisible ? 0 : 0.1 }
+      }}
     >
       {/* Wrapper provides horizontal scroll on mobile with fade-edge masks */}
       <div className={styles.wrapper}>
