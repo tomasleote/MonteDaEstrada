@@ -6,9 +6,7 @@
 import saoTeotonio from './saoteotonio.jpeg';
 import zambujeira from './zambujeira.jpg';
 import odemira from './Odemira.jpg';
-import aljezur from './Aljezur.jpg';
 import vilaNova from './vilaNova.png';
-import almograve from './almograve.jpg';
 
 export const descobrirAttractions = {
   attractions: [
@@ -28,19 +26,9 @@ export const descobrirAttractions = {
       title: 'Odemira'
     },
     {
-      src: aljezur,
-      alt: 'Aljezur - vila mourisca histórica',
-      title: 'Aljezur'
-    },
-    {
       src: vilaNova,
       alt: 'Vila Nova de Milfontes - cidade costeira',
       title: 'Vila Nova de Milfontes'
-    },
-    {
-      src: almograve,
-      alt: 'Almograve - praia selvagem',
-      title: 'Almograve'
     }
   ]
 };
