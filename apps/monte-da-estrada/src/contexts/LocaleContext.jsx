@@ -15,10 +15,7 @@ function getInitialLocale() {
   return DEFAULT_LOCALE;
 }
 
-const LocaleContext = createContext({
-  locale: DEFAULT_LOCALE,
-  setLocale: () => {},
-});
+const LocaleContext = createContext(null);
 
 export function LocaleProvider({ children }) {
   const [locale, setLocaleState] = useState(getInitialLocale);

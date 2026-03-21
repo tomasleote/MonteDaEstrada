@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo-azul.png" />
+    <link rel="apple-touch-icon" href="/logo-azul.png" />
+    <meta name="theme-color" content="#1a1a1a" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Monte da Estrada - Turismo Rural no Alentejo</title>
+
+    <!-- Preload Hero Image for LCP -->
+    <link rel="preload" as="image" href="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp" fetchpriority="high" />
 
     <!-- Google Fonts — DM Sans (display fallback for Basis Grotesque) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,23 +19,28 @@
       rel="stylesheet"
     />
 
-    <!-- Netlify Identity Widget for Admin Authentication -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- Netlify Identity redirect handling -->
+    <!-- Netlify Identity Widget & Redirect for Admin Authentication (Lazy) -->
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+      if (window.location.pathname.startsWith('/admin')) {
+        var s = document.createElement('script');
+        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        s.onload = function() {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                });
+              }
             });
           }
-        });
+        };
+        document.head.appendChild(s);
       }
     </script>
   </body>

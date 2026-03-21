@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # Need previous commit to detect changed files
+          fetch-depth: 0  # Need full history for push range diffs
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -28,7 +28,7 @@ jobs:
         id: changed
         run: |
           # Get list of changed PT JSON files
-          FILES=$(git diff --name-only HEAD~1 HEAD -- 'apps/monte-da-estrada/src/data/pt/*.json' | tr '\n' ' ')
+          FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} -- 'apps/monte-da-estrada/src/data/pt/*.json' | tr '\n' ' ')
           echo "files=$FILES" >> "$GITHUB_OUTPUT"
           if [ -z "$FILES" ]; then
             echo "No PT JSON files changed"
@@ -52,8 +52,7 @@ jobs:
         if: steps.changed.outputs.skip == 'false'
         id: diff
         run: |
-          git diff --quiet apps/monte-da-estrada/src/data/en/ && echo "has_changes=false" >> "$GITHUB_OUTPUT" || echo "has_changes=true" >> "$GITHUB_OUTPUT"
-
+          if [ -n "$(git status --porcelain --untracked-files=all -- apps/monte-da-estrada/src/data/en/)" ]; then echo "has_changes=true" >> "$GITHUB_OUTPUT"; else echo "has_changes=false" >> "$GITHUB_OUTPUT"; fi
       - name: Create Pull Request
         if: steps.diff.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v6

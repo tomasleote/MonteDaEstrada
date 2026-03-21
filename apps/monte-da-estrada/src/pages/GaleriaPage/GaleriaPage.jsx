@@ -66,18 +66,12 @@ const GaleriaPage = () => {
 
   // ── O Monte — estate images ────────────────────────────────
   const oMonteImages = useMemo(() => [
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada Exterior' },
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte' },
-    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Sala de Estar - Perspetiva 1' },
-    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Sala de Estar - Perspetiva 2' },
-    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Detalhe Casa' },
-    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Recepção - Perspetiva 1' },
-    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Recepção - Perspetiva 2' },
-    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Detalhe Interior 3' },
-    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Detalhe Interior 1' },
-    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Exterior do Monte 2' },
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte 1' },
-    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Sala de Estar - Perspetiva 3' },
+    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada - Vista exterior do edifício alentejano', title: 'Exterior' },
+    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Monte da Estrada - Sala estúdio e zonas comuns', title: 'Área Comum' },
+    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Monte da Estrada - Quarto com decoração tradicional alentejana', title: 'Quarto' },
+    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Monte da Estrada - Pormenores e arquitetura de charme', title: 'Pormenor' },
+    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Monte da Estrada - Luminosidade e conforto nos quartos', title: 'Quarto' },
+    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Monte da Estrada - Casa de banho privativa moderna', title: 'Detalhe' },
   ], []);
 
   // ── A Região — territory images ────────────────────────────
@@ -87,7 +81,7 @@ const GaleriaPage = () => {
     ...descobrirData.attractions
       .filter(a => a.imageSrc !== null)
       .map(a => ({ src: a.imageSrc, alt: a.imageAlt || a.title, title: a.title })),
-  ], []);
+  ], [descobrirData]);
 
   const openLightbox = (images, index) => {
     setLightboxImages(images);

@@ -4,10 +4,11 @@
  */
 
 const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos';
+const HOME_CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home';
 
 export const quartosImages = {
   hero: {
-    src: `${CDN_BASE}/exterior-1.jpeg`,
+    src: `${HOME_CDN_BASE}/home-property-view-01.webp`,
     alt: 'Monte da Estrada — vista exterior do edifício alentejano',
     title: 'Quartos'
   },
@@ -57,12 +58,12 @@ export const quartosImages = {
   ],
   exterior: [
     {
-      src: `${CDN_BASE}/exterior-1.jpeg`,
+      src: `${HOME_CDN_BASE}/home-property-view-01.webp`,
       alt: 'Vista exterior do Monte da Estrada',
       title: 'Exterior'
     },
     {
-      src: `${CDN_BASE}/exterior-1.jpeg`,
+      src: `${HOME_CDN_BASE}/home-property-view-05.webp`,
       alt: 'Jardins e espaço exterior',
       title: 'Exterior'
     }

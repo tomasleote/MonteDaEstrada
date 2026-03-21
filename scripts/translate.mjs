@@ -23,7 +23,7 @@ const SKIP_KEYS = new Set([
   'src', 'image', 'imageSrc', 'logo', 'favicon', 'metaImage',
   'thumbnail', 'url', 'mapUrl', 'ctaHref', 'href',
   'latitude', 'longitude', 'postalCode',
-  'reservasUrl', 'siteLogo',
+  'reservasUrl', 'siteLogo', 'brandName',
 ]);
 
 // ── Helpers ─────────────────────────────────────────────────────
@@ -130,15 +130,33 @@ Example output:
   const data = await response.json();
   const content = data.choices[0].message.content.trim();
 
-  // Parse the JSON array from the response
+  let parsed;
   try {
-    return JSON.parse(content);
+    parsed = JSON.parse(content);
   } catch {
-    // Try extracting JSON array from markdown code block
     const match = content.match(/\[[\s\S]*\]/);
-    if (match) return JSON.parse(match[0]);
-    throw new Error(`Failed to parse translation response: ${content}`);
+    if (match) {
+      try {
+        parsed = JSON.parse(match[0]);
+      } catch {
+        throw new Error(`Failed to parse translation response: ${content}`);
+      }
+    } else {
+      throw new Error(`Failed to parse translation response: ${content}`);
+    }
   }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error('Translation response is not an array.');
+  }
+  if (parsed.length !== strings.length) {
+    throw new Error(`Translation length mismatch: expected ${strings.length}, got ${parsed.length}.`);
+  }
+  if (!parsed.every(s => typeof s === 'string' && s.trim().length > 0)) {
+    throw new Error('Translation array contains invalid or empty elements.');
+  }
+
+  return parsed;
 }
 
 // ── Main ────────────────────────────────────────────────────────

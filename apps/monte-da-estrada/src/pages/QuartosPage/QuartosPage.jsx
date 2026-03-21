@@ -22,7 +22,7 @@ const quartosCopy = {
     heroSubtitle: 'Conforto absoluto, configurável à sua medida.',
     roomsEyebrow: 'Quartos',
     roomsHeading: 'Oito quartos. Cada um, o seu.',
-    bookingEyebrow: 'copy.bookingEyebrow',
+    bookingEyebrow: 'Reservas',
     bookingHeading: 'O seu quarto espera.',
     bookingIntro: 'Reserve agora e descubra onde vai acordar.',
     bookingButton: 'Reservar',

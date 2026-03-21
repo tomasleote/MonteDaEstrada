@@ -56,26 +56,32 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "Hotel",
   "name": "Monte da Estrada",
+  "url": "https://montedaestrada.com",
+  "telephone": "+351960254072",
+  "email": "geral@montedaestrada.com",
   "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
   "description": "A sua casa no Litoral Alentejano.",
+  "priceRange": "$$",
+  "checkinTime": "15:00",
+  "checkoutTime": "12:00",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Malhadil",
+    "postalCode": "7630-611",
     "addressLocality": "Zambujeira do Mar",
     "addressRegion": "Alentejo",
     "addressCountry": "PT"
   },
-  "containsPlace": [
-    {
-      "@type": "HotelRoom",
-      "name": "Suite Alentejana",
-      "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-1.webp",
-      "amenityFeature": {
-        "@type": "LocationFeatureSpecification",
-        "name": "Vista Panorâmica",
-        "value": true
-      }
-    }
-  ]
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.5884155,
+    "longitude": -8.7782957
+  },
+  "containsPlace": Array.from({ length: 8 }, (_, i) => ({
+    "@type": "HotelRoom",
+    "name": `Quarto Duplo / Twin ${i + 1}`,
+    "image": `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-${(i % 4) + 1}.webp`
+  }))
 };
 
 // ──────────────────────────────────────────────
@@ -245,6 +251,7 @@ const HomePage = () => {
       {!isMobile && (
         <FullBleedImage
           imageSrc={homeImages.gallery[2].src}
+          imageAlt={locale === 'en' ? 'Panoramic view of Monte da Estrada at sunset' : 'Vista panorâmica do Monte da Estrada ao pôr do sol'}
           height="70vh"
         />
       )}

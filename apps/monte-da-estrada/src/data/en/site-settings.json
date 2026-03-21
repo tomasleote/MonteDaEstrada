@@ -25,6 +25,11 @@
   "favicon": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
   "metaImage": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
   "metaImageAlt": "Exterior view of Monte da Estrada - Luxury rural accommodation in Alentejo",
-  "reservasUrl": "https://www.booking.com/",
-  "showLanguageSelector": true
+  "reservasUrl": "https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=en-US",
+  "showLanguageSelector": true,
+  "skipToMain": "Skip to main content",
+  "footer": {
+    "complaintBook": "Electronic Complaints Book",
+    "arbitrationEntity": "CNIACC – National Center for Information and Arbitration of Consumer Conflicts"
+  }
 }

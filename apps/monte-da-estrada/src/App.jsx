@@ -7,6 +7,8 @@ import AnimatedPage from '@/motion/components/AnimatedPage'
 import useScrollToTop from './hooks/useScrollToTop'
 import BookingTab from './components/BookingTab'
 import { LocaleProvider, useLocale } from './contexts/LocaleContext'
+import ptSiteSettings from './data/pt/site-settings.json'
+import enSiteSettings from './data/en/site-settings.json'
 
 const logoBrancoAzul = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-azul-texto-branco.webp'
 
@@ -37,18 +39,18 @@ const footerAddress = {
 }
 
 // Footer legal information
-const footerLegalInfo = {
+const getFooterLegalInfo = (settings) => ({
   complaintBook: {
-    text: 'Livro de Reclamações Electrónico',
+    text: settings.footer.complaintBook,
     url: 'https://www.livroreclamacoes.pt/',
   },
   arbitration: {
-    entityName: 'CNIACC – Centro Arbitragem',
+    entityName: settings.footer.arbitrationEntity,
     entityUrl: 'https://www.cniacc.pt/',
     phone: '253 619 107',
     email: 'geral@cniacc.pt',
   },
-}
+})
 
 // HeyTravel Direct Booking URL
 const HEYTRAVEL_BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT';
@@ -89,31 +91,24 @@ function AppContent() {
 
   // Browser language detection on first load
   // Redirects English-preferring browsers to /en on first visit
+  // Sync URL with context locale
   useEffect(() => {
-    const stored = localStorage.getItem('mde-locale');
-    if (stored) {
-      // Already has a preference — sync locale with URL
-      if (stored === 'en' && !location.pathname.startsWith('/en')) {
-        navigate('/en' + location.pathname, { replace: true });
-      } else if (stored === 'pt' && location.pathname.startsWith('/en')) {
-        navigate(location.pathname.replace(/^\/en/, '') || '/', { replace: true });
-      }
-      return;
+    const activeLocale = locale || (navigator.language.startsWith('en') ? 'en' : 'pt');
+    if (activeLocale !== locale) setLocale(activeLocale);
+
+    if (activeLocale === 'en' && !location.pathname.startsWith('/en')) {
+      navigate('/en' + (location.pathname === '/' ? '/' : location.pathname), { replace: true });
+    } else if (activeLocale === 'pt' && location.pathname.startsWith('/en')) {
+      navigate(location.pathname.replace(/^\/en/, '') || '/', { replace: true });
     }
-    // No stored preference — detect browser language
-    const browserLang = navigator.language || '';
-    if (browserLang.startsWith('en') && !location.pathname.startsWith('/en')) {
-      setLocale('en');
-      navigate('/en' + location.pathname, { replace: true });
-    }
-  }, []);
+  }, [locale, location.pathname, navigate, setLocale]);
 
   const handleLanguageChange = (lang) => {
     setLocale(lang);
     const currentPath = location.pathname;
     if (lang === 'en') {
       // Switch TO English — add /en prefix
-      navigate('/en' + (currentPath === '/' ? '' : currentPath));
+      navigate('/en/' + currentPath.slice(1));
     } else {
       // Switch TO Portuguese — remove /en prefix
       const newPath = currentPath.replace(/^\/en/, '') || '/';
@@ -124,11 +119,12 @@ function AppContent() {
   const currentLanguage = locale === 'en' ? 'EN' : 'PT';
   const navLinks = getNavLinks(locale);
   const footerNavLinks = getFooterNavLinks(locale);
+  const siteSettings = locale === 'en' ? enSiteSettings : ptSiteSettings;
 
   return (
     <div className="app">
       <a href="#main-content" className="skip-to-main">
-        Saltar para o conteúdo principal
+        {siteSettings.skipToMain}
       </a>
 
       <HeaderModern
@@ -168,6 +164,17 @@ function AppContent() {
                 <Route path="/atividades" element={<Navigate to="/descobrir" replace />} />
                 <Route path="/redondezas" element={<Navigate to="/descobrir" replace />} />
                 <Route path="/localizacao" element={<Navigate to="/contacto" replace />} />
+
+                {/* 404 Catch-all */}
+                <Route path="*" element={
+                  <div style={{ padding: '80px 20px', textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--foreground)' }}>{locale === 'en' ? 'Page not found' : 'Página não encontrada'}</h1>
+                    <p style={{ marginBottom: '2rem', color: 'var(--muted-foreground)' }}>{locale === 'en' ? 'The page you are looking for does not exist.' : 'A página que procura não existe.'}</p>
+                    <a href={locale === 'en' ? '/en/' : '/'} style={{ textDecoration: 'underline', color: 'var(--primary)' }}>
+                      {locale === 'en' ? 'Return to Home' : 'Voltar à Página Inicial'}
+                    </a>
+                  </div>
+                } />
               </Routes>
             </Suspense>
           </AnimatedPage>
@@ -177,7 +184,7 @@ function AppContent() {
       <Footer
         address={footerAddress}
         navigationLinks={footerNavLinks}
-        legalInfo={footerLegalInfo}
+        legalInfo={getFooterLegalInfo(siteSettings)}
         copyright={`© Monte da Estrada ${new Date().getFullYear()}`}
       />
 

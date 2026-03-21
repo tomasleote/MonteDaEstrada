@@ -56,14 +56,14 @@ const DescobrirPage = () => {
   return (
     <div className={styles.page}>
       <SEO
-        title="Descobrir"
+        title={locale === 'en' ? 'Discover' : 'Descobrir'}
         description={locale === 'en'
           ? 'Explore the territory around Monte da Estrada: Costa Vicentina beaches, Rota Vicentina trails, historic villages, and the unique landscape of inland Alentejo.'
           : 'Explore o território à volta do Monte da Estrada: praias da Costa Vicentina, trilhos da Rota Vicentina, vilas históricas e a paisagem única do Alentejo interior.'}
         keywords={locale === 'en'
           ? 'discover, alentejo, costa vicentina, rota vicentina, zambujeira do mar, activities, surroundings, monte da estrada'
           : 'descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada'}
-        image="/images/hero-atividades.jpg"
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir%20(1).webp"
         locale={locale}
       />
 
@@ -147,7 +147,7 @@ const DescobrirPage = () => {
 
       {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
       <FullBleedQuote
-        imageSrc={descobrirData.beaches[4]?.imageSrc}
+        imageSrc={descobrirData.beaches[4]?.imageSrc || "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp"}
         alt={copy.fullBleedQuote}
         quote={copy.fullBleedQuote}
         attribution={copy.fullBleedAttribution}

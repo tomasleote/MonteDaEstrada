@@ -14,23 +14,34 @@ import PropTypes from 'prop-types';
  * />
  */
 const SEO = ({
-  title,
+  title = null,
   description,
-  image,
-  type,
-  url,
-  keywords,
+  image = null,
+  type = 'website',
+  url = null,
+  keywords = 'turismo rural, alentejo, zambujeira do mar, alojamento, férias, portugal',
   locale = 'pt',
 }) => {
   const siteTitle = 'Monte da Estrada';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
   const siteUrl = 'https://montedaestrada.com';
-  const fullUrl = url || siteUrl;
-  const fullImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/og-default.jpg`;
+
+  const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const fullUrl = url || (currentPath === '/' ? siteUrl : `${siteUrl}${currentPath}`);
+
+  let ptPath = currentPath.replace(/^\/en(\/|$)/, '/');
+  if (ptPath.length > 1 && ptPath.endsWith('/')) ptPath = ptPath.slice(0, -1);
+
+  let enPath = currentPath.startsWith('/en') ? currentPath : (currentPath === '/' ? '/en/' : `/en${currentPath}`);
+  if (enPath.length > 4 && enPath.endsWith('/')) enPath = enPath.slice(0, -1);
+
+  const fallbackImage = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp';
+  const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : fallbackImage;
   const ogLocale = locale === 'en' ? 'en_US' : 'pt_PT';
 
   return (
     <Helmet>
+      <html lang={locale === 'en' ? 'en' : 'pt'} />
       {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
@@ -38,9 +49,9 @@ const SEO = ({
       {keywords && <meta name="keywords" content={keywords} />}
 
       {/* hreflang — must come before other meta */}
-      <link rel="alternate" hreflang="x-default" href={siteUrl} />
-      <link rel="alternate" hreflang="pt" href={siteUrl} />
-      <link rel="alternate" hreflang="en" href={`${siteUrl}/en`} />
+      <link rel="alternate" hreflang="x-default" href={ptPath === '/' ? siteUrl : `${siteUrl}${ptPath}`} />
+      <link rel="alternate" hreflang="pt" href={ptPath === '/' ? siteUrl : `${siteUrl}${ptPath}`} />
+      <link rel="alternate" hreflang="en" href={enPath === '/en/' ? `${siteUrl}/en/` : `${siteUrl}${enPath}`} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
@@ -84,13 +95,6 @@ SEO.propTypes = {
   locale: PropTypes.string,
 };
 
-SEO.defaultProps = {
-  title: null,
-  image: null,
-  type: 'website',
-  url: null,
-  keywords: 'turismo rural, alentejo, zambujeira do mar, alojamento, férias, portugal',
-  locale: 'pt',
-};
+
 
 export default SEO;

@@ -16,6 +16,29 @@ import { getData } from '@/data/dataLoader';
 import { homeImages } from '@/data/homeImages';
 import styles from './ContactoPage.module.scss';
 
+const contactStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Monte da Estrada",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
+  "url": "https://montedaestrada.com/contacto",
+  "telephone": "+351960254072",
+  "email": "geral@montedaestrada.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Malhadil",
+    "addressLocality": "Zambujeira do Mar",
+    "postalCode": "7630-611",
+    "addressRegion": "Alentejo",
+    "addressCountry": "PT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 37.5884155,
+    "longitude": -8.7782957
+  }
+};
+
 const contactCopy = {
   pt: {
     heroImageAlt: 'Vista panorâmica da paisagem alentejana',
@@ -62,9 +85,11 @@ const ContactoPage = () => {
         keywords={locale === 'en'
           ? 'contact, reservations, how to get here, monte da estrada, alentejo, zambujeira do mar'
           : 'contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar'}
-        image="/images/hero-localizacao.jpg"
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp"
         locale={locale}
       />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactStructuredData) }} />
 
       {/* S1 — Page Hero */}
       <PageHero
@@ -98,7 +123,7 @@ const ContactoPage = () => {
 
               <ul className={styles.contactDetails}>
                 <li className={styles.contactItem}>
-                  <span className={styles.contactLabel}>Telefone / WhatsApp</span>
+                  <span className={styles.contactLabel}>{locale === 'en' ? 'Phone / WhatsApp' : 'Telefone / WhatsApp'}</span>
                   <a
                     href="tel:+351960254072"
                     className={styles.contactValue}
@@ -116,12 +141,12 @@ const ContactoPage = () => {
                   </a>
                 </li>
                 <li className={styles.contactItem}>
-                  <span className={styles.contactLabel}>Morada</span>
+                  <span className={styles.contactLabel}>{locale === 'en' ? 'Address' : 'Morada'}</span>
                   <address className={styles.contactAddress}>
-                    Monte da Estrada<br />
-                    Zambujeira do Mar<br />
-                    7630-568 Odemira<br />
-                    Alentejo, Portugal
+                    {localizacaoData?.address?.name || 'Monte da Estrada'}<br />
+                    {localizacaoData?.address?.street}<br />
+                    {localizacaoData?.address?.postalCode} {localizacaoData?.address?.city}<br />
+                    {localizacaoData?.address?.region}, {localizacaoData?.address?.country}
                   </address>
                 </li>
                 <li className={styles.contactItem}>

@@ -325,7 +325,7 @@ collections:
             widget: "list"
             i18n: true
             fields:
-              - { label: "ID", name: "id", widget: "string", i18n: true }
+              - { label: "ID", name: "id", widget: "string", i18n: "duplicate" }
               - { label: "Nome", name: "name", widget: "string", i18n: true }
               - { label: "Descrição", name: "description", widget: "text", i18n: true }
               - label: "Imagens"
@@ -374,7 +374,7 @@ collections:
             widget: "list"
             i18n: true
             fields:
-              - { label: "ID", name: "id", widget: "string", i18n: true }
+              - { label: "ID", name: "id", widget: "string", i18n: "duplicate" }
               - { label: "Name", name: "name", widget: "string", i18n: true }
               - { label: "Description", name: "description", widget: "text", i18n: true }
               - label: "Images"
@@ -537,6 +537,11 @@ collections:
           - { label: "Descrição", name: "description", widget: "text", i18n: true }
           - { label: "CTA Label", name: "ctaLabel", widget: "string", i18n: true }
           - { label: "CTA URL", name: "ctaHref", widget: "string", i18n: "duplicate" }
+          - label: "Comodidades"
+            name: "amenities"
+            widget: "list"
+            i18n: true
+            field: { label: "Comodidade", name: "amenity", widget: "string", i18n: true }
 
       - label: "Suite Alentejana (EN)"
         name: "suiteAlentejana-en"
@@ -549,6 +554,11 @@ collections:
           - { label: "Description", name: "description", widget: "text", i18n: true }
           - { label: "CTA Label", name: "ctaLabel", widget: "string", i18n: true }
           - { label: "CTA URL", name: "ctaHref", widget: "string", i18n: "duplicate" }
+          - label: "Amenities"
+            name: "amenities"
+            widget: "list"
+            i18n: true
+            field: { label: "Amenity", name: "amenity", widget: "string", i18n: true }
 
   # ─────────────────────────────────────────────
   # SITE SETTINGS — global branding, logos, SEO

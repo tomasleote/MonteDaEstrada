@@ -39,7 +39,7 @@ const DATA = {
 
 /**
  * Get locale-specific data for a given module.
- * @param {string} moduleName - 'descobrir' | 'atividades' | 'suiteAlentejana' | 'galeria' | 'home' | 'quartos'
+ * @param {string} moduleName - 'descobrir' | 'atividades' | 'suiteAlentejana' | 'galeria' | 'home' | 'quartos' | 'localizacao'
  * @param {string} locale - 'pt' | 'en'
  */
 export function getData(moduleName, locale) {
