@@ -9,5 +9,8 @@
   "scripts": {
     "dev:monte": "npm run dev --workspace=apps/monte-da-estrada",
     "build:monte": "npm run build --workspace=apps/monte-da-estrada"
+  },
+  "dependencies": {
+    "claude": "^0.1.1"
   }
 }

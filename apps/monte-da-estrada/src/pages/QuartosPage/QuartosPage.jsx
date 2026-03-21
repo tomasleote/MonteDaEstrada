@@ -9,7 +9,7 @@ import {
   variants,
   viewport,
 } from '@touril-ecosystem/ui-components';
-import { quartosImages } from '@/assets/images/quartos';
+import { quartosImages } from '@/data/quartosImages';
 import { seoConfig } from '@/utils/seo-config';
 import styles from './QuartosPage.module.scss';
 

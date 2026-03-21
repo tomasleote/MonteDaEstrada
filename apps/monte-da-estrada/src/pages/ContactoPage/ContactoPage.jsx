@@ -11,7 +11,7 @@ import {
   variants,
   stagger,
 } from '@touril-ecosystem/ui-components';
-import { homeImages } from '@/assets/images/home';
+import { homeImages } from '@/data/homeImages';
 import localizacaoData from '@/data/localizacao.json';
 import styles from './ContactoPage.module.scss';
 

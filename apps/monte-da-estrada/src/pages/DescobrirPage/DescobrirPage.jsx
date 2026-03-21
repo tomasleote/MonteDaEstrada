@@ -18,25 +18,8 @@ import {
 } from '@touril-ecosystem/ui-components';
 import descobrirData from '@/data/descobrir';
 import mapLocations from '@/data/map-locations';
-import { descobrirImages } from '@/assets/images/descobrir';
-import styles from './DescobrirPage.module.scss';
-import bardapraiaLogo from '@/assets/images/logos/bardapraia.avif';
-import casasBrancasLogo from '@/assets/images/logos/casas_brancas.avif';
-import celsoLogo from '@/assets/images/logos/celso.avif';
-import manjedouraLogo from '@/assets/images/logos/manjedoura.avif';
-import rotaVicentinaLogo from '@/assets/images/logos/rota_vicentina.avif';
-import tourilLogo from '@/assets/images/logos/touril.avif';
-import visitAlentejoLogo from '@/assets/images/logos/visitAlentejo.avif';
 
-const logoMap = {
-  'bardapraia.avif': bardapraiaLogo,
-  'casas_brancas.avif': casasBrancasLogo,
-  'celso.avif': celsoLogo,
-  'manjedoura.avif': manjedouraLogo,
-  'rota_vicentina.avif': rotaVicentinaLogo,
-  'touril.avif': tourilLogo,
-  'visitAlentejo.avif': visitAlentejoLogo,
-};
+import styles from './DescobrirPage.module.scss';
 
 // ──────────────────────────────────────────────
 // CategoryNav anchor items — 3 acts
@@ -68,9 +51,9 @@ const DescobrirPage = () => {
       {/* 65vh territory photography + eyebrow + headline + subtitle */}
       <div id="discovery-hero">
         <PageHero
-          imageSrc={descobrirImages.hero.src}
-          imageAlt={descobrirImages.hero.alt}
-          eyebrow={descobrirImages.hero.title}
+          imageSrc={descobrirData.experiences[0].imageSrc}
+          imageAlt={descobrirData.experiences[0].imageAlt}
+          eyebrow="Descobrir"
           headline="O território é a experiência."
           subtitle="110 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo."
         />
@@ -93,9 +76,9 @@ const DescobrirPage = () => {
           'A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio — está aqui mesmo à porta.',
           'Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente faz falta.',
         ]}
-        imageSrc={descobrirImages.territory.src}
-        imageAlt="Vista panorâmica da paisagem alentejana"
-        imagePosition="left"
+        //imageSrc={descobrirImages.territory.src}
+        //imageAlt="Vista panorâmica da paisagem alentejana"
+        //imagePosition="left"
       />
 
       {/* S3.5 — Discovery Map ─────────────────────────────────────── */}
@@ -129,7 +112,7 @@ const DescobrirPage = () => {
           >
             {descobrirData.experiences.map((exp, index) => {
               // Use imported images for all experiences
-              const imageSrc = descobrirImages.experiences[index]?.src || exp.imageSrc;
+              const imageSrc = exp.imageSrc;
 
               return (
                 <ExperienceCard
@@ -159,7 +142,7 @@ const DescobrirPage = () => {
       {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
       {/* Coastal photography + editorial serif quote overlay (50vh, parallax) */}
       <FullBleedQuote
-        imageSrc={descobrirImages.beaches[4].src}
+        imageSrc={descobrirData.beaches[4].imageSrc}
         alt="Zambujeira do Mar — falésias e Atlântico"
         quote="A última costa selvagem da Europa ocidental começa aqui."
         attribution="Parque Natural do Sudoeste Alentejano e Costa Vicentina"
@@ -189,7 +172,7 @@ const DescobrirPage = () => {
             viewport={viewport.default}
           >
             {descobrirData.beaches.map((beach, index) => {
-              const imageSrc = descobrirImages.beaches[index]?.src || beach.imageSrc;
+              const imageSrc = beach.imageSrc;
               return (
                 <BeachCard
                   key={index}
@@ -241,7 +224,7 @@ const DescobrirPage = () => {
                 }}
               >
                 <img
-                  src={logoMap[partner.logo]}
+                  src={partner.logo}
                   alt={`Logo de ${partner.name}`}
                   className={styles.partnerLogo}
                   title={partner.name}

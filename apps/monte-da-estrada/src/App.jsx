@@ -4,7 +4,7 @@ import { AnimatePresence } from 'motion/react'
 import { HeaderModern, Footer } from '@touril-ecosystem/ui-components'
 import LoadingSpinner from './components/LoadingSpinner'
 import AnimatedPage from '@/motion/components/AnimatedPage'
-import logoBrancoAzul from '@/assets/images/logos/logo-azul-texto-branco.png'
+const logoBrancoAzul = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-azul-texto-branco.webp'
 import useScrollToTop from './hooks/useScrollToTop'
 import BookingTab from './components/BookingTab'
 // Remove legacy BookingModal import

@@ -6,22 +6,11 @@ import { ScrollReveal } from '@/motion';
 import styles from './GaleriaPage.module.scss';
 import galeriaData from '@/data/galeria.json';
 import { seoConfig } from '@/utils/seo-config';
-import { galeriaImages } from '@/assets/images/galeria';
-import { homeImages } from '@/assets/images/home';
-import { exteriorImages } from '@/assets/images/exterior';
-import { descobrirImages } from '@/assets/images/descobrir';
-import { descobrirAttractions } from '@/assets/images/redondezas';
+import { homeImages } from '@/data/homeImages';
+import descobrirData from '@/data/descobrir';
 
-import exterior1 from '@/assets/FOTOS MONTE DA ESTRADA/EXTERIOR 1.jpeg';
-import sala5 from '@/assets/FOTOS MONTE DA ESTRADA/SALA 5.jpeg';
-import sala3 from '@/assets/FOTOS MONTE DA ESTRADA/SALA 3.jpeg';
-import pormenor2 from '@/assets/FOTOS MONTE DA ESTRADA/PORMENOR 2.jpeg';
-import recepcao1 from '@/assets/FOTOS MONTE DA ESTRADA/RECPÇÃO 1.jpeg';
-import recepcao2 from '@/assets/FOTOS MONTE DA ESTRADA/RECPÇÃO 2.jpeg';
-import pormenor3 from '@/assets/FOTOS MONTE DA ESTRADA/PORMENOR 3.jpeg';
-import pormenor1 from '@/assets/FOTOS MONTE DA ESTRADA/PORMENOR 1.jpeg';
-import exterior2 from '@/assets/FOTOS MONTE DA ESTRADA/EXTERIOR 2.jpeg';
-import sala2 from '@/assets/FOTOS MONTE DA ESTRADA/SALA 2.jpeg';
+// Local static image imports replaced by CDN URLs
+const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos';
 
 // ── CategoryNav items ──────────────────────────────────────────
 const NAV_ITEMS = [
@@ -50,25 +39,25 @@ const GaleriaPage = () => {
 
   // ── O Monte — estate images ────────────────────────────────
   const oMonteImages = useMemo(() => [
-    galeriaImages.gallery[0],
-    { src: exterior1, alt: 'Exterior do Monte' },
-    { src: sala5, alt: 'Sala de Estar - Perspetiva 1' },
-    { src: sala3, alt: 'Sala de Estar - Perspetiva 2' },
-    { src: pormenor2, alt: 'Detalhe Casa' },
-    { src: recepcao1, alt: 'Recepção - Perspetiva 1' },
-    { src: recepcao2, alt: 'Recepção - Perspetiva 2' },
-    { src: pormenor3, alt: 'Detalhe Interior 3' },
-    { src: pormenor1, alt: 'Detalhe Interior 1' },
-    { src: exterior2, alt: 'Exterior do Monte 2' },
-    { src: exterior1, alt: 'Exterior do Monte 1' },
-    { src: sala2, alt: 'Sala de Estar - Perspetiva 3' },
+    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada Exterior' },
+    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte' },
+    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Sala de Estar - Perspetiva 1' },
+    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Sala de Estar - Perspetiva 2' },
+    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Detalhe Casa' },
+    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Recepção - Perspetiva 1' },
+    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Recepção - Perspetiva 2' },
+    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Detalhe Interior 3' },
+    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Detalhe Interior 1' },
+    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Exterior do Monte 2' },
+    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte 1' },
+    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Sala de Estar - Perspetiva 3' },
   ], []);
 
   // ── A Região — territory images ────────────────────────────
   const aRegiaoImages = useMemo(() => [
-    ...descobrirImages.beaches,
-    ...descobrirImages.experiences,
-    ...descobrirAttractions.attractions,
+    ...descobrirData.beaches.map(b => ({ src: b.imageSrc, alt: b.imageAlt || b.name, title: b.name })),
+    ...descobrirData.experiences.map(e => ({ src: e.imageSrc, alt: e.imageAlt || e.title, title: e.title })),
+    ...descobrirData.attractions.map(a => ({ src: a.imageSrc, alt: a.imageAlt || a.title, title: a.title })),
   ], []);
 
   const openLightbox = (images, index) => {

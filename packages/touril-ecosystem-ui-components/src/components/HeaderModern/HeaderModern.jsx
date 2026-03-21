@@ -45,6 +45,7 @@ const HeaderModern = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
   const propertiesRef = useRef(null);
+  const headerRef = useRef(null);
   const location = useLocation();
 
   // Reason: Monitor scroll position to trigger header state transition
@@ -76,16 +77,25 @@ const HeaderModern = ({
     };
   }, [isMenuOpen]);
 
-  // Reason: Close properties dropdown on outside click
+  // Reason: Close properties dropdown and mobile menu on outside click
   useEffect(() => {
     const handleClickOutside = (e) => {
+      // Close properties dropdown when clicking outside
       if (propertiesRef.current && !propertiesRef.current.contains(e.target)) {
         setIsPropertiesOpen(false);
+      }
+      // Close mobile menu when clicking outside (on the page, not on the menu)
+      if (isMenuOpen && e.target && !e.target.closest(`.${styles.mobileMenu}`) && !e.target.closest(`.${styles.hamburger}`)) {
+        // Only close if clicking outside the mobile menu and hamburger button
+        const headerEl = e.target.closest(`.${styles.header}`);
+        if (!headerEl || (headerEl && !headerEl.contains(e.target))) {
+          setIsMenuOpen(false);
+        }
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  }, [isMenuOpen]);
 
   /**
    * Check if the current route matches a navigation path

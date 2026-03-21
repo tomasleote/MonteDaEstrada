@@ -148,7 +148,7 @@
     right: -100%; // Hidden off-screen
     width: 280px;
     max-width: 85vw;
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     flex-direction: column;
     align-items: flex-start;
     background-color: $color-bg-primary;
@@ -159,16 +159,16 @@
     transition: right $transition-normal $ease-out-back;
 
     // Top padding to avoid notch
-    padding-top: max($spacing-l, var(--safe-area-top));
+    padding-top: max($spacing-l, env(safe-area-inset-top));
 
     // Bottom padding to avoid home indicator
-    padding-bottom: max($spacing-l, var(--safe-area-bottom));
+    padding-bottom: max($spacing-l, env(safe-area-inset-bottom));
   }
 
   @include mobile-landscape {
     // Make menu wider but shorter in landscape
     width: 50vw;
-    max-height: calc(100vh - 50px);
+    max-height: calc(100dvh - 50px);
 
     // Enable scrolling for long menus
     overflow-y: auto;
@@ -269,7 +269,7 @@
     top: 60px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100dvh - 60px);
     background-color: $color-bg-overlay;
     z-index: $z-index-sticky - 1;
     animation: fadeIn $transition-fast $ease-standard;

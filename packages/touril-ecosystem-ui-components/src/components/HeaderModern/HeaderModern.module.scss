@@ -407,7 +407,8 @@
   justify-content: flex-start;
   align-items: stretch;
   z-index: $z-index-modal - 1;
-  padding-top: 64px;
+  padding-top: calc(64px + env(safe-area-inset-top));
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .headerMenuOpen .mobileMenu {

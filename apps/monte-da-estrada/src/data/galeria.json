@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "/src/assets/images/home/home-hero-monte-exterior.jpg",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-01.webp",
     "alt": "Monte da Estrada - Luxurious countryside property exterior view",
     "title": "Galeria",
     "subtitle": "Conheça o Monte da Estrada"
@@ -14,22 +14,22 @@
       "description": "A beleza da propriedade e da paisagem alentejana",
       "images": [
         {
-          "src": "/src/assets/images/exterior/exterior-amenity-01.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-01.webp",
           "alt": "Vista geral do Monte da Estrada",
           "caption": "Monte da Estrada - Vista geral da propriedade"
         },
         {
-          "src": "/src/assets/images/exterior/exterior-amenity-02.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
           "alt": "Jardim e área exterior",
           "caption": "Jardim com vista para o campo alentejano"
         },
         {
-          "src": "/src/assets/images/exterior/exterior-amenity-03.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-08.webp",
           "alt": "Piscina exterior",
           "caption": "Piscina de água salgada"
         },
         {
-          "src": "/src/assets/images/exterior/exterior-amenity-04.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/exterior-1.jpeg",
           "alt": "Terraço panorâmico",
           "caption": "Terraço com vista sobre a paisagem"
         }
@@ -41,22 +41,22 @@
       "description": "Acomodações confortáveis com charme tradicional",
       "images": [
         {
-          "src": "/src/assets/images/quartos/quartos-room-01.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-1.webp",
           "alt": "Quarto duplo",
           "caption": "Quarto duplo standard"
         },
         {
-          "src": "/src/assets/images/quartos/quartos-room-03.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-2.webp",
           "alt": "Quarto twin",
           "caption": "Quarto com duas camas individuais"
         },
         {
-          "src": "/src/assets/images/quartos/quartos-room-05.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-3.webp",
           "alt": "Quarto familiar",
           "caption": "Quarto familiar espaçoso"
         },
         {
-          "src": "/src/assets/images/quartos/quartos-common-area-01.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-wc.webp",
           "alt": "Casa de banho",
           "caption": "Casa de banho privativa"
         }
@@ -68,22 +68,22 @@
       "description": "Espaços de convívio e relaxamento",
       "images": [
         {
-          "src": "/src/assets/images/quartos/quartos-common-area-02.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-2.webp",
           "alt": "Sala de estar",
           "caption": "Sala de estar comum"
         },
         {
-          "src": "/src/assets/images/quartos/quartos-common-area-03.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-3.webp",
           "alt": "Cozinha equipada",
           "caption": "Cozinha partilhada totalmente equipada"
         },
         {
-          "src": "/src/assets/images/exterior/exterior-amenity-05.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/exterior-1.jpeg",
           "alt": "Área de refeições",
           "caption": "Área de refeições exterior"
         },
         {
-          "src": "/src/assets/images/exterior/exterior-amenity-06.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
           "alt": "Zona de churrasqueira",
           "caption": "Churrasqueira e área de convívio"
         }
@@ -95,22 +95,22 @@
       "description": "A beleza natural do Alentejo",
       "images": [
         {
-          "src": "/src/assets/images/home/home-property-view-05.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
           "alt": "Campo alentejano",
           "caption": "Vista sobre os campos alentejanos"
         },
         {
-          "src": "/src/assets/images/home/home-property-view-07.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-08.webp",
           "alt": "Pôr do sol",
           "caption": "Pôr do sol sobre o Alentejo"
         },
         {
-          "src": "/src/assets/images/home/home-property-view-10.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/exterior-1.jpeg",
           "alt": "Natureza envolvente",
           "caption": "Flora e fauna da região"
         },
         {
-          "src": "/src/assets/images/home/home-property-view-12.jpg",
+          "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-01.webp",
           "alt": "Céu estrelado",
           "caption": "Céu noturno sem poluição luminosa"
         }

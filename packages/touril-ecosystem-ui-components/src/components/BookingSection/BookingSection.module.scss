@@ -14,7 +14,7 @@
   text-align: center;
 
   @include mobile {
-    padding: 80px $spacing-m;
+    padding: 48px $spacing-m;
   }
 }
 
@@ -103,7 +103,7 @@
 .widgetContainer {
   margin-bottom: $spacing-xl;
   width: 100%;
-  min-height: 120px;
+  min-height: 0;
 }
 // ==================================
 // NOTE

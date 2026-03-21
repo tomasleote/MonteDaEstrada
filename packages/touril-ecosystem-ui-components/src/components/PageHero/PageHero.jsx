@@ -35,7 +35,7 @@ function PageHero({
   return (
     <div className={`${styles.hero} ${className}`}>
       {/* Background Image */}
-      <img src={imageSrc} alt={imageAlt} className={styles.image} />
+      <img src={imageSrc} alt={imageAlt} className={styles.image} fetchPriority="high" loading="eager" decoding="async" />
 
       {/* Lighter overlay — photography must read clearly */}
       <div className={styles.overlay} />

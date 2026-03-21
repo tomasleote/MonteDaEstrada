@@ -11,8 +11,12 @@
     height: 60vh;
   }
 
-  @media (min-width: $breakpoint-mobile + 1px) {
+  @media (min-width: $breakpoint-tablet) {
     height: 450px;
+  }
+
+  @media (min-width: $breakpoint-mobile + 1px) and (max-width: $breakpoint-tablet - 1px) {
+    height: 380px;
   }
 }
 
@@ -28,6 +32,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  will-change: transform;
 }
 
 .dotsContainer {

@@ -10,7 +10,7 @@
   font-family: $font-body;
   font-size: 0.75rem;  // 12px
   font-weight: $font-weight-medium;
-  letter-spacing: 3px;
+  letter-spacing: $letter-spacing-headline; // 1px — brand spec
   text-transform: uppercase;
   color: $color-clay;
   margin-bottom: $spacing-m;

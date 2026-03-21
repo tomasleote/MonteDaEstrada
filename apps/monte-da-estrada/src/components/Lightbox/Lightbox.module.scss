@@ -41,12 +41,12 @@
   @include elegant-transition('all', 200ms);
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid $color-primary;
     outline-offset: 2px;
   }
@@ -108,12 +108,12 @@
   @include elegant-transition('all', 200ms);
 
   &:hover,
-  &:focus {
+  &:focus-visible {
     background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
   }
 
-  &:focus {
+  &:focus-visible {
     outline: 2px solid $color-primary;
     outline-offset: 2px;
   }
