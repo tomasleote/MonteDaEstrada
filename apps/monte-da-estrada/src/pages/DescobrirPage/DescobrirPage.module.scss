@@ -65,7 +65,10 @@
 
 .experiencesSection {
   background-color: $color-sand;
-  padding: 48px 0;
+
+  @include mobile {
+    padding: 48px 0;
+  }
 }
 
 .experiencesGrid {
@@ -90,7 +93,10 @@
 
 .beachesSection {
   background-color: $color-cream;
-  padding: 48px 0;
+
+  @include mobile {
+    padding: 48px 0;
+  }
 }
 
 .beachesGrid {
@@ -111,7 +117,10 @@
 
 .redondezasSection {
   background-color: $color-deep-brown;
-  padding: 48px 0;
+
+  @include mobile {
+    padding: 48px 0;
+  }
 }
 
 .attractionsGrid {

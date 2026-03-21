@@ -67,7 +67,7 @@ const rooms = [
  */
 const QuartosPage = () => {
   const isMobile = useMobileQuery();
-  const BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=[{"room":1,"adults":2,"children":0}]&complex=1828&lang=pt-PT&';
+  const BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT';
 
   const handleReserveClick = () => {
     // Smooth scroll to the booking section at the bottom of the page

@@ -44,7 +44,7 @@ export const seoConfig = {
     title: 'Descobrir',
     description: 'Explore o território à volta do Monte da Estrada: praias da Costa Vicentina, trilhos da Rota Vicentina, vilas históricas e a paisagem única do Alentejo.',
     keywords: 'descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada',
-    image: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir (1).webp',
+    image: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir%20(1).webp',
   },
   contacto: {
     title: 'Contacto',

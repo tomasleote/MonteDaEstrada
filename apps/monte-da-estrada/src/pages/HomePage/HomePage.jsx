@@ -79,6 +79,32 @@ const activityItems = [
 
 // ──────────────────────────────────────────────
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Monte da Estrada",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
+  "description": "A sua casa no Litoral Alentejano.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Zambujeira do Mar",
+    "addressRegion": "Alentejo",
+    "addressCountry": "PT"
+  },
+  "containsPlace": [
+    {
+      "@type": "HotelRoom",
+      "name": "Suite Alentejana",
+      "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-1.webp",
+      "amenityFeature": {
+        "@type": "LocationFeatureSpecification",
+        "name": "Vista Panorâmica",
+        "value": true
+      }
+    }
+  ]
+};
+
 const HomePage = () => {
   const isMobile = useMobileQuery();
 
@@ -90,34 +116,8 @@ const HomePage = () => {
         keywords={seoConfig.home.keywords}
         image={seoConfig.home.image}
       />
-      
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Hotel",
-          "name": "Monte da Estrada",
-          "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
-          "description": "A sua casa no Litoral Alentejano.",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Zambujeira do Mar",
-            "addressRegion": "Alentejo",
-            "addressCountry": "PT"
-          },
-          "containsPlace": [
-            {
-              "@type": "HotelRoom",
-              "name": "Suite Alentejana",
-              "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-1.webp",
-              "amenityFeature": {
-                "@type": "LocationFeatureSpecification",
-                "name": "Vista Panorâmica",
-                "value": true
-              }
-            }
-          ]
-        })}
-      </script>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* S1 — Immersive Hero ────────────────────────────────── */}
       {/* Full-viewport exterior photography + single-line headline */}

@@ -33,20 +33,12 @@
 }
 
 .heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: $font-weight-light;
   letter-spacing: $letter-spacing-headline;
   color: $color-deep-brown;
   margin-bottom: 12px;
   line-height: 1.2;
-
-  @media (max-width: $breakpoint-tablet) {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    font-size: clamp(1.5rem, 5vw, 2rem);
-  }
 }
 
 .tagline {

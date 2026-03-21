@@ -9,6 +9,7 @@ const SuiteCarousel = ({ images = [] }) => {
 
   // Auto-advance carousel every 5 seconds (unless hovering or only 1 image)
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     // Detect touch device
     const touchMedia = window.matchMedia('(pointer: coarse)');
     setIsTouchDevice(touchMedia.matches);

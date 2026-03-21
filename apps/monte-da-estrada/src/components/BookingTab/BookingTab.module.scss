@@ -16,7 +16,7 @@
   pointer-events: none;
 
   &.visible {
-    transform: translateX(0);
+    transform: translateX(0) translateY(-50%);
     opacity: 1;
     pointer-events: auto;
 
@@ -29,8 +29,12 @@
     display: block;
     right: 0;
     top: 50%;
-    margin-top: 0;
+    transform: translateY(-50%) translateX(100%);
     z-index: 1000;
+
+    &.visible {
+      transform: translateY(-50%) translateX(0);
+    }
   }
 }
 

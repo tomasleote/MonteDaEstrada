@@ -6,9 +6,9 @@ let data = fs.readFileSync(mapPath, 'utf8');
 const CDN_MAP = {
   'papaleguas.jpg': 'papaleguas.webp',
   'HerdadedoTouril.jpg': 'parceiros/touril.webp',
-  'bardapraia.png': 'parceiros/bardapraia (1).webp',
-  'celso.jpg': 'parceiros/celso (1).webp',
-  'manjedoura.jpg': 'parceiros/manjedoura (1).webp',
+  'bardapraia.png': 'parceiros/bardapraia.webp',
+  'celso.jpg': 'parceiros/celso.webp',
+  'manjedoura.jpg': 'parceiros/manjedoura.webp',
   'carvalhal.png': 'carvalhal.webp',
   'almograve.jpg': 'almograve.webp',
   'alteirinhos.png': 'alteirinhos.webp',

@@ -31,9 +31,9 @@ const mappings = {
   "'/images/attractions/almograve.jpg'": `'${CDN_BASE}/almograve.webp'`,
 
   "'touril.avif'": `'${CDN_BASE}/parceiros/touril.webp'`,
-  "'bardapraia.avif'": `'${CDN_BASE}/parceiros/bardapraia (1).webp'`,
-  "'manjedoura.avif'": `'${CDN_BASE}/parceiros/manjedoura (1).webp'`,
-  "'celso.avif'": `'${CDN_BASE}/parceiros/celso (1).webp'`,
+  "'bardapraia.avif'": `'${CDN_BASE}/parceiros/bardapraia%20(1).webp'`,
+  "'manjedoura.avif'": `'${CDN_BASE}/parceiros/manjedoura%20(1).webp'`,
+  "'celso.avif'": `'${CDN_BASE}/parceiros/celso%20(1).webp'`,
   "'rota_vicentina.avif'": `'${CDN_BASE}/parceiros/rota_vicentina.webp'`,
   "'casas_brancas.avif'": `'${CDN_BASE}/parceiros/casas_brancas.webp'`,
   "'visitAlentejo.avif'": `'${CDN_BASE}/parceiros/visitalentejo.webp'`,

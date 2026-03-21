@@ -17,13 +17,18 @@
   border: 1px solid $color-border-light;
   border-radius: $border-radius-slight;
   box-shadow: $shadow-subtle;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition: box-shadow $transition-duration-normal $transition-timing-normal,
+              transform $transition-duration-normal $transition-timing-normal;
 
   &:hover,
-  &:focus-within,
   &:active {
     box-shadow: $shadow-hover;
     transform: translateY(-2px);
+  }
+
+  &:focus-within {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }
 

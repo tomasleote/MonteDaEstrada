@@ -14,14 +14,14 @@ const filesToMigrate = [
 ];
 
 filesToMigrate.forEach(filePath => {
-  const absolutePath = path.resolve(filePath);
+  const absolutePath = path.resolve(__dirname, filePath);
   if (!fs.existsSync(absolutePath)) return;
 
   let content = fs.readFileSync(absolutePath, 'utf8');
 
   // Replace /src/assets/images/home/ -> CDN_BASE/home/
   // and variations like ../assets/images/...
-  content = content.replace(/(\/src\/assets\/images\/|..\/assets\/images\/|\/assets\/images\/)([^"\s]+)/g, (match, prefix, suffix) => {
+  content = content.replace(/(\/src\/assets\/images\/|\.\.\/assets\/images\/|\/assets\/images\/)([^"]+)/g, (match, prefix, suffix) => {
     // If suffix already starts with a slash, we might have nested slashes issues, let's normalize
     const cleanSuffix = suffix.startsWith('/') ? suffix.slice(1) : suffix;
     

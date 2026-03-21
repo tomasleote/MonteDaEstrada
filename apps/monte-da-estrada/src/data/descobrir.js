@@ -1,7 +1,6 @@
 // apps/monte-da-estrada/src/data/descobrir.js
 // Discovery page content: experiences, beaches, and attractions.
-// Reason: use new URL() for images so Vite correctly processes them as assets
-// during build, making them available at correct paths in production.
+// Images are served via CDN URLs; Vite asset handling/new URL() is not used.
 
 const descobrir = {
   experiences: [

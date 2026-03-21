@@ -126,36 +126,7 @@
   border-radius: 0;
   cursor: pointer;
   transition: background-color $transition-duration-normal $transition-timing-normal,
-              transform $transition-duration-quick $transition-timing-fast;
-
-  &:hover {
-    background-color: $color-accent-dark;
-    color: $color-cream;
-  }
-
-  &:active {
-    transform: scale(1.05);
-  }
-
-  @include focus-ring;
-}
-
-// Mobile Reservar button — replaces inline widget on small screens
-.reserveButton {
-  display: inline-block;
-  padding: $spacing-m $spacing-xxl;
-  background-color: $color-clay;
-  color: $color-deep-brown;
-  font-family: $font-body;
-  font-size: 0.875rem;
-  font-weight: $font-weight-medium;
-  letter-spacing: $letter-spacing-subheading;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: background-color $transition-duration-normal $transition-timing-normal,
-              transform $transition-duration-quick $transition-timing-fast;
+              transform $transition-duration-normal $transition-timing-normal;
 
   &:hover {
     background-color: $color-accent-dark;

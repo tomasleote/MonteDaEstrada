@@ -58,7 +58,10 @@
 
 .contactSection {
   background-color: $color-cream;
-  padding: 48px 0;
+
+  @include mobile {
+    padding: 48px 0;
+  }
 }
 
 // 50/50 grid: info left, form right. Generous gap for whitespace rule.
@@ -155,7 +158,10 @@
 
 .mapSection {
   background-color: $color-deep-brown;
-  padding: 48px 0;
+
+  @include mobile {
+    padding: 48px 0;
+  }
 }
 
 .mapWrapper {

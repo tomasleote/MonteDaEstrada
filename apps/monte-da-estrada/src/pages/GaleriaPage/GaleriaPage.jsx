@@ -38,6 +38,7 @@ const GaleriaPage = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   // ── O Monte — estate images ────────────────────────────────
+  // TODO: placeholder/test data — duplicate srcs are intentional for layout testing
   const oMonteImages = useMemo(() => [
     { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada Exterior' },
     { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte' },

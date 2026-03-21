@@ -2,8 +2,7 @@
 // Location data for the DiscoveryMap on the Descobrir page.
 // Coordinates: [longitude, latitude] — WGS84.
 // Categories: collection, gastronomia, beach, curated
-// Reason: use new URL() for images so Vite correctly processes them as assets
-// during build, making them available at correct paths in production.
+// Images are served via CDN URLs; Vite asset handling/new URL() is not used.
 
 const mapLocations = [
   // ── A Nossa Coleção ──────────────────────────────────────────────────────

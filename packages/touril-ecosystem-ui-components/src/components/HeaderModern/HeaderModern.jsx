@@ -45,7 +45,6 @@ const HeaderModern = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPropertiesOpen, setIsPropertiesOpen] = useState(false);
   const propertiesRef = useRef(null);
-  const headerRef = useRef(null);
   const location = useLocation();
 
   // Reason: Monitor scroll position to trigger header state transition
@@ -86,11 +85,7 @@ const HeaderModern = ({
       }
       // Close mobile menu when clicking outside (on the page, not on the menu)
       if (isMenuOpen && e.target && !e.target.closest(`.${styles.mobileMenu}`) && !e.target.closest(`.${styles.hamburger}`)) {
-        // Only close if clicking outside the mobile menu and hamburger button
-        const headerEl = e.target.closest(`.${styles.header}`);
-        if (!headerEl || (headerEl && !headerEl.contains(e.target))) {
-          setIsMenuOpen(false);
-        }
+        setIsMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
