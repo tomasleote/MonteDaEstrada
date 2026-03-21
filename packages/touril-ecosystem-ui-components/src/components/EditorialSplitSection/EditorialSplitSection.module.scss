@@ -59,11 +59,11 @@
 
   @include mobile {
     .imageColumn {
-      order: 1;
+      order: 2;
     }
 
     .textColumn {
-      order: 2;
+      order: 1;
     }
   }
 }
@@ -118,7 +118,7 @@
   }
 
   @include mobile {
-    padding: 32px $spacing-m;
+    padding: 40px $spacing-m;
   }
 }
 

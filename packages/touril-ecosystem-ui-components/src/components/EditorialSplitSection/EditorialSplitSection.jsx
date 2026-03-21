@@ -50,7 +50,7 @@ function EditorialSplitSection({
     >
       {/* Image Column */}
       <motion.div className={styles.imageColumn} variants={variants.fadeIn}>
-        <img src={imageSrc} alt={imageAlt} className={styles.image} />
+        <img src={imageSrc} alt={imageAlt} className={styles.image} loading="lazy" decoding="async" />
         {photographerCredit && <p className={styles.credit}>{photographerCredit}</p>}
       </motion.div>
 

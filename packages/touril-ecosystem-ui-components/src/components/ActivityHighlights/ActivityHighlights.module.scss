@@ -137,6 +137,13 @@
   opacity: 1;
 }
 
+// Reason: Always show distance on touch devices (coarse pointer)
+@media (hover: none) and (pointer: coarse) {
+  .distance {
+    opacity: 1;
+  }
+}
+
 // ==================================
 // CTA CONTAINER
 // ==================================

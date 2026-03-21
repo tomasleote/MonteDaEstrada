@@ -11,10 +11,11 @@ import {
   BookingSection,
   CategoryNav,
 } from '@touril-ecosystem/ui-components';
+import useMobileQuery from '@/hooks/useMobileQuery';
 import atividadesData from '@/data/atividades.json';
 import suiteAlentejanaData from '@/data/suiteAlentejana.json';
-import { homeImages } from '@/assets/images/home';
-import { quartosImages } from '@/assets/images/quartos';
+import { homeImages } from '@/data/homeImages';
+import { quartosImages } from '@/data/quartosImages';
 import { seoConfig } from '@/utils/seo-config';
 import styles from './HomePage.module.scss';
 
@@ -78,7 +79,35 @@ const activityItems = [
 
 // ──────────────────────────────────────────────
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "Monte da Estrada",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
+  "description": "A sua casa no Litoral Alentejano.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Zambujeira do Mar",
+    "addressRegion": "Alentejo",
+    "addressCountry": "PT"
+  },
+  "containsPlace": [
+    {
+      "@type": "HotelRoom",
+      "name": "Suite Alentejana",
+      "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-1.webp",
+      "amenityFeature": {
+        "@type": "LocationFeatureSpecification",
+        "name": "Vista Panorâmica",
+        "value": true
+      }
+    }
+  ]
+};
+
 const HomePage = () => {
+  const isMobile = useMobileQuery();
+
   return (
     <div className={styles.homePage}>
       <SEO
@@ -87,6 +116,8 @@ const HomePage = () => {
         keywords={seoConfig.home.keywords}
         image={seoConfig.home.image}
       />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       {/* S1 — Immersive Hero ────────────────────────────────── */}
       {/* Full-viewport exterior photography + single-line headline */}
@@ -155,12 +186,13 @@ const HomePage = () => {
         />
       </div>
 
-      {/* S5 — Full Bleed Photography Break ─────────────────── */}
-      {/* Emotional beat between rooms and territory sections */}
-      <FullBleedImage
-        imageSrc={homeImages.gallery[2].src}
-        height="70vh"
-      />
+      {/* S5 — Full Bleed Photography Break — hidden on mobile */}
+      {!isMobile && (
+        <FullBleedImage
+          imageSrc={homeImages.gallery[2].src}
+          height="70vh"
+        />
+      )}
 
       {/* S6 — O Território — Editorial Split ───────────────── */}
       {/* Geographic positioning: text left, landscape right */}
@@ -203,6 +235,7 @@ const HomePage = () => {
           fallbackEmail="geral@montedaestrada.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
+          isMobile={isMobile}
         />
       </div>
 

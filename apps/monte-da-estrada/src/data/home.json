@@ -2,27 +2,27 @@
   "hero": {
     "title": "Monte da Estrada",
     "subtitle": "Turismo Rural no Alentejo",
-    "image": "/src/assets/images/home/home-hero-monte-exterior.jpg",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
     "alt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo"
   },
   "featureImages": [
     {
-      "src": "/src/assets/images/home/home-property-view-01.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-01.webp",
       "alt": "Vista da propriedade Monte da Estrada pela entrada principal",
       "title": "Entrada Principal"
     },
     {
-      "src": "/src/assets/images/home/home-property-view-02.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-02.webp",
       "alt": "Paisagem envolvente do Monte da Estrada com campos verdes",
       "title": "Paisagem Envolvente"
     },
     {
-      "src": "/src/assets/images/home/home-property-view-03.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-03.webp",
       "alt": "Vista da propriedade mostrando arquitetura tradicional portuguesa",
       "title": "Arquitetura Tradicional"
     },
     {
-      "src": "/src/assets/images/home/home-property-view-04.jpg",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-04.webp",
       "alt": "Vista panorâmica da propriedade e zona rural",
       "title": "Vista Panorâmica"
     }

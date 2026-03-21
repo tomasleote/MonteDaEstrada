@@ -53,7 +53,7 @@ function GalleryPreview({
             className={`${styles.imageContainer} ${styles[`image${index + 1}`]}`}
             variants={variants.scaleIn}
           >
-            <img src={image.src} alt={image.alt} className={styles.image} />
+            <img src={image.src} alt={image.alt} className={styles.image} loading="lazy" decoding="async" />
           </motion.figure>
         ))}
       </motion.div>

@@ -19,13 +19,13 @@
   }
 
   @media (max-width: $breakpoint-mobile) {
-    padding: 32px 16px;
+    padding: 48px $spacing-m;
   }
 }
 
 .eyebrow {
   font-size: 12px;
-  font-weight: 600;
+  font-weight: $font-weight-medium;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: $color-clay;
@@ -33,37 +33,29 @@
 }
 
 .heading {
-  font-size: 48px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-headline;
   color: $color-deep-brown;
   margin-bottom: 12px;
   line-height: 1.2;
-
-  @media (max-width: $breakpoint-tablet) {
-    font-size: 40px;
-  }
-
-  @media (max-width: $breakpoint-mobile) {
-    font-size: 32px;
-  }
 }
 
 .tagline {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: $font-weight-regular;
   letter-spacing: 0.75px;
   color: $color-deep-brown;
   margin-bottom: 32px;
   line-height: 1.5;
 
   @media (max-width: $breakpoint-tablet) {
-    font-size: 18px;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     margin-bottom: 28px;
   }
 
   @media (max-width: $breakpoint-mobile) {
-    font-size: 16px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     margin-bottom: 24px;
   }
 }
@@ -75,18 +67,18 @@
   margin-bottom: 40px;
 
   p {
-    font-size: 16px;
+    font-size: clamp(0.875rem, 1vw, 1rem);
     line-height: 1.6;
     letter-spacing: 0.5px;
     color: $color-deep-brown;
 
     @media (max-width: $breakpoint-tablet) {
-      font-size: 15px;
+      font-size: clamp(0.85rem, 1.2vw, 0.95rem);
       line-height: 1.55;
     }
 
     @media (max-width: $breakpoint-mobile) {
-      font-size: 14px;
+      font-size: 0.875rem;
       line-height: 1.5;
     }
   }
@@ -98,8 +90,8 @@
   margin-top: 32px;
   background-color: $color-clay;
   color: $color-deep-brown;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: clamp(0.8rem, 1vw, 0.875rem);
+  font-weight: $font-weight-medium;
   letter-spacing: 0.75px;
   text-decoration: none;
   text-align: center;
@@ -119,13 +111,11 @@
 
   @media (max-width: $breakpoint-tablet) {
     padding: 15px 40px;
-    font-size: 13px;
   }
 
   @media (max-width: $breakpoint-mobile) {
     width: 100%;
     align-self: stretch;
     padding: 14px 32px;
-    font-size: 13px;
   }
 }

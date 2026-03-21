@@ -31,13 +31,15 @@ function FullBleedImage({
       style={{ height }}
       initial="hidden"
       whileInView="visible"
-      viewport={viewport.eager}
+      viewport={{ ...viewport.eager, amount: 0.3 }}
     >
       <motion.img
         src={imageSrc}
         alt={alt}
         className={styles.image}
         variants={variants.fadeIn}
+        loading="lazy"
+        decoding="async"
       />
 
       {caption && (

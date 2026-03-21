@@ -16,7 +16,7 @@ function BookingTab({ label = 'Reservar', onClick }) {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           // Show button after scrolling past the hero section (~100vh)
-          const threshold = window.innerHeight * 0.8
+          const threshold = document.documentElement.clientHeight * 0.8
           if (window.scrollY > threshold) {
             setIsVisible(true)
           } else {

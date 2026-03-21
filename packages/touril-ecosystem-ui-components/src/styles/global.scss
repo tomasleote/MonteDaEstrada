@@ -151,7 +151,7 @@ input, select, textarea {
 }
 
 * { touch-action: manipulation; }
-* { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+* { -webkit-overflow-scrolling: auto; overscroll-behavior: contain; }
 
 button {
   cursor: pointer;

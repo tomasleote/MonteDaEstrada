@@ -52,7 +52,14 @@
 .footerMenu {
   width: 640px;
 
-  @media (max-width: $breakpoint-desktop) {
+  // Intermediate tablet layout (768px - 1023px)
+  @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+    width: 100%;
+    text-align: left;
+    margin: 0 0 $spacing-m;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1) {
     width: 100%;
     text-align: center;
     margin: 0 0 $spacing-m;
@@ -107,7 +114,16 @@
   padding-left: $spacing-m;
   font-style: normal;
 
-  @media (max-width: $breakpoint-desktop) {
+  // Intermediate tablet layout (768px - 1023px)
+  @media (max-width: $breakpoint-desktop) and (min-width: $breakpoint-tablet) {
+    width: 100%;
+    flex-wrap: wrap;
+    border-left: none;
+    border-top: $border-width-footer-divider solid $color-footer-divider;
+    padding: $spacing-m 0 0;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1) {
     width: 100%;
     display: block;
     border-left: none;

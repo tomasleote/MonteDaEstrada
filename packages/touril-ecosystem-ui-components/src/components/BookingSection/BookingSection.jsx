@@ -5,10 +5,10 @@ import { variants, viewport } from '../../constants/motion';
 import InlineBookingWidget from '../BookingWidget/InlineBookingWidget';
 import styles from './BookingSection.module.scss';
 
+const BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT';
+
 /**
  * BookingSection — Dark booking call-to-action section.
- * When `onBookingClick` is provided, the primary CTA becomes a button that opens
- * the BookingModal. Otherwise it falls back to a mailto: link (backward-compatible).
  *
  * @param {Object} props
  * @param {string} props.eyebrow - Eyebrow label (default: 'Reservas')
@@ -17,8 +17,7 @@ import styles from './BookingSection.module.scss';
  * @param {string} [props.fallbackEmail] - Contact email
  * @param {string} [props.fallbackPhone] - Contact phone
  * @param {string} [props.whatsappNumber] - WhatsApp number (international format without +)
- * @param {Function} [props.onBookingClick] - If provided, renders a booking CTA button
- * @param {string} [props.bookingLabel] - Label for the booking button
+ * @param {boolean} [props.isMobile] - If true, renders a "Reservar" link button instead of the inline widget
  * @param {string} [props.className] - Additional CSS classes
  * @returns {React.ReactElement}
  */
@@ -29,6 +28,7 @@ function BookingSection({
   fallbackEmail,
   fallbackPhone,
   whatsappNumber,
+  isMobile = false,
   className = '',
 }) {
   return (
@@ -50,9 +50,20 @@ function BookingSection({
         {description}
       </motion.p>
 
-      {/* Primary CTA — Inline Booking Widget */}
+      {/* Primary CTA — mobile: link button | desktop: inline widget */}
       <motion.div variants={variants.fadeUp} className={styles.widgetContainer}>
-        <InlineBookingWidget />
+        {isMobile ? (
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.reserveButton}
+          >
+            Reservar
+          </a>
+        ) : (
+          <InlineBookingWidget />
+        )}
       </motion.div>
 
       {/* Contact Options — secondary, always visible */}
@@ -99,6 +110,7 @@ BookingSection.propTypes = {
   fallbackEmail: PropTypes.string,
   fallbackPhone: PropTypes.string,
   whatsappNumber: PropTypes.string,
+  isMobile: PropTypes.bool,
   className: PropTypes.string,
 };
 

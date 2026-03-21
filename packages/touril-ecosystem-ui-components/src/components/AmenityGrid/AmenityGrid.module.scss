@@ -8,6 +8,10 @@
   width: 100%;
   margin: 48px 0;
 
+  @media (max-width: $breakpoint-tablet) {
+    gap: 28px;
+  }
+
   @media (max-width: $breakpoint-mobile) {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -50,5 +54,5 @@
   font-size: 14px;
   line-height: 1.4;
   letter-spacing: 0.5px;
-  max-width: 120px;
+  max-width: 140px;
 }

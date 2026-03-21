@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "/src/assets/images/exterior/exterior-hero-amenities.jpg",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/exterior/exterior-hero-amenities.webp",
     "alt": "Comodidades e localização privilegiada do Monte da Estrada",
     "title": "Localização e Comodidades"
   },

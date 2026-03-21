@@ -211,10 +211,10 @@ textarea {
   touch-action: manipulation;
 }
 
-// Improve scroll performance
-* {
-  // Use GPU for scroll optimization
-  -webkit-overflow-scrolling: touch;
+// Improve scroll performance — scoped to genuinely scrollable containers
+.scrollable,
+.scroll-container {
+  -webkit-overflow-scrolling: auto;
 }
 
 button {

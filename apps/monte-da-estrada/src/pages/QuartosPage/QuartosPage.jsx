@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import SEO from '@/components/SEO';
 import {
   PageHero,
@@ -9,7 +8,8 @@ import {
   variants,
   viewport,
 } from '@touril-ecosystem/ui-components';
-import { quartosImages } from '@/assets/images/quartos';
+import useMobileQuery from '@/hooks/useMobileQuery';
+import { quartosImages } from '@/data/quartosImages';
 import { seoConfig } from '@/utils/seo-config';
 import styles from './QuartosPage.module.scss';
 
@@ -66,6 +66,9 @@ const rooms = [
  * S3: Booking Section (Sand, HeyTravel placeholder)
  */
 const QuartosPage = () => {
+  const isMobile = useMobileQuery();
+  const BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT';
+
   const handleReserveClick = () => {
     // Smooth scroll to the booking section at the bottom of the page
     const bookingSection = document.getElementById('reservas-inline');
@@ -140,7 +143,18 @@ const QuartosPage = () => {
           </motion.div>
 
           <div className={styles.inlineWidgetContainer}>
-            <InlineBookingWidget />
+            {isMobile ? (
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.reserveButton}
+              >
+                Reservar
+              </a>
+            ) : (
+              <InlineBookingWidget />
+            )}
           </div>
         </div>
       </section>

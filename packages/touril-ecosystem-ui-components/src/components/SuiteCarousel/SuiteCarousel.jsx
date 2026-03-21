@@ -5,17 +5,30 @@ import styles from './SuiteCarousel.module.scss';
 const SuiteCarousel = ({ images = [] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // Auto-advance carousel every 5 seconds (unless hovering or only 1 image)
   useEffect(() => {
-    if (isHovering || images.length <= 1) return;
+    if (typeof window === 'undefined') return;
+    // Detect touch device
+    const touchMedia = window.matchMedia('(pointer: coarse)');
+    setIsTouchDevice(touchMedia.matches);
+
+    const handleChange = (e) => setIsTouchDevice(e.matches);
+    touchMedia.addEventListener('change', handleChange);
+    return () => touchMedia.removeEventListener('change', handleChange);
+  }, []);
+
+  useEffect(() => {
+    // On touch devices, default to paused autoplay
+    if (isTouchDevice || isHovering || images.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isHovering, images.length]);
+  }, [isHovering, isTouchDevice, images.length]);
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
@@ -52,9 +65,11 @@ const SuiteCarousel = ({ images = [] }) => {
             src={images[currentIndex].src}
             alt={images[currentIndex].alt}
             className={styles.carouselImage}
+            loading="lazy"
+            decoding="async"
             initial={{ scale: 1 }}
             animate={{ scale: 1.02 }}
-            transition={{ duration: 5, ease: 'easeInOut' }}
+            transition={{ duration: 8, ease: 'easeInOut' }}
           />
         </motion.div>
       </AnimatePresence>

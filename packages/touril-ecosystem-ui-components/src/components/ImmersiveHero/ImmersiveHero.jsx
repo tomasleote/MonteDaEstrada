@@ -26,13 +26,13 @@ function ImmersiveHero({
   className = '',
 }) {
   const handleScrollClick = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    window.scrollTo({ top: document.documentElement.clientHeight, behavior: 'smooth' });
   };
 
   return (
     <div className={`${styles.hero} ${className}`}>
       {/* Background Image */}
-      <img src={imageSrc} alt={imageAlt} className={styles.image} />
+      <img src={imageSrc} alt={imageAlt} className={styles.image} fetchPriority="high" loading="eager" decoding="async" />
 
       {/* Dark Gradient Overlay */}
       <div className={styles.overlay} />
