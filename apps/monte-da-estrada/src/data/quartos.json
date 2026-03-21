@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "/src/assets/images/quartos/quartos-hero-rooms-overview.jpg",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-hero-rooms-overview.webp",
     "alt": "Visão geral dos quartos luxuosos do Monte da Estrada",
     "title": "Os Nossos Quartos"
   },
@@ -19,8 +19,8 @@
         "Vista para o campo"
       ],
       "images": [
-        "/src/assets/images/quartos/quartos-room-01.jpg",
-        "/src/assets/images/quartos/quartos-room-02.jpg"
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-01.webp",
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-02.webp"
       ],
       "imageAlts": [
         "Quarto duplo standard com cama de casal e decoração tradicional",
@@ -39,8 +39,8 @@
         "Varanda"
       ],
       "images": [
-        "/src/assets/images/quartos/quartos-room-03.jpg",
-        "/src/assets/images/quartos/quartos-room-04.jpg"
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-03.webp",
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-04.webp"
       ],
       "imageAlts": [
         "Quarto twin com duas camas individuais e vista para o campo",
@@ -59,8 +59,8 @@
         "Espaço amplo"
       ],
       "images": [
-        "/src/assets/images/quartos/quartos-room-05.jpg",
-        "/src/assets/images/quartos/quartos-room-06.jpg"
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-05.webp",
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-06.webp"
       ],
       "imageAlts": [
         "Quarto familiar espaçoso com múltiplas camas",

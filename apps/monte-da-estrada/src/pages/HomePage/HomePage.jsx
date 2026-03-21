@@ -11,6 +11,7 @@ import {
   BookingSection,
   CategoryNav,
 } from '@touril-ecosystem/ui-components';
+import useMobileQuery from '@/hooks/useMobileQuery';
 import atividadesData from '@/data/atividades.json';
 import suiteAlentejanaData from '@/data/suiteAlentejana.json';
 import { homeImages } from '@/data/homeImages';
@@ -79,6 +80,8 @@ const activityItems = [
 // ──────────────────────────────────────────────
 
 const HomePage = () => {
+  const isMobile = useMobileQuery();
+
   return (
     <div className={styles.homePage}>
       <SEO
@@ -183,12 +186,13 @@ const HomePage = () => {
         />
       </div>
 
-      {/* S5 — Full Bleed Photography Break ─────────────────── */}
-      {/* Emotional beat between rooms and territory sections */}
-      <FullBleedImage
-        imageSrc={homeImages.gallery[2].src}
-        height="70vh"
-      />
+      {/* S5 — Full Bleed Photography Break — hidden on mobile */}
+      {!isMobile && (
+        <FullBleedImage
+          imageSrc={homeImages.gallery[2].src}
+          height="70vh"
+        />
+      )}
 
       {/* S6 — O Território — Editorial Split ───────────────── */}
       {/* Geographic positioning: text left, landscape right */}
@@ -231,6 +235,7 @@ const HomePage = () => {
           fallbackEmail="geral@montedaestrada.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
+          isMobile={isMobile}
         />
       </div>
 

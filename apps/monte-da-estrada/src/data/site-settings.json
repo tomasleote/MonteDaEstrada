@@ -1,27 +1,27 @@
 {
-  "siteLogo": "/src/assets/images/logos/logo-monte-estrada-text.jpg",
+  "siteLogo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
   "siteLogoAlt": "Monte da Estrada - Turismo Rural no Alentejo",
   "partnerLogos": [
     {
       "name": "Associação de Desenvolvimento Local",
-      "logo": "/src/assets/images/logos/logo-adl-partner.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-adl-partner.webp",
       "alt": "ADL - Associação de Desenvolvimento Local",
       "url": ""
     },
     {
       "name": "Leader EU Funding",
-      "logo": "/src/assets/images/logos/logo-leader-eu-funding-banner.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-leader-eu-funding-banner.webp",
       "alt": "Programa LEADER - Financiamento União Europeia",
       "url": ""
     },
     {
       "name": "Turismo Rural",
-      "logo": "/src/assets/images/logos/logo-turismo-rural-badge.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-turismo-rural-badge.webp",
       "alt": "Turismo Rural - Alojamento Certificado",
       "url": ""
     }
   ],
-  "favicon": "/src/assets/images/logos/logo-monte-estrada-text.jpg",
-  "metaImage": "/src/assets/images/home/home-hero-monte-exterior.jpg",
+  "favicon": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
+  "metaImage": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
   "metaImageAlt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo no Alentejo"
 }

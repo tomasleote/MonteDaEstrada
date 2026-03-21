@@ -18,6 +18,7 @@ import {
 } from '@touril-ecosystem/ui-components';
 import descobrirData from '@/data/descobrir';
 import mapLocations from '@/data/map-locations';
+import useMobileQuery from '@/hooks/useMobileQuery';
 
 import styles from './DescobrirPage.module.scss';
 
@@ -37,6 +38,7 @@ const NAV_ITEMS = [
 // ──────────────────────────────────────────────
 
 const DescobrirPage = () => {
+  const isMobile = useMobileQuery();
 
   return (
     <div className={styles.page}>
@@ -51,8 +53,8 @@ const DescobrirPage = () => {
       {/* 65vh territory photography + eyebrow + headline + subtitle */}
       <div id="discovery-hero">
         <PageHero
-          imageSrc={descobrirData.experiences[0].imageSrc}
-          imageAlt={descobrirData.experiences[0].imageAlt}
+          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir%20(1).webp"
+          imageAlt="Descobrir o Alentejo e a Costa Vicentina"
           eyebrow="Descobrir"
           headline="O território é a experiência."
           subtitle="110 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo."
@@ -69,6 +71,7 @@ const DescobrirPage = () => {
 
       {/* S3 — O Território — EditorialSplitSection ───────────────── */}
       {/* Prose + landscape image. Cream background. */}
+      {/* imagePosition="right" so existing CSS reordering puts text first on mobile */}
       <EditorialSplitSection
         eyebrow="O Território"
         heading="Entre o Alentejo e o Atlântico."
@@ -76,9 +79,9 @@ const DescobrirPage = () => {
           'A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio — está aqui mesmo à porta.',
           'Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente faz falta.',
         ]}
-        //imageSrc={descobrirImages.territory.src}
-        //imageAlt="Vista panorâmica da paisagem alentejana"
-        //imagePosition="left"
+        imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp"
+        imageAlt="Vista panorâmica da paisagem alentejana"
+        imagePosition="right"
       />
 
       {/* S3.5 — Discovery Map ─────────────────────────────────────── */}
@@ -304,6 +307,7 @@ const DescobrirPage = () => {
           fallbackEmail="montedaestradazambujeiradomar@gmail.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
+          isMobile={isMobile}
         />
       </div>
     </div>

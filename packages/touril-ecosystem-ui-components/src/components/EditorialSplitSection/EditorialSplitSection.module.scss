@@ -59,11 +59,11 @@
 
   @include mobile {
     .imageColumn {
-      order: 1;
+      order: 2;
     }
 
     .textColumn {
-      order: 2;
+      order: 1;
     }
   }
 }

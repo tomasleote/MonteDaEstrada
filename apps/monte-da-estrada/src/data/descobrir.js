@@ -132,8 +132,7 @@ const descobrir = {
       location: 'Vila',
       distance: '4 km',
       description: 'A vila mais próxima. Mercado semanal às sextas-feiras, padaria, talho e mercearia local.',
-      imageSrc: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp',
-      imageAlt: 'Centro histórico de São Teotónio',
+      imageSrc: null,
       mapUrl: 'https://maps.app.goo.gl/iMovexEHDXCXJufq6',
     },
     {
@@ -150,8 +149,7 @@ const descobrir = {
       location: 'Cidade',
       distance: '15 km',
       description: 'Cidade ribeirinha com mercado, restaurantes e serviços. À beira do Rio Mira.',
-      imageSrc: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp',
-      imageAlt: 'Odemira com o Rio Mira',
+      imageSrc: null,
       mapUrl: 'https://maps.app.goo.gl/HMtR85LHRHm3exHh8',
     },
     {
@@ -159,8 +157,7 @@ const descobrir = {
       location: 'Vila Histórica',
       distance: '40 km',
       description: 'Vila mourisca com castelo e mercado de artesanato. Porta da Costa Vicentina algarvia.',
-      imageSrc: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/papaleguas.webp',
-      imageAlt: 'Aljezur com castelo mourisca ao fundo',
+      imageSrc: null,
       mapUrl: 'https://maps.app.goo.gl/P7P6HVXVeCBm6kXx7',
     },
     {
@@ -168,8 +165,7 @@ const descobrir = {
       location: 'Cidade Costeira',
       distance: '23 km',
       description: 'Encantadora cidade costeira à beira do rio Mira. Com praias selvagens, restaurantes e vida noturna.',
-      imageSrc: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/papaleguas.webp',
-      imageAlt: 'Vila Nova de Milfontes com vista para o rio',
+      imageSrc: null,
       mapUrl: 'https://maps.app.goo.gl/S11uGwRvEXhhUan59',
     },
     {
@@ -177,8 +173,7 @@ const descobrir = {
       location: 'Praia',
       distance: '14 km',
       description: 'Praia selvagem com acesso fácil e águas cristalinas. Um tesouro escondido da Costa Vicentina.',
-      imageSrc: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/almograve.webp',
-      imageAlt: 'Praia de Almograve com areias douradas',
+      imageSrc: null,
       mapUrl: 'https://maps.app.goo.gl/TqBXHm9AgRMAgFXu8',
     },
     {
@@ -209,17 +204,17 @@ const descobrir = {
     {
       name: 'Bar da Praia - Almograve',
       url: 'https://www.barpraiaalmograve.pt/',
-      logo: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/bardapraia (1).webp',
+      logo: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/bardapraia%20(1).webp',
     },
     {
       name: 'Manjedoura Restaurante Bar',
       url: 'https://www.manjedoura.pt/',
-      logo: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/manjedoura (1).webp',
+      logo: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/manjedoura%20(1).webp',
     },
     {
       name: 'Tasca do Celso',
       url: 'https://rotavicentina.com/restaurantes/tasca-do-celso/',
-      logo: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/celso (1).webp',
+      logo: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/celso%20(1).webp',
     },
     {
       name: 'Rota Vicentina',

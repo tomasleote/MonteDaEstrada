@@ -2,15 +2,15 @@
   position: fixed;
   right: 0;
   top: 50%;
-  z-index: 100;
-  
+  z-index: 1000;
+
   // Center vertically based on the fixed positioning
   margin-top: -50px; // Approximate vertical centering compensation
 
   // Slide out to the right off-screen initially
   transform: translateX(100%);
   opacity: 0;
-  
+
   // EXIT transition: Starts slow, ends fast (ease-in), keeps opacity visible longer
   transition: transform 0.3s ease-in, opacity 0.2s ease 0.1s;
   pointer-events: none;
@@ -19,14 +19,18 @@
     transform: translateX(0);
     opacity: 1;
     pointer-events: auto;
-    
+
     // ENTRANCE transition: Starts fast, ends slow (custom ease-out)
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
   }
 
-  // Hide on mobile (≤768px)
+  // Mobile: vertically centered, right edge flush (no scrollbar gap)
   @media (max-width: 768px) {
-    display: none;
+    display: block;
+    right: 0;
+    top: 50%;
+    margin-top: 0;
+    z-index: 1000;
   }
 }
 
@@ -44,11 +48,16 @@
   transform-origin: right center;
   margin-right: 12px;
 
+  // On mobile: no right gap needed (no scrollbar), align tab edge to viewport edge
+  @media (max-width: 768px) {
+    margin-right: 9px;
+  }
+
   background: #1c1a17;
   color: #f5f2ee;
   border: none;
   border-radius: 4px 4px 0 0;
-  
+
   // Adjusted spacing for compact appearance
   padding: 8px 18px;
   line-height: 1;
@@ -57,7 +66,7 @@
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  
+
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
 
@@ -65,5 +74,10 @@
     background: #3a3630;
     // Combine transforms: Keep rotation & centering, then apply smooth 1.08 scale
     transform: rotate(-90deg) translateX(50%) scale(1.08);
+  }
+
+  &:active {
+    transform: rotate(-90deg) translateX(50%) scale(1.05);
+    background: #3a3630;
   }
 }

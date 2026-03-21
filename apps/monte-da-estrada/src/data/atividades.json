@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "/src/assets/images/atividades/atividades-hero-activities.jpg",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/atividades/atividades-hero-activities.webp",
     "alt": "Atividades e experiências disponíveis no Alentejo",
     "title": "Atividades e Experiências"
   },

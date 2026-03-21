@@ -57,7 +57,9 @@ const GaleriaPage = () => {
   const aRegiaoImages = useMemo(() => [
     ...descobrirData.beaches.map(b => ({ src: b.imageSrc, alt: b.imageAlt || b.name, title: b.name })),
     ...descobrirData.experiences.map(e => ({ src: e.imageSrc, alt: e.imageAlt || e.title, title: e.title })),
-    ...descobrirData.attractions.map(a => ({ src: a.imageSrc, alt: a.imageAlt || a.title, title: a.title })),
+    ...descobrirData.attractions
+      .filter(a => a.imageSrc !== null)
+      .map(a => ({ src: a.imageSrc, alt: a.imageAlt || a.title, title: a.title })),
   ], []);
 
   const openLightbox = (images, index) => {
