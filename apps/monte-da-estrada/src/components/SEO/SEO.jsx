@@ -20,12 +20,14 @@ const SEO = ({
   type,
   url,
   keywords,
+  locale = 'pt',
 }) => {
   const siteTitle = 'Monte da Estrada';
   const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
-  const siteUrl = 'https://montedaestrada.com'; // Update with actual domain
+  const siteUrl = 'https://montedaestrada.com';
   const fullUrl = url || siteUrl;
   const fullImage = image ? `${siteUrl}${image}` : `${siteUrl}/images/og-default.jpg`;
+  const ogLocale = locale === 'en' ? 'en_US' : 'pt_PT';
 
   return (
     <Helmet>
@@ -35,13 +37,18 @@ const SEO = ({
       <meta name="description" content={description} />
       {keywords && <meta name="keywords" content={keywords} />}
 
+      {/* hreflang — must come before other meta */}
+      <link rel="alternate" hreflang="x-default" href={siteUrl} />
+      <link rel="alternate" hreflang="pt" href={siteUrl} />
+      <link rel="alternate" hreflang="en" href={`${siteUrl}/en`} />
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullImage} />
-      <meta property="og:locale" content="pt_PT" />
+      <meta property="og:locale" content={ogLocale} />
       <meta property="og:site_name" content={siteTitle} />
 
       {/* Twitter */}
@@ -53,7 +60,7 @@ const SEO = ({
 
       {/* Additional Meta Tags */}
       <meta name="robots" content="index, follow" />
-      <meta name="language" content="Portuguese" />
+      <meta name="language" content={locale === 'en' ? 'English' : 'Portuguese'} />
       <meta name="author" content="Monte da Estrada" />
       <link rel="canonical" href={fullUrl} />
     </Helmet>
@@ -73,6 +80,8 @@ SEO.propTypes = {
   url: PropTypes.string,
   /** Keywords for SEO */
   keywords: PropTypes.string,
+  /** Page locale — 'pt' or 'en' */
+  locale: PropTypes.string,
 };
 
 SEO.defaultProps = {
@@ -81,6 +90,7 @@ SEO.defaultProps = {
   type: 'website',
   url: null,
   keywords: 'turismo rural, alentejo, zambujeira do mar, alojamento, férias, portugal',
+  locale: 'pt',
 };
 
 export default SEO;

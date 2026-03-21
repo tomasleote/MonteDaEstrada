@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/atividades/atividades-hero-activities.webp",
+    "alt": "Activities and experiences available in Alentejo",
+    "title": "Activities and Experiences"
+  },
+  "title": "Activities and Experiences",
+  "description": "Discover the many experiences that Alentejo has to offer, from outdoor activities to discovering local gastronomy.",
+  "activities": [
+    {
+      "category": "Beaches",
+      "title": "Costa Vicentina Beaches",
+      "description": "A few kilometers away, discover some of the most beautiful beaches in Portugal, in the Southwest Alentejo and Costa Vicentina Natural Park.",
+      "highlights": [
+        "Zambujeira do Mar Beach (5 km)",
+        "Praia do Carvalhal",
+        "Praia de Odeceixe",
+        "Praia dos Alteirinhos",
+        "Praia do Tonel"
+      ]
+    },
+    {
+      "category": "Hiking",
+      "title": "Trails and Walks",
+      "description": "Explore the natural beauty of Alentejo through various hiking trails that pass through stunning landscapes.",
+      "highlights": [
+        "Rota Vicentina - Fishermen's Trail",
+        "Rota Vicentina - Historical Path",
+        "Local trails on the estate",
+        "Bird watching"
+      ]
+    },
+    {
+      "category": "Culture",
+      "title": "Heritage and Culture",
+      "description": "Discover the rich history and Alentejo culture by visiting monuments, museums, and traditional towns.",
+      "highlights": [
+        "Town of Odemira",
+        "Castle of Aljezur",
+        "Regional Museum of Beja",
+        "Mértola - Museum Town",
+        "Local crafts"
+      ]
+    },
+    {
+      "category": "Gastronomy",
+      "title": "Alentejo Gastronomy",
+      "description": "Taste authentic Alentejo cuisine at local restaurants and discover traditional flavors.",
+      "highlights": [
+        "Typical restaurants in Zambujeira do Mar",
+        "Local market in Odemira",
+        "Wine tastings in the region",
+        "Regional cheeses and sausages",
+        "Conventual sweets"
+      ]
+    },
+    {
+      "category": "Nature",
+      "title": "Nature Observation",
+      "description": "Alentejo is a paradise for nature lovers, with unique fauna and flora.",
+      "highlights": [
+        "Bird watching",
+        "Walks through the estate",
+        "Montado landscapes",
+        "Sunset in the countryside",
+        "Starry sky without light pollution"
+      ]
+    },
+    {
+      "category": "Sports",
+      "title": "Sports and Adventure",
+      "description": "For the more adventurous, the region offers several sports activities.",
+      "highlights": [
+        "Surfing on Costa Vicentina beaches",
+        "Cycling - BTT",
+        "Horse riding",
+        "Sport fishing",
+        "Canoeing on the Mira River"
+      ]
+    }
+  ],
+  "amenities": {
+    "title": "Amenities at the Monte",
+    "items": [
+      {
+        "name": "Air conditioning",
+        "description": "Total climate control for maximum comfort"
+      },
+      {
+        "name": "Breakfast",
+        "description": "Breakfast with regional products every day"
+      },
+      {
+        "name": "Garden",
+        "description": "Spacious green areas for walking and resting"
+      },
+      {
+        "name": "Barbecue",
+        "description": "Barbecue area for outdoor socializing"
+      },
+      {
+        "name": "Bicycles",
+        "description": "Bicycles available to explore the surroundings"
+      },
+      {
+        "name": "Wi-Fi",
+        "description": "Free wireless internet throughout the property"
+      },
+      {
+        "name": "Parking",
+        "description": "Private and free parking"
+      },
+      {
+        "name": "Shared Kitchen",
+        "description": "Fully equipped kitchen for guest use"
+      },
+      {
+        "name": "Terrace",
+        "description": "Panoramic terrace with views over the Alentejo landscape"
+      }
+    ]
+  }
+}

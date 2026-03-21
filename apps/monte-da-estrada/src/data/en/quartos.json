@@ -1,0 +1,108 @@
+{
+  "hero": {
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-hero-rooms-overview.webp",
+    "alt": "Overview of the luxurious rooms at Monte da Estrada",
+    "title": "Our Rooms"
+  },
+  "title": "Rooms and Facilities",
+  "description": "Comfortable accommodations in a traditional Alentejo setting, with all modern amenities.",
+  "rooms": [
+    {
+      "name": "Standard Double Room",
+      "capacity": "2 guests",
+      "features": [
+        "Double bed",
+        "Private bathroom",
+        "Air conditioning",
+        "Heating",
+        "Free Wi-Fi",
+        "Field view"
+      ],
+      "images": [
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-01.webp",
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-02.webp"
+      ],
+      "imageAlts": [
+        "Standard double room with double bed and traditional decor",
+        "Private bathroom of the double room with modern amenities"
+      ]
+    },
+    {
+      "name": "Twin Room",
+      "capacity": "2 guests",
+      "features": [
+        "Two single beds",
+        "Private bathroom",
+        "Air conditioning",
+        "Heating",
+        "Free Wi-Fi",
+        "Balcony"
+      ],
+      "images": [
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-03.webp",
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-04.webp"
+      ],
+      "imageAlts": [
+        "Twin room with two single beds and countryside view",
+        "Twin room bathroom with modern design"
+      ]
+    },
+    {
+      "name": "Family Room",
+      "capacity": "4 guests",
+      "features": [
+        "One double bed and two single beds",
+        "Private bathroom",
+        "Air conditioning",
+        "Heating",
+        "Free Wi-Fi",
+        "Spacious area"
+      ],
+      "images": [
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-05.webp",
+        "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quartos-room-06.webp"
+      ],
+      "imageAlts": [
+        "Spacious family room with multiple beds",
+        "Family room bathroom fully equipped"
+      ]
+    }
+  ],
+  "pricing": {
+    "title": "Prices and Reservations",
+    "description": "Our prices vary according to the season. Contact us for updated information.",
+    "seasons": [
+      {
+        "name": "Low Season",
+        "period": "November - March",
+        "note": "Please inquire for prices"
+      },
+      {
+        "name": "Medium Season",
+        "period": "April, May, October",
+        "note": "Please inquire for prices"
+      },
+      {
+        "name": "High Season",
+        "period": "June - September",
+        "note": "Please inquire for prices"
+      }
+    ],
+    "policies": [
+      "Minimum stay: 2 nights (may vary by season)",
+      "Payment: Bank transfer or cash",
+      "Cancellation: Please see cancellation policy",
+      "Reservations: By phone or email"
+    ]
+  },
+  "facilities": [
+    "Outdoor pool (seasonal)",
+    "Garden and outdoor area",
+    "Free parking",
+    "Wi-Fi throughout the property",
+    "Equipped kitchen (shared use)",
+    "Shared living room",
+    "Terrace with panoramic view",
+    "Barbecue area"
+  ]
+}

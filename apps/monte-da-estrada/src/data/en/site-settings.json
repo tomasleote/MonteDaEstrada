@@ -1,0 +1,30 @@
+{
+  "brandName": "Monte da Estrada",
+  "siteLogo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
+  "siteLogoAlt": "Monte da Estrada - Rural Tourism in Alentejo",
+  "partnerLogos": [
+    {
+      "name": "Local Development Association",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-adl-partner.webp",
+      "alt": "ADL - Local Development Association",
+      "url": ""
+    },
+    {
+      "name": "Leader EU Funding",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-leader-eu-funding-banner.webp",
+      "alt": "LEADER Programme - European Union Funding",
+      "url": ""
+    },
+    {
+      "name": "Rural Tourism",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-turismo-rural-badge.webp",
+      "alt": "Rural Tourism - Certified Accommodation",
+      "url": ""
+    }
+  ],
+  "favicon": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
+  "metaImage": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
+  "metaImageAlt": "Exterior view of Monte da Estrada - Luxury rural accommodation in Alentejo",
+  "reservasUrl": "https://www.booking.com/",
+  "showLanguageSelector": true
+}

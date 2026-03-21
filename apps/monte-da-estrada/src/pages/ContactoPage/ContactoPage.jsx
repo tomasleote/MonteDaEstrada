@@ -11,38 +11,71 @@ import {
   variants,
   stagger,
 } from '@touril-ecosystem/ui-components';
+import { useLocale } from '@/contexts/LocaleContext';
+import { getData } from '@/data/dataLoader';
 import { homeImages } from '@/data/homeImages';
-import localizacaoData from '@/data/localizacao.json';
 import styles from './ContactoPage.module.scss';
 
+const contactCopy = {
+  pt: {
+    heroImageAlt: 'Vista panorâmica da paisagem alentejana',
+    heroHeadline: 'Planeie a sua visita.',
+    heroSubtitle: 'Estamos cá para ajudar — de segunda a domingo.',
+    contactEyebrow: 'Contacto',
+    contactHeading: 'Estamos aqui para ajudar.',
+    contactIntro: 'Respondemos a todas as mensagens em menos de 24 horas. Para reservas com datas próximas, preferimos o telefone ou WhatsApp.',
+    mapEyebrow: 'Localização',
+    mapHeading: 'Encontre-nos.',
+    directionsEyebrow: 'Como Chegar',
+  },
+  en: {
+    heroImageAlt: 'Panoramic view of the Alentejo landscape',
+    heroHeadline: 'Plan your visit.',
+    heroSubtitle: 'We\'re here to help — Monday through Sunday.',
+    contactEyebrow: 'Contact',
+    contactHeading: 'We\'re here to help.',
+    contactIntro: 'We respond to all messages within 24 hours. For reservations with upcoming dates, we prefer phone or WhatsApp.',
+    mapEyebrow: 'Location',
+    mapHeading: 'Find us.',
+    directionsEyebrow: 'How to Get Here',
+  },
+};
+
 const ContactoPage = () => {
+  const { locale } = useLocale();
+  const localizacaoData = getData('localizacao', locale);
+  const copy = contactCopy[locale] || contactCopy.pt;
+
   const directions = [
-    localizacaoData.directions.fromLisbon,
-    localizacaoData.directions.fromFaro,
-    localizacaoData.directions.fromPorto,
-  ];
+    localizacaoData?.directions?.fromLisbon,
+    localizacaoData?.directions?.fromFaro,
+    localizacaoData?.directions?.fromPorto,
+  ].filter(Boolean);
 
   return (
     <div className={styles.page}>
       <SEO
-        title="Contacto"
-        description="Planeie a sua visita ao Monte da Estrada. Estamos aqui para ajudar — reservas, perguntas ou simplesmente olá. Veja como chegar de Lisboa, Porto ou Faro."
-        keywords="contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar"
+        title={copy.contactEyebrow}
+        description={locale === 'en'
+          ? 'Plan your visit to Monte da Estrada. We are here to help — reservations, questions, or just to say hello. See how to get here from Lisbon, Porto, or Faro.'
+          : 'Planeie a sua visita ao Monte da Estrada. Estamos aqui para ajudar — reservas, perguntas ou simplesmente olá. Veja como chegar de Lisboa, Porto ou Faro.'}
+        keywords={locale === 'en'
+          ? 'contact, reservations, how to get here, monte da estrada, alentejo, zambujeira do mar'
+          : 'contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar'}
         image="/images/hero-localizacao.jpg"
+        locale={locale}
       />
 
-      {/* S1 — Page Hero ─────────────────────────────────────── */}
+      {/* S1 — Page Hero */}
       <PageHero
         imageSrc={homeImages.gallery[1].src}
-        imageAlt={homeImages.gallery[1].alt}
-        eyebrow="Contacto"
-        headline="Planeie a sua visita."
-        subtitle="Estamos cá para ajudar — de segunda a domingo."
+        imageAlt={copy.heroImageAlt}
+        eyebrow={copy.contactEyebrow}
+        headline={copy.heroHeadline}
+        subtitle={copy.heroSubtitle}
       />
 
-      {/* S2 — Contact Grid ───────────────────────────────────── */}
-      {/* Left: contact info (eyebrow + H2 + details). Right: form. */}
-      {/* Cream background. No Section wrapper — direct HTML like DescobrirPage. */}
+      {/* S2 — Contact Grid */}
       <section className={styles.contactSection}>
         <div className={styles.container}>
           <div className={styles.contactGrid}>
@@ -55,24 +88,22 @@ const ContactoPage = () => {
               whileInView="visible"
               viewport={viewport.default}
             >
-              <SectionEyebrow label="Contacto" />
+              <SectionEyebrow label={copy.contactEyebrow} />
               <h2 className={styles.sectionHeading}>
-                Estamos aqui para ajudar.
+                {copy.contactHeading}
               </h2>
               <p className={styles.contactIntro}>
-                Respondemos a todas as mensagens em menos de 24 horas.
-                Para reservas com datas próximas, preferimos o telefone
-                ou WhatsApp.
+                {copy.contactIntro}
               </p>
 
               <ul className={styles.contactDetails}>
                 <li className={styles.contactItem}>
                   <span className={styles.contactLabel}>Telefone / WhatsApp</span>
                   <a
-                    href={`tel:${localizacaoData.address.phone || '+351960254072'}`}
+                    href="tel:+351960254072"
                     className={styles.contactValue}
                   >
-                    {localizacaoData.address.phone || '+351 960 254 072'}
+                    +351 960 254 072
                   </a>
                 </li>
                 <li className={styles.contactItem}>
@@ -87,10 +118,10 @@ const ContactoPage = () => {
                 <li className={styles.contactItem}>
                   <span className={styles.contactLabel}>Morada</span>
                   <address className={styles.contactAddress}>
-                    {localizacaoData.address.name}<br />
-                    {localizacaoData.address.street}<br />
-                    {localizacaoData.address.postalCode} {localizacaoData.address.city}<br />
-                    {localizacaoData.address.region}, {localizacaoData.address.country}
+                    Monte da Estrada<br />
+                    Zambujeira do Mar<br />
+                    7630-568 Odemira<br />
+                    Alentejo, Portugal
                   </address>
                 </li>
                 <li className={styles.contactItem}>
@@ -116,9 +147,7 @@ const ContactoPage = () => {
         </div>
       </section>
 
-      {/* S4 — Map / Localização (Deep Brown) ─────────────────── */}
-      {/* Dark background reversal — same pattern as Redondezas on DescobrirPage. */}
-      {/* SectionEyebrow renders in clay, which reads well on deep brown. */}
+      {/* S3 — Map / Localização */}
       <section className={styles.mapSection}>
         <div className={styles.container}>
           <motion.div
@@ -127,9 +156,9 @@ const ContactoPage = () => {
             whileInView="visible"
             viewport={viewport.default}
           >
-            <SectionEyebrow label="Localização" />
+            <SectionEyebrow label={copy.mapEyebrow} />
             <h2 className={styles.sectionHeadingLight}>
-              Encontre-nos.
+              {copy.mapHeading}
             </h2>
           </motion.div>
           <motion.div
@@ -141,18 +170,16 @@ const ContactoPage = () => {
             transition={{ delay: 0.2 }}
           >
             <Map
-              latitude={localizacaoData.address.coordinates.latitude}
-              longitude={localizacaoData.address.coordinates.longitude}
-              title={`Mapa — ${localizacaoData.address.street}, ${localizacaoData.address.city}`}
+              latitude={localizacaoData?.address?.coordinates?.latitude || 37.5882284}
+              longitude={localizacaoData?.address?.coordinates?.longitude || -8.7782661}
+              title="Monte da Estrada, Zambujeira do Mar"
               height="480px"
             />
           </motion.div>
         </div>
       </section>
 
-      {/* S5 — Directions (Sand) ──────────────────────────────── */}
-      {/* Sand background ($color-sand) — lighter than cream, warmer than off-white. */}
-      {/* Direction panels replace <Card>: minimal, architectural, no fills. */}
+      {/* S4 — Directions */}
       <section className={styles.directionsSection}>
         <div className={styles.container}>
           <motion.div
@@ -161,9 +188,9 @@ const ContactoPage = () => {
             whileInView="visible"
             viewport={viewport.default}
           >
-            <SectionEyebrow label="Como Chegar" />
+            <SectionEyebrow label={copy.directionsEyebrow} />
             <h2 className={styles.sectionHeading}>
-              {localizacaoData.directions.title}
+              {localizacaoData?.directions?.title || 'Como Chegar'}
             </h2>
           </motion.div>
 
@@ -191,13 +218,9 @@ const ContactoPage = () => {
               >
                 <h3 className={styles.directionCity}>{direction.title}</h3>
                 <p className={styles.directionMeta}>
-                  <span className={styles.directionMetaItem}>
-                    {direction.distance}
-                  </span>
+                  <span className={styles.directionMetaItem}>{direction.distance}</span>
                   <span className={styles.directionMetaDivider}>·</span>
-                  <span className={styles.directionMetaItem}>
-                    {direction.duration}
-                  </span>
+                  <span className={styles.directionMetaItem}>{direction.duration}</span>
                 </p>
                 <ol className={styles.routeList}>
                   {direction.route.map((step, i) => (

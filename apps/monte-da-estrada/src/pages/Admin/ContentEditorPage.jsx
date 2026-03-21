@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import styles from './ContentEditorPage.module.scss';
 
 // Import all JSON data files
-import homeData from '@/data/home.json';
-import quartosData from '@/data/quartos.json';
-import atividadesData from '@/data/atividades.json';
-import redondezasData from '@/data/redondezas.json';
-import localizacaoData from '@/data/localizacao.json';
-import galeriaData from '@/data/galeria.json';
+import homeData from '@/data/pt/home.json';
+import quartosData from '@/data/pt/quartos.json';
+import atividadesData from '@/data/pt/atividades.json';
+import redondezasData from '@/data/pt/redondezas.json';
+import localizacaoData from '@/data/pt/localizacao.json';
+import galeriaData from '@/data/pt/galeria.json';
 
 const ContentEditorPage = () => {
   const navigate = useNavigate();

@@ -1,4 +1,5 @@
 {
+  "brandName": "Monte da Estrada",
   "siteLogo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
   "siteLogoAlt": "Monte da Estrada - Turismo Rural no Alentejo",
   "partnerLogos": [
@@ -23,5 +24,7 @@
   ],
   "favicon": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
   "metaImage": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
-  "metaImageAlt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo no Alentejo"
+  "metaImageAlt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo no Alentejo",
+  "reservasUrl": "https://www.booking.com/",
+  "showLanguageSelector": true
 }

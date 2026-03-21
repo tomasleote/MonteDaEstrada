@@ -1,0 +1,53 @@
+// Static page copy for DescobrirPage — translated strings not in JSON
+export const descobrirCopy = {
+  pt: {
+    heroImageAlt: 'Descobrir o Alentejo e a Costa Vicentina',
+    heroHeadline: 'O território é a experiência.',
+    heroSubtitle: '110 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo.',
+    territorioEyebrow: 'O Território',
+    territorioHeading: 'Entre o Alentejo e o Atlântico.',
+    territorioBody: [
+      'A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio — está aqui mesmo à porta.',
+      'Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente faz falta.',
+    ],
+    territorioImageAlt: 'Vista panorâmica da paisagem alentejana',
+    experienciasEyebrow: 'Experiências',
+    experienciasHeading: 'Aqui não há agenda. A não ser a sua.',
+    pullQuote: 'O território não se visita. Habita-se, mesmo que por poucos dias.',
+    pullQuoteAttribution: 'Monte da Estrada',
+    beachesEyebrow: 'Praias',
+    beachesHeading: '110 km de costa. Escolha a sua.',
+    fullBleedQuote: 'A última costa selvagem da Europa ocidental começa aqui.',
+    fullBleedAttribution: 'Parque Natural do Sudoeste Alentejano e Costa Vicentina',
+    parceirosEyebrow: 'Parceiros',
+    parceirosHeading: 'Quem está connosco.',
+    bookingEyebrow: 'Reservas',
+    bookingHeading: 'Marque a sua estadia.',
+  },
+  en: {
+    heroImageAlt: 'Discover Alentejo and the Costa Vicentina',
+    heroHeadline: 'The territory is the experience.',
+    heroSubtitle: '110 km of Atlantic coast. Rota Vicentina at the doorstep. Deep Alentejo right here.',
+    territorioEyebrow: 'The Territory',
+    territorioHeading: 'Between Alentejo and the Atlantic.',
+    territorioBody: [
+      'The Rota Vicentina is minutes from the house. Zambujeira do Mar is eighteen kilometres away. Deep Alentejo — with its cork oaks, plains, and silence — is right at the door.',
+      'Monte da Estrada is not a destination. It is a base from which to set out — to the beach, to the trail, to the São Teotónio market, to the nothing that suddenly becomes necessary.',
+    ],
+    territorioImageAlt: 'Panoramic view of the Alentejo landscape',
+    experienciasEyebrow: 'Experiences',
+    experienciasHeading: 'There is no agenda here. Unless you bring one.',
+    pullQuote: 'The territory is not visited. It is inhabited — even if only for a few days.',
+    pullQuoteAttribution: 'Monte da Estrada',
+    beachesEyebrow: 'Beaches',
+    beachesHeading: '110 km of coast. Pick yours.',
+    fullBleedQuote: 'The last wild coast of western Europe begins here.',
+    fullBleedAttribution: 'Southwest Alentejo and Costa Vicentina Natural Park',
+    parceirosEyebrow: 'Partners',
+    parceirosHeading: 'Those who are with us.',
+    bookingEyebrow: 'Reservations',
+    bookingHeading: 'Book your stay.',
+  },
+};
+
+export default descobrirCopy;
