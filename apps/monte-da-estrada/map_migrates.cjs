@@ -22,7 +22,7 @@ const CDN_MAP = {
   'odeceixe.jpg': 'odeceixe.webp'
 };
 
-const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir';
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir';
 
 data = data.replace(/new URL\('\.\.\/assets\/images\/(.*?\/(.*?))', import\.meta\.url\)\.href/g, (match, path, filename) => {
   if (CDN_MAP[filename]) {

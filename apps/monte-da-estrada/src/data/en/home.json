@@ -2,27 +2,27 @@
   "hero": {
     "title": "Monte da Estrada",
     "subtitle": "Rural Tourism in Alentejo",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-hero-monte-exterior.webp",
     "alt": "Exterior view of Monte da Estrada - Luxury rural accommodation"
   },
   "featureImages": [
     {
-      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-01.webp",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-01.webp",
       "alt": "Monte da Estrada property view from the main entrance",
       "title": "Main Entrance"
     },
     {
-      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-02.webp",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-02.webp",
       "alt": "Surrounding landscape of Monte da Estrada with green fields",
       "title": "Surrounding Landscape"
     },
     {
-      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-03.webp",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-03.webp",
       "alt": "Property view showing traditional Portuguese architecture",
       "title": "Traditional Architecture"
     },
     {
-      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-04.webp",
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-04.webp",
       "alt": "Panoramic view of the property and rural area",
       "title": "Panoramic View"
     }

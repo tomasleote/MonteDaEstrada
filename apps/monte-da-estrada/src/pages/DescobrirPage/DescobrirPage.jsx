@@ -63,14 +63,14 @@ const DescobrirPage = () => {
         keywords={locale === 'en'
           ? 'discover, alentejo, costa vicentina, rota vicentina, zambujeira do mar, activities, surroundings, monte da estrada'
           : 'descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada'}
-        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir%20(1).webp"
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
         locale={locale}
       />
 
       {/* S1 — PageHero ──────────────────────────────────────── */}
       <div id="discovery-hero">
         <PageHero
-          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir%20(1).webp"
+          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
           imageAlt={copy.heroImageAlt}
           eyebrow={copy.territorioEyebrow}
           headline={copy.heroHeadline}
@@ -87,10 +87,11 @@ const DescobrirPage = () => {
 
       {/* S3 — O Território — EditorialSplitSection ───────────────── */}
       <EditorialSplitSection
+        className={styles.territorioSection}
         eyebrow={copy.territorioEyebrow}
         heading={copy.territorioHeading}
         body={copy.territorioBody}
-        imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp"
+        imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/costavicentina.webp"
         imageAlt={copy.territorioImageAlt}
         imagePosition="right"
       />
@@ -147,7 +148,7 @@ const DescobrirPage = () => {
 
       {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
       <FullBleedQuote
-        imageSrc={descobrirData.beaches[4]?.imageSrc || "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp"}
+        imageSrc={descobrirData.beaches[4]?.imageSrc || "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp"}
         alt={copy.fullBleedQuote}
         quote={copy.fullBleedQuote}
         attribution={copy.fullBleedAttribution}

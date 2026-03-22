@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'motion/react';
 import { variants, viewport } from '../../constants/motion';
+import SuiteCarousel from '../SuiteCarousel/SuiteCarousel';
 import styles from './EditorialSplitSection.module.scss';
 
 /**
@@ -29,6 +30,7 @@ function EditorialSplitSection({
   body,
   imageSrc,
   imageAlt,
+  carouselImages,
   imagePosition = 'left',
   ctaLabel,
   ctaHref,
@@ -50,7 +52,11 @@ function EditorialSplitSection({
     >
       {/* Image Column */}
       <motion.div className={styles.imageColumn} variants={variants.fadeIn}>
-        <img src={imageSrc} alt={imageAlt} className={styles.image} loading="lazy" decoding="async" />
+        {carouselImages && carouselImages.length > 0 ? (
+          <SuiteCarousel images={carouselImages} className={styles.carouselOverride} />
+        ) : (
+          <img src={imageSrc} alt={imageAlt} className={styles.image} loading="lazy" decoding="async" />
+        )}
         {photographerCredit && <p className={styles.credit}>{photographerCredit}</p>}
       </motion.div>
 
@@ -81,8 +87,12 @@ EditorialSplitSection.propTypes = {
   eyebrow: PropTypes.string,
   heading: PropTypes.string.isRequired,
   body: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
-  imageSrc: PropTypes.string.isRequired,
-  imageAlt: PropTypes.string.isRequired,
+  imageSrc: PropTypes.string,
+  imageAlt: PropTypes.string,
+  carouselImages: PropTypes.arrayOf(PropTypes.shape({
+    src: PropTypes.string,
+    alt: PropTypes.string,
+  })),
   imagePosition: PropTypes.oneOf(['left', 'right']),
   ctaLabel: PropTypes.string,
   ctaHref: PropTypes.string,

@@ -5,10 +5,11 @@ import { CategoryNav, PageHero } from '@touril-ecosystem/ui-components';
 import { ScrollReveal } from '@/motion';
 import { useLocale } from '@/contexts/LocaleContext';
 import { getData } from '@/data/dataLoader';
+import { homeImages } from '@/data/homeImages';
 import styles from './GaleriaPage.module.scss';
 
 // Local static image imports replaced by CDN URLs
-const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos';
+const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos';
 
 // ── Section editorial copy ─────────────────────────────────────
 const getSectionCopy = (locale) => {
@@ -68,6 +69,10 @@ const GaleriaPage = () => {
   const oMonteImages = useMemo(() => [
     { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada - Vista exterior do edifício alentejano', title: 'Exterior' },
     { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Monte da Estrada - Sala estúdio e zonas comuns', title: 'Área Comum' },
+    { src: homeImages.sala5.src, alt: homeImages.sala5.alt, title: homeImages.sala5.title },
+    { src: homeImages.pormenor2.src, alt: homeImages.pormenor2.alt, title: homeImages.pormenor2.title },
+    { src: homeImages.recepcao2.src, alt: homeImages.recepcao2.alt, title: homeImages.recepcao2.title },
+    { src: homeImages.sala3.src, alt: homeImages.sala3.alt, title: homeImages.sala3.title },
     { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Monte da Estrada - Quarto com decoração tradicional alentejana', title: 'Quarto' },
     { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Monte da Estrada - Pormenores e arquitetura de charme', title: 'Pormenor' },
     { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Monte da Estrada - Luminosidade e conforto nos quartos', title: 'Quarto' },

@@ -6,11 +6,12 @@ import LoadingSpinner from './components/LoadingSpinner'
 import AnimatedPage from '@/motion/components/AnimatedPage'
 import useScrollToTop from './hooks/useScrollToTop'
 import BookingTab from './components/BookingTab'
+import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher'
 import { LocaleProvider, useLocale } from './contexts/LocaleContext'
 import ptSiteSettings from './data/pt/site-settings.json'
 import enSiteSettings from './data/en/site-settings.json'
 
-const logoBrancoAzul = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-azul-texto-branco.webp'
+const logoBrancoAzul = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-azul-texto-branco.webp'
 
 // Lazy load page components for better performance
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -89,32 +90,39 @@ function AppContent() {
   const navigate = useNavigate()
   const { locale, setLocale } = useLocale()
 
-  // Browser language detection on first load
-  // Redirects English-preferring browsers to /en on first visit
-  // Sync URL with context locale
+  // 1. URL IS THE ABSOLUTE SOURCE OF TRUTH
   useEffect(() => {
-    const activeLocale = locale || (navigator.language.startsWith('en') ? 'en' : 'pt');
-    if (activeLocale !== locale) setLocale(activeLocale);
-
-    if (activeLocale === 'en' && !location.pathname.startsWith('/en')) {
-      navigate('/en' + (location.pathname === '/' ? '/' : location.pathname), { replace: true });
-    } else if (activeLocale === 'pt' && location.pathname.startsWith('/en')) {
-      navigate(location.pathname.replace(/^\/en/, '') || '/', { replace: true });
+    const isEnUrl = location.pathname.startsWith('/en');
+    const urlLang = isEnUrl ? 'en' : 'pt';
+    
+    if (locale !== urlLang) {
+      setLocale(urlLang);
     }
-  }, [locale, location.pathname, navigate, setLocale]);
+  }, [location.pathname]); // Explicitly omitted setLocale and locale dependencies to prevent infinite loop
 
-  const handleLanguageChange = (lang) => {
-    setLocale(lang);
-    const currentPath = location.pathname;
-    if (lang === 'en') {
-      // Switch TO English — add /en prefix
-      navigate('/en/' + currentPath.slice(1));
-    } else {
-      // Switch TO Portuguese — remove /en prefix
-      const newPath = currentPath.replace(/^\/en/, '') || '/';
-      navigate(newPath);
+  // 2. ROOT AUTODETECT ON FIRST VISIT ONLY
+  useEffect(() => {
+    if (location.pathname === '/') {
+      const stored = localStorage.getItem('mde-locale');
+      let targetLang = 'pt';
+      
+      if (stored) {
+        targetLang = stored; // Re-use explicitly saved preference
+      } else {
+        // Strict auto-detect
+        targetLang = navigator.language.startsWith('en') ? 'en' : 'pt';
+      }
+
+      // Automatically execute the redirect
+      if (targetLang === 'en') {
+        navigate('/en/', { replace: true });
+      }
+      
+      // Save it immediately so we satisfy the "first visit" clause permanently
+      localStorage.setItem('mde-locale', targetLang);
     }
-  };
+  }, []); // Run ONCE on app mount
+
 
   const currentLanguage = locale === 'en' ? 'EN' : 'PT';
   const navLinks = getNavLinks(locale);
@@ -132,8 +140,6 @@ function AppContent() {
         brandName="Monte da Estrada"
         logoDefault={logoBrancoAzul}
         logoScrolled={logoBrancoAzul}
-        currentLanguage={currentLanguage}
-        onLanguageChange={handleLanguageChange}
         scrollThreshold={50}
         properties={properties}
         currentPropertyUrl="https://montedaestrada.com"
@@ -189,6 +195,7 @@ function AppContent() {
       />
 
       <BookingTab onClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')} />
+      <LanguageSwitcher />
     </div>
   )
 }

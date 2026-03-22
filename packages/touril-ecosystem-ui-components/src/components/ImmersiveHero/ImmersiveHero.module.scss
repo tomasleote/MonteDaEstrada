@@ -70,6 +70,16 @@
   margin: 0;
 }
 
+.subtitle {
+  font-family: $font-display;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-subheading;
+  color: rgba($color-cream, 0.9);
+  line-height: $line-height-relaxed;
+  margin: $spacing-m 0 0 0;
+}
+
 // ==================================
 // SCROLL INDICATOR
 // ==================================

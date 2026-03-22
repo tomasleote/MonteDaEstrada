@@ -35,7 +35,7 @@ const SEO = ({
   let enPath = currentPath.startsWith('/en') ? currentPath : (currentPath === '/' ? '/en/' : `/en${currentPath}`);
   if (enPath.length > 4 && enPath.endsWith('/')) enPath = enPath.slice(0, -1);
 
-  const fallbackImage = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp';
+  const fallbackImage = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp';
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : fallbackImage;
   const ogLocale = locale === 'en' ? 'en_US' : 'pt_PT';
 

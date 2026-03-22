@@ -3,8 +3,8 @@
  * Expected by QuartosPage.jsx
  */
 
-const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos';
-const HOME_CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home';
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos';
+const HOME_CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home';
 
 export const quartosImages = {
   hero: {

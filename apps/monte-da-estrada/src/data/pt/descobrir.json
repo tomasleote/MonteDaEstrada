@@ -6,7 +6,7 @@
       "title": "Piqueniques para Caminhantes",
       "description": "Cestas de piquenique leve para quem parte para os trilhos — fruta local, queijo de ovelha e pão de São Teotónio.",
       "highlights": ["Fruta local", "Queijo de Ovelha", "Pão de São Teotónio"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/pequeniqueai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/pequeniqueai.webp",
       "imageAlt": "Cesta de piquenique com produtos locais no campo"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Prova de Vinhos Regionais",
       "description": "Uma prova guiada pelos vinhos atlânticos e alentejanos. Feita no monte, ao ritmo certo.",
       "highlights": ["Vinhos do Alentejo", "Vinhos atlânticos", "Guiada no monte"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/vinhosai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/vinhosai.webp",
       "imageAlt": "Copos de vinho com paisagem alentejana ao fundo"
     },
     {
@@ -24,7 +24,7 @@
       "title": "Caminhadas na Rota Vicentina",
       "description": "O Trilho dos Pescadores parte a minutos do monte. Falésias, praias escondidas e mar aberto.",
       "highlights": ["Trilho dos Pescadores", "Falésias costeiras", "Praias desertas"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/rotavicentinaai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/rotavicentinaai.webp",
       "imageAlt": "Caminheiro na Rota Vicentina com vista para o Atlântico"
     },
     {
@@ -33,7 +33,7 @@
       "title": "Trilhos em E-bike",
       "description": "Explore os caminhos de montado e os pedaços de Alentejo onde os carros não chegam. Em e-bike, ao seu ritmo.",
       "highlights": ["E-bike incluída", "Trilhos de montado", "Sem trânsito"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/btt.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/btt.webp",
       "imageAlt": "E-bike apoiada em tronco com montado alentejano ao fundo"
     },
     {
@@ -42,7 +42,7 @@
       "title": "Sunset Chaser",
       "description": "Excursão de Jeep até ao miradouro perfeito, com vinho e petiscos no momento certo.",
       "highlights": ["Excursão de Jeep", "Vinho & petiscos", "Pôr do sol garantido"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/jipetourai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/jipetourai.webp",
       "imageAlt": "Pôr do sol atlântico visto de miradouro no Alentejo"
     },
     {
@@ -51,7 +51,7 @@
       "title": "Massagens",
       "description": "Massagem de relaxamento no Touril, seguida de uma bebida no Pool Bar. O descanso completo.",
       "highlights": ["Massagem no Touril", "Pool Bar incluído", "Por marcação"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/massagemai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/massagemai.webp",
       "imageAlt": "Área de bem-estar e piscina do Touril"
     }
   ],
@@ -60,7 +60,7 @@
       "name": "Zambujeira do Mar",
       "distance": "8 km",
       "description": "Praia selvagem encaixada em falésias de xisto. O Atlântico puro.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/zambujeirapraia.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/zambujeirapraia.webp",
       "imageAlt": "Zambujeira do Mar com falésias e mar azul-turquesa",
       "mapUrl": "https://maps.app.goo.gl/kofHZjwBekjVqEzt5"
     },
@@ -68,7 +68,7 @@
       "name": "Carvalhal",
       "distance": "12 km",
       "description": "Extensa e ventosa, favorita dos surfistas e dos que querem praia sem multidão.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/carvalhal.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/carvalhal.webp",
       "imageAlt": "Praia do Carvalhal com ondas e dunas ao fundo",
       "mapUrl": "https://maps.app.goo.gl/TaXwnk9cj364cnbZ9"
     },
@@ -76,7 +76,7 @@
       "name": "Alteirinhos",
       "distance": "9 km",
       "description": "Praia de acesso difícil e beleza improvável. Para os que procuram o inesperado.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/alteirinhos.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/alteirinhos.webp",
       "imageAlt": "Praia dos Alteirinhos vista do alto das falésias",
       "mapUrl": "https://maps.app.goo.gl/gAvwGa5rhY8RvcGu9"
     },
@@ -84,7 +84,7 @@
       "name": "Almograve",
       "distance": "12 km",
       "description": "Praia selvagem com acesso fácil e águas cristalinas. Um tesouro escondido da Costa Vicentina.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/almograve.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/almograve.webp",
       "imageAlt": "Praia de Almograve com areias douradas",
       "mapUrl": "https://maps.app.goo.gl/4BgVJrALGAAXTBan9"
     },
@@ -92,7 +92,7 @@
       "name": "Odeceixe",
       "distance": "30 km",
       "description": "Onde o rio encontra o mar. Protegida do vento, ideal para famílias.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/odeceixe.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/odeceixe.webp",
       "imageAlt": "Praia de Odeceixe com estuário do rio Seixe",
       "mapUrl": "https://maps.app.goo.gl/ggdNmsjs6CQXuFJW8"
     },
@@ -100,7 +100,7 @@
       "name": "Tonel",
       "distance": "5 km",
       "description": "A praia de Sagres. Vento forte, cor impossível, fim do mundo europeu.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/tonel.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/tonel.webp",
       "imageAlt": "Praia do Tonel em Sagres com fortaleza ao fundo",
       "mapUrl": "https://maps.app.goo.gl/aMzy7JTXVZ74kfsh8"
     },
@@ -108,7 +108,7 @@
       "name": "Malhão",
       "distance": "25 km",
       "description": "Praia com areal extenso. Dunas, vento e Atlântico aberto.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/malhao.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/malhao.webp",
       "imageAlt": "Praia do Malhão com dunas",
       "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
     },
@@ -116,7 +116,7 @@
       "name": "Aivados",
       "distance": "32 km",
       "description": "Praia secreta entre rochas. Um dos segredos mais bem guardados da costa.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/aivados.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/aivados.webp",
       "imageAlt": "Praia dos Aivados entre rochas",
       "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
     }
@@ -135,7 +135,7 @@
       "location": "Praia",
       "distance": "8 km",
       "description": "A mais próxima e uma das mais belas. Falésias de xisto e Atlântico aberto.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/zambujeirapraia.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/zambujeirapraia.webp",
       "imageAlt": "Praia de Zambujeira do Mar",
       "mapUrl": "https://maps.app.goo.gl/iMovexEHDXCXJufq6"
     },
@@ -176,7 +176,7 @@
       "location": "Praia",
       "distance": "25 km",
       "description": "Praia com areal extenso. Dunas, vento e Atlântico aberto.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/malhao.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/malhao.webp",
       "imageAlt": "Praia do Malhão com dunas",
       "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
     },
@@ -185,7 +185,7 @@
       "location": "Praia",
       "distance": "32 km",
       "description": "Praia secreta entre rochas. Um dos segredos mais bem guardados da costa.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/aivados.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/aivados.webp",
       "imageAlt": "Praia dos Aivados entre rochas",
       "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
     }
@@ -194,37 +194,37 @@
     {
       "name": "Restaurante Herdade do Touril",
       "url": "https://herdadedotouril.com/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/touril.webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/touril.webp"
     },
     {
       "name": "Bar da Praia - Almograve",
       "url": "https://www.barpraiaalmograve.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/bardapraia%20(1).webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/bardapraia%20(1).webp"
     },
     {
       "name": "Manjedoura Restaurante Bar",
       "url": "https://www.manjedoura.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/manjedoura%20(1).webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/manjedoura%20(1).webp"
     },
     {
       "name": "Tasca do Celso",
       "url": "https://rotavicentina.com/restaurantes/tasca-do-celso/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/celso%20(1).webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/celso%20(1).webp"
     },
     {
       "name": "Rota Vicentina",
       "url": "https://rotavicentina.com/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/rota_vicentina.webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/rota_vicentina.webp"
     },
     {
       "name": "Casas Brancas",
       "url": "https://www.casasbrancas.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/casas_brancas.webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/casas_brancas.webp"
     },
     {
       "name": "Visit Alentejo",
       "url": "https://www.visitalentejo.pt/pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/parceiros/visitalentejo.webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/visitalentejo.webp"
     }
   ]
 }

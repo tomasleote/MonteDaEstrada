@@ -48,6 +48,13 @@ const suiteCarouselImages = [
   }
 ];
 
+const s3CarouselImages = [
+  homeImages.gallery[0],
+  homeImages.sala5,
+  homeImages.pormenor2,
+  homeImages.recepcao2
+];
+
 // ──────────────────────────────────────────────
 // Static structured data (not locale-specific)
 // ──────────────────────────────────────────────
@@ -59,7 +66,7 @@ const structuredData = {
   "url": "https://montedaestrada.com",
   "telephone": "+351960254072",
   "email": "geral@montedaestrada.com",
-  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp",
   "description": "A sua casa no Litoral Alentejano.",
   "priceRange": "$$",
   "checkinTime": "15:00",
@@ -80,7 +87,7 @@ const structuredData = {
   "containsPlace": Array.from({ length: 8 }, (_, i) => ({
     "@type": "HotelRoom",
     "name": `Quarto Duplo / Twin ${i + 1}`,
-    "image": `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos/quarto-${(i % 4) + 1}.webp`
+    "image": `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos/quarto-${(i % 4) + 1}.webp`
   }))
 };
 
@@ -193,7 +200,8 @@ const HomePage = () => {
         <ImmersiveHero
           imageSrc={homeImages.hero.src}
           imageAlt={locale === 'en' ? 'Monte da Estrada — rural tourism in Alentejo' : 'Monte da Estrada — turismo rural no Alentejo'}
-          headline={locale === 'en' ? 'Your home on the Alentejo Coast.' : 'A sua casa no Litoral Alentejano.'}
+          headline="Monte da Estrada"
+          subtitle={locale === 'en' ? 'Your home on the Alentejo Coast.' : 'A sua casa no Litoral Alentejano.'}
           scrollLabel={copy.heroScrollLabel}
         />
       </div>
@@ -213,7 +221,7 @@ const HomePage = () => {
         email="geral@montedaestrada.com"
         phone="+351 960 254 072"
         ctaLabel={copy.anchorCtaLabel}
-        ctaHref={locale === 'en' ? '/en/descobrir' : '/descobrir'}
+        ctaHref="#casa"
       />
 
       {/* S3 — A Casa — Editorial Split ──────────────────────── */}
@@ -222,11 +230,10 @@ const HomePage = () => {
           eyebrow={copy.casaEyebrow}
           heading={copy.casaHeading}
           body={copy.casaBody}
-          imageSrc={homeImages.gallery[0].src}
-          imageAlt={homeImages.gallery[0].alt}
+          carouselImages={s3CarouselImages}
           imagePosition="left"
           ctaLabel={copy.casaCtaLabel}
-          ctaHref={locale === 'en' ? '/en/descobrir' : '/descobrir'}
+          ctaHref={locale === 'en' ? '/en/quartos' : '/quartos'}
         />
       </div>
 
@@ -250,8 +257,8 @@ const HomePage = () => {
       {/* S5 — Full Bleed Photography Break — hidden on mobile */}
       {!isMobile && (
         <FullBleedImage
-          imageSrc={homeImages.gallery[2].src}
-          imageAlt={locale === 'en' ? 'Panoramic view of Monte da Estrada at sunset' : 'Vista panorâmica do Monte da Estrada ao pôr do sol'}
+          imageSrc={homeImages.sala3.src}
+          imageAlt={homeImages.sala3.alt}
           height="70vh"
         />
       )}
@@ -267,7 +274,7 @@ const HomePage = () => {
           imagePosition="right"
           background="offwhite"
           ctaLabel={copy.territorioCtaLabel}
-          ctaHref={locale === 'en' ? '/en/descobrir' : '/descobrir'}
+          ctaHref={locale === 'en' ? '/en/descobrir#experiencias' : '/descobrir#experiencias'}
         />
       </div>
 

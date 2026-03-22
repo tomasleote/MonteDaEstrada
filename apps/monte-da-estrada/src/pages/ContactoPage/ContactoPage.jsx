@@ -20,7 +20,7 @@ const contactStructuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Monte da Estrada",
-  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-property-view-05.webp",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp",
   "url": "https://montedaestrada.com/contacto",
   "telephone": "+351960254072",
   "email": "geral@montedaestrada.com",
@@ -85,7 +85,7 @@ const ContactoPage = () => {
         keywords={locale === 'en'
           ? 'contact, reservations, how to get here, monte da estrada, alentejo, zambujeira do mar'
           : 'contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar'}
-        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp"
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/costavicentina.webp"
         locale={locale}
       />
 

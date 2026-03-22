@@ -1,29 +1,29 @@
 {
   "brandName": "Monte da Estrada",
-  "siteLogo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
+  "siteLogo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-monte-estrada-text.webp",
   "siteLogoAlt": "Monte da Estrada - Turismo Rural no Alentejo",
   "partnerLogos": [
     {
       "name": "Associação de Desenvolvimento Local",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-adl-partner.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-adl-partner.webp",
       "alt": "ADL - Associação de Desenvolvimento Local",
       "url": ""
     },
     {
       "name": "Leader EU Funding",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-leader-eu-funding-banner.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-leader-eu-funding-banner.webp",
       "alt": "Programa LEADER - Financiamento União Europeia",
       "url": ""
     },
     {
       "name": "Turismo Rural",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-turismo-rural-badge.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-turismo-rural-badge.webp",
       "alt": "Turismo Rural - Alojamento Certificado",
       "url": ""
     }
   ],
-  "favicon": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/logos/logo-monte-estrada-text.webp",
-  "metaImage": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home/home-hero-monte-exterior.webp",
+  "favicon": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-monte-estrada-text.webp",
+  "metaImage": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-hero-monte-exterior.webp",
   "metaImageAlt": "Vista exterior do Monte da Estrada - Alojamento rural de luxo no Alentejo",
   "reservasUrl": "https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT",
   "showLanguageSelector": true,
