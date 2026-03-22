@@ -69,10 +69,12 @@ body {
   max-width: 100vw;
 
   // Prevent iOS pull-to-refresh / elastic bounce at document boundaries.
-  // Intentionally scoped to body only — applying this to * traps wheel
-  // events inside overflow:hidden containers (e.g. the hero section) and
-  // prevents them from reaching the body scroll context.
   overscroll-behavior: contain;
+
+  // Prevent MobileReserveBar from overlapping footer content on mobile
+  @include mobile {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
 }
 
 // Set font for headings

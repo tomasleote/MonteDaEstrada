@@ -6,6 +6,7 @@ import LoadingSpinner from './components/LoadingSpinner'
 import AnimatedPage from '@/motion/components/AnimatedPage'
 import useScrollToTop from './hooks/useScrollToTop'
 import BookingTab from './components/BookingTab'
+import MobileReserveBar from './components/MobileReserveBar/MobileReserveBar'
 import LanguageSwitcher from './components/LanguageSwitcher/LanguageSwitcher'
 import { LocaleProvider, useLocale } from './contexts/LocaleContext'
 import ptSiteSettings from './data/pt/site-settings.json'
@@ -195,6 +196,7 @@ function AppContent() {
       />
 
       <BookingTab onClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')} />
+      <MobileReserveBar />
       <LanguageSwitcher />
     </div>
   )

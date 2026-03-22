@@ -49,14 +49,18 @@ export default function LanguageSwitcher() {
     }
   };
 
+  // Determine animation direction: left on desktop, right on mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
+  const hiddenX = isMobile ? '100%' : '-100%';
+
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
           className={styles.switcherContainer}
-          initial={{ x: '-100%', y: '-50%' }}
+          initial={{ x: hiddenX, y: '-50%' }}
           animate={{ x: 0, y: '-50%' }}
-          exit={{ x: '-100%', y: '-50%' }}
+          exit={{ x: hiddenX, y: '-50%' }}
           transition={{ type: 'spring', stiffness: 200, damping: 25 }}
         >
           <button

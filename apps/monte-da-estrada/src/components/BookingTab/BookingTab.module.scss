@@ -22,17 +22,9 @@
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
   }
 
-  // Mobile: vertically centered, right edge flush (no scrollbar gap)
+  // Mobile: hidden — replaced by MobileReserveBar fixed bottom button
   @media (max-width: 768px) {
-    display: block;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%) translateX(100%);
-    z-index: 1000;
-
-    &.visible {
-      transform: translateY(-50%) translateX(0);
-    }
+    display: none;
   }
 }
 

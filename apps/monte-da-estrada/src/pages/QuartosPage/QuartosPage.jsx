@@ -34,7 +34,7 @@ const quartosCopy = {
     heroHeadline: 'Our Rooms',
     heroSubtitle: 'Absolute comfort, configurable to your needs.',
     roomsEyebrow: 'Rooms',
-    roomsHeading: 'Eight rooms. Each one, its own.',
+    roomsHeading: 'Eight rooms. Each one, your own.',
     bookingEyebrow: 'Reservations',
     bookingHeading: 'Your room awaits.',
     bookingIntro: 'Book now and discover where you\'ll wake up.',
