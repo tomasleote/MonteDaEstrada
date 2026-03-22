@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde';
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde';
 
 const filesToMigrate = [
   './src/data/home.json',

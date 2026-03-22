@@ -21,6 +21,7 @@ function ImmersiveHero({
   imageSrc,
   imageAlt,
   headline,
+  subtitle,
   scrollLabel = 'Descobrir',
   photographerCredit,
   className = '',
@@ -48,6 +49,18 @@ function ImmersiveHero({
         >
           {headline}
         </motion.h1>
+        {subtitle && (
+          <motion.p
+            className={styles.subtitle}
+            variants={variants.fadeUp}
+            initial="hidden"
+            animate="visible"
+            viewport={viewport.default}
+            transition={{ delay: 0.15 }}
+          >
+            {subtitle}
+          </motion.p>
+        )}
       </div>
 
       {/* Scroll Indicator */}
@@ -66,6 +79,7 @@ ImmersiveHero.propTypes = {
   imageSrc: PropTypes.string.isRequired,
   imageAlt: PropTypes.string.isRequired,
   headline: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
   scrollLabel: PropTypes.string,
   photographerCredit: PropTypes.string,
   className: PropTypes.string,

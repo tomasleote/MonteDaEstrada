@@ -3,6 +3,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { LocaleProvider } from '../contexts/LocaleContext';
 import GaleriaPage from '../pages/GaleriaPage/GaleriaPage';
 
 // Mock @/motion — ScrollReveal/StaggerChildren use IntersectionObserver not available in jsdom
@@ -37,7 +38,9 @@ const renderPage = () =>
   render(
     <HelmetProvider>
       <BrowserRouter>
-        <GaleriaPage />
+        <LocaleProvider>
+          <GaleriaPage />
+        </LocaleProvider>
       </BrowserRouter>
     </HelmetProvider>
   );

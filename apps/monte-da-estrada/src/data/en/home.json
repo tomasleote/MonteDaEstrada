@@ -1,0 +1,75 @@
+{
+  "hero": {
+    "title": "Monte da Estrada",
+    "subtitle": "Rural Tourism in Alentejo",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-hero-monte-exterior.webp",
+    "alt": "Exterior view of Monte da Estrada - Luxury rural accommodation"
+  },
+  "featureImages": [
+    {
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-01.webp",
+      "alt": "Monte da Estrada property view from the main entrance",
+      "title": "Main Entrance"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-02.webp",
+      "alt": "Surrounding landscape of Monte da Estrada with green fields",
+      "title": "Surrounding Landscape"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-03.webp",
+      "alt": "Property view showing traditional Portuguese architecture",
+      "title": "Traditional Architecture"
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-04.webp",
+      "alt": "Panoramic view of the property and rural area",
+      "title": "Panoramic View"
+    }
+  ],
+  "welcome": {
+    "title": "Welcome to Monte da Estrada",
+    "paragraphs": [
+      "Monte da Estrada is a traditional Alentejo farmhouse that has been converted into quality rural tourism, preserving authenticity and contact with nature and the Alentejo region.",
+      "For generations, this was a space dedicated to agriculture — wheat, barley, potatoes, corn, and watermelon — and livestock farming. Today, while respecting tradition, we created this place with our guests in mind, prioritizing comfort, privacy, functionality, and contact with nature.",
+      "Located in the Zambujeira do Mar region, in the heart of Alentejo, Monte da Estrada offers a unique experience of tranquility and authenticity."
+    ]
+  },
+  "highlights": [
+    {
+      "title": "Absolute Tranquility",
+      "description": "Enjoy the silence and peace of the Alentejo countryside"
+    },
+    {
+      "title": "Surrounding Nature",
+      "description": "Stunning landscapes and direct contact with nature"
+    },
+    {
+      "title": "Modern Comfort",
+      "description": "Renovated facilities with all modern amenities"
+    },
+    {
+      "title": "Prime Location",
+      "description": "Close to the Costa Vicentina beaches"
+    }
+  ],
+  "information": {
+    "title": "Practical Information",
+    "checkIn": "15:00",
+    "checkOut": "12:00",
+    "policies": [
+      "Check-in: from 3:00 PM",
+      "Check-out: until 12:00 PM",
+      "Smoking is not permitted inside the premises",
+      "Pets: please inquire in advance",
+      "Children are welcome"
+    ],
+    "included": [
+      "Bed linens and towels",
+      "Toiletries",
+      "Free Wi-Fi",
+      "Free parking",
+      "Daily cleaning"
+    ]
+  }
+}

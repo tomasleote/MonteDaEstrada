@@ -3,7 +3,7 @@ const fs = require('fs');
 const descobrirPath = './src/data/descobrir.js';
 let descobrir = fs.readFileSync(descobrirPath, 'utf8');
 
-const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir';
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir';
 
 // Map specific old paths to new CDN paths
 const mappings = {
@@ -49,8 +49,8 @@ fs.writeFileSync(descobrirPath, descobrir);
 const galeriaPath = './src/data/galeria.json';
 let galeria = JSON.parse(fs.readFileSync(galeriaPath, 'utf8'));
 
-const HOME_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home';
-const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos';
+const HOME_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home';
+const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos';
 
 galeria.hero.image = `${HOME_CDN}/home-property-view-01.webp`;
 

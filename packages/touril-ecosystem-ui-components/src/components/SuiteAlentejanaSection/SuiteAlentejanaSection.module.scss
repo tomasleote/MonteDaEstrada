@@ -102,7 +102,9 @@
   align-self: flex-start;
 
   &:hover {
-    opacity: 0.85;
+    background-color: $color-deep-brown;
+    color: $color-cream;
+    opacity: 1;
   }
 
   &:active {

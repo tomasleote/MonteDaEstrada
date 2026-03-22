@@ -30,3 +30,8 @@ examples/
 PRPs/
 validation/
 docs/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local

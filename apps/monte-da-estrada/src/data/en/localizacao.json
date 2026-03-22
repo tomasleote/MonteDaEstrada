@@ -1,0 +1,138 @@
+{
+  "hero": {
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/exterior/exterior-hero-amenities.webp",
+    "alt": "Amenities and privileged location of Monte da Estrada",
+    "title": "Location and Amenities"
+  },
+  "title": "Location and How to Get Here",
+  "description": "Monte da Estrada is located on the coast of Alentejo, near Zambujeira do Mar, in a privileged location between the countryside and the sea.",
+  "address": {
+    "name": "Monte da Estrada",
+    "street": "Zambujeira do Mar",
+    "city": "Odemira",
+    "region": "Alentejo",
+    "country": "Portugal",
+    "postalCode": "7630-568",
+    "coordinates": {
+      "latitude": 37.5882284,
+      "longitude": -8.7782661
+    }
+  },
+  "directions": {
+    "title": "How to Get Here",
+    "fromLisbon": {
+      "title": "From Lisbon",
+      "distance": "200 km",
+      "duration": "2h30",
+      "route": [
+        "Leave Lisbon via A2 heading South",
+        "Continue on A2 to Grândola",
+        "Take the exit for Santiago do Cacém/Sines",
+        "Follow N120 to São Luís",
+        "Continue on N393 towards Zambujeira do Mar",
+        "Follow signs to Monte da Estrada"
+      ]
+    },
+    "fromFaro": {
+      "title": "From Faro",
+      "distance": "150 km",
+      "duration": "2h",
+      "route": [
+        "Leave Faro via A22 towards Lagos",
+        "Continue on N125 to Aljezur",
+        "Follow N120 towards Odeceixe",
+        "Continue to Zambujeira do Mar",
+        "Follow signs to Monte da Estrada"
+      ]
+    },
+    "fromPorto": {
+      "title": "From Porto",
+      "distance": "420 km",
+      "duration": "4h30",
+      "route": [
+        "Leave Porto via A1 towards Lisbon",
+        "Pass Lisbon and continue on A2 South",
+        "Follow the 'From Lisbon' directions above"
+      ]
+    }
+  },
+  "publicTransport": {
+    "title": "Public Transport",
+    "description": "Access by public transport is limited. We recommend using your own vehicle.",
+    "options": [
+      {
+        "type": "Bus",
+        "description": "Rede Expressos to Odemira, followed by taxi or transfer (to be arranged)"
+      },
+      {
+        "type": "Train",
+        "description": "Linha do Sul to Funcheira, followed by bus or taxi"
+      },
+      {
+        "type": "Transfer",
+        "description": "Transfer service available upon prior arrangement (additional cost)"
+      }
+    ]
+  },
+  "parking": {
+    "title": "Parking",
+    "description": "Private and free parking available for all guests.",
+    "features": [
+      "Free parking",
+      "Space for multiple vehicles",
+      "Secure location",
+      "Direct access to facilities"
+    ]
+  },
+  "distances": {
+    "title": "Distances",
+    "items": [
+      {
+        "location": "Zambujeira do Mar Beach",
+        "distance": "5 km",
+        "duration": "7 minutes by car"
+      },
+      {
+        "location": "Odemira",
+        "distance": "20 km",
+        "duration": "20 minutes by car"
+      },
+      {
+        "location": "Vila Nova de Milfontes",
+        "distance": "35 km",
+        "duration": "35 minutes by car"
+      },
+      {
+        "location": "Aljezur",
+        "distance": "25 km",
+        "duration": "25 minutes by car"
+      },
+      {
+        "location": "Lagos",
+        "distance": "60 km",
+        "duration": "1 hour by car"
+      },
+      {
+        "location": "Lisbon",
+        "distance": "200 km",
+        "duration": "2h30 by car"
+      },
+      {
+        "location": "Faro Airport",
+        "distance": "150 km",
+        "duration": "2 hours by car"
+      }
+    ]
+  },
+  "tips": {
+    "title": "Useful Tips",
+    "items": [
+      "GPS: Use coordinates for more precise navigation",
+      "Fuel: Fill up in Odemira or Zambujeira do Mar",
+      "Supermarket: Available in Zambujeira do Mar and Odemira",
+      "Pharmacy: Zambujeira do Mar and Odemira",
+      "Health Center: Odemira",
+      "ATM: Zambujeira do Mar and Odemira"
+    ]
+  }
+}

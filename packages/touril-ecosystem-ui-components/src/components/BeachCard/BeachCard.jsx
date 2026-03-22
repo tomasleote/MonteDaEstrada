@@ -26,7 +26,7 @@ import styles from './BeachCard.module.scss';
 function BeachCard({ name, distance, description, imageSrc, imageAlt, mapUrl, className = '' }) {
   const handleClick = () => {
     if (mapUrl) {
-      window.open(mapUrl, '_blank');
+      window.open(mapUrl, '_blank', 'noopener,noreferrer');
     }
   };
 

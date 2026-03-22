@@ -3,7 +3,7 @@
  * Centralized image imports for the HomePage component
  */
 
-const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/home';
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home';
 
 export const homeImages = {
   hero: {
@@ -32,7 +32,27 @@ export const homeImages = {
       alt: 'Monte da Estrada - Vista da propriedade ao pôr do sol',
       title: 'Golden Hour'
     }
-  ]
+  ],
+  sala5: {
+    src: `${CDN_BASE}/sala-5.webp`,
+    alt: 'Monte da Estrada - Sala de estar e leitura',
+    title: 'Sala de Estar'
+  },
+  pormenor2: {
+    src: `${CDN_BASE}/pormenor-2.webp`,
+    alt: 'Monte da Estrada - Detalhes de arquitetura de interiores',
+    title: 'Pormenor'
+  },
+  recepcao2: {
+    src: `${CDN_BASE}/recepcao-2.webp`,
+    alt: 'Monte da Estrada - Zona de receção',
+    title: 'Receção'
+  },
+  sala3: {
+    src: `${CDN_BASE}/sala-3.webp`,
+    alt: 'Monte da Estrada - Espaços comuns',
+    title: 'Espaços Comuns'
+  }
 };
 
 export default homeImages;

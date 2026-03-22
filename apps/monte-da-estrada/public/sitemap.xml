@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://montedaestrada.com/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://montedaestrada.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/quartos</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/quartos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/quartos" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/descobrir</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/descobrir" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/descobrir" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/galeria</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/galeria" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/galeria" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/contacto" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- English versions -->
+  <url>
+    <loc>https://montedaestrada.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/en/quartos</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/quartos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/quartos" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/en/descobrir</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/descobrir" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/descobrir" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/en/galeria</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/galeria" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/galeria" />
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://montedaestrada.com/en/contacto</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://montedaestrada.com/contacto" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://montedaestrada.com/en/contacto" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

@@ -16,22 +16,31 @@ import {
   viewport,
   stagger,
 } from '@touril-ecosystem/ui-components';
-import descobrirData from '@/data/descobrir';
+import { useLocale } from '@/contexts/LocaleContext';
+import { getData } from '@/data/dataLoader';
+import { descobrirCopy } from '@/locales/descobrir';
 import mapLocations from '@/data/map-locations';
 import useMobileQuery from '@/hooks/useMobileQuery';
 
 import styles from './DescobrirPage.module.scss';
 
 // ──────────────────────────────────────────────
-// CategoryNav anchor items — 3 acts
+// CategoryNav anchor items — 4 acts
 // ──────────────────────────────────────────────
 
-const NAV_ITEMS = [
-  { id: 'mapa', label: 'Mapa' },
-  { id: 'experiencias', label: 'Experiências' },
-  { id: 'praias', label: 'Praias' },
-  { id: 'parceiros', label: 'Parceiros' },
-];
+const getNavItems = (locale) => {
+  const labels = {
+    pt: { mapa: 'Mapa', experiencias: 'Experiências', praias: 'Praias', parceiros: 'Parceiros' },
+    en: { mapa: 'Map', experiencias: 'Experiences', praias: 'Beaches', parceiros: 'Partners' },
+  };
+  const l = labels[locale] || labels.pt;
+  return [
+    { id: 'mapa', label: l.mapa },
+    { id: 'experiencias', label: l.experiencias },
+    { id: 'praias', label: l.praias },
+    { id: 'parceiros', label: l.parceiros },
+  ];
+};
 
 // ──────────────────────────────────────────────
 // Page component
@@ -39,63 +48,64 @@ const NAV_ITEMS = [
 
 const DescobrirPage = () => {
   const isMobile = useMobileQuery();
+  const { locale } = useLocale();
+  const descobrirData = getData('descobrir', locale);
+  const copy = descobrirCopy[locale] || descobrirCopy.pt;
+  const navItems = getNavItems(locale);
 
   return (
     <div className={styles.page}>
       <SEO
-        title="Descobrir"
-        description="Explore o território à volta do Monte da Estrada: praias da Costa Vicentina, trilhos da Rota Vicentina, vilas históricas e a paisagem única do Alentejo interior."
-        keywords="descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada"
-        image="/images/hero-atividades.jpg"
+        title={locale === 'en' ? 'Discover' : 'Descobrir'}
+        description={locale === 'en'
+          ? 'Explore the territory around Monte da Estrada: Costa Vicentina beaches, Rota Vicentina trails, historic villages, and the unique landscape of inland Alentejo.'
+          : 'Explore o território à volta do Monte da Estrada: praias da Costa Vicentina, trilhos da Rota Vicentina, vilas históricas e a paisagem única do Alentejo interior.'}
+        keywords={locale === 'en'
+          ? 'discover, alentejo, costa vicentina, rota vicentina, zambujeira do mar, activities, surroundings, monte da estrada'
+          : 'descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada'}
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
+        locale={locale}
       />
 
       {/* S1 — PageHero ──────────────────────────────────────── */}
-      {/* 65vh territory photography + eyebrow + headline + subtitle */}
       <div id="discovery-hero">
         <PageHero
-          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/herodescobrir%20(1).webp"
-          imageAlt="Descobrir o Alentejo e a Costa Vicentina"
-          eyebrow="Descobrir"
-          headline="O território é a experiência."
-          subtitle="110 km de Atlântico. A Rota Vicentina à porta. O Alentejo profundo aqui mesmo."
+          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
+          imageAlt={copy.heroImageAlt}
+          eyebrow={copy.territorioEyebrow}
+          headline={copy.heroHeadline}
+          subtitle={copy.heroSubtitle}
         />
       </div>
 
       {/* S2 — CategoryNav (sticky) ───────────────────────────────── */}
-      {/* Experiências · Praias · Redondezas — appears when hero exits */}
       <CategoryNav
-        items={NAV_ITEMS}
+        items={navItems}
         targetId="discovery-hero"
         headerHeight={88}
       />
 
       {/* S3 — O Território — EditorialSplitSection ───────────────── */}
-      {/* Prose + landscape image. Cream background. */}
-      {/* imagePosition="right" so existing CSS reordering puts text first on mobile */}
       <EditorialSplitSection
-        eyebrow="O Território"
-        heading="Entre o Alentejo e o Atlântico."
-        body={[
-          'A Rota Vicentina passa a minutos da casa. Zambujeira do Mar fica a dezoito quilómetros. O Alentejo profundo — com os seus montados, planícies e silêncio — está aqui mesmo à porta.',
-          'Monte da Estrada não é um ponto de chegada. É uma base de onde se parte — para a praia, para o trilho, para o mercado de São Teotónio, para o nada que de repente faz falta.',
-        ]}
-        imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/descobrir/costavicentina.webp"
-        imageAlt="Vista panorâmica da paisagem alentejana"
+        className={styles.territorioSection}
+        eyebrow={copy.territorioEyebrow}
+        heading={copy.territorioHeading}
+        body={copy.territorioBody}
+        imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/costavicentina.webp"
+        imageAlt={copy.territorioImageAlt}
         imagePosition="right"
       />
 
       {/* S3.5 — Discovery Map ─────────────────────────────────────── */}
-      {/* Interactive Insider's Guide — Our Collection + Owner's Spots + Curated */}
       <section id="mapa" className={styles.mapSection}>
         <DiscoveryMap locations={mapLocations} />
       </section>
 
       {/* S4 — Experiências — ExperienceCard grid ─────────────────── */}
-      {/* 6 curated experiences in a 3-col portrait grid on sand bg */}
       <section id="experiencias" className={styles.experiencesSection}>
         <div className={styles.container}>
-          <SectionEyebrow label="Experiências" />
-          <h2 className={styles.sectionHeading}>Aqui não há agenda. A não ser a sua.</h2>
+          <SectionEyebrow label={copy.experienciasEyebrow} />
+          <h2 className={styles.sectionHeading}>{copy.experienciasHeading}</h2>
 
           <motion.div
             className={styles.experiencesGrid}
@@ -113,50 +123,42 @@ const DescobrirPage = () => {
             whileInView="visible"
             viewport={viewport.default}
           >
-            {descobrirData.experiences.map((exp, index) => {
-              // Use imported images for all experiences
-              const imageSrc = exp.imageSrc;
-
-              return (
-                <ExperienceCard
-                  key={index}
-                  category={exp.category}
-                  categoryLabel={exp.categoryLabel}
-                  title={exp.title}
-                  description={exp.description}
-                  highlights={exp.highlights}
-                  imageSrc={imageSrc}
-                  imageAlt={exp.imageAlt}
-                />
-              );
-            })}
+            {descobrirData.experiences.map((exp, index) => (
+              <ExperienceCard
+                key={index}
+                category={exp.category}
+                categoryLabel={exp.categoryLabel}
+                title={exp.title}
+                description={exp.description}
+                highlights={exp.highlights}
+                imageSrc={exp.imageSrc}
+                imageAlt={exp.imageAlt}
+              />
+            ))}
           </motion.div>
         </div>
       </section>
 
       {/* S5 — EditorialPullQuote ──────────────────────────────────── */}
-      {/* Contemplative pause. Clay left border. Italic serif. */}
       <EditorialPullQuote
-        quote="O território não se visita. Habita-se, mesmo que por poucos dias."
-        attribution="Monte da Estrada"
+        quote={copy.pullQuote}
+        attribution={copy.pullQuoteAttribution}
         background="cream"
       />
 
       {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
-      {/* Coastal photography + editorial serif quote overlay (50vh, parallax) */}
       <FullBleedQuote
-        imageSrc={descobrirData.beaches[4].imageSrc}
-        alt="Zambujeira do Mar — falésias e Atlântico"
-        quote="A última costa selvagem da Europa ocidental começa aqui."
-        attribution="Parque Natural do Sudoeste Alentejano e Costa Vicentina"
+        imageSrc={descobrirData.beaches[4]?.imageSrc || "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp"}
+        alt={copy.fullBleedQuote}
+        quote={copy.fullBleedQuote}
+        attribution={copy.fullBleedAttribution}
       />
 
       {/* S7 — Praias — BeachCard grid ────────────────────────────── */}
-      {/* 5 cinematic 16:9 beach cards in a 2-col layout */}
       <section id="praias" className={styles.beachesSection}>
         <div className={styles.container}>
-          <SectionEyebrow label="Praias" />
-          <h2 className={styles.sectionHeading}>110 km de costa. Escolha a sua.</h2>
+          <SectionEyebrow label={copy.beachesEyebrow} />
+          <h2 className={styles.sectionHeading}>{copy.beachesHeading}</h2>
 
           <motion.div
             className={styles.beachesGrid}
@@ -174,20 +176,17 @@ const DescobrirPage = () => {
             whileInView="visible"
             viewport={viewport.default}
           >
-            {descobrirData.beaches.map((beach, index) => {
-              const imageSrc = beach.imageSrc;
-              return (
-                <BeachCard
-                  key={index}
-                  name={beach.name}
-                  distance={beach.distance}
-                  description={beach.description}
-                  imageSrc={imageSrc}
-                  imageAlt={beach.imageAlt}
-                  mapUrl={beach.mapUrl}
-                />
-              );
-            })}
+            {descobrirData.beaches.map((beach, index) => (
+              <BeachCard
+                key={index}
+                name={beach.name}
+                distance={beach.distance}
+                description={beach.description}
+                imageSrc={beach.imageSrc}
+                imageAlt={beach.imageAlt}
+                mapUrl={beach.mapUrl}
+              />
+            ))}
           </motion.div>
         </div>
       </section>
@@ -195,8 +194,8 @@ const DescobrirPage = () => {
       {/* S8 — Parceiros — Grid of partner logos ────────────────────────────── */}
       <section id="parceiros" className={styles.parceirosSection}>
         <div className={styles.container}>
-          <SectionEyebrow label="Parceiros" />
-          <h2 className={styles.sectionHeading}>Quem está connosco.</h2>
+          <SectionEyebrow label={copy.parceirosEyebrow} />
+          <h2 className={styles.sectionHeading}>{copy.parceirosHeading}</h2>
 
           <motion.div
             className={styles.parceirosGrid}
@@ -228,7 +227,7 @@ const DescobrirPage = () => {
               >
                 <img
                   src={partner.logo}
-                  alt={`Logo de ${partner.name}`}
+                  alt={`${partner.name}`}
                   className={styles.partnerLogo}
                   title={partner.name}
                   loading="lazy"
@@ -239,71 +238,11 @@ const DescobrirPage = () => {
         </div>
       </section>
 
-      {/* S9 — As Redondezas — COMMENTED OUT (replaced by DiscoveryMap)
-      <section id="redondezas" className={styles.redondezasSection}>
-        <div className={styles.container}>
-          <SectionEyebrow label="Redondezas" />
-          <h2 className={styles.sectionHeadingLight}>O que fica perto.</h2>
-
-          <DistanceFilterBar
-            options={DISTANCE_FILTERS}
-            activeFilter={distanceFilter}
-            onFilterChange={setDistanceFilter}
-          />
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={distanceFilter}
-              className={styles.attractionsGrid}
-              variants={{
-                hidden: { opacity: 0 },
-                visible: {
-                  opacity: 1,
-                  transition: {
-                    staggerChildren: stagger.fast,
-                    delayChildren: 0.05,
-                  },
-                },
-                exit: {
-                  opacity: 0,
-                  transition: { duration: duration.micro * 1.5 },
-                },
-              }}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {filteredAttractions.map((attraction, index) => {
-                const imageSrc = descobrirAttractions.attractions[index]?.src || attraction.imageSrc;
-                return (
-                  <AttractionPinCard
-                    key={`${attraction.title}-${index}`}
-                    title={attraction.title}
-                    location={attraction.location}
-                    distance={attraction.distance}
-                    description={attraction.description}
-                    imageSrc={imageSrc}
-                    imageAlt={attraction.imageAlt}
-                    mapUrl={attraction.mapUrl}
-                  />
-                );
-              })}
-
-              {filteredAttractions.length === 0 && (
-                <p className={styles.noResults}>Sem atrações nesta distância.</p>
-              )}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
-      */}
-
       {/* S9 — BookingSection ──────────────────────────────────────── */}
-      {/* Reused from HomePage — dark CTA with contact options */}
       <div className={styles.bookingSection}>
         <BookingSection
-          eyebrow="Reservas"
-          heading="Marque a sua estadia."
+          eyebrow={copy.bookingEyebrow}
+          heading={copy.bookingHeading}
           fallbackEmail="montedaestradazambujeiradomar@gmail.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"

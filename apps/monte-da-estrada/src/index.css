@@ -8,27 +8,6 @@
 @plugin "tailwindcss-animate";
 
 /* ============================================
- * TAILWIND CSS DIRECTIVES
- * ============================================ */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ============================================
- * FONT IMPORTS
- * ============================================ */
-
-/* Playfair Display - Display and heading font */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');
-
-/* Lato - Body text font */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&display=swap');
-/*
- ---break---
- */
-@custom-variant dark (&:is(.dark *));
-
-/* ============================================
  * BASE SETUP
  * ============================================ */
 

@@ -3,55 +3,80 @@ import SEO from '@/components/SEO';
 import Lightbox from '@/components/Lightbox';
 import { CategoryNav, PageHero } from '@touril-ecosystem/ui-components';
 import { ScrollReveal } from '@/motion';
-import styles from './GaleriaPage.module.scss';
-import galeriaData from '@/data/galeria.json';
-import { seoConfig } from '@/utils/seo-config';
+import { useLocale } from '@/contexts/LocaleContext';
+import { getData } from '@/data/dataLoader';
 import { homeImages } from '@/data/homeImages';
-import descobrirData from '@/data/descobrir';
+import styles from './GaleriaPage.module.scss';
 
 // Local static image imports replaced by CDN URLs
-const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@495a0e9/mde/quartos';
-
-// ── CategoryNav items ──────────────────────────────────────────
-const NAV_ITEMS = [
-  { id: 'o-monte', label: 'O Monte' },
-  { id: 'a-regiao', label: 'A Região' },
-];
+const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos';
 
 // ── Section editorial copy ─────────────────────────────────────
-const SECTION_COPY = {
-  oMonte: {
-    eyebrow: 'GALERIA · O MONTE',
-    title: 'O Espaço',
-    body: 'Um monte alentejano recuperado com critério — jardins, terraços e o silêncio do campo a enquadrar cada momento.',
-  },
-  aRegiao: {
-    eyebrow: 'GALERIA · A REGIÃO',
-    title: 'O Território',
-    body: 'A Costa Vicentina e o Alentejo Litoral: praias selvagens, vilas branqueadas a cal e uma natureza que impõe respeito.',
-  },
+const getSectionCopy = (locale) => {
+  const copy = {
+    pt: {
+      oMonte: {
+        eyebrow: 'GALERIA · O MONTE',
+        title: 'O Espaço',
+        body: 'Um monte alentejano recuperado com critério — jardins, terraços e o silêncio do campo a enquadrar cada momento.',
+      },
+      aRegiao: {
+        eyebrow: 'GALERIA · A REGIÃO',
+        title: 'O Território',
+        body: 'A Costa Vicentina e o Alentejo Litoral: praias selvagens, vilas branqueadas a cal e uma natureza que impõe respeito.',
+      },
+    },
+    en: {
+      oMonte: {
+        eyebrow: 'GALLERY · THE ESTATE',
+        title: 'The Space',
+        body: 'A restored Alentejo monte — gardens, terraces, and the silence of the countryside framing every moment.',
+      },
+      aRegiao: {
+        eyebrow: 'GALLERY · THE REGION',
+        title: 'The Territory',
+        body: 'The Costa Vicentina and the Coastal Alentejo: wild beaches, whitewashed villages, and nature that commands respect.',
+      },
+    },
+  };
+  return copy[locale] || copy.pt;
+};
+
+const getNavItems = (locale) => {
+  const labels = {
+    pt: { oMonte: 'O Monte', aRegiao: 'A Região' },
+    en: { oMonte: 'The Estate', aRegiao: 'The Region' },
+  };
+  const l = labels[locale] || labels.pt;
+  return [
+    { id: 'o-monte', label: l.oMonte },
+    { id: 'a-regiao', label: l.aRegiao },
+  ];
 };
 
 const GaleriaPage = () => {
+  const { locale } = useLocale();
   const [lightboxImages, setLightboxImages] = useState([]);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
+  const galeriaData = getData('galeria', locale);
+  const descobrirData = getData('descobrir', locale);
+  const sectionCopy = getSectionCopy(locale);
+  const navItems = getNavItems(locale);
+
   // ── O Monte — estate images ────────────────────────────────
-  // TODO: placeholder/test data — duplicate srcs are intentional for layout testing
   const oMonteImages = useMemo(() => [
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada Exterior' },
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte' },
-    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Sala de Estar - Perspetiva 1' },
-    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Sala de Estar - Perspetiva 2' },
-    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Detalhe Casa' },
-    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Recepção - Perspetiva 1' },
-    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Recepção - Perspetiva 2' },
-    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Detalhe Interior 3' },
-    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Detalhe Interior 1' },
-    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Exterior do Monte 2' },
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Exterior do Monte 1' },
-    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Sala de Estar - Perspetiva 3' },
+    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada - Vista exterior do edifício alentejano', title: 'Exterior' },
+    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Monte da Estrada - Sala estúdio e zonas comuns', title: 'Área Comum' },
+    { src: homeImages.sala5.src, alt: homeImages.sala5.alt, title: homeImages.sala5.title },
+    { src: homeImages.pormenor2.src, alt: homeImages.pormenor2.alt, title: homeImages.pormenor2.title },
+    { src: homeImages.recepcao2.src, alt: homeImages.recepcao2.alt, title: homeImages.recepcao2.title },
+    { src: homeImages.sala3.src, alt: homeImages.sala3.alt, title: homeImages.sala3.title },
+    { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Monte da Estrada - Quarto com decoração tradicional alentejana', title: 'Quarto' },
+    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Monte da Estrada - Pormenores e arquitetura de charme', title: 'Pormenor' },
+    { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Monte da Estrada - Luminosidade e conforto nos quartos', title: 'Quarto' },
+    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Monte da Estrada - Casa de banho privativa moderna', title: 'Detalhe' },
   ], []);
 
   // ── A Região — territory images ────────────────────────────
@@ -61,7 +86,7 @@ const GaleriaPage = () => {
     ...descobrirData.attractions
       .filter(a => a.imageSrc !== null)
       .map(a => ({ src: a.imageSrc, alt: a.imageAlt || a.title, title: a.title })),
-  ], []);
+  ], [descobrirData]);
 
   const openLightbox = (images, index) => {
     setLightboxImages(images);
@@ -74,32 +99,33 @@ const GaleriaPage = () => {
   return (
     <div className={styles.galeriaPage}>
       <SEO
-        title={seoConfig.galeria.title}
-        description={seoConfig.galeria.description}
-        keywords={seoConfig.galeria.keywords}
-        image={seoConfig.galeria.image}
+        title={locale === 'en' ? 'Gallery' : 'Galeria'}
+        description={locale === 'en'
+          ? 'The estate and the territory: Monte da Estrada, the Costa Vicentina, and the natural beauty of Alentejo.'
+          : 'O monte e o território: Monte da Estrada, a Costa Vicentina, e a beleza natural do Alentejo.'}
+        locale={locale}
       />
 
       {/* Hero — id used by CategoryNav to know when to appear */}
       <div id="galeria-hero">
         <PageHero
-          imageSrc={galeriaData.hero.image}
-          imageAlt={galeriaData.hero.alt}
-          headline={galeriaData.hero.title}
-          subtitle={galeriaData.hero.subtitle}
+          imageSrc={galeriaData?.hero?.image}
+          imageAlt={galeriaData?.hero?.alt}
+          headline={galeriaData?.hero?.title}
+          subtitle={galeriaData?.hero?.subtitle}
         />
       </div>
 
       {/* Sticky sub-navigation */}
-      <CategoryNav items={NAV_ITEMS} targetId="galeria-hero" headerHeight={88} />
+      <CategoryNav items={navItems} targetId="galeria-hero" headerHeight={88} />
 
       {/* ── O Monte ─────────────────────────────────────────── */}
       <section id="o-monte" className={styles.section}>
         <ScrollReveal>
           <header className={styles.sectionHeader}>
-            <span className={styles.eyebrow}>{SECTION_COPY.oMonte.eyebrow}</span>
-            <h2 className={styles.sectionTitle}>{SECTION_COPY.oMonte.title}</h2>
-            <p className={styles.sectionBody}>{SECTION_COPY.oMonte.body}</p>
+            <span className={styles.eyebrow}>{sectionCopy.oMonte.eyebrow}</span>
+            <h2 className={styles.sectionTitle}>{sectionCopy.oMonte.title}</h2>
+            <p className={styles.sectionBody}>{sectionCopy.oMonte.body}</p>
           </header>
         </ScrollReveal>
 
@@ -129,9 +155,9 @@ const GaleriaPage = () => {
       <section id="a-regiao" className={`${styles.section} ${styles.sectionAlt}`}>
         <ScrollReveal>
           <header className={styles.sectionHeader}>
-            <span className={styles.eyebrow}>{SECTION_COPY.aRegiao.eyebrow}</span>
-            <h2 className={styles.sectionTitle}>{SECTION_COPY.aRegiao.title}</h2>
-            <p className={styles.sectionBody}>{SECTION_COPY.aRegiao.body}</p>
+            <span className={styles.eyebrow}>{sectionCopy.aRegiao.eyebrow}</span>
+            <h2 className={styles.sectionTitle}>{sectionCopy.aRegiao.title}</h2>
+            <p className={styles.sectionBody}>{sectionCopy.aRegiao.body}</p>
           </header>
         </ScrollReveal>
 

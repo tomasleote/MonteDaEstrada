@@ -2,667 +2,991 @@ backend:
   name: git-gateway
   branch: main
 
-# Publish mode - set to editorial_workflow for draft/review/publish flow
 publish_mode: simple
 
-# Media files will be stored in the repo under src/assets/images
-# UPDATED: Changed from public/images to src/assets/images to match actual image location
 media_folder: "monte-da-estrada/src/assets/images"
 public_folder: "/src/assets/images"
 
-# Internationalization (i18n) configuration
-locale: "pt"
+# Internationalization (i18n) — enables PT/EN side-by-side editing
+# Structure: multiple_folders creates content/pt/ and content/en/ paths
+i18n:
+  structure: multiple_folders
+  locales:
+    - pt
+    - en
+  default_locale: pt
 
-# Collections define the structure for different content types
 collections:
+  # ─────────────────────────────────────────────
   # HOME PAGE
+  # ─────────────────────────────────────────────
   - name: "home"
     label: "Página Inicial"
+    i18n: true
     files:
-      - label: "Conteúdo da Home"
-        name: "home"
-        file: "monte-da-estrada/src/data/home.json"
+      - label: "Home (PT)"
+        name: "home-pt"
+        file: "monte-da-estrada/src/data/pt/home.json"
+        i18n: true
         fields:
           - label: "Hero Section"
             name: "hero"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string" }
-              - { label: "Imagem de Fundo", name: "image", widget: "image", required: true }
-              # NEW: Alt text for hero image (accessibility)
-              - { label: "Texto Alternativo da Imagem", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", i18n: true }
+              - { label: "Imagem de Fundo", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
           - label: "Secção de Boas-vindas"
             name: "welcome"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
               - label: "Parágrafos"
                 name: "paragraphs"
                 widget: "list"
-                field: { label: "Parágrafo", name: "paragraph", widget: "text" }
-              # NEW: Welcome section image
-              - { label: "Imagem de Boas-vindas", name: "image", widget: "image", required: false }
-              - { label: "Texto Alternativo da Imagem", name: "imageAlt", widget: "string", required: false, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+                i18n: true
+                field: { label: "Parágrafo", name: "paragraph", widget: "text", i18n: true }
 
           - label: "Destaques"
             name: "highlights"
             widget: "list"
+            i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - { label: "Ícone (emoji)", name: "icon", widget: "string" }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
 
-          # NEW: Feature images grid (3-4 images showcasing property highlights)
           - label: "Imagens de Destaques"
             name: "featureImages"
             widget: "list"
             min: 3
             max: 4
+            i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", required: true }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-
-          # NEW: CTA (Call-to-Action) section image
-          - label: "Imagem do CTA de Reserva"
-            name: "ctaImage"
-            widget: "image"
-            required: false
-          - label: "Texto Alternativo do CTA"
-            name: "ctaImageAlt"
-            widget: "string"
-            required: false
-            pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+              - { label: "Imagem", name: "src", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
 
           - label: "Informações Práticas"
             name: "information"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Hora de Check-in", name: "checkIn", widget: "string" }
-              - { label: "Hora de Check-out", name: "checkOut", widget: "string" }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Hora de Check-in", name: "checkIn", widget: "string", i18n: true }
+              - { label: "Hora de Check-out", name: "checkOut", widget: "string", i18n: true }
               - label: "Políticas"
                 name: "policies"
                 widget: "list"
-                field: { label: "Política", name: "policy", widget: "string" }
+                i18n: true
+                field: { label: "Política", name: "policy", widget: "string", i18n: true }
               - label: "Incluído"
                 name: "included"
                 widget: "list"
-                field: { label: "Item", name: "item", widget: "string" }
+                i18n: true
+                field: { label: "Item", name: "item", widget: "string", i18n: true }
 
-  # QUARTOS PAGE
-  - name: "quartos"
-    label: "Quartos"
-    files:
-      - label: "Conteúdo de Quartos"
-        name: "quartos"
-        file: "monte-da-estrada/src/data/quartos.json"
+      - label: "Home (EN)"
+        name: "home-en"
+        file: "monte-da-estrada/src/data/en/home.json"
+        i18n: true
         fields:
-          # NEW: Hero section for Quartos page
           - label: "Hero Section"
             name: "hero"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", required: true }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+              - { label: "Background Image", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Image Alt Text", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
 
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Descrição", name: "description", widget: "text" }
+          - label: "Welcome Section"
+            name: "welcome"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                i18n: true
+                field: { label: "Paragraph", name: "paragraph", widget: "text", i18n: true }
+
+          - label: "Highlights"
+            name: "highlights"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+
+          - label: "Feature Images"
+            name: "featureImages"
+            widget: "list"
+            min: 3
+            max: 4
+            i18n: true
+            fields:
+              - { label: "Image", name: "src", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+
+          - label: "Practical Information"
+            name: "information"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Check-in Time", name: "checkIn", widget: "string", i18n: true }
+              - { label: "Check-out Time", name: "checkOut", widget: "string", i18n: true }
+              - label: "Policies"
+                name: "policies"
+                widget: "list"
+                i18n: true
+                field: { label: "Policy", name: "policy", widget: "string", i18n: true }
+              - label: "Included"
+                name: "included"
+                widget: "list"
+                i18n: true
+                field: { label: "Item", name: "item", widget: "string", i18n: true }
+
+  # ─────────────────────────────────────────────
+  # QUARTOS PAGE
+  # ─────────────────────────────────────────────
+  - name: "quartos"
+    label: "Quartos"
+    i18n: true
+    files:
+      - label: "Quartos (PT)"
+        name: "quartos-pt"
+        file: "monte-da-estrada/src/data/pt/quartos.json"
+        i18n: true
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+
+          - { label: "Título", name: "title", widget: "string", i18n: true }
+          - { label: "Descrição", name: "description", widget: "text", i18n: true }
 
           - label: "Quartos"
             name: "rooms"
             widget: "list"
+            i18n: true
             fields:
-              - { label: "Nome do Quarto", name: "name", widget: "string" }
-              - { label: "Capacidade", name: "capacity", widget: "string" }
+              - { label: "Nome do Quarto", name: "name", widget: "string", i18n: true }
+              - { label: "Capacidade", name: "capacity", widget: "string", i18n: true }
               - label: "Características"
                 name: "features"
                 widget: "list"
-                field: { label: "Característica", name: "feature", widget: "string" }
-
-              # UPDATED: Structured room images with hero + gallery (replaces simple list)
-              - label: "Imagem Principal do Quarto"
-                name: "heroImage"
-                widget: "image"
-                required: true
-              - label: "Texto Alternativo da Imagem Principal"
-                name: "heroImageAlt"
-                widget: "string"
-                required: true
-                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-
-              - label: "Galeria do Quarto"
-                name: "galleryImages"
+                i18n: true
+                field: { label: "Característica", name: "feature", widget: "string", i18n: true }
+              - label: "Imagens do Quarto"
+                name: "images"
                 widget: "list"
-                max: 4
-                required: false
-                fields:
-                  - { label: "Imagem", name: "image", widget: "image", required: true }
-                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-
-          # NEW: Common areas section
-          - label: "Áreas Comuns"
-            name: "commonAreas"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Imagem Principal"
-                name: "heroImage"
-                widget: "image"
-                required: false
-              - label: "Texto Alternativo da Imagem Principal"
-                name: "heroImageAlt"
-                widget: "string"
-                required: false
-                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-              - label: "Galeria de Áreas Comuns"
-                name: "galleryImages"
+                i18n: "duplicate"
+                field: { label: "Imagem", name: "image", widget: "image" }
+              - label: "Textos Alternativos"
+                name: "imageAlts"
                 widget: "list"
-                max: 4
-                required: false
-                fields:
-                  - { label: "Imagem", name: "image", widget: "image", required: true }
-                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+                i18n: true
+                field: { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
 
           - label: "Preços e Reservas"
             name: "pricing"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
               - label: "Épocas"
                 name: "seasons"
                 widget: "list"
+                i18n: true
                 fields:
-                  - { label: "Nome da Época", name: "name", widget: "string" }
-                  - { label: "Período", name: "period", widget: "string" }
-                  - { label: "Nota", name: "note", widget: "string" }
+                  - { label: "Nome da Época", name: "name", widget: "string", i18n: true }
+                  - { label: "Período", name: "period", widget: "string", i18n: true }
+                  - { label: "Nota", name: "note", widget: "string", i18n: true }
               - label: "Políticas"
                 name: "policies"
                 widget: "list"
-                field: { label: "Política", name: "policy", widget: "string" }
+                i18n: true
+                field: { label: "Política", name: "policy", widget: "string", i18n: true }
 
           - label: "Comodidades"
             name: "facilities"
             widget: "list"
-            field: { label: "Comodidade", name: "facility", widget: "string" }
+            i18n: true
+            field: { label: "Comodidade", name: "facility", widget: "string", i18n: true }
 
-  # ATIVIDADES PAGE
-  - name: "atividades"
-    label: "Atividades"
-    files:
-      - label: "Conteúdo de Atividades"
-        name: "atividades"
-        file: "monte-da-estrada/src/data/atividades.json"
+      - label: "Rooms (EN)"
+        name: "quartos-en"
+        file: "monte-da-estrada/src/data/en/quartos.json"
+        i18n: true
         fields:
-          # NEW: Hero section for Atividades page
           - label: "Hero Section"
             name: "hero"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", required: true }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
 
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Descrição", name: "description", widget: "text" }
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true }
 
-          - label: "Atividades"
-            name: "activities"
+          - label: "Rooms"
+            name: "rooms"
             widget: "list"
+            i18n: true
             fields:
-              - { label: "Categoria", name: "category", widget: "string" }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Destaques"
-                name: "highlights"
-                widget: "list"
-                field: { label: "Destaque", name: "highlight", widget: "string" }
-              - { label: "Ícone (emoji)", name: "icon", widget: "string" }
-
-              # NEW: Activity images
-              - label: "Imagem Principal da Atividade"
-                name: "heroImage"
-                widget: "image"
-                required: false
-              - label: "Texto Alternativo da Imagem Principal"
-                name: "heroImageAlt"
-                widget: "string"
-                required: false
-                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-              - label: "Galeria de Imagens"
-                name: "images"
-                widget: "list"
-                max: 10
-                required: false
-                fields:
-                  - { label: "Imagem", name: "image", widget: "image", required: true }
-                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-
-          - label: "Comodidades no Monte"
-            name: "amenities"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "Itens"
-                name: "items"
-                widget: "list"
-                fields:
-                  - { label: "Nome", name: "name", widget: "string" }
-                  - { label: "Descrição", name: "description", widget: "text" }
-
-  # REDONDEZAS PAGE
-  - name: "redondezas"
-    label: "A Região"
-    files:
-      - label: "Conteúdo da Região"
-        name: "redondezas"
-        file: "monte-da-estrada/src/data/redondezas.json"
-        fields:
-          # NEW: Hero section for Redondezas page
-          - label: "Hero Section"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "Imagem", name: "image", widget: "image", required: true }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
-
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Descrição", name: "description", widget: "text" }
-
-          - label: "Região"
-            name: "region"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Destaques"
-                name: "highlights"
-                widget: "list"
-                field: { label: "Destaque", name: "highlight", widget: "string" }
-
-          # UPDATED: Beaches with image support
-          - label: "Praias"
-            name: "beaches"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "Itens"
-                name: "items"
-                widget: "list"
-                fields:
-                  - { label: "Nome", name: "name", widget: "string" }
-                  - { label: "Distância", name: "distance", widget: "string" }
-                  - { label: "Descrição", name: "description", widget: "text" }
-                  - label: "Características"
-                    name: "features"
-                    widget: "list"
-                    field: { label: "Característica", name: "feature", widget: "string" }
-
-                  # NEW: Beach images
-                  - label: "Imagem Principal"
-                    name: "primaryImage"
-                    widget: "image"
-                    required: false
-                  - label: "Texto Alternativo da Imagem Principal"
-                    name: "primaryImageAlt"
-                    widget: "string"
-                    required: false
-                    pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-                  - label: "Galeria de Imagens"
-                    name: "images"
-                    widget: "list"
-                    max: 4
-                    required: false
-                    fields:
-                      - { label: "Imagem", name: "image", widget: "image", required: true }
-                      - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-
-          # UPDATED: Towns with image support
-          - label: "Vilas e Cidades"
-            name: "towns"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "Itens"
-                name: "items"
-                widget: "list"
-                fields:
-                  - { label: "Nome", name: "name", widget: "string" }
-                  - { label: "Distância", name: "distance", widget: "string" }
-                  - { label: "Descrição", name: "description", widget: "text" }
-                  - label: "Atrações"
-                    name: "attractions"
-                    widget: "list"
-                    field: { label: "Atração", name: "attraction", widget: "string" }
-
-                  # NEW: Town images
-                  - label: "Imagem Principal"
-                    name: "primaryImage"
-                    widget: "image"
-                    required: false
-                  - label: "Texto Alternativo da Imagem Principal"
-                    name: "primaryImageAlt"
-                    widget: "string"
-                    required: false
-                    pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-                  - label: "Galeria de Imagens"
-                    name: "images"
-                    widget: "list"
-                    max: 4
-                    required: false
-                    fields:
-                      - { label: "Imagem", name: "image", widget: "image", required: true }
-                      - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-
-          - label: "Gastronomia"
-            name: "restaurants"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Itens"
-                name: "items"
-                widget: "list"
-                fields:
-                  - { label: "Nome", name: "name", widget: "string" }
-                  - label: "Especialidades"
-                    name: "specialties"
-                    widget: "list"
-                    field: { label: "Especialidade", name: "specialty", widget: "string" }
-
-          - label: "Festividades"
-            name: "festivals"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Eventos"
-                name: "events"
-                widget: "list"
-                fields:
-                  - { label: "Nome", name: "name", widget: "string" }
-                  - { label: "Período", name: "period", widget: "string" }
-                  - { label: "Localização", name: "location", widget: "string" }
-                  - { label: "Descrição", name: "description", widget: "text" }
-
-          - label: "Pontos de Interesse"
-            name: "attractions"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "Itens"
-                name: "items"
-                widget: "list"
-                field: { label: "Item", name: "item", widget: "string" }
-
-  # LOCALIZAÇÃO PAGE
-  - name: "localizacao"
-    label: "Localização"
-    files:
-      - label: "Conteúdo de Localização"
-        name: "localizacao"
-        file: "monte-da-estrada/src/data/localizacao.json"
-        fields:
-          # NEW: Hero section for Localização page
-          - label: "Hero Section"
-            name: "hero"
-            widget: "object"
-            fields:
-              - { label: "Imagem", name: "image", widget: "image", required: false }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: false, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", required: false }
-
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Descrição", name: "description", widget: "text" }
-
-          # NEW: Context images (showing surrounding area)
-          - label: "Imagens de Contexto"
-            name: "contextImages"
-            widget: "list"
-            max: 3
-            required: false
-            fields:
-              - { label: "Imagem", name: "image", widget: "image", required: true }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Legenda (opcional)", name: "caption", widget: "string", required: false }
-
-          - label: "Morada"
-            name: "address"
-            widget: "object"
-            fields:
-              - { label: "Nome", name: "name", widget: "string" }
-              - { label: "Rua", name: "street", widget: "string" }
-              - { label: "Cidade", name: "city", widget: "string" }
-              - { label: "Região", name: "region", widget: "string" }
-              - { label: "País", name: "country", widget: "string" }
-              - { label: "Código Postal", name: "postalCode", widget: "string" }
-              - label: "Coordenadas GPS"
-                name: "coordinates"
-                widget: "object"
-                fields:
-                  - { label: "Latitude", name: "latitude", widget: "number", value_type: "float", step: 0.0000001 }
-                  - { label: "Longitude", name: "longitude", widget: "number", value_type: "float", step: 0.0000001 }
-
-          - label: "Como Chegar"
-            name: "directions"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "De Lisboa"
-                name: "fromLisbon"
-                widget: "object"
-                fields:
-                  - { label: "Título", name: "title", widget: "string" }
-                  - { label: "Distância", name: "distance", widget: "string" }
-                  - { label: "Duração", name: "duration", widget: "string" }
-                  - label: "Percurso"
-                    name: "route"
-                    widget: "list"
-                    field: { label: "Passo", name: "step", widget: "string" }
-              - label: "De Faro"
-                name: "fromFaro"
-                widget: "object"
-                fields:
-                  - { label: "Título", name: "title", widget: "string" }
-                  - { label: "Distância", name: "distance", widget: "string" }
-                  - { label: "Duração", name: "duration", widget: "string" }
-                  - label: "Percurso"
-                    name: "route"
-                    widget: "list"
-                    field: { label: "Passo", name: "step", widget: "string" }
-              - label: "Do Porto"
-                name: "fromPorto"
-                widget: "object"
-                fields:
-                  - { label: "Título", name: "title", widget: "string" }
-                  - { label: "Distância", name: "distance", widget: "string" }
-                  - { label: "Duração", name: "duration", widget: "string" }
-                  - label: "Percurso"
-                    name: "route"
-                    widget: "list"
-                    field: { label: "Passo", name: "step", widget: "string" }
-
-          - label: "Transportes Públicos"
-            name: "publicTransport"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Opções"
-                name: "options"
-                widget: "list"
-                fields:
-                  - { label: "Tipo", name: "type", widget: "string" }
-                  - { label: "Descrição", name: "description", widget: "text" }
-
-          - label: "Estacionamento"
-            name: "parking"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-              - label: "Características"
+              - { label: "Room Name", name: "name", widget: "string", i18n: true }
+              - { label: "Capacity", name: "capacity", widget: "string", i18n: true }
+              - label: "Features"
                 name: "features"
                 widget: "list"
-                field: { label: "Característica", name: "feature", widget: "string" }
-
-          - label: "Distâncias"
-            name: "distances"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "Itens"
-                name: "items"
+                i18n: true
+                field: { label: "Feature", name: "feature", widget: "string", i18n: true }
+              - label: "Room Images"
+                name: "images"
                 widget: "list"
+                i18n: "duplicate"
+                field: { label: "Image", name: "image", widget: "image" }
+              - label: "Image Alt Texts"
+                name: "imageAlts"
+                widget: "list"
+                i18n: true
+                field: { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+
+          - label: "Prices and Reservations"
+            name: "pricing"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Seasons"
+                name: "seasons"
+                widget: "list"
+                i18n: true
                 fields:
-                  - { label: "Localização", name: "location", widget: "string" }
-                  - { label: "Distância", name: "distance", widget: "string" }
-                  - { label: "Duração", name: "duration", widget: "string" }
-
-          - label: "Dicas Úteis"
-            name: "tips"
-            widget: "object"
-            fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - label: "Itens"
-                name: "items"
+                  - { label: "Season Name", name: "name", widget: "string", i18n: true }
+                  - { label: "Period", name: "period", widget: "string", i18n: true }
+                  - { label: "Note", name: "note", widget: "string", i18n: true }
+              - label: "Policies"
+                name: "policies"
                 widget: "list"
-                field: { label: "Dica", name: "tip", widget: "string" }
+                i18n: true
+                field: { label: "Policy", name: "policy", widget: "string", i18n: true }
 
+          - label: "Facilities"
+            name: "facilities"
+            widget: "list"
+            i18n: true
+            field: { label: "Facility", name: "facility", widget: "string", i18n: true }
+
+  # ─────────────────────────────────────────────
   # GALERIA PAGE
+  # ─────────────────────────────────────────────
   - name: "galeria"
     label: "Galeria"
+    i18n: true
     files:
-      - label: "Conteúdo da Galeria"
-        name: "galeria"
-        file: "monte-da-estrada/src/data/galeria.json"
+      - label: "Galeria (PT)"
+        name: "galeria-pt"
+        file: "monte-da-estrada/src/data/pt/galeria.json"
+        i18n: true
         fields:
           - label: "Hero Section"
             name: "hero"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", required: true }
-              # NEW: Alt text for hero
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Subtítulo", name: "subtitle", widget: "string", i18n: true }
 
-          - { label: "Título", name: "title", widget: "string" }
-          - { label: "Descrição", name: "description", widget: "text" }
+          - { label: "Título", name: "title", widget: "string", i18n: true }
+          - { label: "Descrição", name: "description", widget: "text", i18n: true }
 
           - label: "Categorias"
             name: "categories"
             widget: "list"
+            i18n: true
             fields:
-              - { label: "ID", name: "id", widget: "string" }
-              - { label: "Nome", name: "name", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "ID", name: "id", widget: "string", i18n: "duplicate" }
+              - { label: "Nome", name: "name", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
               - label: "Imagens"
                 name: "images"
                 widget: "list"
+                i18n: true
                 fields:
-                  - { label: "Imagem", name: "src", widget: "image", required: true }
-                  - { label: "Miniatura", name: "thumbnail", widget: "image", required: false }
-                  # Note: Alt text already exists in galeria (good!)
-                  - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-                  - { label: "Legenda", name: "caption", widget: "string", required: false }
+                  - { label: "Imagem", name: "src", widget: "image", i18n: "duplicate" }
+                  - { label: "Miniatura", name: "thumbnail", widget: "image", i18n: "duplicate", required: false }
+                  - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+                  - { label: "Legenda", name: "caption", widget: "string", i18n: true }
 
           - label: "Informações sobre Fotografia"
             name: "photographyInfo"
             widget: "object"
+            i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
               - label: "Créditos"
                 name: "credits"
                 widget: "list"
-                field: { label: "Crédito", name: "credit", widget: "string" }
+                i18n: true
+                field: { label: "Crédito", name: "credit", widget: "string", i18n: true }
 
-  # NEW COLLECTION: SITE SETTINGS (for global logos and branding)
+      - label: "Gallery (EN)"
+        name: "galeria-en"
+        file: "monte-da-estrada/src/data/en/galeria.json"
+        i18n: true
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true }
+
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "ID", name: "id", widget: "string", i18n: "duplicate" }
+              - { label: "Name", name: "name", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Image", name: "src", widget: "image", i18n: "duplicate" }
+                  - { label: "Thumbnail", name: "thumbnail", widget: "image", i18n: "duplicate", required: false }
+                  - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+                  - { label: "Caption", name: "caption", widget: "string", i18n: true }
+
+          - label: "Photography Info"
+            name: "photographyInfo"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Credits"
+                name: "credits"
+                widget: "list"
+                i18n: true
+                field: { label: "Credit", name: "credit", widget: "string", i18n: true }
+
+  # ─────────────────────────────────────────────
+  # DESCOBRIR PAGE
+  # ─────────────────────────────────────────────
+  - name: "descobrir"
+    label: "Descobrir"
+    i18n: true
+    files:
+      - label: "Descobrir (PT)"
+        name: "descobrir-pt"
+        file: "monte-da-estrada/src/data/pt/descobrir.json"
+        i18n: true
+        fields:
+          - label: "Experiências"
+            name: "experiences"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Categoria", name: "category", widget: "string", i18n: true }
+              - { label: "Nome da Categoria", name: "categoryLabel", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - label: "Destaques"
+                name: "highlights"
+                widget: "list"
+                i18n: true
+                field: { label: "Destaque", name: "highlight", widget: "string", i18n: true }
+              - { label: "Imagem", name: "imageSrc", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "imageAlt", widget: "string", i18n: true }
+
+          - label: "Praias"
+            name: "beaches"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Nome", name: "name", widget: "string", i18n: true }
+              - { label: "Distância", name: "distance", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Imagem", name: "imageSrc", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "imageAlt", widget: "string", i18n: true }
+              - { label: "URL do Mapa", name: "mapUrl", widget: "string", i18n: "duplicate" }
+
+          - label: "Atrações"
+            name: "attractions"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Localização", name: "location", widget: "string", i18n: true }
+              - { label: "Distância", name: "distance", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Imagem", name: "imageSrc", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "imageAlt", widget: "string", i18n: true }
+              - { label: "URL do Mapa", name: "mapUrl", widget: "string", i18n: "duplicate" }
+
+          - label: "Parceiros"
+            name: "parceiros"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Nome", name: "name", widget: "string", i18n: true }
+              - { label: "URL", name: "url", widget: "string", i18n: "duplicate" }
+              - { label: "Logotipo", name: "logo", widget: "image", i18n: "duplicate" }
+
+      - label: "Discover (EN)"
+        name: "descobrir-en"
+        file: "monte-da-estrada/src/data/en/descobrir.json"
+        i18n: true
+        fields:
+          - label: "Experiences"
+            name: "experiences"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Category", name: "category", widget: "string", i18n: true }
+              - { label: "Category Label", name: "categoryLabel", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                i18n: true
+                field: { label: "Highlight", name: "highlight", widget: "string", i18n: true }
+              - { label: "Image", name: "imageSrc", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "imageAlt", widget: "string", i18n: true }
+
+          - label: "Beaches"
+            name: "beaches"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Name", name: "name", widget: "string", i18n: true }
+              - { label: "Distance", name: "distance", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Image", name: "imageSrc", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "imageAlt", widget: "string", i18n: true }
+              - { label: "Map URL", name: "mapUrl", widget: "string", i18n: "duplicate" }
+
+          - label: "Attractions"
+            name: "attractions"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Location", name: "location", widget: "string", i18n: true }
+              - { label: "Distance", name: "distance", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Image", name: "imageSrc", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "imageAlt", widget: "string", i18n: true }
+              - { label: "Map URL", name: "mapUrl", widget: "string", i18n: "duplicate" }
+
+          - label: "Partners"
+            name: "parceiros"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Name", name: "name", widget: "string", i18n: true }
+              - { label: "URL", name: "url", widget: "string", i18n: "duplicate" }
+              - { label: "Logo", name: "logo", widget: "image", i18n: "duplicate" }
+
+  # ─────────────────────────────────────────────
+  # SUITE ALENTEJANA
+  # ─────────────────────────────────────────────
+  - name: "suiteAlentejana"
+    label: "Suite Alentejana"
+    i18n: true
+    files:
+      - label: "Suite Alentejana (PT)"
+        name: "suiteAlentejana-pt"
+        file: "monte-da-estrada/src/data/pt/suiteAlentejana.json"
+        i18n: true
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string", i18n: true }
+          - { label: "Heading", name: "heading", widget: "string", i18n: true }
+          - { label: "Tagline", name: "tagline", widget: "string", i18n: true }
+          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string", i18n: true }
+          - { label: "CTA URL", name: "ctaHref", widget: "string", i18n: "duplicate" }
+          - label: "Comodidades"
+            name: "amenities"
+            widget: "list"
+            i18n: true
+            field: { label: "Comodidade", name: "amenity", widget: "string", i18n: true }
+
+      - label: "Suite Alentejana (EN)"
+        name: "suiteAlentejana-en"
+        file: "monte-da-estrada/src/data/en/suiteAlentejana.json"
+        i18n: true
+        fields:
+          - { label: "Eyebrow", name: "eyebrow", widget: "string", i18n: true }
+          - { label: "Heading", name: "heading", widget: "string", i18n: true }
+          - { label: "Tagline", name: "tagline", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string", i18n: true }
+          - { label: "CTA URL", name: "ctaHref", widget: "string", i18n: "duplicate" }
+          - label: "Amenities"
+            name: "amenities"
+            widget: "list"
+            i18n: true
+            field: { label: "Amenity", name: "amenity", widget: "string", i18n: true }
+
+  # ─────────────────────────────────────────────
+  # SITE SETTINGS — global branding, logos, SEO
+  # ─────────────────────────────────────────────
   - name: "site_settings"
     label: "Configurações do Site"
+    i18n: true
     files:
-      - label: "Configurações Globais"
-        name: "settings"
-        file: "monte-da-estrada/src/data/site-settings.json"
+      - label: "Site Settings (PT)"
+        name: "settings-pt"
+        file: "monte-da-estrada/src/data/pt/site-settings.json"
+        i18n: true
         fields:
-          # HEADER CONFIGURATION
-          - label: "Configurações do Cabeçalho"
-            name: "header"
-            widget: "object"
-            fields:
-              - label: "Nome da Marca"
-                name: "brandName"
-                widget: "string"
-                required: true
-                default: "Monte da Estrada"
-              - label: "Logotipo do Cabeçalho"
-                name: "logo"
-                widget: "image"
-                required: false
-                hint: "Logotipo circular para o cabeçalho (recomendado: 60x60px)"
-              - label: "Texto Alternativo do Logotipo"
-                name: "logoAlt"
-                widget: "string"
-                required: false
-                pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-              - label: "URL do Botão de Reservas"
-                name: "reservasUrl"
-                widget: "string"
-                required: true
-                default: "https://www.booking.com/"
-                hint: "Link para o sistema de reservas (Booking.com, site próprio, etc.)"
-              - label: "Língua Padrão"
-                name: "defaultLanguage"
-                widget: "select"
-                options: ["PT", "EN"]
-                default: "PT"
-              - label: "Mostrar Seletor de Língua"
-                name: "showLanguageSelector"
-                widget: "boolean"
-                default: true
-
-          - label: "Logotipo do Site"
-            name: "siteLogo"
-            widget: "image"
-            required: true
-          - label: "Texto Alternativo do Logotipo"
-            name: "siteLogoAlt"
-            widget: "string"
-            required: true
-            default: "Monte da Estrada - Turismo Rural"
-            pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
-
+          - { label: "Nome da Marca", name: "brandName", widget: "string", i18n: true, default: "Monte da Estrada" }
+          - { label: "Logotipo do Site", name: "siteLogo", widget: "image", i18n: "duplicate" }
+          - { label: "Texto Alternativo do Logotipo", name: "siteLogoAlt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
           - label: "Logotipos de Parceiros"
             name: "partnerLogos"
             widget: "list"
-            max: 5
+            i18n: true
             fields:
-              - { label: "Nome do Parceiro", name: "name", widget: "string", required: true }
-              - { label: "Logotipo", name: "logo", widget: "image", required: true }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", required: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "URL (opcional)", name: "url", widget: "string", required: false }
+              - { label: "Nome do Parceiro", name: "name", widget: "string", i18n: true }
+              - { label: "Logotipo", name: "logo", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+              - { label: "URL (opcional)", name: "url", widget: "string", i18n: "duplicate" }
+          - { label: "Favicon", name: "favicon", widget: "image", i18n: "duplicate" }
+          - { label: "Meta Imagem (partilha social)", name: "metaImage", widget: "image", i18n: "duplicate" }
+          - { label: "Texto Alternativo da Meta Imagem", name: "metaImageAlt", widget: "string", i18n: true }
+          - { label: "URL do Botão de Reservas", name: "reservasUrl", widget: "string", i18n: "duplicate" }
+          - { label: "Mostrar Seletor de Língua", name: "showLanguageSelector", widget: "boolean", i18n: "duplicate", default: true }
 
-          - label: "Favicon"
-            name: "favicon"
-            widget: "image"
-            required: false
+      - label: "Site Settings (EN)"
+        name: "settings-en"
+        file: "monte-da-estrada/src/data/en/site-settings.json"
+        i18n: true
+        fields:
+          - { label: "Brand Name", name: "brandName", widget: "string", i18n: true, default: "Monte da Estrada" }
+          - { label: "Site Logo", name: "siteLogo", widget: "image", i18n: "duplicate" }
+          - { label: "Logo Alt Text", name: "siteLogoAlt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+          - label: "Partner Logos"
+            name: "partnerLogos"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Partner Name", name: "name", widget: "string", i18n: true }
+              - { label: "Logo", name: "logo", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - { label: "URL (optional)", name: "url", widget: "string", i18n: "duplicate" }
+          - { label: "Favicon", name: "favicon", widget: "image", i18n: "duplicate" }
+          - { label: "Meta Image (social sharing)", name: "metaImage", widget: "image", i18n: "duplicate" }
+          - { label: "Meta Image Alt Text", name: "metaImageAlt", widget: "string", i18n: true }
+          - { label: "Booking Button URL", name: "reservasUrl", widget: "string", i18n: "duplicate" }
+          - { label: "Show Language Selector", name: "showLanguageSelector", widget: "boolean", i18n: "duplicate", default: true }
 
-          - label: "Meta Imagem (partilha social)"
-            name: "metaImage"
-            widget: "image"
-            required: false
-          - label: "Texto Alternativo da Meta Imagem"
-            name: "metaImageAlt"
-            widget: "string"
-            required: false
-            pattern: ['.{10,150}', 'Alt text must be 10-150 characters']
+  # ─────────────────────────────────────────────
+  # ATIVIDADES PAGE
+  # ─────────────────────────────────────────────
+  - name: "atividades"
+    label: "Atividades"
+    i18n: true
+    files:
+      - label: "Atividades (PT)"
+        name: "atividades-pt"
+        file: "monte-da-estrada/src/data/pt/atividades.json"
+        i18n: true
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+
+          - { label: "Título", name: "title", widget: "string", i18n: true }
+          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+
+          - label: "Atividades"
+            name: "activities"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Categoria", name: "category", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - label: "Destaques"
+                name: "highlights"
+                widget: "list"
+                i18n: true
+                field: { label: "Destaque", name: "highlight", widget: "string", i18n: true }
+
+          - label: "Comodidades"
+            name: "amenities"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Nome", name: "name", widget: "string", i18n: true }
+                  - { label: "Descrição", name: "description", widget: "text", i18n: true }
+
+      - label: "Activities (EN)"
+        name: "atividades-en"
+        file: "monte-da-estrada/src/data/en/atividades.json"
+        i18n: true
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true }
+
+          - label: "Activities"
+            name: "activities"
+            widget: "list"
+            i18n: true
+            fields:
+              - { label: "Category", name: "category", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                i18n: true
+                field: { label: "Highlight", name: "highlight", widget: "string", i18n: true }
+
+          - label: "Amenities"
+            name: "amenities"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Name", name: "name", widget: "string", i18n: true }
+                  - { label: "Description", name: "description", widget: "text", i18n: true }
+
+  # ─────────────────────────────────────────────
+  # LOCALIZAÇÃO PAGE
+  # ─────────────────────────────────────────────
+  - name: "localizacao"
+    label: "Localização"
+    i18n: true
+    files:
+      - label: "Localização (PT)"
+        name: "localizacao-pt"
+        file: "monte-da-estrada/src/data/pt/localizacao.json"
+        i18n: true
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+
+          - { label: "Título", name: "title", widget: "string", i18n: true }
+          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+
+          - label: "Morada"
+            name: "address"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Nome", name: "name", widget: "string", i18n: true }
+              - { label: "Rua", name: "street", widget: "string", i18n: true }
+              - { label: "Cidade", name: "city", widget: "string", i18n: true }
+              - { label: "Região", name: "region", widget: "string", i18n: true }
+              - { label: "País", name: "country", widget: "string", i18n: true }
+              - { label: "Código Postal", name: "postalCode", widget: "string", i18n: true }
+              - label: "Coordenadas"
+                name: "coordinates"
+                widget: "object"
+                i18n: "duplicate"
+                fields:
+                  - { label: "Latitude", name: "latitude", widget: "number", i18n: "duplicate", value_type: "float" }
+                  - { label: "Longitude", name: "longitude", widget: "number", i18n: "duplicate", value_type: "float" }
+
+          - label: "Direções"
+            name: "directions"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - label: "De Lisboa"
+                name: "fromLisbon"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Título", name: "title", widget: "string", i18n: true }
+                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - label: "Rota"
+                    name: "route"
+                    widget: "list"
+                    i18n: true
+                    field: { label: "Passo", name: "step", widget: "string", i18n: true }
+              - label: "De Faro"
+                name: "fromFaro"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Título", name: "title", widget: "string", i18n: true }
+                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - label: "Rota"
+                    name: "route"
+                    widget: "list"
+                    i18n: true
+                    field: { label: "Passo", name: "step", widget: "string", i18n: true }
+              - label: "Do Porto"
+                name: "fromPorto"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Título", name: "title", widget: "string", i18n: true }
+                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - label: "Rota"
+                    name: "route"
+                    widget: "list"
+                    i18n: true
+                    field: { label: "Passo", name: "step", widget: "string", i18n: true }
+
+          - label: "Transportes Públicos"
+            name: "publicTransport"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - label: "Opções"
+                name: "options"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Tipo", name: "type", widget: "string", i18n: true }
+                  - { label: "Descrição", name: "description", widget: "text", i18n: true }
+
+          - label: "Estacionamento"
+            name: "parking"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - label: "Características"
+                name: "features"
+                widget: "list"
+                i18n: true
+                field: { label: "Característica", name: "feature", widget: "string", i18n: true }
+
+          - label: "Distâncias"
+            name: "distances"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Local", name: "location", widget: "string", i18n: true }
+                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+
+          - label: "Dicas"
+            name: "tips"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - label: "Itens"
+                name: "items"
+                widget: "list"
+                i18n: true
+                field: { label: "Dica", name: "tip", widget: "string", i18n: true }
+
+      - label: "Location (EN)"
+        name: "localizacao-en"
+        file: "monte-da-estrada/src/data/en/localizacao.json"
+        i18n: true
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
+              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+
+          - { label: "Title", name: "title", widget: "string", i18n: true }
+          - { label: "Description", name: "description", widget: "text", i18n: true }
+
+          - label: "Address"
+            name: "address"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Name", name: "name", widget: "string", i18n: true }
+              - { label: "Street", name: "street", widget: "string", i18n: true }
+              - { label: "City", name: "city", widget: "string", i18n: true }
+              - { label: "Region", name: "region", widget: "string", i18n: true }
+              - { label: "Country", name: "country", widget: "string", i18n: true }
+              - { label: "Postal Code", name: "postalCode", widget: "string", i18n: true }
+              - label: "Coordinates"
+                name: "coordinates"
+                widget: "object"
+                i18n: "duplicate"
+                fields:
+                  - { label: "Latitude", name: "latitude", widget: "number", i18n: "duplicate", value_type: "float" }
+                  - { label: "Longitude", name: "longitude", widget: "number", i18n: "duplicate", value_type: "float" }
+
+          - label: "Directions"
+            name: "directions"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "From Lisbon"
+                name: "fromLisbon"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - label: "Route"
+                    name: "route"
+                    widget: "list"
+                    i18n: true
+                    field: { label: "Step", name: "step", widget: "string", i18n: true }
+              - label: "From Faro"
+                name: "fromFaro"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - label: "Route"
+                    name: "route"
+                    widget: "list"
+                    i18n: true
+                    field: { label: "Step", name: "step", widget: "string", i18n: true }
+              - label: "From Porto"
+                name: "fromPorto"
+                widget: "object"
+                i18n: true
+                fields:
+                  - { label: "Title", name: "title", widget: "string", i18n: true }
+                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - label: "Route"
+                    name: "route"
+                    widget: "list"
+                    i18n: true
+                    field: { label: "Step", name: "step", widget: "string", i18n: true }
+
+          - label: "Public Transport"
+            name: "publicTransport"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Options"
+                name: "options"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Type", name: "type", widget: "string", i18n: true }
+                  - { label: "Description", name: "description", widget: "text", i18n: true }
+
+          - label: "Parking"
+            name: "parking"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                i18n: true
+                field: { label: "Feature", name: "feature", widget: "string", i18n: true }
+
+          - label: "Distances"
+            name: "distances"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                fields:
+                  - { label: "Location", name: "location", widget: "string", i18n: true }
+                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
+                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+
+          - label: "Tips"
+            name: "tips"
+            widget: "object"
+            i18n: true
+            fields:
+              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                i18n: true
+                field: { label: "Tip", name: "tip", widget: "string", i18n: true }

@@ -82,6 +82,16 @@ const AMENITY_ICONS = {
   ),
 };
 
+// English Translations Mapping
+AMENITY_ICONS['Air conditioning'] = AMENITY_ICONS['Ar condicionado'];
+AMENITY_ICONS['Breakfast'] = AMENITY_ICONS['Pequeno-almoço'];
+AMENITY_ICONS['Garden'] = AMENITY_ICONS['Jardim'];
+AMENITY_ICONS['Barbecue'] = AMENITY_ICONS['Churrasqueira'];
+AMENITY_ICONS['Bicycles'] = AMENITY_ICONS['Bicicletas'];
+AMENITY_ICONS['Parking'] = AMENITY_ICONS['Estacionamento'];
+AMENITY_ICONS['Shared Kitchen'] = AMENITY_ICONS['Cozinha Partilhada'];
+AMENITY_ICONS['Terrace'] = AMENITY_ICONS['Terraço'];
+
 /**
  * AmenityStrip — Horizontal scrollable strip of icon + label pairs.
  * A premium "at a glance" treatment. The amenities are a whisper, not a feature list.

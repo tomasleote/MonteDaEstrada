@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './SuiteCarousel.module.scss';
 
-const SuiteCarousel = ({ images = [] }) => {
+const SuiteCarousel = ({ images = [], className = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -48,7 +48,7 @@ const SuiteCarousel = ({ images = [] }) => {
 
   return (
     <div
-      className={styles.carouselContainer}
+      className={`${styles.carouselContainer} ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

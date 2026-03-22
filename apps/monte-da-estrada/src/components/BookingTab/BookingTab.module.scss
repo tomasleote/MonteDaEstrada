@@ -4,12 +4,10 @@
   top: 50%;
   z-index: 1000;
 
-  // Center vertically based on the fixed positioning
-  margin-top: -50px; // Approximate vertical centering compensation
-
   // Slide out to the right off-screen initially
   transform: translateX(100%);
   opacity: 0;
+
 
   // EXIT transition: Starts slow, ends fast (ease-in), keeps opacity visible longer
   transition: transform 0.3s ease-in, opacity 0.2s ease 0.1s;
@@ -24,17 +22,9 @@
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
   }
 
-  // Mobile: vertically centered, right edge flush (no scrollbar gap)
+  // Mobile: hidden — replaced by MobileReserveBar fixed bottom button
   @media (max-width: 768px) {
-    display: block;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%) translateX(100%);
-    z-index: 1000;
-
-    &.visible {
-      transform: translateY(-50%) translateX(0);
-    }
+    display: none;
   }
 }
 
