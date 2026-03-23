@@ -34,30 +34,30 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", i18n: true }
-              - { label: "Imagem de Fundo", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
+              - { label: "Imagem de Fundo", name: "image", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
 
           - label: "Secção de Boas-vindas"
             name: "welcome"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
               - label: "Parágrafos"
                 name: "paragraphs"
                 widget: "list"
                 i18n: true
-                field: { label: "Parágrafo", name: "paragraph", widget: "text", i18n: true }
+                field: { label: "Parágrafo", name: "paragraph", widget: "text" }
 
           - label: "Destaques"
             name: "highlights"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
 
           - label: "Imagens de Destaques"
             name: "featureImages"
@@ -66,28 +66,28 @@ collections:
             max: 4
             i18n: true
             fields:
-              - { label: "Imagem", name: "src", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Imagem", name: "src", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
 
           - label: "Informações Práticas"
             name: "information"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Hora de Check-in", name: "checkIn", widget: "string", i18n: true }
-              - { label: "Hora de Check-out", name: "checkOut", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Hora de Check-in", name: "checkIn", widget: "string" }
+              - { label: "Hora de Check-out", name: "checkOut", widget: "string" }
               - label: "Políticas"
                 name: "policies"
                 widget: "list"
                 i18n: true
-                field: { label: "Política", name: "policy", widget: "string", i18n: true }
+                field: { label: "Política", name: "policy", widget: "string" }
               - label: "Incluído"
                 name: "included"
                 widget: "list"
                 i18n: true
-                field: { label: "Item", name: "item", widget: "string", i18n: true }
+                field: { label: "Item", name: "item", widget: "string" }
 
       - label: "Home (EN)"
         name: "home-en"
@@ -99,30 +99,30 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
-              - { label: "Background Image", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Image Alt Text", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Background Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "alt", widget: "string" }
 
           - label: "Welcome Section"
             name: "welcome"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Paragraphs"
                 name: "paragraphs"
                 widget: "list"
                 i18n: true
-                field: { label: "Paragraph", name: "paragraph", widget: "text", i18n: true }
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
 
           - label: "Highlights"
             name: "highlights"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
 
           - label: "Feature Images"
             name: "featureImages"
@@ -131,28 +131,28 @@ collections:
             max: 4
             i18n: true
             fields:
-              - { label: "Image", name: "src", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "alt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
 
           - label: "Practical Information"
             name: "information"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Check-in Time", name: "checkIn", widget: "string", i18n: true }
-              - { label: "Check-out Time", name: "checkOut", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Check-in Time", name: "checkIn", widget: "string" }
+              - { label: "Check-out Time", name: "checkOut", widget: "string" }
               - label: "Policies"
                 name: "policies"
                 widget: "list"
                 i18n: true
-                field: { label: "Policy", name: "policy", widget: "string", i18n: true }
+                field: { label: "Policy", name: "policy", widget: "string" }
               - label: "Included"
                 name: "included"
                 widget: "list"
                 i18n: true
-                field: { label: "Item", name: "item", widget: "string", i18n: true }
+                field: { label: "Item", name: "item", widget: "string" }
 
   # ─────────────────────────────────────────────
   # QUARTOS PAGE
@@ -171,25 +171,25 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
 
-          - { label: "Título", name: "title", widget: "string", i18n: true }
-          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
 
           - label: "Quartos"
             name: "rooms"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Nome do Quarto", name: "name", widget: "string", i18n: true }
-              - { label: "Capacidade", name: "capacity", widget: "string", i18n: true }
+              - { label: "Nome do Quarto", name: "name", widget: "string" }
+              - { label: "Capacidade", name: "capacity", widget: "string" }
               - label: "Características"
                 name: "features"
                 widget: "list"
                 i18n: true
-                field: { label: "Característica", name: "feature", widget: "string", i18n: true }
+                field: { label: "Característica", name: "feature", widget: "string" }
               - label: "Imagens do Quarto"
                 name: "images"
                 widget: "list"
@@ -199,34 +199,34 @@ collections:
                 name: "imageAlts"
                 widget: "list"
                 i18n: true
-                field: { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
+                field: { label: "Texto Alternativo", name: "alt", widget: "string" }
 
           - label: "Preços e Reservas"
             name: "pricing"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Épocas"
                 name: "seasons"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Nome da Época", name: "name", widget: "string", i18n: true }
-                  - { label: "Período", name: "period", widget: "string", i18n: true }
-                  - { label: "Nota", name: "note", widget: "string", i18n: true }
+                  - { label: "Nome da Época", name: "name", widget: "string" }
+                  - { label: "Período", name: "period", widget: "string" }
+                  - { label: "Nota", name: "note", widget: "string" }
               - label: "Políticas"
                 name: "policies"
                 widget: "list"
                 i18n: true
-                field: { label: "Política", name: "policy", widget: "string", i18n: true }
+                field: { label: "Política", name: "policy", widget: "string" }
 
           - label: "Comodidades"
             name: "facilities"
             widget: "list"
             i18n: true
-            field: { label: "Comodidade", name: "facility", widget: "string", i18n: true }
+            field: { label: "Comodidade", name: "facility", widget: "string" }
 
       - label: "Rooms (EN)"
         name: "quartos-en"
@@ -238,25 +238,25 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
 
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Description", name: "description", widget: "text", i18n: true }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
 
           - label: "Rooms"
             name: "rooms"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Room Name", name: "name", widget: "string", i18n: true }
-              - { label: "Capacity", name: "capacity", widget: "string", i18n: true }
+              - { label: "Room Name", name: "name", widget: "string" }
+              - { label: "Capacity", name: "capacity", widget: "string" }
               - label: "Features"
                 name: "features"
                 widget: "list"
                 i18n: true
-                field: { label: "Feature", name: "feature", widget: "string", i18n: true }
+                field: { label: "Feature", name: "feature", widget: "string" }
               - label: "Room Images"
                 name: "images"
                 widget: "list"
@@ -266,34 +266,34 @@ collections:
                 name: "imageAlts"
                 widget: "list"
                 i18n: true
-                field: { label: "Alt Text", name: "alt", widget: "string", i18n: true }
+                field: { label: "Alt Text", name: "alt", widget: "string" }
 
           - label: "Prices and Reservations"
             name: "pricing"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Seasons"
                 name: "seasons"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Season Name", name: "name", widget: "string", i18n: true }
-                  - { label: "Period", name: "period", widget: "string", i18n: true }
-                  - { label: "Note", name: "note", widget: "string", i18n: true }
+                  - { label: "Season Name", name: "name", widget: "string" }
+                  - { label: "Period", name: "period", widget: "string" }
+                  - { label: "Note", name: "note", widget: "string" }
               - label: "Policies"
                 name: "policies"
                 widget: "list"
                 i18n: true
-                field: { label: "Policy", name: "policy", widget: "string", i18n: true }
+                field: { label: "Policy", name: "policy", widget: "string" }
 
           - label: "Facilities"
             name: "facilities"
             widget: "list"
             i18n: true
-            field: { label: "Facility", name: "facility", widget: "string", i18n: true }
+            field: { label: "Facility", name: "facility", widget: "string" }
 
   # ─────────────────────────────────────────────
   # GALERIA PAGE
@@ -312,44 +312,44 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Subtítulo", name: "subtitle", widget: "string", i18n: true }
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Subtítulo", name: "subtitle", widget: "string" }
 
-          - { label: "Título", name: "title", widget: "string", i18n: true }
-          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
 
           - label: "Categorias"
             name: "categories"
             widget: "list"
             i18n: true
             fields:
-              - { label: "ID", name: "id", widget: "string", i18n: "duplicate" }
-              - { label: "Nome", name: "name", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Imagens"
                 name: "images"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Imagem", name: "src", widget: "image", i18n: "duplicate" }
-                  - { label: "Miniatura", name: "thumbnail", widget: "image", i18n: "duplicate", required: false }
-                  - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
-                  - { label: "Legenda", name: "caption", widget: "string", i18n: true }
+                  - { label: "Imagem", name: "src", widget: "image" }
+                  - { label: "Miniatura", name: "thumbnail", widget: "image", required: false }
+                  - { label: "Texto Alternativo", name: "alt", widget: "string" }
+                  - { label: "Legenda", name: "caption", widget: "string" }
 
           - label: "Informações sobre Fotografia"
             name: "photographyInfo"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Créditos"
                 name: "credits"
                 widget: "list"
                 i18n: true
-                field: { label: "Crédito", name: "credit", widget: "string", i18n: true }
+                field: { label: "Crédito", name: "credit", widget: "string" }
 
       - label: "Gallery (EN)"
         name: "galeria-en"
@@ -361,44 +361,44 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Subtitle", name: "subtitle", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
 
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Description", name: "description", widget: "text", i18n: true }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
 
           - label: "Categories"
             name: "categories"
             widget: "list"
             i18n: true
             fields:
-              - { label: "ID", name: "id", widget: "string", i18n: "duplicate" }
-              - { label: "Name", name: "name", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Images"
                 name: "images"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Image", name: "src", widget: "image", i18n: "duplicate" }
-                  - { label: "Thumbnail", name: "thumbnail", widget: "image", i18n: "duplicate", required: false }
-                  - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
-                  - { label: "Caption", name: "caption", widget: "string", i18n: true }
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+                  - { label: "Caption", name: "caption", widget: "string" }
 
           - label: "Photography Info"
             name: "photographyInfo"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Credits"
                 name: "credits"
                 widget: "list"
                 i18n: true
-                field: { label: "Credit", name: "credit", widget: "string", i18n: true }
+                field: { label: "Credit", name: "credit", widget: "string" }
 
   # ─────────────────────────────────────────────
   # DESCOBRIR PAGE
@@ -417,51 +417,51 @@ collections:
             widget: "list"
             i18n: true
             fields:
-              - { label: "Categoria", name: "category", widget: "string", i18n: true }
-              - { label: "Nome da Categoria", name: "categoryLabel", widget: "string", i18n: true }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Categoria", name: "category", widget: "string" }
+              - { label: "Nome da Categoria", name: "categoryLabel", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Destaques"
                 name: "highlights"
                 widget: "list"
                 i18n: true
-                field: { label: "Destaque", name: "highlight", widget: "string", i18n: true }
-              - { label: "Imagem", name: "imageSrc", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "imageAlt", widget: "string", i18n: true }
+                field: { label: "Destaque", name: "highlight", widget: "string" }
+              - { label: "Imagem", name: "imageSrc", widget: "image" }
+              - { label: "Texto Alternativo", name: "imageAlt", widget: "string" }
 
           - label: "Praias"
             name: "beaches"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Nome", name: "name", widget: "string", i18n: true }
-              - { label: "Distância", name: "distance", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
-              - { label: "Imagem", name: "imageSrc", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "imageAlt", widget: "string", i18n: true }
-              - { label: "URL do Mapa", name: "mapUrl", widget: "string", i18n: "duplicate" }
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Distância", name: "distance", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Imagem", name: "imageSrc", widget: "image" }
+              - { label: "Texto Alternativo", name: "imageAlt", widget: "string" }
+              - { label: "URL do Mapa", name: "mapUrl", widget: "string" }
 
           - label: "Atrações"
             name: "attractions"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Localização", name: "location", widget: "string", i18n: true }
-              - { label: "Distância", name: "distance", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
-              - { label: "Imagem", name: "imageSrc", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "imageAlt", widget: "string", i18n: true }
-              - { label: "URL do Mapa", name: "mapUrl", widget: "string", i18n: "duplicate" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Localização", name: "location", widget: "string" }
+              - { label: "Distância", name: "distance", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+              - { label: "Imagem", name: "imageSrc", widget: "image" }
+              - { label: "Texto Alternativo", name: "imageAlt", widget: "string" }
+              - { label: "URL do Mapa", name: "mapUrl", widget: "string" }
 
           - label: "Parceiros"
             name: "parceiros"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Nome", name: "name", widget: "string", i18n: true }
-              - { label: "URL", name: "url", widget: "string", i18n: "duplicate" }
-              - { label: "Logotipo", name: "logo", widget: "image", i18n: "duplicate" }
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Logotipo", name: "logo", widget: "image" }
 
       - label: "Discover (EN)"
         name: "descobrir-en"
@@ -473,51 +473,51 @@ collections:
             widget: "list"
             i18n: true
             fields:
-              - { label: "Category", name: "category", widget: "string", i18n: true }
-              - { label: "Category Label", name: "categoryLabel", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Category Label", name: "categoryLabel", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Highlights"
                 name: "highlights"
                 widget: "list"
                 i18n: true
-                field: { label: "Highlight", name: "highlight", widget: "string", i18n: true }
-              - { label: "Image", name: "imageSrc", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "imageAlt", widget: "string", i18n: true }
+                field: { label: "Highlight", name: "highlight", widget: "string" }
+              - { label: "Image", name: "imageSrc", widget: "image" }
+              - { label: "Alt Text", name: "imageAlt", widget: "string" }
 
           - label: "Beaches"
             name: "beaches"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Name", name: "name", widget: "string", i18n: true }
-              - { label: "Distance", name: "distance", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
-              - { label: "Image", name: "imageSrc", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "imageAlt", widget: "string", i18n: true }
-              - { label: "Map URL", name: "mapUrl", widget: "string", i18n: "duplicate" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Distance", name: "distance", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "imageSrc", widget: "image" }
+              - { label: "Alt Text", name: "imageAlt", widget: "string" }
+              - { label: "Map URL", name: "mapUrl", widget: "string" }
 
           - label: "Attractions"
             name: "attractions"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Location", name: "location", widget: "string", i18n: true }
-              - { label: "Distance", name: "distance", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
-              - { label: "Image", name: "imageSrc", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "imageAlt", widget: "string", i18n: true }
-              - { label: "Map URL", name: "mapUrl", widget: "string", i18n: "duplicate" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Distance", name: "distance", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "imageSrc", widget: "image" }
+              - { label: "Alt Text", name: "imageAlt", widget: "string" }
+              - { label: "Map URL", name: "mapUrl", widget: "string" }
 
           - label: "Partners"
             name: "parceiros"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Name", name: "name", widget: "string", i18n: true }
-              - { label: "URL", name: "url", widget: "string", i18n: "duplicate" }
-              - { label: "Logo", name: "logo", widget: "image", i18n: "duplicate" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image" }
 
   # ─────────────────────────────────────────────
   # SUITE ALENTEJANA
@@ -531,34 +531,34 @@ collections:
         file: "monte-da-estrada/src/data/pt/suiteAlentejana.json"
         i18n: true
         fields:
-          - { label: "Eyebrow", name: "eyebrow", widget: "string", i18n: true }
-          - { label: "Heading", name: "heading", widget: "string", i18n: true }
-          - { label: "Tagline", name: "tagline", widget: "string", i18n: true }
-          - { label: "Descrição", name: "description", widget: "text", i18n: true }
-          - { label: "CTA Label", name: "ctaLabel", widget: "string", i18n: true }
-          - { label: "CTA URL", name: "ctaHref", widget: "string", i18n: "duplicate" }
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA URL", name: "ctaHref", widget: "string" }
           - label: "Comodidades"
             name: "amenities"
             widget: "list"
             i18n: true
-            field: { label: "Comodidade", name: "amenity", widget: "string", i18n: true }
+            field: { label: "Comodidade", name: "amenity", widget: "string" }
 
       - label: "Suite Alentejana (EN)"
         name: "suiteAlentejana-en"
         file: "monte-da-estrada/src/data/en/suiteAlentejana.json"
         i18n: true
         fields:
-          - { label: "Eyebrow", name: "eyebrow", widget: "string", i18n: true }
-          - { label: "Heading", name: "heading", widget: "string", i18n: true }
-          - { label: "Tagline", name: "tagline", widget: "string", i18n: true }
-          - { label: "Description", name: "description", widget: "text", i18n: true }
-          - { label: "CTA Label", name: "ctaLabel", widget: "string", i18n: true }
-          - { label: "CTA URL", name: "ctaHref", widget: "string", i18n: "duplicate" }
+          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "CTA Label", name: "ctaLabel", widget: "string" }
+          - { label: "CTA URL", name: "ctaHref", widget: "string" }
           - label: "Amenities"
             name: "amenities"
             widget: "list"
             i18n: true
-            field: { label: "Amenity", name: "amenity", widget: "string", i18n: true }
+            field: { label: "Amenity", name: "amenity", widget: "string" }
 
   # ─────────────────────────────────────────────
   # SITE SETTINGS — global branding, logos, SEO
@@ -572,46 +572,46 @@ collections:
         file: "monte-da-estrada/src/data/pt/site-settings.json"
         i18n: true
         fields:
-          - { label: "Nome da Marca", name: "brandName", widget: "string", i18n: true, default: "Monte da Estrada" }
-          - { label: "Logotipo do Site", name: "siteLogo", widget: "image", i18n: "duplicate" }
-          - { label: "Texto Alternativo do Logotipo", name: "siteLogoAlt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+          - { label: "Nome da Marca", name: "brandName", widget: "string", default: "Monte da Estrada" }
+          - { label: "Logotipo do Site", name: "siteLogo", widget: "image" }
+          - { label: "Texto Alternativo do Logotipo", name: "siteLogoAlt", widget: "string" }
           - label: "Logotipos de Parceiros"
             name: "partnerLogos"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Nome do Parceiro", name: "name", widget: "string", i18n: true }
-              - { label: "Logotipo", name: "logo", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
-              - { label: "URL (opcional)", name: "url", widget: "string", i18n: "duplicate" }
-          - { label: "Favicon", name: "favicon", widget: "image", i18n: "duplicate" }
-          - { label: "Meta Imagem (partilha social)", name: "metaImage", widget: "image", i18n: "duplicate" }
-          - { label: "Texto Alternativo da Meta Imagem", name: "metaImageAlt", widget: "string", i18n: true }
-          - { label: "URL do Botão de Reservas", name: "reservasUrl", widget: "string", i18n: "duplicate" }
-          - { label: "Mostrar Seletor de Língua", name: "showLanguageSelector", widget: "boolean", i18n: "duplicate", default: true }
+              - { label: "Nome do Parceiro", name: "name", widget: "string" }
+              - { label: "Logotipo", name: "logo", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
+              - { label: "URL (opcional)", name: "url", widget: "string" }
+          - { label: "Favicon", name: "favicon", widget: "image" }
+          - { label: "Meta Imagem (partilha social)", name: "metaImage", widget: "image" }
+          - { label: "Texto Alternativo da Meta Imagem", name: "metaImageAlt", widget: "string" }
+          - { label: "URL do Botão de Reservas", name: "reservasUrl", widget: "string" }
+          - { label: "Mostrar Seletor de Língua", name: "showLanguageSelector", widget: "boolean", default: true }
 
       - label: "Site Settings (EN)"
         name: "settings-en"
         file: "monte-da-estrada/src/data/en/site-settings.json"
         i18n: true
         fields:
-          - { label: "Brand Name", name: "brandName", widget: "string", i18n: true, default: "Monte da Estrada" }
-          - { label: "Site Logo", name: "siteLogo", widget: "image", i18n: "duplicate" }
-          - { label: "Logo Alt Text", name: "siteLogoAlt", widget: "string", i18n: true, pattern: ['.{10,150}', 'Alt text must be 10-150 characters'] }
+          - { label: "Brand Name", name: "brandName", widget: "string", default: "Monte da Estrada" }
+          - { label: "Site Logo", name: "siteLogo", widget: "image" }
+          - { label: "Logo Alt Text", name: "siteLogoAlt", widget: "string" }
           - label: "Partner Logos"
             name: "partnerLogos"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Partner Name", name: "name", widget: "string", i18n: true }
-              - { label: "Logo", name: "logo", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
-              - { label: "URL (optional)", name: "url", widget: "string", i18n: "duplicate" }
-          - { label: "Favicon", name: "favicon", widget: "image", i18n: "duplicate" }
-          - { label: "Meta Image (social sharing)", name: "metaImage", widget: "image", i18n: "duplicate" }
-          - { label: "Meta Image Alt Text", name: "metaImageAlt", widget: "string", i18n: true }
-          - { label: "Booking Button URL", name: "reservasUrl", widget: "string", i18n: "duplicate" }
-          - { label: "Show Language Selector", name: "showLanguageSelector", widget: "boolean", i18n: "duplicate", default: true }
+              - { label: "Partner Name", name: "name", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "URL (optional)", name: "url", widget: "string" }
+          - { label: "Favicon", name: "favicon", widget: "image" }
+          - { label: "Meta Image (social sharing)", name: "metaImage", widget: "image" }
+          - { label: "Meta Image Alt Text", name: "metaImageAlt", widget: "string" }
+          - { label: "Booking Button URL", name: "reservasUrl", widget: "string" }
+          - { label: "Show Language Selector", name: "showLanguageSelector", widget: "boolean", default: true }
 
   # ─────────────────────────────────────────────
   # ATIVIDADES PAGE
@@ -630,40 +630,40 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
 
-          - { label: "Título", name: "title", widget: "string", i18n: true }
-          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
 
           - label: "Atividades"
             name: "activities"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Categoria", name: "category", widget: "string", i18n: true }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Categoria", name: "category", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Destaques"
                 name: "highlights"
                 widget: "list"
                 i18n: true
-                field: { label: "Destaque", name: "highlight", widget: "string", i18n: true }
+                field: { label: "Destaque", name: "highlight", widget: "string" }
 
           - label: "Comodidades"
             name: "amenities"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
               - label: "Itens"
                 name: "items"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Nome", name: "name", widget: "string", i18n: true }
-                  - { label: "Descrição", name: "description", widget: "text", i18n: true }
+                  - { label: "Nome", name: "name", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
 
       - label: "Activities (EN)"
         name: "atividades-en"
@@ -675,40 +675,40 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
 
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Description", name: "description", widget: "text", i18n: true }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
 
           - label: "Activities"
             name: "activities"
             widget: "list"
             i18n: true
             fields:
-              - { label: "Category", name: "category", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Category", name: "category", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Highlights"
                 name: "highlights"
                 widget: "list"
                 i18n: true
-                field: { label: "Highlight", name: "highlight", widget: "string", i18n: true }
+                field: { label: "Highlight", name: "highlight", widget: "string" }
 
           - label: "Amenities"
             name: "amenities"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Items"
                 name: "items"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Name", name: "name", widget: "string", i18n: true }
-                  - { label: "Description", name: "description", widget: "text", i18n: true }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
 
   # ─────────────────────────────────────────────
   # LOCALIZAÇÃO PAGE
@@ -727,132 +727,132 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Imagem", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Texto Alternativo", name: "alt", widget: "string", i18n: true }
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Imagem", name: "image", widget: "image" }
+              - { label: "Texto Alternativo", name: "alt", widget: "string" }
+              - { label: "Título", name: "title", widget: "string" }
 
-          - { label: "Título", name: "title", widget: "string", i18n: true }
-          - { label: "Descrição", name: "description", widget: "text", i18n: true }
+          - { label: "Título", name: "title", widget: "string" }
+          - { label: "Descrição", name: "description", widget: "text" }
 
           - label: "Morada"
             name: "address"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Nome", name: "name", widget: "string", i18n: true }
-              - { label: "Rua", name: "street", widget: "string", i18n: true }
-              - { label: "Cidade", name: "city", widget: "string", i18n: true }
-              - { label: "Região", name: "region", widget: "string", i18n: true }
-              - { label: "País", name: "country", widget: "string", i18n: true }
-              - { label: "Código Postal", name: "postalCode", widget: "string", i18n: true }
+              - { label: "Nome", name: "name", widget: "string" }
+              - { label: "Rua", name: "street", widget: "string" }
+              - { label: "Cidade", name: "city", widget: "string" }
+              - { label: "Região", name: "region", widget: "string" }
+              - { label: "País", name: "country", widget: "string" }
+              - { label: "Código Postal", name: "postalCode", widget: "string" }
               - label: "Coordenadas"
                 name: "coordinates"
                 widget: "object"
                 i18n: "duplicate"
                 fields:
-                  - { label: "Latitude", name: "latitude", widget: "number", i18n: "duplicate", value_type: "float" }
-                  - { label: "Longitude", name: "longitude", widget: "number", i18n: "duplicate", value_type: "float" }
+                  - { label: "Latitude", name: "latitude", widget: "number" }
+                  - { label: "Longitude", name: "longitude", widget: "number" }
 
           - label: "Direções"
             name: "directions"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
               - label: "De Lisboa"
                 name: "fromLisbon"
                 widget: "object"
                 i18n: true
                 fields:
-                  - { label: "Título", name: "title", widget: "string", i18n: true }
-                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
                   - label: "Rota"
                     name: "route"
                     widget: "list"
                     i18n: true
-                    field: { label: "Passo", name: "step", widget: "string", i18n: true }
+                    field: { label: "Passo", name: "step", widget: "string" }
               - label: "De Faro"
                 name: "fromFaro"
                 widget: "object"
                 i18n: true
                 fields:
-                  - { label: "Título", name: "title", widget: "string", i18n: true }
-                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
                   - label: "Rota"
                     name: "route"
                     widget: "list"
                     i18n: true
-                    field: { label: "Passo", name: "step", widget: "string", i18n: true }
+                    field: { label: "Passo", name: "step", widget: "string" }
               - label: "Do Porto"
                 name: "fromPorto"
                 widget: "object"
                 i18n: true
                 fields:
-                  - { label: "Título", name: "title", widget: "string", i18n: true }
-                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - { label: "Título", name: "title", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
                   - label: "Rota"
                     name: "route"
                     widget: "list"
                     i18n: true
-                    field: { label: "Passo", name: "step", widget: "string", i18n: true }
+                    field: { label: "Passo", name: "step", widget: "string" }
 
           - label: "Transportes Públicos"
             name: "publicTransport"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Opções"
                 name: "options"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Tipo", name: "type", widget: "string", i18n: true }
-                  - { label: "Descrição", name: "description", widget: "text", i18n: true }
+                  - { label: "Tipo", name: "type", widget: "string" }
+                  - { label: "Descrição", name: "description", widget: "text" }
 
           - label: "Estacionamento"
             name: "parking"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
-              - { label: "Descrição", name: "description", widget: "text", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
               - label: "Características"
                 name: "features"
                 widget: "list"
                 i18n: true
-                field: { label: "Característica", name: "feature", widget: "string", i18n: true }
+                field: { label: "Característica", name: "feature", widget: "string" }
 
           - label: "Distâncias"
             name: "distances"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
               - label: "Itens"
                 name: "items"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Local", name: "location", widget: "string", i18n: true }
-                  - { label: "Distância", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duração", name: "duration", widget: "string", i18n: true }
+                  - { label: "Local", name: "location", widget: "string" }
+                  - { label: "Distância", name: "distance", widget: "string" }
+                  - { label: "Duração", name: "duration", widget: "string" }
 
           - label: "Dicas"
             name: "tips"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Título", name: "title", widget: "string", i18n: true }
+              - { label: "Título", name: "title", widget: "string" }
               - label: "Itens"
                 name: "items"
                 widget: "list"
                 i18n: true
-                field: { label: "Dica", name: "tip", widget: "string", i18n: true }
+                field: { label: "Dica", name: "tip", widget: "string" }
 
       - label: "Location (EN)"
         name: "localizacao-en"
@@ -864,129 +864,129 @@ collections:
             widget: "object"
             i18n: true
             fields:
-              - { label: "Image", name: "image", widget: "image", i18n: "duplicate" }
-              - { label: "Alt Text", name: "alt", widget: "string", i18n: true }
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
 
-          - { label: "Title", name: "title", widget: "string", i18n: true }
-          - { label: "Description", name: "description", widget: "text", i18n: true }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
 
           - label: "Address"
             name: "address"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Name", name: "name", widget: "string", i18n: true }
-              - { label: "Street", name: "street", widget: "string", i18n: true }
-              - { label: "City", name: "city", widget: "string", i18n: true }
-              - { label: "Region", name: "region", widget: "string", i18n: true }
-              - { label: "Country", name: "country", widget: "string", i18n: true }
-              - { label: "Postal Code", name: "postalCode", widget: "string", i18n: true }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Street", name: "street", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Region", name: "region", widget: "string" }
+              - { label: "Country", name: "country", widget: "string" }
+              - { label: "Postal Code", name: "postalCode", widget: "string" }
               - label: "Coordinates"
                 name: "coordinates"
                 widget: "object"
                 i18n: "duplicate"
                 fields:
-                  - { label: "Latitude", name: "latitude", widget: "number", i18n: "duplicate", value_type: "float" }
-                  - { label: "Longitude", name: "longitude", widget: "number", i18n: "duplicate", value_type: "float" }
+                  - { label: "Latitude", name: "latitude", widget: "number" }
+                  - { label: "Longitude", name: "longitude", widget: "number" }
 
           - label: "Directions"
             name: "directions"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
               - label: "From Lisbon"
                 name: "fromLisbon"
                 widget: "object"
                 i18n: true
                 fields:
-                  - { label: "Title", name: "title", widget: "string", i18n: true }
-                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Distance", name: "distance", widget: "string" }
+                  - { label: "Duration", name: "duration", widget: "string" }
                   - label: "Route"
                     name: "route"
                     widget: "list"
                     i18n: true
-                    field: { label: "Step", name: "step", widget: "string", i18n: true }
+                    field: { label: "Step", name: "step", widget: "string" }
               - label: "From Faro"
                 name: "fromFaro"
                 widget: "object"
                 i18n: true
                 fields:
-                  - { label: "Title", name: "title", widget: "string", i18n: true }
-                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Distance", name: "distance", widget: "string" }
+                  - { label: "Duration", name: "duration", widget: "string" }
                   - label: "Route"
                     name: "route"
                     widget: "list"
                     i18n: true
-                    field: { label: "Step", name: "step", widget: "string", i18n: true }
+                    field: { label: "Step", name: "step", widget: "string" }
               - label: "From Porto"
                 name: "fromPorto"
                 widget: "object"
                 i18n: true
                 fields:
-                  - { label: "Title", name: "title", widget: "string", i18n: true }
-                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Distance", name: "distance", widget: "string" }
+                  - { label: "Duration", name: "duration", widget: "string" }
                   - label: "Route"
                     name: "route"
                     widget: "list"
                     i18n: true
-                    field: { label: "Step", name: "step", widget: "string", i18n: true }
+                    field: { label: "Step", name: "step", widget: "string" }
 
           - label: "Public Transport"
             name: "publicTransport"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Options"
                 name: "options"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Type", name: "type", widget: "string", i18n: true }
-                  - { label: "Description", name: "description", widget: "text", i18n: true }
+                  - { label: "Type", name: "type", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
 
           - label: "Parking"
             name: "parking"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
-              - { label: "Description", name: "description", widget: "text", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
               - label: "Features"
                 name: "features"
                 widget: "list"
                 i18n: true
-                field: { label: "Feature", name: "feature", widget: "string", i18n: true }
+                field: { label: "Feature", name: "feature", widget: "string" }
 
           - label: "Distances"
             name: "distances"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Items"
                 name: "items"
                 widget: "list"
                 i18n: true
                 fields:
-                  - { label: "Location", name: "location", widget: "string", i18n: true }
-                  - { label: "Distance", name: "distance", widget: "string", i18n: "duplicate" }
-                  - { label: "Duration", name: "duration", widget: "string", i18n: true }
+                  - { label: "Location", name: "location", widget: "string" }
+                  - { label: "Distance", name: "distance", widget: "string" }
+                  - { label: "Duration", name: "duration", widget: "string" }
 
           - label: "Tips"
             name: "tips"
             widget: "object"
             i18n: true
             fields:
-              - { label: "Title", name: "title", widget: "string", i18n: true }
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Items"
                 name: "items"
                 widget: "list"
                 i18n: true
-                field: { label: "Tip", name: "tip", widget: "string", i18n: true }
+                field: { label: "Tip", name: "tip", widget: "string" }
