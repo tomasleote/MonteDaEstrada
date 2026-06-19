@@ -2,57 +2,57 @@
   "experiences": [
     {
       "category": "gastronomia",
-      "categoryLabel": "Gastronomy",
-      "title": "Picnics for Hikers",
-      "description": "Light picnic baskets for those heading out on the trails — local fruit, sheep cheese, and bread from São Teotónio.",
-      "highlights": ["Local fruit", "Sheep cheese", "Bread from São Teotónio"],
+      "categoryLabel": "Picnics",
+      "title": "Picnic for hikers",
+      "description": "Light picnic baskets for those heading out on the trails — local fruit, sheep cheese, and wood-fired bread from Zambujeira do Mar.",
+      "highlights": ["Local fruit", "Sheep cheese", "Wood-fired bread from Zambujeira do Mar"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/pequeniqueai.webp",
       "imageAlt": "Picnic basket with local products in the countryside"
     },
     {
       "category": "gastronomia",
-      "categoryLabel": "Gastronomy",
-      "title": "Regional Wine Tasting",
-      "description": "A guided tasting of Atlantic and Alentejo wines. Held at the monte, at the right pace.",
-      "highlights": ["Alentejo wines", "Atlantic wines", "Guided at the monte"],
+      "categoryLabel": "Tasting",
+      "title": "Cheese, charcuterie and wine board",
+      "description": "To savour on your room's terrace, at your own pace.",
+      "highlights": ["Regional cheese", "Charcuterie", "Alentejo wine"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/vinhosai.webp",
-      "imageAlt": "Wine glasses with Alentejo landscape in the background"
+      "imageAlt": "Board of regional cheese, charcuterie and wine"
     },
     {
       "category": "natureza",
-      "categoryLabel": "Active Nature",
+      "categoryLabel": "Walking",
       "title": "Walking the Rota Vicentina",
-      "description": "The Fishermen's Trail starts minutes from the monte. Cliffs, hidden beaches, and open sea.",
+      "description": "The Fishermen's Trail is minutes from the monte. The stretch between Zambujeira do Mar and Cavaleiro is considered one of the most beautiful of the Rota Vicentina.",
       "highlights": ["Fishermen's Trail", "Coastal cliffs", "Deserted beaches"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/rotavicentinaai.webp",
       "imageAlt": "Hiker on the Rota Vicentina with Atlantic Ocean views"
     },
     {
       "category": "natureza",
-      "categoryLabel": "Active Nature",
-      "title": "E-bike Trails",
-      "description": "Explore the montado paths and parts of Alentejo where cars don't go. On e-bike, at your own pace.",
-      "highlights": ["E-bike included", "Montado trails", "No traffic"],
+      "categoryLabel": "Cycling",
+      "title": "Cycling Trails",
+      "description": "Explore the montado paths and the parts of Alentejo where cars don't reach. By bicycle, at your own pace.",
+      "highlights": ["Montado trails", "No traffic", "At your own pace"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/btt.webp",
-      "imageAlt": "E-bike leaning against a tree with Alentejo montado in the background"
+      "imageAlt": "Bicycle leaning against a tree with Alentejo montado in the background"
     },
     {
       "category": "paisagens",
-      "categoryLabel": "Landscapes",
-      "title": "Sunset Chaser",
-      "description": "Jeep excursion to the perfect viewpoint, with wine and snacks at the right moment.",
-      "highlights": ["Jeep excursion", "Wine & snacks", "Guaranteed sunset"],
+      "categoryLabel": "History",
+      "title": "Cabo Sardão Lighthouse",
+      "description": "This emblematic early-19th-century building stands out for its singular architecture and for offering breathtaking views at sunset.",
+      "highlights": ["Singular architecture", "19th century", "Sunset"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/jipetourai.webp",
-      "imageAlt": "Atlantic sunset from a viewpoint in Alentejo"
+      "imageAlt": "Cabo Sardão Lighthouse at sunset"
     },
     {
-      "category": "bem-estar",
-      "categoryLabel": "Wellness",
-      "title": "Massages",
-      "description": "Relaxation massage at Touril, followed by a drink at the Pool Bar. Complete rest.",
-      "highlights": ["Massage at Touril", "Pool Bar included", "By appointment"],
+      "category": "gastronomia",
+      "categoryLabel": "Restaurant",
+      "title": "Herdade do Touril Restaurant",
+      "description": "Lunch, petiscos and dinners — the best of the region's gastronomy, breathtaking scenery, and special attention to our guests.",
+      "highlights": ["Lunch & dinner", "Regional gastronomy", "Breathtaking views"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/massagemai.webp",
-      "imageAlt": "Touril wellness area and pool"
+      "imageAlt": "Herdade do Touril restaurant"
     }
   ],
   "beaches": [
@@ -194,37 +194,50 @@
     {
       "name": "Herdade do Touril Restaurant",
       "url": "https://herdadedotouril.com/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/touril.webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/touril.webp",
+      "group": "comercial"
     },
     {
       "name": "Beach Bar - Almograve",
       "url": "https://www.barpraiaalmograve.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/bardapraia%20(1).webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/bardapraia%20(1).webp",
+      "group": "comercial"
     },
     {
       "name": "Manjedoura Restaurant Bar",
       "url": "https://www.manjedoura.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/manjedoura%20(1).webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/manjedoura%20(1).webp",
+      "group": "comercial"
     },
     {
       "name": "Tasca do Celso",
       "url": "https://rotavicentina.com/restaurantes/tasca-do-celso/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/celso%20(1).webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/celso%20(1).webp",
+      "group": "comercial"
     },
     {
-      "name": "Rota Vicentina",
-      "url": "https://rotavicentina.com/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/rota_vicentina.webp"
-    },
-    {
-      "name": "Casas Brancas",
-      "url": "https://www.casasbrancas.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/casas_brancas.webp"
+      "name": "BDP Vieirinha",
+      "url": "",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/bdp_vieirinha.webp",
+      "group": "comercial"
     },
     {
       "name": "Visit Alentejo",
       "url": "https://www.visitalentejo.pt/pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/visitalentejo.webp"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/visitalentejo.webp",
+      "group": "institucional"
+    },
+    {
+      "name": "Casas Brancas",
+      "url": "https://www.casasbrancas.pt/",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/casas_brancas.webp",
+      "group": "institucional"
+    },
+    {
+      "name": "Rota Vicentina",
+      "url": "https://rotavicentina.com/",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/rota_vicentina.webp",
+      "group": "institucional"
     }
   ]
 }

@@ -16,22 +16,22 @@ export const quartosImages = {
     {
       src: `${CDN_BASE}/quarto-1.webp`,
       alt: 'Monte da Estrada - Quarto Duplo com vista para o jardim',
-      title: 'Quarto Duplo / Twin'
+      title: 'Quarto Duplo ou Twin'
     },
     {
       src: `${CDN_BASE}/quarto-2.webp`,
       alt: 'Monte da Estrada - Quarto Duplo com decoração tradicional',
-      title: 'Quarto Duplo / Twin'
+      title: 'Quarto Duplo ou Twin'
     },
     {
       src: `${CDN_BASE}/quarto-3.webp`,
       alt: 'Monte da Estrada - Quarto luminoso com vista campo',
-      title: 'Quarto Duplo / Twin'
+      title: 'Quarto Duplo ou Twin'
     },
     {
       src: `${CDN_BASE}/quarto-4.webp`,
       alt: 'Monte da Estrada - Quarto com apontamentos e arquitetura de charme',
-      title: 'Quarto Duplo / Twin'
+      title: 'Quarto Duplo ou Twin'
     },
     {
       src: `${CDN_BASE}/quarto-wc.webp`,

@@ -20,7 +20,7 @@ const footerDefaultConfig = {
     country: 'Portugal',
     phone: '+351 283 647 535',
     mobile: '+351 960 254 072',
-    email: 'montedaestradazambujeiradomar@gmail.com',
+    email: 'geral@montedaestrada.com',
     license: null,
     gpsCoords: null,
   },

@@ -72,7 +72,7 @@ const DescobrirPage = () => {
         <PageHero
           imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
           imageAlt={copy.heroImageAlt}
-          eyebrow={copy.territorioEyebrow}
+          eyebrow={copy.heroEyebrow}
           headline={copy.heroHeadline}
           subtitle={copy.heroSubtitle}
         />
@@ -197,44 +197,49 @@ const DescobrirPage = () => {
           <SectionEyebrow label={copy.parceirosEyebrow} />
           <h2 className={styles.sectionHeading}>{copy.parceirosHeading}</h2>
 
-          <motion.div
-            className={styles.parceirosGrid}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.1,
-                  delayChildren: 0.1,
+          {['comercial', 'institucional'].map((group) => (
+            <motion.div
+              key={group}
+              className={styles.parceirosGrid}
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: {
+                    staggerChildren: 0.1,
+                    delayChildren: 0.1,
+                  },
                 },
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport.default}
-          >
-            {descobrirData.parceiros.map((partner, index) => (
-              <motion.a
-                key={index}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.partnerCard}
-                variants={{
-                  hidden: { opacity: 0, y: 20 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
-                }}
-              >
-                <img
-                  src={partner.logo}
-                  alt={`${partner.name}`}
-                  className={styles.partnerLogo}
-                  title={partner.name}
-                  loading="lazy"
-                />
-              </motion.a>
-            ))}
-          </motion.div>
+              }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewport.default}
+            >
+              {descobrirData.parceiros
+                .filter((partner) => partner.group === group)
+                .map((partner, index) => (
+                  <motion.a
+                    key={index}
+                    href={partner.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.partnerCard}
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+                    }}
+                  >
+                    <img
+                      src={partner.logo}
+                      alt={`${partner.name}`}
+                      className={styles.partnerLogo}
+                      title={partner.name}
+                      loading="lazy"
+                    />
+                  </motion.a>
+                ))}
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -243,7 +248,7 @@ const DescobrirPage = () => {
         <BookingSection
           eyebrow={copy.bookingEyebrow}
           heading={copy.bookingHeading}
-          fallbackEmail="montedaestradazambujeiradomar@gmail.com"
+          fallbackEmail="geral@montedaestrada.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
           isMobile={isMobile}

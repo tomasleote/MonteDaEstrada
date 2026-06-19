@@ -134,10 +134,10 @@ const ContactoPage = () => {
                 <li className={styles.contactItem}>
                   <span className={styles.contactLabel}>Email</span>
                   <a
-                    href="mailto:montedaestradazambujeiradomar@gmail.com"
+                    href="mailto:geral@montedaestrada.com"
                     className={styles.contactValue}
                   >
-                    montedaestradazambujeiradomar@gmail.com
+                    geral@montedaestrada.com
                   </a>
                 </li>
                 <li className={styles.contactItem}>
@@ -151,7 +151,7 @@ const ContactoPage = () => {
                 </li>
                 <li className={styles.contactItem}>
                   <span className={styles.contactLabel}>Check-in / Check-out</span>
-                  <span className={styles.contactValue}>15h00 / 12h00</span>
+                  <span className={styles.contactValue}>16h00 / 11h00</span>
                 </li>
               </ul>
             </motion.div>

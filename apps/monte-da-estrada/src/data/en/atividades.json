@@ -95,10 +95,6 @@
         "description": "Spacious green areas for walking and resting"
       },
       {
-        "name": "Barbecue",
-        "description": "Barbecue area for outdoor socializing"
-      },
-      {
         "name": "Bicycles",
         "description": "Bicycles available to explore the surroundings"
       },
@@ -109,10 +105,6 @@
       {
         "name": "Parking",
         "description": "Private and free parking"
-      },
-      {
-        "name": "Shared Kitchen",
-        "description": "Fully equipped kitchen for guest use"
       },
       {
         "name": "Terrace",

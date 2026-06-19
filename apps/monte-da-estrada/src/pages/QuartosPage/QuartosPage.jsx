@@ -18,14 +18,14 @@ const quartosCopy = {
   pt: {
     heroEyebrow: 'Quartos',
     heroHeadline: 'Os Nossos Quartos',
-    heroSubtitle: 'Conforto absoluto, configurável à sua medida.',
+    heroSubtitle: 'Conforto absoluto num ambiente rústico e cuidado.',
     roomsEyebrow: 'Quartos',
-    roomsHeading: 'Oito quartos. Cada um, o seu.',
+    roomsHeading: 'Oito quartos onde se sentirá verdadeiramente em casa.',
     bookingEyebrow: 'Reservas',
-    bookingHeading: 'O seu quarto espera.',
+    bookingHeading: 'Escolha o seu quarto.',
     bookingIntro: 'Reserve agora e descubra onde vai acordar.',
     bookingButton: 'Reservar',
-    roomTitle: 'Quarto Duplo / Twin',
+    roomTitle: 'Quarto Duplo ou Twin',
     roomSubtitle: 'Conforto à sua medida, configurável como cama de casal ou twin.',
     roomDescription: `<p><strong>Luxo e natureza em perfeita harmonia.</strong></p>
 <p>Cada um dos nossos 8 quartos foi desenhado para maximizar o conforto, a luz e o silêncio. Disponíveis com configuração de cama de casal ou duas camas twin, adaptam-se perfeitamente à sua estadia.</p>
@@ -55,14 +55,14 @@ const quartosCopy = {
   en: {
     heroEyebrow: 'Rooms',
     heroHeadline: 'Our Rooms',
-    heroSubtitle: 'Absolute comfort, configurable to your needs.',
+    heroSubtitle: 'Absolute comfort in a rustic, well-tended setting.',
     roomsEyebrow: 'Rooms',
-    roomsHeading: 'Eight rooms. Each one, your own.',
+    roomsHeading: 'Eight rooms where you\'ll feel truly at home.',
     bookingEyebrow: 'Reservations',
-    bookingHeading: 'Your room awaits.',
+    bookingHeading: 'Choose your room.',
     bookingIntro: 'Book now and discover where you\'ll wake up.',
     bookingButton: 'Book',
-    roomTitle: 'Double / Twin Room',
+    roomTitle: 'Double or Twin Room',
     roomSubtitle: 'Comfort to your measure — configurable as a king double or twin.',
     roomDescription: `<p><strong>Luxury and nature in perfect harmony.</strong></p>
 <p>Each of our 8 rooms was designed to maximise comfort, light, and silence. Available as a king double or twin configuration, they adapt perfectly to your stay.</p>

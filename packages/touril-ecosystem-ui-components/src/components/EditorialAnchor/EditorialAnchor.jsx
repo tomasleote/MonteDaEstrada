@@ -46,9 +46,11 @@ function EditorialAnchor({
         {tagline}
       </motion.p>
 
-      <motion.p className={styles.body} variants={variants.staggerItem}>
-        {body}
-      </motion.p>
+      {body && (
+        <motion.p className={styles.body} variants={variants.staggerItem}>
+          {body}
+        </motion.p>
+      )}
 
       {(email || phone) && (
         <motion.p className={styles.contact} variants={variants.staggerItem}>
@@ -70,7 +72,7 @@ function EditorialAnchor({
 EditorialAnchor.propTypes = {
   propertyName: PropTypes.string.isRequired,
   tagline: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
+  body: PropTypes.string,
   email: PropTypes.string,
   phone: PropTypes.string,
   ctaLabel: PropTypes.string,

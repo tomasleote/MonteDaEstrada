@@ -24,7 +24,7 @@ const BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563
 function BookingSection({
   eyebrow = 'Reservas',
   heading = 'Marque a sua estadia.',
-  description = 'Seis quartos. Reserve diretamente para o melhor tarifário.',
+  description = 'Oito quartos. Reserve diretamente para o melhor tarifário.',
   fallbackEmail,
   fallbackPhone,
   whatsappNumber,

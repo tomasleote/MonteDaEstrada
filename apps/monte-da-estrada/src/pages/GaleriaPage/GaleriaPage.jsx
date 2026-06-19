@@ -17,7 +17,7 @@ const getSectionCopy = (locale) => {
     pt: {
       oMonte: {
         eyebrow: 'GALERIA · O MONTE',
-        title: 'O Espaço',
+        title: 'O Monte',
         body: 'Um monte alentejano recuperado com critério — jardins, terraços e o silêncio do campo a enquadrar cada momento.',
       },
       aRegiao: {
@@ -29,7 +29,7 @@ const getSectionCopy = (locale) => {
     en: {
       oMonte: {
         eyebrow: 'GALLERY · THE ESTATE',
-        title: 'The Space',
+        title: 'The Monte',
         body: 'A restored Alentejo monte — gardens, terraces, and the silence of the countryside framing every moment.',
       },
       aRegiao: {

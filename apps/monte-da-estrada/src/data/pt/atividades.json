@@ -95,10 +95,6 @@
         "description": "Amplos espaços verdes para passear e descansar"
       },
       {
-        "name": "Churrasqueira",
-        "description": "Área de churrasqueira para convívio ao ar livre"
-      },
-      {
         "name": "Bicicletas",
         "description": "Bicicletas disponíveis para explorar os arredores"
       },
@@ -109,10 +105,6 @@
       {
         "name": "Estacionamento",
         "description": "Estacionamento privado e gratuito"
-      },
-      {
-        "name": "Cozinha Partilhada",
-        "description": "Cozinha totalmente equipada para uso dos hóspedes"
       },
       {
         "name": "Terraço",

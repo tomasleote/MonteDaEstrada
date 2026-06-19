@@ -69,8 +69,8 @@ const structuredData = {
   "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp",
   "description": "A sua casa no Litoral Alentejano.",
   "priceRange": "$$",
-  "checkinTime": "15:00",
-  "checkoutTime": "12:00",
+  "checkinTime": "16:00",
+  "checkoutTime": "11:00",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Malhadil",
@@ -86,7 +86,7 @@ const structuredData = {
   },
   "containsPlace": Array.from({ length: 8 }, (_, i) => ({
     "@type": "HotelRoom",
-    "name": `Quarto Duplo / Twin ${i + 1}`,
+    "name": `Quarto Duplo ou Twin ${i + 1}`,
     "image": `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos/quarto-${(i % 4) + 1}.webp`
   }))
 };
@@ -98,21 +98,19 @@ const structuredData = {
 const homeCopy = {
   pt: {
     heroScrollLabel: 'Descobrir',
-    anchorTagline: 'Oito quartos, uma casa, um monte.',
-    anchorBody: 'A 5 quilómetros do mar, dentro da Costa Vicentina.',
+    anchorTagline: 'Um monte, 8 quartos e um jardim envolvente a 5 km do mar.',
+    anchorBody: '',
     anchorCtaLabel: 'Sobre a casa',
     casaEyebrow: 'A Casa',
-    casaHeading: 'Arquitectura de monte, revisitada.',
+    casaHeading: 'Um monte alentejano revisitado',
     casaBody: [
-      'A casa existia antes de ser hotel. Os muros de cal e o pavimento antigo mantêm-se — não por falta de alternativa, mas por escolha.',
-      'Não tentamos impressionar. Tentamos que fique.',
+      'Outrora um Monte onde se guardavam as alfaias e o feno, hoje transformado em 8 quartos num ambiente Rural com muito conforto e simplicidade.',
     ],
     casaCtaLabel: 'Conhecer a casa',
-    territorioEyebrow: 'O Território',
-    territorioHeading: 'Entre o Alentejo e o Atlântico.',
+    territorioEyebrow: 'Entre o Campo e o Mar',
+    territorioHeading: 'Amanhecer no Campo, Entardecer no Mar',
     territorioBody: [
-      'O Trilho dos Pescadores passa a minutos — 110 km de costa selvagem. Zambujeira do Mar fica a 8 quilómetros. O Litoral Alentejano está à porta.',
-      'Isto não é isolamento. É uma posição.',
+      'Conforto e serenidade num recanto alentejano pensado para si. Desfrute da proximidade estratégica ao Farol do Cabo Sardão e das praias mais deslumbrantes da Rota Vicentina. O descanso que merece, entre o campo e o mar.',
     ],
     territorioImageAlt: 'Vista panorâmica da paisagem alentejana',
     territorioCtaLabel: 'Explorar as redondezas',
@@ -121,25 +119,23 @@ const homeCopy = {
     experienciasCtaLabel: 'Ver todas as experiências',
     bookingEyebrow: 'Reservas',
     bookingHeading: 'Marque a sua estadia.',
-    bookingDescription: 'Seis quartos. Reserve diretamente para o melhor tarifário.',
+    bookingDescription: 'Oito quartos. Reserve diretamente para o melhor tarifário.',
   },
   en: {
     heroScrollLabel: 'Discover',
-    anchorTagline: 'Eight rooms, one house, one monte.',
-    anchorBody: '5 kilometres from the sea, inside the Costa Vicentina.',
+    anchorTagline: 'A monte, 8 rooms and surrounding gardens, 5 km from the sea.',
+    anchorBody: '',
     anchorCtaLabel: 'About the house',
     casaEyebrow: 'The House',
-    casaHeading: 'Monte architecture, revisited.',
+    casaHeading: 'An Alentejo monte, revisited',
     casaBody: [
-      'The house existed before it was a hotel. The whitewashed walls and original floors remain — not for lack of alternatives, but by choice.',
-      'We don\'t try to impress. We try to make you stay.',
+      'Once a monte where farm tools and hay were kept, today transformed into 8 rooms in a rural setting with great comfort and simplicity.',
     ],
     casaCtaLabel: 'Know the house',
-    territorioEyebrow: 'The Territory',
-    territorioHeading: 'Between Alentejo and the Atlantic.',
+    territorioEyebrow: 'Between the Countryside and the Sea',
+    territorioHeading: 'Sunrise in the Countryside, Sunset by the Sea',
     territorioBody: [
-      'The Fishermen\'s Trail is minutes away — 110 km of wild coast. Zambujeira do Mar is 8 kilometres. The Alentejo coastline is at the door.',
-      'This is not isolation. It is a position.',
+      'Comfort and serenity in an Alentejo retreat designed for you. Enjoy the strategic proximity to the Cabo Sardão Lighthouse and the most stunning beaches of the Rota Vicentina. The rest you deserve, between the countryside and the sea.',
     ],
     territorioImageAlt: 'Panoramic view of the Alentejo landscape',
     territorioCtaLabel: 'Explore the surroundings',
@@ -148,27 +144,27 @@ const homeCopy = {
     experienciasCtaLabel: 'See all experiences',
     bookingEyebrow: 'Reservations',
     bookingHeading: 'Book your stay.',
-    bookingDescription: 'Six rooms. Book directly for the best rate.',
+    bookingDescription: 'Eight rooms. Book directly for the best rate.',
   },
 };
 
 const getActivityItems = (locale) => {
   const items = {
     pt: [
-      { title: 'Praias', description: 'Costa Vicentina (110 km) — Zambujeira, Carvalhal, Odeceixe.', distance: '5-30 km' },
-      { title: 'Rota Vicentina', description: 'O Trilho dos Pescadores passa a minutos da porta.', distance: '1 km' },
-      { title: 'Natureza', description: 'Cegonhas, águias e montado. O Alentejo não precisa de mais.', distance: '0 km' },
-      { title: 'Gastronomia', description: 'Restaurantes, vinho alentejano, e produtos locais.', distance: '5 km' },
-      { title: 'Ciclismo', description: 'Estradas de terra batida através do montado sem trânsito.', distance: '0 km' },
-      { title: 'Massagens', description: 'Massagens terapêuticas e relaxantes na Herdade do Touril.', distance: '3 km' },
+      { title: 'Praias', description: 'Um mundo de praias costeiras e fluviais por descobrir.', distance: '5-30 km' },
+      { title: 'Trilhos', description: 'Caminhos de terra batida entre o mar e a serra. Hiking & Cycling.', distance: '0 km' },
+      { title: 'Natureza', description: 'Horizontes a perder de vista, onde plantas silvestres emolduram as falésias habitadas por cegonhas.', distance: '0 km' },
+      { title: 'História', description: 'Farol do Cabo Sardão — mais de um século de apoio à navegação marítima.', distance: '5 km' },
+      { title: 'Gastronomia', description: 'Petiscos locais e sabores autênticos oferecidos pela terra, rio e mar.', distance: '5 km' },
+      { title: 'Desporto', description: 'Paraíso para desportos de natureza e aventura: surf, bodyboard, canoagem ou stand-up paddle no Rio Mira e passeios a cavalo.', distance: '5-30 km' },
     ],
     en: [
-      { title: 'Beaches', description: 'Costa Vicentina (110 km) — Zambujeira, Carvalhal, Odeceixe.', distance: '5-30 km' },
-      { title: 'Rota Vicentina', description: 'The Fishermen\'s Trail is minutes from the door.', distance: '1 km' },
-      { title: 'Nature', description: 'Storks, eagles, and cork oak forest. Alentejo needs nothing more.', distance: '0 km' },
-      { title: 'Gastronomy', description: 'Restaurants, Alentejo wine, and local products.', distance: '5 km' },
-      { title: 'Cycling', description: 'Dirt roads through the cork oak forest with no traffic.', distance: '0 km' },
-      { title: 'Massages', description: 'Therapeutic and relaxation massages at Herdade do Touril.', distance: '3 km' },
+      { title: 'Beaches', description: 'A world of coastal and river beaches waiting to be discovered.', distance: '5-30 km' },
+      { title: 'Trails', description: 'Dirt paths between the sea and the hills. Hiking & cycling.', distance: '0 km' },
+      { title: 'Nature', description: 'Endless horizons, where wildflowers frame the cliffs inhabited by storks.', distance: '0 km' },
+      { title: 'History', description: 'Cabo Sardão Lighthouse — over a century of support to maritime navigation.', distance: '5 km' },
+      { title: 'Gastronomy', description: 'Local petiscos and authentic flavours offered by the land, river and sea.', distance: '5 km' },
+      { title: 'Sports', description: 'A paradise for nature and adventure sports: surf, bodyboard, canoeing or stand-up paddle on the Mira River, and horse riding.', distance: '5-30 km' },
     ],
   };
   return items[locale] || items.pt;
@@ -201,7 +197,7 @@ const HomePage = () => {
           imageSrc={homeImages.hero.src}
           imageAlt={locale === 'en' ? 'Monte da Estrada — rural tourism in Alentejo' : 'Monte da Estrada — turismo rural no Alentejo'}
           headline="Monte da Estrada"
-          subtitle={locale === 'en' ? 'Your home on the Alentejo Coast.' : 'A sua casa no Litoral Alentejano.'}
+          subtitle={locale === 'en' ? 'Rural setting with comfort and simplicity.' : 'Ambiente rural com conforto e simplicidade.'}
           scrollLabel={copy.heroScrollLabel}
         />
       </div>
