@@ -19,6 +19,7 @@ const RoomExpandedCard = ({
   variant = 'light',
   onClose,
   onReserveClick,
+  reserveLabel = 'RESERVE JÁ!',
   className = '',
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -129,9 +130,9 @@ const RoomExpandedCard = ({
               type="button"
               className={styles.reserveButton}
               onClick={onReserveClick}
-              aria-label={`Reservar ${title}`}
+              aria-label={`${reserveLabel} ${title}`}
             >
-              RESERVE JÁ!
+              {reserveLabel}
             </button>
           </div>
         </div>

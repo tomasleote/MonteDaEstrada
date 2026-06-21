@@ -6,7 +6,21 @@ import styles from './InlineBookingWidget.module.scss'
  * InlineBookingWidget — renders the HeyNow booking widget directly in the page flow.
  * Uses a singleton script loader and handles dynamic loading states and failures.
  */
-export default function InlineBookingWidget({ widgetConfig = {}, className = '' }) {
+const UI = {
+  pt: {
+    loading: 'A carregar disponibilidade...',
+    error: 'Não foi possível carregar o motor de reservas.',
+    fallback: 'Verificar disponibilidade',
+  },
+  en: {
+    loading: 'Loading availability...',
+    error: 'Could not load the booking engine.',
+    fallback: 'Check availability',
+  },
+};
+
+export default function InlineBookingWidget({ widgetConfig = {}, locale = 'pt', className = '' }) {
+  const ui = UI[locale] || UI.pt;
   const containerRef = useRef(null)
   const [loading, setLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
@@ -35,7 +49,7 @@ export default function InlineBookingWidget({ widgetConfig = {}, className = '' 
       containerRef.current.setAttribute('Hotel', widgetConfig.hotel || '[{ "id": "da157c05-a630-43a2-a15b-732f96c563f2", "name": "Monte da Estrada" }]')
       containerRef.current.setAttribute('Font', widgetConfig.font || 'Inter')
       containerRef.current.setAttribute('Colors', widgetConfig.colors || '{ "MainColor": "#1c1a17", "SecColor": "#f5f2ee", "ThirdColor": "#1c1a17" }')
-      containerRef.current.setAttribute('langu', widgetConfig.language || 'pt')
+      containerRef.current.setAttribute('langu', widgetConfig.language || locale)
       containerRef.current.setAttribute('Link', widgetConfig.link || 'https://be.heytravel.net/')
       containerRef.current.setAttribute('ComplexId', widgetConfig.complexId || '1828')
       containerRef.current.setAttribute('visualParams', widgetConfig.visualParams || '{ "holder":"", "hiddeEditReservation": "true", "hiddeMaxSize": "50", "allowChildren": "true" }')
@@ -131,16 +145,16 @@ export default function InlineBookingWidget({ widgetConfig = {}, className = '' 
             style={{ position: 'absolute', top: 0, left: 0, right: 0 }}
           >
             <div className={styles.spinner}></div>
-            <p>A carregar disponibilidade...</p>
+            <p>{ui.loading}</p>
           </motion.div>
         )}
       </AnimatePresence>
 
       {hasError ? (
         <div className={styles.errorFallback}>
-          <p>Não foi possível carregar o motor de reservas.</p>
+          <p>{ui.error}</p>
           <a href={fallbackUrl} target="_blank" rel="noopener noreferrer" className={styles.fallbackBtn}>
-            Verificar disponibilidade
+            {ui.fallback}
           </a>
         </div>
       ) : (

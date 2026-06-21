@@ -295,6 +295,7 @@ const HomePage = () => {
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
           isMobile={isMobile}
+          locale={locale}
         />
       </div>
 

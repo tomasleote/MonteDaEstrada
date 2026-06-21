@@ -18,13 +18,41 @@ const STYLE_URL = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json
 const DEFAULT_CENTER = [-8.778352, 37.588126]; // Centroid of the Monte da Estrada region
 const DEFAULT_ZOOM = 11;
 
-const FILTERS = [
-  { value: 'all',          label: 'Todos' },
-  { value: 'collection',   label: 'A Nossa Coleção' },
-  { value: 'gastronomia',  label: 'Gastronomia' },
-  { value: 'beach',        label: 'Praias' },
-  { value: 'curated',      label: 'Descobrir' },
-];
+const FILTERS = {
+  pt: [
+    { value: 'all',         label: 'Todos' },
+    { value: 'collection',  label: 'A Nossa Coleção' },
+    { value: 'gastronomia', label: 'Gastronomia' },
+    { value: 'beach',       label: 'Praias' },
+    { value: 'curated',     label: 'Descobrir' },
+  ],
+  en: [
+    { value: 'all',         label: 'All' },
+    { value: 'collection',  label: 'Our Collection' },
+    { value: 'gastronomia', label: 'Gastronomy' },
+    { value: 'beach',       label: 'Beaches' },
+    { value: 'curated',     label: 'Discover' },
+  ],
+};
+
+const MAP_COPY = {
+  pt: {
+    eyebrow: 'O Guia do Território',
+    heading: 'Tudo o que fica perto.',
+    filtersAriaLabel: 'Filtrar pontos de interesse',
+    mapAriaLabel: 'Mapa interativo dos pontos de interesse',
+    visitLabel: 'Visitar →',
+    mapLabel: 'Ver no Mapa →',
+  },
+  en: {
+    eyebrow: "Insider's Guide",
+    heading: 'Everything nearby.',
+    filtersAriaLabel: 'Filter points of interest',
+    mapAriaLabel: 'Interactive map of points of interest',
+    visitLabel: 'Visit →',
+    mapLabel: 'View on Map →',
+  },
+};
 
 // Maps category key → CSS module class name for the inner dot element
 const DOT_CLASS = {
@@ -64,7 +92,7 @@ function createMarkerEl(category) {
  * @param {HTMLElement} props.container - The DOM node to portal into
  * @param {Object}      props.location  - Location data object
  */
-function PopupPortal({ container, location }) {
+function PopupPortal({ container, location, copy }) {
   return createPortal(
     <div className={styles.popup}>
       {location.imageSrc && (
@@ -89,7 +117,7 @@ function PopupPortal({ container, location }) {
               rel="noopener noreferrer"
               className={styles.popupCta}
             >
-              Visitar →
+              {copy.visitLabel}
             </a>
           )}
           {location.mapUrl && (
@@ -99,7 +127,7 @@ function PopupPortal({ container, location }) {
               rel="noopener noreferrer"
               className={styles.popupCta}
             >
-              Ver no Mapa →
+              {copy.mapLabel}
             </a>
           )}
         </div>
@@ -134,7 +162,10 @@ function DiscoveryMap({
   center = DEFAULT_CENTER,
   zoom = DEFAULT_ZOOM,
   height = '520px',
+  locale = 'pt',
 }) {
+  const copy = MAP_COPY[locale] || MAP_COPY.pt;
+  const filters = FILTERS[locale] || FILTERS.pt;
   const containerRef = useRef(null);
   const mapRef        = useRef(null);
   const markersRef    = useRef([]);
@@ -253,17 +284,17 @@ function DiscoveryMap({
 
       {/* Eyebrow + Heading */}
       <div className={styles.header}>
-        <span className={styles.eyebrow}>O Guia do Território</span>
-        <h2 className={styles.heading}>Tudo o que fica perto.</h2>
+        <span className={styles.eyebrow}>{copy.eyebrow}</span>
+        <h2 className={styles.heading}>{copy.heading}</h2>
       </div>
 
       {/* Category filter pills */}
       <div
         className={styles.filters}
         role="group"
-        aria-label="Filtrar pontos de interesse"
+        aria-label={copy.filtersAriaLabel}
       >
-        {FILTERS.map((f) => (
+        {filters.map((f) => (
           <button
             key={f.value}
             type="button"
@@ -284,7 +315,7 @@ function DiscoveryMap({
         className={styles.mapCanvas}
         style={{ height }}
         role="application"
-        aria-label="Mapa interativo dos pontos de interesse"
+        aria-label={copy.mapAriaLabel}
       />
 
       {/* React portals — render popup content into MapLibre-owned containers */}
@@ -293,6 +324,7 @@ function DiscoveryMap({
           key={location.id}
           container={container}
           location={location}
+          copy={copy}
         />
       ))}
 

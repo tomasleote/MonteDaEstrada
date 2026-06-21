@@ -98,7 +98,7 @@ const DescobrirPage = () => {
 
       {/* S3.5 — Discovery Map ─────────────────────────────────────── */}
       <section id="mapa" className={styles.mapSection}>
-        <DiscoveryMap locations={mapLocations} />
+        <DiscoveryMap locations={mapLocations} locale={locale} />
       </section>
 
       {/* S4 — Experiências — ExperienceCard grid ─────────────────── */}
@@ -252,6 +252,7 @@ const DescobrirPage = () => {
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
           isMobile={isMobile}
+          locale={locale}
         />
       </div>
     </div>

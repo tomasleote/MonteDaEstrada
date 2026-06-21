@@ -17,6 +17,8 @@ const RoomCard = ({
   imagePosition = 'left',
   onInfoClick,
   onReserveClick,
+  reserveLabel = 'RESERVE JÁ!',
+  infoLabel = 'Mais Informações',
   className = '',
 }) => {
   const isImageRight = imagePosition === 'right';
@@ -49,15 +51,15 @@ const RoomCard = ({
               onClick={onReserveClick}
               aria-label={`Reservar ${title}`}
             >
-              RESERVE JÁ!
+              {reserveLabel}
             </button>
             <button
               type="button"
               className={styles.infoButton}
               onClick={onInfoClick}
-              aria-label={`Mais informações sobre ${title}`}
+              aria-label={`${infoLabel} ${title}`}
             >
-              Mais Informações
+              {infoLabel}
             </button>
           </div>
         </div>
@@ -83,6 +85,8 @@ RoomCard.propTypes = {
   onInfoClick: PropTypes.func.isRequired,
   /** Callback function when "RESERVE JÁ!" button is clicked */
   onReserveClick: PropTypes.func.isRequired,
+  reserveLabel: PropTypes.string,
+  infoLabel: PropTypes.string,
   /** Additional CSS class names */
   className: PropTypes.string,
 };

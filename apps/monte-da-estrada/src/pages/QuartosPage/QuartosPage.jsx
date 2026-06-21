@@ -167,6 +167,7 @@ const QuartosPage = () => {
         <RoomCardGallery
           rooms={rooms}
           onReserveClick={handleReserveClick}
+          locale={locale}
         />
       </section>
 
@@ -201,7 +202,7 @@ const QuartosPage = () => {
                 {copy.bookingButton}
               </a>
             ) : (
-              <InlineBookingWidget />
+              <InlineBookingWidget locale={locale} />
             )}
           </div>
         </div>

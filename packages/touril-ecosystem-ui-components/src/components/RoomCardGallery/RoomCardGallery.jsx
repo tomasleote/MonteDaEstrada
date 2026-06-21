@@ -25,11 +25,18 @@ import styles from './RoomCardGallery.module.scss';
  * ];
  * return <RoomCardGallery rooms={rooms} onReserveClick={handleReserve} />
  */
+const ROOM_LABELS = {
+  pt: { reserve: 'RESERVE JÁ!', info: 'Mais Informações' },
+  en: { reserve: 'BOOK NOW!', info: 'More Information' },
+};
+
 const RoomCardGallery = ({
   rooms = [],
   onReserveClick,
+  locale = 'pt',
   className = '',
 }) => {
+  const labels = ROOM_LABELS[locale] || ROOM_LABELS.pt;
   const [selectedRoomId, setSelectedRoomId] = useState(null);
   const expandedRef = useRef(null);
 
@@ -74,6 +81,7 @@ const RoomCardGallery = ({
                   variant={variant}
                   onClose={handleClose}
                   onReserveClick={() => handleReserveClick(room.roomId)}
+                  reserveLabel={labels.reserve}
                 />
               </div>
             ) : (
@@ -86,6 +94,8 @@ const RoomCardGallery = ({
                 imagePosition={imagePosition}
                 onInfoClick={() => handleInfoClick(room.roomId)}
                 onReserveClick={() => handleReserveClick(room.roomId)}
+                reserveLabel={labels.reserve}
+                infoLabel={labels.info}
               />
             )}
           </div>
@@ -124,6 +134,8 @@ RoomCardGallery.propTypes = {
   ).isRequired,
   /** Callback function when a reserve button is clicked, receives roomId */
   onReserveClick: PropTypes.func,
+  /** Locale for button labels: 'pt' or 'en' */
+  locale: PropTypes.string,
   /** Additional CSS class names for the gallery wrapper */
   className: PropTypes.string,
 };

@@ -5,7 +5,10 @@ import { variants, viewport } from '../../constants/motion';
 import InlineBookingWidget from '../BookingWidget/InlineBookingWidget';
 import styles from './BookingSection.module.scss';
 
-const BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT';
+const BOOKING_URL = {
+  pt: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT',
+  en: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=en-GB',
+};
 
 /**
  * BookingSection — Dark booking call-to-action section.
@@ -29,8 +32,12 @@ function BookingSection({
   fallbackPhone,
   whatsappNumber,
   isMobile = false,
+  locale = 'pt',
   className = '',
 }) {
+  const bookingUrl = BOOKING_URL[locale] || BOOKING_URL.pt;
+  const reserveLabel = locale === 'en' ? 'Book' : 'Reservar';
+  const responseNote = locale === 'en' ? 'Response within 24 hours.' : 'Resposta em 24 horas.';
   return (
     <motion.section
       className={`${styles.section} ${className}`}
@@ -54,15 +61,15 @@ function BookingSection({
       <motion.div variants={variants.fadeUp} className={styles.widgetContainer}>
         {isMobile ? (
           <a
-            href={BOOKING_URL}
+            href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.reserveButton}
           >
-            Reservar
+            {reserveLabel}
           </a>
         ) : (
-          <InlineBookingWidget />
+          <InlineBookingWidget locale={locale} />
         )}
       </motion.div>
 
@@ -97,7 +104,7 @@ function BookingSection({
 
       {/* Note */}
       <motion.p className={styles.note} variants={variants.fadeUp}>
-        Resposta em 24 horas.
+        {responseNote}
       </motion.p>
     </motion.section>
   );
@@ -111,6 +118,7 @@ BookingSection.propTypes = {
   fallbackPhone: PropTypes.string,
   whatsappNumber: PropTypes.string,
   isMobile: PropTypes.bool,
+  locale: PropTypes.string,
   className: PropTypes.string,
 };
 

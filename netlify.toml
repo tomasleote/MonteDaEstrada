@@ -34,7 +34,7 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://be.heytravel.net https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://be.heytravel.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://cdn.jsdelivr.net https://tile.openstreetmap.org https://be.heytravel.net; connect-src 'self' https://be.heytravel.net;"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://be.heytravel.net https://identity.netlify.com; worker-src blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://be.heytravel.net https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com; font-src 'self' https://fonts.gstatic.com https://tiles.basemaps.cartocdn.com; img-src 'self' data: blob: https://cdn.jsdelivr.net https://tile.openstreetmap.org https://be.heytravel.net https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com; connect-src 'self' https://be.heytravel.net https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com; frame-src https://maps.google.com https://www.google.com;"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 # Cache static assets for better performance
