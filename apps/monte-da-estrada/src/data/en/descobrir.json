@@ -6,7 +6,7 @@
       "title": "Picnic for hikers",
       "description": "Light picnic baskets for those heading out on the trails — local fruit, sheep cheese, and wood-fired bread from Zambujeira do Mar.",
       "highlights": ["Local fruit", "Sheep cheese", "Wood-fired bread from Zambujeira do Mar"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/pequeniqueai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/pequeniqueai.webp",
       "imageAlt": "Picnic basket with local products in the countryside"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Cheese, charcuterie and wine board",
       "description": "To savour on your room's terrace, at your own pace.",
       "highlights": ["Regional cheese", "Charcuterie", "Alentejo wine"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/vinhosai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/vinhosai.webp",
       "imageAlt": "Board of regional cheese, charcuterie and wine"
     },
     {
@@ -24,7 +24,7 @@
       "title": "Walking the Rota Vicentina",
       "description": "The Fishermen's Trail is minutes from the monte. The stretch between Zambujeira do Mar and Cavaleiro is considered one of the most beautiful of the Rota Vicentina.",
       "highlights": ["Fishermen's Trail", "Coastal cliffs", "Deserted beaches"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/rotavicentinaai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/rotavicentinaai.webp",
       "imageAlt": "Hiker on the Rota Vicentina with Atlantic Ocean views"
     },
     {
@@ -33,7 +33,7 @@
       "title": "Cycling Trails",
       "description": "Explore the montado paths and the parts of Alentejo where cars don't reach. By bicycle, at your own pace.",
       "highlights": ["Montado trails", "No traffic", "At your own pace"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/btt.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/btt.webp",
       "imageAlt": "Bicycle leaning against a tree with Alentejo montado in the background"
     },
     {
@@ -42,7 +42,7 @@
       "title": "Cabo Sardão Lighthouse",
       "description": "This emblematic early-19th-century building stands out for its singular architecture and for offering breathtaking views at sunset.",
       "highlights": ["Singular architecture", "19th century", "Sunset"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/jipetourai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/cabo-sardao-farol.png",
       "imageAlt": "Cabo Sardão Lighthouse at sunset"
     },
     {
@@ -51,7 +51,7 @@
       "title": "Herdade do Touril Restaurant",
       "description": "Lunch, petiscos and dinners — the best of the region's gastronomy, breathtaking scenery, and special attention to our guests.",
       "highlights": ["Lunch & dinner", "Regional gastronomy", "Breathtaking views"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/massagemai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/HerdadedoTouril1166.webp",
       "imageAlt": "Herdade do Touril restaurant"
     }
   ],
@@ -60,7 +60,7 @@
       "name": "Zambujeira do Mar",
       "distance": "8 km",
       "description": "Wild beach nestled in schist cliffs. Pure Atlantic.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/zambujeirapraia.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/zambujeirapraia.webp",
       "imageAlt": "Zambujeira do Mar with cliffs and turquoise-blue Atlantic sea",
       "mapUrl": "https://maps.app.goo.gl/kofHZjwBekjVqEzt5"
     },
@@ -68,7 +68,7 @@
       "name": "Carvalhal",
       "distance": "12 km",
       "description": "Long and windy, a favorite among surfers and those seeking beach without crowds.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/carvalhal.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/carvalhal.webp",
       "imageAlt": "Praia do Carvalhal with waves and dunes in the background",
       "mapUrl": "https://maps.app.goo.gl/TaXwnk9cj364cnbZ9"
     },
@@ -76,7 +76,7 @@
       "name": "Alteirinhos",
       "distance": "9 km",
       "description": "Beach with difficult access and unlikely beauty. For those seeking the unexpected.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/alteirinhos.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/alteirinhos.webp",
       "imageAlt": "Praia dos Alteirinhos viewed from the top of the cliffs",
       "mapUrl": "https://maps.app.goo.gl/gAvwGa5rhY8RvcGu9"
     },
@@ -84,7 +84,7 @@
       "name": "Almograve",
       "distance": "12 km",
       "description": "Wild beach with easy access and crystal-clear waters. A hidden treasure of the Costa Vicentina.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/almograve.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/almograve.webp",
       "imageAlt": "Praia de Almograve with golden sands",
       "mapUrl": "https://maps.app.goo.gl/4BgVJrALGAAXTBan9"
     },
@@ -92,7 +92,7 @@
       "name": "Odeceixe",
       "distance": "30 km",
       "description": "Where the river meets the sea. Sheltered from the wind, ideal for families.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/odeceixe.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/odeceixe.webp",
       "imageAlt": "Praia de Odeceixe with the Seixe river estuary",
       "mapUrl": "https://maps.app.goo.gl/ggdNmsjs6CQXuFJW8"
     },
@@ -100,15 +100,15 @@
       "name": "Tonel",
       "distance": "5 km",
       "description": "The beach of Sagres. Strong wind, impossible color, the end of the European world.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/tonel.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/tonel.webp",
       "imageAlt": "Praia do Tonel in Sagres with fortress in the background",
       "mapUrl": "https://maps.app.goo.gl/aMzy7JTXVZ74kfsh8"
     },
     {
       "name": "Malhão",
-      "distance": "25 km",
+      "distance": "30 km",
       "description": "Beach with wide sandy expanse. Dunes, wind, and open Atlantic.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/malhao.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/malhao.webp",
       "imageAlt": "Praia do Malhão with dunes",
       "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
     },
@@ -116,7 +116,7 @@
       "name": "Aivados",
       "distance": "32 km",
       "description": "Secret beach between rocks. One of the best-kept secrets of the coast.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/aivados.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/aivados.webp",
       "imageAlt": "Praia dos Aivados between rocks",
       "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
     }
@@ -135,7 +135,7 @@
       "location": "Beach",
       "distance": "8 km",
       "description": "The nearest and one of the most beautiful. Schist cliffs and open Atlantic.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/zambujeirapraia.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/zambujeirapraia.webp",
       "imageAlt": "Praia de Zambujeira do Mar",
       "mapUrl": "https://maps.app.goo.gl/iMovexEHDXCXJufq6"
     },
@@ -174,9 +174,9 @@
     {
       "title": "Malhão",
       "location": "Beach",
-      "distance": "25 km",
+      "distance": "30 km",
       "description": "Beach with wide sandy expanse. Dunes, wind, and open Atlantic.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/malhao.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/malhao.webp",
       "imageAlt": "Praia do Malhão with dunes",
       "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
     },
@@ -185,7 +185,7 @@
       "location": "Beach",
       "distance": "32 km",
       "description": "Secret beach between rocks. One of the best-kept secrets of the coast.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/aivados.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/aivados.webp",
       "imageAlt": "Praia dos Aivados between rocks",
       "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
     }
@@ -194,49 +194,49 @@
     {
       "name": "Herdade do Touril Restaurant",
       "url": "https://herdadedotouril.com/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/touril.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/touril.webp",
       "group": "comercial"
     },
     {
       "name": "Beach Bar - Almograve",
       "url": "https://www.barpraiaalmograve.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/bardapraia%20(1).webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/bardapraia%20(1).webp",
       "group": "comercial"
     },
     {
       "name": "Manjedoura Restaurant Bar",
       "url": "https://www.manjedoura.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/manjedoura%20(1).webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/manjedoura%20(1).webp",
       "group": "comercial"
     },
     {
       "name": "Tasca do Celso",
       "url": "https://rotavicentina.com/restaurantes/tasca-do-celso/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/celso%20(1).webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/celso%20(1).webp",
       "group": "comercial"
     },
     {
       "name": "BDP Vieirinha",
       "url": "",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/bdp_vieirinha.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/bdp-vierinha.jpg",
       "group": "comercial"
     },
     {
       "name": "Visit Alentejo",
       "url": "https://www.visitalentejo.pt/pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/visitalentejo.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/visitalentejo.webp",
       "group": "institucional"
     },
     {
       "name": "Casas Brancas",
       "url": "https://www.casasbrancas.pt/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/casas_brancas.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/casas_brancas.webp",
       "group": "institucional"
     },
     {
       "name": "Rota Vicentina",
       "url": "https://rotavicentina.com/",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/parceiros/rota_vicentina.webp",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/parceiros/rota_vicentina.webp",
       "group": "institucional"
     }
   ]

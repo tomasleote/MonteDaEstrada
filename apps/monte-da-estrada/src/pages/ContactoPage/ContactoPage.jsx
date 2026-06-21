@@ -6,10 +6,8 @@ import ContactForm from '@/components/ContactForm';
 import {
   PageHero,
   SectionEyebrow,
-  EditorialPullQuote,
   viewport,
   variants,
-  stagger,
 } from '@touril-ecosystem/ui-components';
 import { useLocale } from '@/contexts/LocaleContext';
 import { getData } from '@/data/dataLoader';
@@ -20,7 +18,7 @@ const contactStructuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Monte da Estrada",
-  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home/home-property-view-05.webp",
   "url": "https://montedaestrada.com/contacto",
   "telephone": "+351960254072",
   "email": "geral@montedaestrada.com",
@@ -50,6 +48,7 @@ const contactCopy = {
     mapEyebrow: 'Localização',
     mapHeading: 'Encontre-nos.',
     directionsEyebrow: 'Como Chegar',
+    directionsHeading: 'Abra com o seu GPS preferido.',
   },
   en: {
     heroImageAlt: 'Panoramic view of the Alentejo landscape',
@@ -61,6 +60,7 @@ const contactCopy = {
     mapEyebrow: 'Location',
     mapHeading: 'Find us.',
     directionsEyebrow: 'How to Get Here',
+    directionsHeading: 'Open in your preferred navigation app.',
   },
 };
 
@@ -68,12 +68,6 @@ const ContactoPage = () => {
   const { locale } = useLocale();
   const localizacaoData = getData('localizacao', locale);
   const copy = contactCopy[locale] || contactCopy.pt;
-
-  const directions = [
-    localizacaoData?.directions?.fromLisbon,
-    localizacaoData?.directions?.fromFaro,
-    localizacaoData?.directions?.fromPorto,
-  ].filter(Boolean);
 
   return (
     <div className={styles.page}>
@@ -85,7 +79,7 @@ const ContactoPage = () => {
         keywords={locale === 'en'
           ? 'contact, reservations, how to get here, monte da estrada, alentejo, zambujeira do mar'
           : 'contacto, reservas, como chegar, monte da estrada, alentejo, zambujeira do mar'}
-        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/costavicentina.webp"
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/costavicentina.webp"
         locale={locale}
       />
 
@@ -204,10 +198,11 @@ const ContactoPage = () => {
         </div>
       </section>
 
-      {/* S4 — Directions */}
-      <section className={styles.directionsSection}>
+      {/* S4 — Navigation */}
+      <section className={styles.navSection}>
         <div className={styles.container}>
           <motion.div
+            className={styles.navContent}
             variants={variants.fadeUp}
             initial="hidden"
             whileInView="visible"
@@ -215,45 +210,34 @@ const ContactoPage = () => {
           >
             <SectionEyebrow label={copy.directionsEyebrow} />
             <h2 className={styles.sectionHeading}>
-              {localizacaoData?.directions?.title || 'Como Chegar'}
+              {copy.directionsHeading}
             </h2>
-          </motion.div>
-
-          <motion.div
-            className={styles.directionsGrid}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: stagger.default,
-                  delayChildren: 0.1,
-                },
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            viewport={viewport.default}
-          >
-            {directions.map((direction, index) => (
-              <motion.div
-                key={index}
-                className={styles.directionPanel}
-                variants={variants.fadeUp}
+            <div className={styles.navButtons}>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=37.5882284,-8.7782661"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navButton}
               >
-                <h3 className={styles.directionCity}>{direction.title}</h3>
-                <p className={styles.directionMeta}>
-                  <span className={styles.directionMetaItem}>{direction.distance}</span>
-                  <span className={styles.directionMetaDivider}>·</span>
-                  <span className={styles.directionMetaItem}>{direction.duration}</span>
-                </p>
-                <ol className={styles.routeList}>
-                  {direction.route.map((step, i) => (
-                    <li key={i} className={styles.routeStep}>{step}</li>
-                  ))}
-                </ol>
-              </motion.div>
-            ))}
+                Google Maps
+              </a>
+              <a
+                href="https://waze.com/ul?ll=37.5882284,-8.7782661&navigate=yes"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navButton}
+              >
+                Waze
+              </a>
+              <a
+                href="https://maps.apple.com/?daddr=37.5882284,-8.7782661"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.navButton}
+              >
+                Apple Maps
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>

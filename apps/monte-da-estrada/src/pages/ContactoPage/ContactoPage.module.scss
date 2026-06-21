@@ -167,86 +167,48 @@
 }
 
 // ==================================
-// S5 — DIRECTIONS SECTION (Sand)
-// $color-sand: #EDE8E2 — warmer than cream, distinct from off-white.
+// S4 — NAVIGATION SECTION (Sand)
 // ==================================
 
-.directionsSection {
+.navSection {
   background-color: $color-sand;
   padding: $padding-section 0;
 }
 
-// 3-column grid — geometric precision
-.directionsGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $spacing-xl;
-
-  @include tablet {
-    grid-template-columns: repeat(2, 1fr);
-    gap: $spacing-l;
-  }
-
-  @include mobile {
-    grid-template-columns: 1fr;
-    gap: $spacing-l;
-  }
+.navContent {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-// Minimal architectural panel: clay top-border accent, no fills, no shadows
-.directionPanel {
-  border-top: 2px solid $color-clay; // The architectural precision accent
-  padding-top: $spacing-l;
+.navButtons {
+  display: flex;
+  gap: $spacing-l;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-// City name: display font, light weight, editorial
-.directionCity {
-  font-family: $font-display;
-  font-size: $font-size-h4; // 24px
-  font-weight: $font-weight-light; // 300
-  line-height: $line-height-tight;
-  letter-spacing: $letter-spacing-subheading;
-  color: $color-deep-brown;
-  margin: 0 0 $spacing-s 0;
-}
-
-// Distance · Time: clay, compact, medium weight
-.directionMeta {
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  padding: $spacing-m $spacing-xl;
+  border: 1px solid $color-deep-brown;
   font-family: $font-body;
-  font-size: $font-size-body-small; // 14px
+  font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
-  color: $color-clay;
-  margin: 0 0 $spacing-l 0;
-  display: flex;
-  align-items: center;
-  gap: $spacing-s;
-}
+  text-transform: uppercase;
+  color: $color-deep-brown;
+  text-decoration: none;
+  transition: background-color $transition-duration-normal $transition-timing-normal,
+              border-color $transition-duration-normal $transition-timing-normal,
+              color $transition-duration-normal $transition-timing-normal;
 
-.directionMetaItem {
-  // Inline span — inherits parent styles
-}
-
-.directionMetaDivider {
-  color: $color-cool-taupe;
-}
-
-// Route steps: numbered list, Inter body, charcoal
-.routeList {
-  padding-left: $spacing-l;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-xs;
-}
-
-.routeStep {
-  font-family: $font-body;
-  font-size: $font-size-body-small; // 14px
-  font-weight: $font-weight-regular;
-  line-height: $line-height-relaxed;
-  letter-spacing: $letter-spacing-body;
-  color: $color-charcoal;
+  &:hover {
+    background-color: $color-clay;
+    border-color: $color-clay;
+    color: $color-cream;
+  }
 }
 
 // ==================================
@@ -256,7 +218,7 @@
 @media (prefers-reduced-motion: reduce) {
   .contactGrid,
   .mapWrapper,
-  .directionsGrid {
+  .navButton {
     transition: none;
   }
 }
