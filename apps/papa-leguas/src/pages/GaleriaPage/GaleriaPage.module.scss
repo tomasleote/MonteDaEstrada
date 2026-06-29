@@ -1,0 +1,65 @@
+// Monte do Papa Léguas — Galeria Page
+@use '@/styles/variables' as *;
+
+.galeriaPage {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: $spacing-xxxl $spacing-l ($spacing-xxxl * 2);
+  max-width: $container-max-width;
+  margin: 0 auto;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    padding: $spacing-xxl $spacing-m $spacing-xxxl;
+  }
+}
+
+.masonryGrid {
+  column-count: 3;
+  column-gap: $spacing-s;
+
+  @media (max-width: #{$breakpoint-desktop}) {
+    column-count: 2;
+  }
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    column-count: 2;
+    column-gap: $spacing-xs;
+  }
+
+  @media (max-width: #{$breakpoint-mobile}) {
+    column-count: 1;
+  }
+}
+
+.masonryItem {
+  break-inside: avoid;
+  margin-bottom: $spacing-s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  border-radius: 0;
+
+  &:hover .masonryImage {
+    transform: scale(1.025);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: #{$breakpoint-mobile}) {
+    margin-bottom: $spacing-xs;
+  }
+}
+
+.masonryImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 350ms $ease-out-back;
+}

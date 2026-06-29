@@ -27,8 +27,8 @@ const quartosCopy = {
     bookingButton: 'Reservar',
     roomTitle: 'Quarto Duplo ou Twin',
     roomSubtitle: 'Conforto à sua medida, configurável como cama de casal ou twin.',
-    roomDescription: `<p><strong>Luxo e natureza em perfeita harmonia.</strong></p>
-<p>Cada um dos nossos 8 quartos foi desenhado para maximizar o conforto, a luz e o silêncio. Disponíveis com configuração de cama de casal ou duas camas twin, adaptam-se perfeitamente à sua estadia.</p>
+    roomDescription: `<p><strong>Conforto e natureza em perfeita harmonia.</strong></p>
+<p>Cada um dos nossos 8 quartos foi desenhado para maximizar o conforto, a luz e o silêncio, adaptam-se perfeitamente à sua estadia.</p>
 <h3>Espaço &amp; Luz</h3>
 <ul>
   <li>Configurável como cama de casal (King Size) ou Twin (duas camas)</li>
@@ -38,15 +38,14 @@ const quartosCopy = {
 <h3>Conforto &amp; Repouso</h3>
 <ul>
   <li>Casa de banho com chuveiro</li>
-  <li>Amenities premium de casa de banho</li>
-  <li>Acesso Wi-Fi gratuito de alta velocidade</li>
+  <li>Artigos de higiene pessoal</li>
+  <li>Acesso Wi-Fi gratuito</li>
 </ul>
 <h3>Bem-estar &amp; Comodidades</h3>
 <ul>
-  <li>Ar condicionado e aquecimento</li>
-  <li>Minibar com seleção regional</li>
+  <li>Ar condicionado</li>
+  <li>Minibar</li>
 </ul>
-<h3>Incluído na Estadia</h3>
 <ul>
   <li>Pequeno-almoço regional</li>
   <li>Estacionamento privativo gratuito</li>
@@ -64,8 +63,8 @@ const quartosCopy = {
     bookingButton: 'Book',
     roomTitle: 'Double or Twin Room',
     roomSubtitle: 'Comfort to your measure — configurable as a king double or twin.',
-    roomDescription: `<p><strong>Luxury and nature in perfect harmony.</strong></p>
-<p>Each of our 8 rooms was designed to maximise comfort, light, and silence. Available as a king double or twin configuration, they adapt perfectly to your stay.</p>
+    roomDescription: `<p><strong>Comfort and nature in perfect harmony.</strong></p>
+<p>Each of our 8 rooms was designed to maximise comfort, light, and silence, adapting perfectly to your stay.</p>
 <h3>Space &amp; Light</h3>
 <ul>
   <li>Configurable as king double or twin (two beds)</li>
@@ -75,15 +74,14 @@ const quartosCopy = {
 <h3>Comfort &amp; Rest</h3>
 <ul>
   <li>En-suite bathroom with shower</li>
-  <li>Premium bathroom amenities</li>
-  <li>High-speed free Wi-Fi access</li>
+  <li>Personal hygiene products</li>
+  <li>Free Wi-Fi access</li>
 </ul>
 <h3>Wellness &amp; Amenities</h3>
 <ul>
-  <li>Air conditioning and heating</li>
-  <li>Minibar with regional selection</li>
+  <li>Air conditioning</li>
+  <li>Minibar</li>
 </ul>
-<h3>Included in Your Stay</h3>
 <ul>
   <li>Regional breakfast</li>
   <li>Free private parking</li>

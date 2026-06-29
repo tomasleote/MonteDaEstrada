@@ -10,6 +10,7 @@ import styles from './GaleriaPage.module.scss';
 
 // Local static image imports replaced by CDN URLs
 const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos';
+const HOME_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home';
 
 // ── Section editorial copy ─────────────────────────────────────
 const getSectionCopy = (locale) => {
@@ -67,16 +68,40 @@ const GaleriaPage = () => {
 
   // ── O Monte — estate images ────────────────────────────────
   const oMonteImages = useMemo(() => [
+    // Exterior
+    { src: `${HOME_CDN}/monte-exterior-1.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/monte-exterior-2.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/monte-exterior-3.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/monte-exterior-4.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/monte-exterior-5.jpg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/monte-exterior-6.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/monte-exterior-7.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/home-hero-monte-exterior.webp`, alt: 'Monte da Estrada - Exterior panorâmico da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/home-property-view-01.webp`, alt: 'Monte da Estrada - Vista exterior da entrada principal', title: 'Exterior' },
+    { src: `${HOME_CDN}/home-property-view-05.webp`, alt: 'Monte da Estrada - Vista panorâmica da propriedade', title: 'Exterior' },
+    { src: `${HOME_CDN}/home-property-view-08.webp`, alt: 'Monte da Estrada - Vista da propriedade ao pôr do sol', title: 'Exterior' },
     { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada - Vista exterior do edifício alentejano', title: 'Exterior' },
-    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Monte da Estrada - Sala estúdio e zonas comuns', title: 'Área Comum' },
-    { src: homeImages.sala5.src, alt: homeImages.sala5.alt, title: homeImages.sala5.title },
-    { src: homeImages.pormenor2.src, alt: homeImages.pormenor2.alt, title: homeImages.pormenor2.title },
-    { src: homeImages.recepcao2.src, alt: homeImages.recepcao2.alt, title: homeImages.recepcao2.title },
-    { src: homeImages.sala3.src, alt: homeImages.sala3.alt, title: homeImages.sala3.title },
+    // Quartos
+    { src: `${HOME_CDN}/quarto-2.webp`, alt: 'Monte da Estrada - Quarto com decoração alentejana', title: 'Quarto' },
+    { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Monte da Estrada - Sala estúdio e zonas comuns', title: 'Quarto' },
     { src: `${QUARTOS_CDN}/quarto-2.webp`, alt: 'Monte da Estrada - Quarto com decoração tradicional alentejana', title: 'Quarto' },
-    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Monte da Estrada - Pormenores e arquitetura de charme', title: 'Pormenor' },
+    { src: `${QUARTOS_CDN}/quarto-3.webp`, alt: 'Monte da Estrada - Pormenores e arquitetura de charme', title: 'Quarto' },
     { src: `${QUARTOS_CDN}/quarto-4.webp`, alt: 'Monte da Estrada - Luminosidade e conforto nos quartos', title: 'Quarto' },
-    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Monte da Estrada - Casa de banho privativa moderna', title: 'Detalhe' },
+    { src: `${QUARTOS_CDN}/quarto-wc.webp`, alt: 'Monte da Estrada - Casa de banho privativa moderna', title: 'Casa de Banho' },
+    // Salas & Receção
+    { src: homeImages.sala5.src, alt: homeImages.sala5.alt, title: homeImages.sala5.title },
+    { src: `${HOME_CDN}/sala-2.webp`, alt: 'Monte da Estrada - Sala de estar e repouso', title: 'Sala' },
+    { src: homeImages.sala3.src, alt: homeImages.sala3.alt, title: homeImages.sala3.title },
+    { src: `${HOME_CDN}/sala-6.jpeg`, alt: 'Monte da Estrada - Espaços comuns da propriedade', title: 'Sala' },
+    { src: homeImages.recepcao2.src, alt: homeImages.recepcao2.alt, title: homeImages.recepcao2.title },
+    { src: `${HOME_CDN}/recepcao-1.webp`, alt: 'Monte da Estrada - Zona de receção e acolhimento', title: 'Receção' },
+    // Pormenores
+    { src: homeImages.pormenor2.src, alt: homeImages.pormenor2.alt, title: homeImages.pormenor2.title },
+    { src: `${HOME_CDN}/pormenor-1.webp`, alt: 'Monte da Estrada - Pormenores de arquitetura alentejana', title: 'Pormenor' },
+    { src: `${HOME_CDN}/pormenor-3.webp`, alt: 'Monte da Estrada - Detalhes e acabamentos da propriedade', title: 'Pormenor' },
+    // Pequeno-almoço
+    { src: `${HOME_CDN}/breakfast-1.jpeg`, alt: 'Monte da Estrada - Pequeno-almoço regional alentejano', title: 'Pequeno-almoço' },
+    { src: `${HOME_CDN}/breakfast-2.jpeg`, alt: 'Monte da Estrada - Pequeno-almoço com produtos locais', title: 'Pequeno-almoço' },
   ], []);
 
   // ── A Região — territory images ────────────────────────────

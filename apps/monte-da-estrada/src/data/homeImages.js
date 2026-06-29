@@ -7,8 +7,8 @@ const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/md
 
 export const homeImages = {
   hero: {
-    src: `${CDN_BASE}/home-property-view-05.webp`,
-    alt: 'Monte da Estrada - Casa de campo panorâmica no Litoral Alentejano',
+    src: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home/monte-exterior-1.jpeg',
+    alt: 'Monte da Estrada - Exterior da propriedade no Litoral Alentejano',
     title: 'Welcome to Monte da Estrada'
   },
   galeriaHero: {

@@ -10,6 +10,7 @@ import {
   ActivityHighlights,
   BookingSection,
   CategoryNav,
+  InlineBookingWidget,
 } from '@touril-ecosystem/ui-components';
 import useMobileQuery from '@/hooks/useMobileQuery';
 import { useLocale } from '@/contexts/LocaleContext';
@@ -17,6 +18,15 @@ import { getData } from '@/data/dataLoader';
 import { homeImages } from '@/data/homeImages';
 import { quartosImages } from '@/data/quartosImages';
 import styles from './HomePage.module.scss';
+
+// ──────────────────────────────────────────────
+// HeyTravel booking URLs — used in hero widget
+// ──────────────────────────────────────────────
+
+const BOOKING_URL = {
+  pt: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT',
+  en: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=en-GB',
+};
 
 // ──────────────────────────────────────────────
 // CategoryNav anchor items — 5 main sections
@@ -179,6 +189,24 @@ const HomePage = () => {
   const navItems = getNavItems(locale);
   const activityItems = getActivityItems(locale);
 
+  const bookingUrl = BOOKING_URL[locale] || BOOKING_URL.pt;
+  const reserveLabel = locale === 'en' ? 'Book now' : 'Reservar agora';
+
+  const heroWidget = isMobile ? (
+    <a
+      href={bookingUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={styles.heroBookButton}
+    >
+      {reserveLabel}
+    </a>
+  ) : (
+    <div className={styles.heroWidgetWrapper}>
+      <InlineBookingWidget locale={locale} />
+    </div>
+  );
+
   return (
     <div className={styles.homePage}>
       <SEO
@@ -199,7 +227,9 @@ const HomePage = () => {
           headline="Monte da Estrada"
           subtitle={locale === 'en' ? 'Rural setting with comfort and simplicity.' : 'Ambiente rural com conforto e simplicidade.'}
           scrollLabel={copy.heroScrollLabel}
-        />
+        >
+          {heroWidget}
+        </ImmersiveHero>
       </div>
 
       {/* CategoryNav — Sticky section navigation ──────────────── */}
@@ -285,7 +315,7 @@ const HomePage = () => {
         />
       </div>
 
-      {/* S8 — Booking Section ───────────────────────────────── */}
+      {/* S8 — Booking Section — widget is in hero, so always show button here */}
       <div id="reservas" className={styles.reservasSection}>
         <BookingSection
           eyebrow={copy.bookingEyebrow}
@@ -294,7 +324,7 @@ const HomePage = () => {
           fallbackEmail="geral@montedaestrada.com"
           fallbackPhone="+351 960 254 072"
           whatsappNumber="351960254072"
-          isMobile={isMobile}
+          isMobile={true}
           locale={locale}
         />
       </div>

@@ -1,0 +1,93 @@
+@use '@/styles/variables' as *;
+
+.page {
+  width: 100%;
+}
+
+.nearbyContainer {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding $spacing-xxxl;
+}
+
+.nearbyText {
+  font-family: $font-body;
+  font-size: $font-size-body;
+  color: $color-charcoal;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  margin: 0;
+}
+
+.mapSection {
+  width: 100%;
+  overflow: hidden;
+}
+
+.contactSection {
+  background-color: $color-cream;
+  padding: $padding-section 0;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    padding: 0 $spacing-m;
+  }
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-xxxl * 2;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    grid-template-columns: 1fr;
+    gap: $spacing-xxl;
+  }
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.detailLabel {
+  font-family: $font-body;
+  font-size: $font-size-caption;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  color: $color-clay;
+}
+
+.detailValue {
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  letter-spacing: $letter-spacing-body;
+  color: $color-deep-brown;
+  text-decoration: none;
+  transition: color $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    color: $color-clay;
+  }
+}
+
+.formWrapper {
+  // Layout placeholder — ContactForm handles its own layout
+}

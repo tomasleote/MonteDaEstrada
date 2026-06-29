@@ -17,3 +17,35 @@
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
+// ──────────────────────────────────────────────
+// Hero booking widget slot
+// ──────────────────────────────────────────────
+
+.heroWidgetWrapper {
+  margin-top: $spacing-xl;
+  width: 100%;
+  max-width: 860px;
+}
+
+// Mobile CTA button inside hero (replaces widget on small screens)
+.heroBookButton {
+  display: inline-block;
+  margin-top: $spacing-xl;
+  padding: $spacing-m $spacing-xxl;
+  background-color: $color-clay;
+  color: $color-deep-brown;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    background-color: $color-accent-dark;
+    color: $color-cream;
+  }
+}

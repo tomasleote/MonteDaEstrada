@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "Our Spaces",
+    "title": "Comfort with Alentejo Soul",
+    "subtitle": "Rooms and studios fully equipped for comfort, in an authentic Alentejo atmosphere.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-01.webp",
+    "imageAlt": "Interior of a room at Monte do Papa Léguas"
+  },
+  "quartos": {
+    "heading": "The Rooms",
+    "tagline": "Comfortable and Welcoming",
+    "description": [
+      "Comfortable and welcoming, our rooms offer everything you need for a pleasant and practical stay.",
+      "Located next to the main Monte, each room features a double bed or two single beds, according to your preference."
+    ],
+    "amenities": {
+      "atmospheric": ["Double bed or 2 single beds", "Private bathroom with shower", "Mini fridge"],
+      "premium": ["Air conditioning and heating", "Television", "Wardrobe", "Electric kettle", "Nearby parking"]
+    },
+    "cta": { "label": "Book Room", "href": "HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER" },
+    "images": [
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-01.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-02.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-03.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-04.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-05.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-06.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-07.webp"
+    ],
+    "imageAlts": [
+      "Room at Monte do Papa Léguas — view 1",
+      "Room — view 2",
+      "Room — view 3",
+      "Room — bathroom",
+      "Room — detail",
+      "Room — exterior",
+      "Room — terrace"
+    ]
+  },
+  "estudios": {
+    "heading": "The Studios",
+    "tagline": "Autonomy and Privacy",
+    "description": [
+      "The studio is ideal for those who prefer more independence. With a fully equipped kitchenette and private porch, it is the perfect space for an extended stay.",
+      "The studios are in a separate block from the main Monte, with their own parking space."
+    ],
+    "amenities": {
+      "atmospheric": ["Equipped kitchenette (mini-fridge, induction hob, microwave, toaster)", "Furnished private porch/terrace", "Bathroom with bathtub"],
+      "premium": ["Double bed or 2 single beds", "Extra bed available", "Air conditioning and heating", "Television", "Wardrobe", "Electric kettle", "Parking next to the block"]
+    },
+    "cta": { "label": "Book Studio", "href": "HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER" },
+    "images": [
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-01.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-02.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-03.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-04.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-05.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-06.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-07.webp"
+    ],
+    "imageAlts": [
+      "Studio at Monte do Papa Léguas — view 1",
+      "Studio — kitchenette",
+      "Studio — living area",
+      "Studio — bathroom",
+      "Studio — porch",
+      "Studio — detail",
+      "Studio — exterior"
+    ]
+  }
+}

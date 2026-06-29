@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "We Are Waiting for You",
+    "subtitle": "Two kilometres from the beach, in the heart of the Parque Natural do Sudoeste Alentejano.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "imageAlt": "Monte do Papa Léguas exterior at dusk"
+  },
+  "address": {
+    "name": "Monte do Papa Léguas",
+    "street": "Zambujeira do Mar",
+    "postalCode": "7630-611",
+    "region": "Alentejo",
+    "country": "Portugal",
+    "description": "Surrounded by farmland and set within a small private pine grove, we are located 2 km from the centre of Zambujeira do Mar and its beach.",
+    "nearbyBeaches": "Nearest beaches: Zambujeira do Mar, Alteirinhos, Carvalhal and Almograve"
+  },
+  "contact": {
+    "phone": "+351 960 432 223",
+    "phoneDisplay": "(+351) 960 432 223",
+    "email": "geral@montedopapaleguas.pt",
+    "gpsCoords": "37.529416994463, -8.761460462675107",
+    "gpsLink": "https://www.google.pt/maps/place/Monte+do+Papa+L%C3%A9guas+-+Turismo+Rural/@37.529414,-8.7614716,17z"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/montedopapaleguas/",
+    "instagram": "https://www.instagram.com/montedopapaleguas/"
+  },
+  "map": {
+    "lat": 37.529417,
+    "lng": -8.761460,
+    "zoom": 14
+  },
+  "form": {
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "Your email",
+    "arrivalPlaceholder": "Arrival date",
+    "departurePlaceholder": "Departure date",
+    "messagePlaceholder": "Your message",
+    "submitLabel": "Send Message"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "eyebrow": "Os Nossos Espaços",
+    "title": "Conforto com Alma Alentejana",
+    "subtitle": "Quartos e estúdios equipados com todo o conforto, num ambiente de autenticidade alentejana.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-01.webp",
+    "imageAlt": "Interior de um quarto do Monte do Papa Léguas"
+  },
+  "quartos": {
+    "heading": "Os Quartos",
+    "tagline": "Confortáveis e Acolhedores",
+    "description": [
+      "Confortáveis e acolhedores, os nossos quartos oferecem tudo o que precisa para uma estadia agradável e prática.",
+      "Situados junto ao Monte principal, cada quarto dispõe de cama de casal ou duas camas separadas, conforme a sua preferência."
+    ],
+    "amenities": {
+      "atmospheric": ["Cama de casal ou 2 camas separadas", "WC privativo com duche", "Mini-frigorifico"],
+      "premium": ["Ar condicionado e Aquecimento", "Televisão", "Roupeiro", "Chaleira elétrica", "Estacionamento próximo"]
+    },
+    "cta": { "label": "Reservar Quarto", "href": "HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER" },
+    "images": [
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-01.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-02.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-03.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-04.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-05.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-06.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-07.webp"
+    ],
+    "imageAlts": [
+      "Quarto do Monte do Papa Léguas — vista 1",
+      "Quarto — vista 2",
+      "Quarto — vista 3",
+      "Quarto — casa de banho",
+      "Quarto — detalhe",
+      "Quarto — exterior",
+      "Quarto — varanda"
+    ]
+  },
+  "estudios": {
+    "heading": "Os Estúdios",
+    "tagline": "Autonomia e Privacidade",
+    "description": [
+      "O estúdio é ideal para quem deseja mais autonomia. Com kitchenette equipada e alpendre privativo, é o espaço perfeito para uma estadia prolongada.",
+      "Os estúdios ficam num bloco separado do Monte principal, com lugar de estacionamento próprio."
+    ],
+    "amenities": {
+      "atmospheric": ["Kitchenette equipada (frigobar, indução, micro-ondas, torradeira)", "Alpendre/terraço privativo mobilado", "WC com banheira"],
+      "premium": ["Cama de casal ou 2 individuais", "Cama extra disponível", "Ar condicionado e Aquecimento", "Televisão", "Roupeiro", "Chaleira elétrica", "Estacionamento junto ao bloco"]
+    },
+    "cta": { "label": "Reservar Estúdio", "href": "HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER" },
+    "images": [
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-01.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-02.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-03.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-04.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-05.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-06.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-07.webp"
+    ],
+    "imageAlts": [
+      "Estúdio do Monte do Papa Léguas — vista 1",
+      "Estúdio — kitchenette",
+      "Estúdio — sala",
+      "Estúdio — casa de banho",
+      "Estúdio — alpendre",
+      "Estúdio — detalhe",
+      "Estúdio — exterior"
+    ]
+  }
+}

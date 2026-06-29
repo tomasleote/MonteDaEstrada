@@ -4,8 +4,8 @@
       "category": "gastronomia",
       "categoryLabel": "Picnics",
       "title": "Picnic for hikers",
-      "description": "Light picnic baskets for those heading out on the trails — local fruit, sheep cheese, and wood-fired bread from Zambujeira do Mar.",
-      "highlights": ["Local fruit", "Sheep cheese", "Wood-fired bread from Zambujeira do Mar"],
+      "description": "Picnic bags, seasonal fruit, sandwiches on wood-fired bread from Zambujeira do Mar — everything you need for your hike.",
+      "highlights": ["Seasonal fruit", "Wood-fired bread sandwiches", "Zambujeira do Mar"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/pequeniqueai.webp",
       "imageAlt": "Picnic basket with local products in the countryside"
     },
@@ -15,7 +15,7 @@
       "title": "Cheese, charcuterie and wine board",
       "description": "To savour on your room's terrace, at your own pace.",
       "highlights": ["Regional cheese", "Charcuterie", "Alentejo wine"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/vinhosai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@01e9b02/mde/descobrir/vinhos-ai.jpg",
       "imageAlt": "Board of regional cheese, charcuterie and wine"
     },
     {

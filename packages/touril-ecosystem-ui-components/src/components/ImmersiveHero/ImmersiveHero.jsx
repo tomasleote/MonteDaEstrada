@@ -25,6 +25,7 @@ function ImmersiveHero({
   scrollLabel = 'Descobrir',
   photographerCredit,
   className = '',
+  children,
 }) {
   const handleScrollClick = () => {
     window.scrollTo({ top: document.documentElement.clientHeight, behavior: 'smooth' });
@@ -38,7 +39,7 @@ function ImmersiveHero({
       {/* Dark Gradient Overlay */}
       <div className={styles.overlay} />
 
-      {/* Hero Content */}
+      {/* Hero Content — headline + optional widget slot */}
       <div className={styles.content}>
         <motion.h1
           className={styles.headline}
@@ -49,7 +50,8 @@ function ImmersiveHero({
         >
           {headline}
         </motion.h1>
-        {subtitle && (
+        {children}
+        {subtitle && !children && (
           <motion.p
             className={styles.subtitle}
             variants={variants.fadeUp}
@@ -62,6 +64,19 @@ function ImmersiveHero({
           </motion.p>
         )}
       </div>
+
+      {/* Subtitle pinned to bottom when a widget occupies the centre slot */}
+      {subtitle && children && (
+        <motion.p
+          className={styles.subtitleBottom}
+          variants={variants.fadeUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.3 }}
+        >
+          {subtitle}
+        </motion.p>
+      )}
 
       {/* Scroll Indicator */}
       <button className={styles.scrollIndicator} onClick={handleScrollClick} aria-label="Scroll to next section">
@@ -83,6 +98,7 @@ ImmersiveHero.propTypes = {
   scrollLabel: PropTypes.string,
   photographerCredit: PropTypes.string,
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default ImmersiveHero;

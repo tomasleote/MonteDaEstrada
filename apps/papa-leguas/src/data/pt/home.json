@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "alt": "Vista do Monte do Papa Léguas ao amanhecer",
+    "eyebrow": "Zambujeira do Mar · Parque Natural",
+    "headline": "Monte do Papa Léguas",
+    "subheadline": "Casa de Campo · Alentejo",
+    "ctaLabel": "Reservar"
+  },
+  "welcome": {
+    "eyebrow": "Bem-vindo",
+    "headline": "Um Refúgio de Charme no Coração do Alentejo",
+    "body": "Situado no coração do Parque Natural do Sudoeste Alentejano e Costa Vicentina, a apenas 2 km da encantadora vila da Zambujeira do Mar, o Monte do Papa Léguas é um refúgio de charme onde o Alentejo se revela em toda a sua autenticidade.\n\nCombinando tradição e elegância, a nossa casa é um verdadeiro convite à descontração, celebrando tons, texturas e simplicidade intemporal da cultura alentejana. Aqui cada detalhe é pensado para proporcionar uma experiência memorável, em perfeita harmonia com a natureza.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "imageAlt": "Área exterior do Monte do Papa Léguas com pinheiros"
+  },
+  "spaces": {
+    "eyebrow": "Os Nossos Espaços",
+    "headline": "Quartos e Estúdios",
+    "body": "Dois tipos de alojamento, ambos com o conforto e o charme alentejano que nos caracterizam.",
+    "ctaLabel": "Ver Espaços",
+    "ctaHref": "/espacos"
+  },
+  "activities": {
+    "eyebrow": "Descobrir",
+    "headline": "A Costa Alentejana à Sua Porta",
+    "body": "Da Rota Vicentina às praias selvagens, da prova de vinhos ao Sunset Chaser — experiências únicas pensadas para si.",
+    "ctaLabel": "Explorar",
+    "ctaHref": "/descobrir"
+  },
+  "gallery": {
+    "eyebrow": "Galeria",
+    "headline": "Imagens do Monte",
+    "ctaLabel": "Ver Galeria",
+    "ctaHref": "/galeria"
+  },
+  "booking": {
+    "eyebrow": "Reservas",
+    "headline": "Reserve a Sua Estadia",
+    "body": "Escolha as suas datas e garanta o melhor da Costa Alentejana.",
+    "ctaLabel": "Verificar Disponibilidade"
+  }
+}

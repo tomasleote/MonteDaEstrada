@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "Gallery",
+    "title": "Monte do Papa Léguas",
+    "subtitle": "Explore the beauty and authenticity of Monte do Papa-Léguas in the Southwest Alentejo."
+  },
+  "images": [
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-01.webp", "alt": "Room at Monte do Papa Léguas with natural light and double bed" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-02.webp", "alt": "Room — double bed with white linen and Alentejo décor" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-03.webp", "alt": "Room — detail of natural textures and materials" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-04.webp", "alt": "Room — sitting area with chairs and side table" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-05.webp", "alt": "Private bathroom of the room at Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-06.webp", "alt": "Room — detail of amenities and comfort" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-07.webp", "alt": "Room — bed with pillows and Alentejo wool blanket" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-08.webp", "alt": "Studio at Monte do Papa Léguas — open space with integrated kitchen and living area" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-09.webp", "alt": "Studio — sleeping area with natural light" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-10.webp", "alt": "Studio — equipped kitchen with stone countertop" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-11.webp", "alt": "Studio — private porch with view of the pine grove" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-12.webp", "alt": "Studio bathroom at Monte do Papa Léguas with bathtub" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-13.webp", "alt": "Studio — living room with sofa and side table" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-14.webp", "alt": "Studio — decorative details with local ceramics" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-15.webp", "alt": "Outdoor pool at Monte do Papa Léguas surrounded by pine trees" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-16.webp", "alt": "Sunloungers by the pool at Monte do Papa Léguas at sunset" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-17.webp", "alt": "Pool with reflection of the blue Alentejo sky" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-18.webp", "alt": "Whitewashed facade of Monte do Papa Léguas — traditional Alentejo architecture" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-19.webp", "alt": "Entrance of Monte do Papa Léguas with native vegetation" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-20.webp", "alt": "Garden and grounds of Monte do Papa Léguas with view to the horizon" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-21.webp", "alt": "Terrace at Monte do Papa Léguas with wooden table and chairs" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-22.webp", "alt": "Outdoor gathering area at Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-23.webp", "alt": "Sunrise over the Alentejo fields seen from Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-24.webp", "alt": "Pine grove at Monte do Papa Léguas with golden light at dusk" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-25.webp", "alt": "Sunset over the Alentejo countryside at Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-26.webp", "alt": "Night sky above Monte do Papa Léguas with no light pollution" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-27.webp", "alt": "Detail of Alentejo ceramics in the décor of Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-28.webp", "alt": "Artisan breakfast served on the terrace of Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-29.webp", "alt": "Panoramic view of the Alentejo countryside from Monte do Papa Léguas" },
+    { "src": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/galeria/galeria-30.webp", "alt": "Surrounding nature of Monte do Papa Léguas — native Alentejo flora" }
+  ]
+}

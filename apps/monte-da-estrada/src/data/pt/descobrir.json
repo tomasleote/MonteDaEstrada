@@ -4,8 +4,8 @@
       "category": "gastronomia",
       "categoryLabel": "Piqueniques",
       "title": "Piquenique para caminhantes",
-      "description": "Cestas de piquenique leve para quem parte para os trilhos — fruta local, queijo de ovelha e pão a lenha da Zambujeira do Mar.",
-      "highlights": ["Fruta local", "Queijo de ovelha", "Pão a lenha da Zambujeira do Mar"],
+      "description": "Sacos de piquenique, fruta da época, sanduiches em pão a lenha da Zambujeira do Mar - tudo o que é essencial para a sua caminhada.",
+      "highlights": ["Fruta da época", "Sanduiches em pão a lenha", "Zambujeira do Mar"],
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/pequeniqueai.webp",
       "imageAlt": "Cesta de piquenique com produtos locais no campo"
     },
@@ -15,7 +15,7 @@
       "title": "Tábua de queijo, enchidos e vinho",
       "description": "Para saborear no terraço do seu quarto, ao seu ritmo.",
       "highlights": ["Queijo regional", "Enchidos", "Vinho alentejano"],
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/vinhosai.webp",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@01e9b02/mde/descobrir/vinhos-ai.jpg",
       "imageAlt": "Tábua de queijo, enchidos e vinho regional"
     },
     {

@@ -1,0 +1,20 @@
+@use '@/styles/variables' as *;
+
+// ──────────────────────────────────────────────
+// HomePage — Monte do Papa Léguas
+// page-level wrapper only
+// All section styles live inside the shared library components
+// ──────────────────────────────────────────────
+
+.homePage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-cream;
+}
+
+.reservasSection {
+  width: 100%;
+  background-color: $color-neutral-white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

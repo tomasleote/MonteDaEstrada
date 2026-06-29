@@ -1,0 +1,38 @@
+@use '@/styles/variables' as *;
+
+.descobrirPage {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-cream;
+}
+
+.mapSection {
+  position: relative;
+  background-color: $color-cream;
+}
+
+.partnersSection {
+  padding: $spacing-xxl $container-padding;
+  text-align: center;
+}
+
+.partnerGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-l;
+  justify-content: center;
+  align-items: center;
+  margin-top: $spacing-xl;
+}
+
+.partnerLogo {
+  height: 60px;
+  max-width: 160px;
+  object-fit: contain;
+  opacity: 0.75;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

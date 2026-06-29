@@ -1,0 +1,118 @@
+{
+  "hero": {
+    "eyebrow": "Discover",
+    "title": "The Alentejo Coast at Your Doorstep",
+    "subtitle": "Unique experiences, stunning landscapes and the authentic flavours of the Southwest Alentejo.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-caminhada.webp",
+    "imageAlt": "Fishermen's Trail on the Costa Vicentina"
+  },
+  "activities": [
+    {
+      "id": "caminhadas",
+      "title": "Hiking on the Rota Vicentina",
+      "description": "Guided hikes along the Fishermen's Trail, one of the most iconic routes of the Rota Vicentina. Multiple sections of varying difficulty, accessible to all.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-caminhada.webp",
+      "imageAlt": "Hiking on the Fishermen's Trail"
+    },
+    {
+      "id": "sunset",
+      "title": "Sunset Chaser",
+      "description": "Jeep ride with a local guide to a privileged viewpoint to watch the sunset, while enjoying a wine and a regional snack.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-sunset.webp",
+      "imageAlt": "Sunset on the Costa Vicentina"
+    },
+    {
+      "id": "vinho",
+      "title": "Regional Wine Tasting",
+      "description": "A tasting of wines produced nearby — Alentejo wines with unique Atlantic characteristics.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-vinho.webp",
+      "imageAlt": "Regional Alentejo wine tasting"
+    },
+    {
+      "id": "bike",
+      "title": "E-bike Trails",
+      "description": "E-bike ride with a local guide to explore the Alentejo Coast. Different routes and distances for all levels.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-bike.webp",
+      "imageAlt": "E-bike ride on the Alentejo Coast"
+    },
+    {
+      "id": "massagem",
+      "title": "Massages",
+      "description": "Relaxation massages at the Herdade do Touril massage room, with a complimentary drink at the Pool Bar.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-massagem.webp",
+      "imageAlt": "Massage room at Herdade do Touril"
+    },
+    {
+      "id": "piquenique-cesta",
+      "title": "Picnic Basket",
+      "description": "A complete picnic, ideal for a romantic outing to a beach, a cliff, or to enjoy in the shade of our pine grove.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-piquenique.webp",
+      "imageAlt": "Picnic basket with regional products"
+    },
+    {
+      "id": "piquenique-caminhantes",
+      "title": "Hikers' Picnic",
+      "description": "We prepare a light picnic for you to take on your hike along the Fishermen's Trail.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-piquenique.webp",
+      "imageAlt": "Picnic for hikers"
+    }
+  ],
+  "activitiesNote": "All activities require prior booking. Prices available on request.",
+  "services": [
+    { "id": "pequeno-almoco", "label": "Breakfast", "detail": "8:30–11:00", "icon": "coffee" },
+    { "id": "piscina", "label": "Swimming Pool", "detail": "Seasonal", "icon": "pool" },
+    { "id": "honesty-bar", "label": "Honesty Bar", "detail": "Always available", "icon": "bar" },
+    { "id": "transfer", "label": "Hikers' Transfer", "detail": "Multiple drop-off points", "icon": "car" },
+    { "id": "wifi", "label": "Free Wi-Fi", "detail": "Throughout the property", "icon": "wifi" },
+    { "id": "bicicletas", "label": "Bicycles", "detail": "Mechanical and electric", "icon": "bike" },
+    { "id": "checkin", "label": "Check-in", "detail": "Rooms 3pm–8pm · Studios 4pm–8pm", "icon": "key" },
+    { "id": "checkout", "label": "Check-out", "detail": "By 11:00", "icon": "clock" },
+    { "id": "horario", "label": "Reception", "detail": "9:00–20:00", "icon": "door" },
+    { "id": "secador", "label": "Hair Dryer", "detail": "In all accommodation", "icon": "sparkles" },
+    { "id": "parking", "label": "Parking", "detail": "Private for guests", "icon": "car" }
+  ],
+  "partners": [
+    {
+      "name": "Casas Brancas",
+      "url": "https://www.casasbrancas.pt/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/casasbrancas.webp",
+      "logoAlt": "Casas Brancas logo"
+    },
+    {
+      "name": "Turismo do Alentejo",
+      "url": "https://www.visitalentejo.pt/pt/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/turismo-alentejo.webp",
+      "logoAlt": "Turismo do Alentejo logo"
+    },
+    {
+      "name": "Herdade do Touril",
+      "url": "https://herdadedotouril.com/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/touril.webp",
+      "logoAlt": "Herdade do Touril logo"
+    },
+    {
+      "name": "Rota Vicentina",
+      "url": "https://rotavicentina.com/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/rota-vicentina.webp",
+      "logoAlt": "Rota Vicentina logo"
+    },
+    {
+      "name": "Manjedoura",
+      "url": "https://www.manjedoura.pt/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/manjedoura.webp",
+      "logoAlt": "Manjedoura logo"
+    },
+    {
+      "name": "Tasca do Celso",
+      "url": "https://rotavicentina.com/restaurantes/tasca-do-celso/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/celso.webp",
+      "logoAlt": "Tasca do Celso logo"
+    },
+    {
+      "name": "Bar Praia do Almograve",
+      "url": "https://www.barpraiaalmograve.pt/",
+      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/bardapraia.webp",
+      "logoAlt": "Bar da Praia do Almograve logo"
+    }
+  ]
+}

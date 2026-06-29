@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo-pl.png" />
+    <link rel="apple-touch-icon" href="/logo-pl.png" />
+    <meta name="theme-color" content="#1a1a1a" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Monte do Papa Léguas | Zambujeira do Mar | Turismo Rural Alentejo</title>
+    <meta name="description" content="Situado no Parque Natural do Sudoeste Alentejano e Costa Vicentina, a 2 km da Zambujeira do Mar. Casa de campo com quartos e estúdios, piscina e pequeno-almoço artesanal." />
+
+    <!-- Google Fonts — DM Sans (display fallback for Basis Grotesque) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Netlify Identity Widget & Redirect for Admin Authentication (Lazy) -->
+    <script>
+      if (window.location.pathname.startsWith('/admin')) {
+        var s = document.createElement('script');
+        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+        s.onload = function() {
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                });
+              }
+            });
+          }
+        };
+        document.head.appendChild(s);
+      }
+    </script>
+  </body>
+</html>

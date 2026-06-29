@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "alt": "Monte do Papa Léguas at dawn",
+    "eyebrow": "Zambujeira do Mar · Natural Park",
+    "headline": "Monte do Papa Léguas",
+    "subheadline": "Country House · Alentejo",
+    "ctaLabel": "Book Now"
+  },
+  "welcome": {
+    "eyebrow": "Welcome",
+    "headline": "A Charming Retreat in the Heart of Alentejo",
+    "body": "Located in the heart of the Parque Natural do Sudoeste Alentejano e Costa Vicentina, just 2 km from the charming village of Zambujeira do Mar, Monte do Papa Léguas is a charming retreat where Alentejo reveals itself in all its authenticity.\n\nCombining tradition and elegance, our home is a true invitation to relaxation, celebrating the tones, textures, and timeless simplicity of Alentejo culture. Here every detail is thoughtfully crafted to provide a memorable experience, in perfect harmony with nature.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "imageAlt": "Monte do Papa Léguas exterior area with pine trees"
+  },
+  "spaces": {
+    "eyebrow": "Our Spaces",
+    "headline": "Rooms & Studios",
+    "body": "Two types of accommodation, both with the comfort and Alentejo charm that define us.",
+    "ctaLabel": "View Spaces",
+    "ctaHref": "/en/espacos"
+  },
+  "activities": {
+    "eyebrow": "Discover",
+    "headline": "The Alentejo Coast at Your Doorstep",
+    "body": "From the Rota Vicentina to wild beaches, wine tasting to Sunset Chaser — unique experiences designed for you.",
+    "ctaLabel": "Explore",
+    "ctaHref": "/en/descobrir"
+  },
+  "gallery": {
+    "eyebrow": "Gallery",
+    "headline": "Images of the Estate",
+    "ctaLabel": "View Gallery",
+    "ctaHref": "/en/galeria"
+  },
+  "booking": {
+    "eyebrow": "Reservations",
+    "headline": "Book Your Stay",
+    "body": "Choose your dates and secure the best of the Alentejo Coast.",
+    "ctaLabel": "Check Availability"
+  }
+}

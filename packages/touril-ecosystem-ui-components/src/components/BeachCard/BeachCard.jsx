@@ -58,9 +58,14 @@ function BeachCard({ name, distance, description, imageSrc, imageAlt, mapUrl, cl
 
         {/* Content overlay — sits above scrim */}
         <div className={styles.overlay}>
-          <span className={styles.distance}>{distance}</span>
           <h3 className={styles.name}>{name}</h3>
-          {description && <p className={styles.description}>{description}</p>}
+          {description && (
+            <p className={styles.description}>
+              {description}
+              {distance && <span className={styles.distance}> — {distance}</span>}
+            </p>
+          )}
+          {!description && distance && <span className={styles.distance}>{distance}</span>}
         </div>
       </div>
     </motion.article>

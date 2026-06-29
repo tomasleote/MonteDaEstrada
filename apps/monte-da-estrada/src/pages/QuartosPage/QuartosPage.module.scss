@@ -53,14 +53,14 @@
 
 .roomsSection {
   background-color: $color-cream;
-  padding: 80px 0 0;
+  padding-top: 80px;
 
   @include tablet {
-    padding: 60px 0 0;
+    padding: 60px 0;
   }
 
   @include mobile {
-    padding: 40px 0 0;
+    padding: 40px 0;
   }
 }
 
