@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
+import ImageLightbox from '../ImageLightbox';
 import styles from './RoomExpandedCard.module.scss';
 
 /**
@@ -23,6 +24,7 @@ const RoomExpandedCard = ({
   className = '',
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const isImageRight = imagePosition === 'right';
   const isDark = variant === 'dark';
 
@@ -34,8 +36,10 @@ const RoomExpandedCard = ({
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, [images.length]);
 
-  // Reason: Keyboard navigation for accessibility and better UX
+  // Reason: Keyboard navigation for accessibility and better UX.
+  // While the lightbox is open it owns keyboard control, so we stand down.
   useEffect(() => {
+    if (isLightboxOpen) return undefined;
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
       else if (e.key === 'ArrowLeft') goToPrevious();
@@ -43,7 +47,7 @@ const RoomExpandedCard = ({
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose, goToPrevious, goToNext]);
+  }, [onClose, goToPrevious, goToNext, isLightboxOpen]);
 
   const currentImage = images[currentIndex];
 
@@ -74,6 +78,16 @@ const RoomExpandedCard = ({
               className={styles.slideshowImage}
               loading="lazy"
               decoding="async"
+              onClick={() => setIsLightboxOpen(true)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setIsLightboxOpen(true);
+                }
+              }}
+              aria-label="Ver imagem em ecrã inteiro"
             />
 
             {images.length > 1 && (
@@ -137,6 +151,17 @@ const RoomExpandedCard = ({
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <ImageLightbox
+            images={images}
+            index={currentIndex}
+            onIndexChange={setCurrentIndex}
+            onClose={() => setIsLightboxOpen(false)}
+          />
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 };

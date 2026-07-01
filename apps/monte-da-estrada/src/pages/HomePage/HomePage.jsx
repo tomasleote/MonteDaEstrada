@@ -53,16 +53,20 @@ const getNavItems = (locale) => {
 
 const suiteCarouselImages = [
   {
-    src: quartosImages.quartoDuploTwin[1].src,
+    src: quartosImages.quartoDuploTwin.find((img) => img.src.includes('quarto-2.webp')).src,
     alt: 'Suite Alentejana com luz matinal e vista panorâmica',
   }
 ];
 
+// A Casa carousel — pinned to @42b901a (matches hero; monte-exterior-3/5 only exist at this pin)
+const CASA_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home';
 const s3CarouselImages = [
-  homeImages.gallery[0],
-  homeImages.sala5,
-  homeImages.pormenor2,
-  homeImages.recepcao2
+  { src: `${CASA_CDN}/sala-2.webp`, alt: 'Monte da Estrada — Sala de estar' },
+  { src: `${CASA_CDN}/sala-3.webp`, alt: 'Monte da Estrada — Espaços comuns' },
+  { src: `${CASA_CDN}/monte-exterior-3.jpeg`, alt: 'Monte da Estrada — Exterior do monte' },
+  { src: `${CASA_CDN}/monte-exterior-5.jpg`, alt: 'Monte da Estrada — Exterior e envolvente' },
+  { src: `${CASA_CDN}/sala-5.webp`, alt: 'Monte da Estrada — Sala de estar e leitura' },
+  { src: `${CASA_CDN}/pormenor-2.webp`, alt: 'Monte da Estrada — Detalhes de interiores' },
 ];
 
 // ──────────────────────────────────────────────
@@ -116,14 +120,13 @@ const homeCopy = {
     casaBody: [
       'Outrora um Monte onde se guardavam as alfaias e o feno, hoje transformado em 8 quartos num ambiente Rural com muito conforto e simplicidade.',
     ],
-    casaCtaLabel: 'Conhecer a casa',
     territorioEyebrow: 'Entre o Campo e o Mar',
     territorioHeading: 'Amanhecer no Campo, Entardecer no Mar',
     territorioBody: [
       'Conforto e serenidade num recanto alentejano pensado para si. Desfrute da proximidade estratégica ao Farol do Cabo Sardão e das praias mais deslumbrantes da Rota Vicentina. O descanso que merece, entre o campo e o mar.',
     ],
     territorioImageAlt: 'Vista panorâmica da paisagem alentejana',
-    territorioCtaLabel: 'Explorar as redondezas',
+    territorioCtaLabel: 'Descobrir o território',
     experienciasEyebrow: 'Experiências',
     experienciasHeading: 'Aqui não há agenda. A não ser a sua.',
     experienciasCtaLabel: 'Ver todas as experiências',
@@ -141,14 +144,13 @@ const homeCopy = {
     casaBody: [
       'Once a monte where farm tools and hay were kept, today transformed into 8 rooms in a rural setting with great comfort and simplicity.',
     ],
-    casaCtaLabel: 'Know the house',
     territorioEyebrow: 'Between the Countryside and the Sea',
     territorioHeading: 'Sunrise in the Countryside, Sunset by the Sea',
     territorioBody: [
       'Comfort and serenity in an Alentejo retreat designed for you. Enjoy the strategic proximity to the Cabo Sardão Lighthouse and the most stunning beaches of the Rota Vicentina. The rest you deserve, between the countryside and the sea.',
     ],
     territorioImageAlt: 'Panoramic view of the Alentejo landscape',
-    territorioCtaLabel: 'Explore the surroundings',
+    territorioCtaLabel: 'Discover the territory',
     experienciasEyebrow: 'Experiences',
     experienciasHeading: 'There is no agenda here. Unless you bring one.',
     experienciasCtaLabel: 'See all experiences',
@@ -235,7 +237,7 @@ const HomePage = () => {
       {/* CategoryNav — Sticky section navigation ──────────────── */}
       <CategoryNav
         items={navItems}
-        targetId="home-hero"
+        scrollThreshold={100}
         headerHeight={88}
       />
 
@@ -258,8 +260,6 @@ const HomePage = () => {
           body={copy.casaBody}
           carouselImages={s3CarouselImages}
           imagePosition="left"
-          ctaLabel={copy.casaCtaLabel}
-          ctaHref={locale === 'en' ? '/en/quartos' : '/quartos'}
         />
       </div>
 
@@ -311,7 +311,7 @@ const HomePage = () => {
           heading={copy.experienciasHeading}
           items={activityItems}
           ctaLabel={copy.experienciasCtaLabel}
-          ctaHref={locale === 'en' ? '/en/descobrir' : '/descobrir'}
+          ctaHref={locale === 'en' ? '/en/descobrir#experiencias' : '/descobrir#experiencias'}
         />
       </div>
 

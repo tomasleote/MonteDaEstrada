@@ -47,6 +47,15 @@
       order: unset;
     }
   }
+
+  // Reason: In the two-column desktop layout, a percentage height collapses to
+  // the slide's natural size (portrait photos would stretch the card). Pin a
+  // definite height matching the card so object-fit crops every slide equally.
+  .carousel {
+    @include desktop {
+      height: 520px; // matches .roomCard desktop min-height
+    }
+  }
 }
 
 .image {

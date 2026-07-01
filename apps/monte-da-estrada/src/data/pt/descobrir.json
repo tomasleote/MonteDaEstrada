@@ -57,6 +57,14 @@
   ],
   "beaches": [
     {
+      "name": "Tonel",
+      "distance": "5 km",
+      "description": "A praia de Sagres. Vento forte, cor impossível, fim do mundo europeu.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/tonel.webp",
+      "imageAlt": "Praia do Tonel em Sagres com fortaleza ao fundo",
+      "mapUrl": "https://maps.app.goo.gl/aMzy7JTXVZ74kfsh8"
+    },
+    {
       "name": "Zambujeira do Mar",
       "distance": "8 km",
       "description": "Praia selvagem encaixada em falésias de xisto. O Atlântico puro.",
@@ -65,20 +73,20 @@
       "mapUrl": "https://maps.app.goo.gl/kofHZjwBekjVqEzt5"
     },
     {
-      "name": "Carvalhal",
-      "distance": "12 km",
-      "description": "Extensa e ventosa, favorita dos surfistas e dos que querem praia sem multidão.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/carvalhal.webp",
-      "imageAlt": "Praia do Carvalhal com ondas e dunas ao fundo",
-      "mapUrl": "https://maps.app.goo.gl/TaXwnk9cj364cnbZ9"
-    },
-    {
       "name": "Alteirinhos",
       "distance": "9 km",
       "description": "Praia de acesso difícil e beleza improvável. Para os que procuram o inesperado.",
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/alteirinhos.webp",
       "imageAlt": "Praia dos Alteirinhos vista do alto das falésias",
       "mapUrl": "https://maps.app.goo.gl/gAvwGa5rhY8RvcGu9"
+    },
+    {
+      "name": "Carvalhal",
+      "distance": "12 km",
+      "description": "Extensa e ventosa, favorita dos surfistas e dos que querem praia sem multidão.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/carvalhal.webp",
+      "imageAlt": "Praia do Carvalhal com ondas e dunas ao fundo",
+      "mapUrl": "https://maps.app.goo.gl/TaXwnk9cj364cnbZ9"
     },
     {
       "name": "Almograve",
@@ -95,14 +103,6 @@
       "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/odeceixe.webp",
       "imageAlt": "Praia de Odeceixe com estuário do rio Seixe",
       "mapUrl": "https://maps.app.goo.gl/ggdNmsjs6CQXuFJW8"
-    },
-    {
-      "name": "Tonel",
-      "distance": "5 km",
-      "description": "A praia de Sagres. Vento forte, cor impossível, fim do mundo europeu.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/tonel.webp",
-      "imageAlt": "Praia do Tonel em Sagres com fortaleza ao fundo",
-      "mapUrl": "https://maps.app.goo.gl/aMzy7JTXVZ74kfsh8"
     },
     {
       "name": "Malhão",
@@ -218,7 +218,7 @@
     {
       "name": "BDP Vieirinha",
       "url": "",
-      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir/bdp-vierinha.jpg",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@5f57c30/mde/parceiros/VIEIRINHA-logo.png",
       "group": "comercial"
     },
     {

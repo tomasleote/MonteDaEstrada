@@ -58,6 +58,11 @@
   text-align: center;
   padding: $spacing-xxl;
   max-width: 800px;
+  transform: translateY(75px);
+
+  @include mobile {
+    transform: none;
+  }
 }
 
 .headline {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { motion } from 'motion/react';
+import SuiteCarousel from '../SuiteCarousel';
 import styles from './RoomCard.module.scss';
 
 /**
@@ -14,6 +15,7 @@ const RoomCard = ({
   subtitle,
   image,
   imageAlt,
+  images = [],
   imagePosition = 'left',
   onInfoClick,
   onReserveClick,
@@ -22,6 +24,7 @@ const RoomCard = ({
   className = '',
 }) => {
   const isImageRight = imagePosition === 'right';
+  const hasCarousel = Array.isArray(images) && images.length > 1;
 
   return (
     <motion.article
@@ -30,13 +33,17 @@ const RoomCard = ({
       data-room-id={roomId}
     >
       <div className={styles.imageColumn}>
-        <img
-          src={image}
-          alt={imageAlt}
-          className={styles.image}
-          loading="lazy"
-          decoding="async"
-        />
+        {hasCarousel ? (
+          <SuiteCarousel images={images} className={styles.carousel} />
+        ) : (
+          <img
+            src={image}
+            alt={imageAlt}
+            className={styles.image}
+            loading="lazy"
+            decoding="async"
+          />
+        )}
       </div>
 
       <div className={`${styles.contentColumn} ${isImageRight ? styles.contentColumnDark : ''}`}>
@@ -79,6 +86,13 @@ RoomCard.propTypes = {
   image: PropTypes.string.isRequired,
   /** Alternative text for image */
   imageAlt: PropTypes.string.isRequired,
+  /** Optional image set — renders a carousel instead of a single image when length > 1 */
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      alt: PropTypes.string,
+    })
+  ),
   /** Image position: 'left' or 'right' */
   imagePosition: PropTypes.oneOf(['left', 'right']),
   /** Callback function when "Mais Informações" button is clicked */
@@ -92,6 +106,7 @@ RoomCard.propTypes = {
 };
 
 RoomCard.defaultProps = {
+  images: [],
   imagePosition: 'left',
   className: '',
 };

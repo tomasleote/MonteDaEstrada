@@ -108,8 +108,8 @@ const QuartosPage = () => {
       roomId: 'quarto-duplo-twin',
       title: copy.roomTitle,
       subtitle: copy.roomSubtitle,
-      image: quartosImages.quartoDuploTwin[1].src,
-      imageAlt: quartosImages.quartoDuploTwin[1].alt,
+      image: quartosImages.quartoDuploTwin[0].src,
+      imageAlt: quartosImages.quartoDuploTwin[0].alt,
       description: copy.roomDescription,
       images: quartosImages.quartoDuploTwin,
     }

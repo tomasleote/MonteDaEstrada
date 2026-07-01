@@ -14,18 +14,28 @@ import styles from './CategoryNav.module.scss';
  * @param {Object} props
  * @param {Array<{id: string, label: string}>} props.items - Navigation items
  * @param {string} props.targetId - ID of the hero element to observe (nav shows when hero exits)
+ * @param {number} props.scrollThreshold - When set, nav shows once scrollY passes this value,
+ *   syncing its appearance with the site header's expand point (takes precedence over targetId)
  * @param {number} props.headerHeight - Pixel height of the fixed site header (default: 72)
  * @param {string} props.className - Additional CSS classes
  * @returns {React.ReactElement}
  */
-function CategoryNav({ items, targetId, headerHeight = 72, className = '' }) {
-  // Show nav once hero has exited the viewport; start visible if no targetId
-  const [isVisible, setIsVisible] = useState(!targetId);
+function CategoryNav({ items, targetId, scrollThreshold, headerHeight = 72, className = '' }) {
+  // Start hidden if any trigger is set; otherwise visible immediately
+  const [isVisible, setIsVisible] = useState(!targetId && scrollThreshold == null);
   const [activeId, setActiveId] = useState(null);
   const itemRefs = useRef({});
 
-  // Trigger visibility when the hero section leaves the viewport
+  // Trigger visibility: scrollThreshold syncs with the header expand point;
+  // otherwise fall back to showing once the hero section leaves the viewport
   useEffect(() => {
+    if (scrollThreshold != null) {
+      const handleScroll = () => setIsVisible(window.scrollY > scrollThreshold);
+      handleScroll();
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
+
     if (!targetId) return;
     const target = document.getElementById(targetId);
     if (!target) return;
@@ -36,7 +46,7 @@ function CategoryNav({ items, targetId, headerHeight = 72, className = '' }) {
     );
     observer.observe(target);
     return () => observer.disconnect();
-  }, [targetId]);
+  }, [targetId, scrollThreshold]);
 
   // Track which section is currently in view
   useEffect(() => {
@@ -143,6 +153,7 @@ CategoryNav.propTypes = {
     })
   ).isRequired,
   targetId: PropTypes.string,
+  scrollThreshold: PropTypes.number,
   headerHeight: PropTypes.number,
   className: PropTypes.string,
 };

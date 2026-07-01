@@ -16,6 +16,7 @@ export { default as Button } from './components/Button';
 export { default as RoomCard } from './components/RoomCard';
 export { default as RoomExpandedCard } from './components/RoomExpandedCard';
 export { default as RoomCardGallery } from './components/RoomCardGallery';
+export { default as ImageLightbox } from './components/ImageLightbox';
 
 // ============================================
 // HOMEPAGE EDITORIAL COMPONENTS

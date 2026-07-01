@@ -8,19 +8,14 @@ const HOME_CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b
 
 export const quartosImages = {
   hero: {
-    src: `${HOME_CDN_BASE}/home-property-view-01.webp`,
-    alt: 'Monte da Estrada — vista exterior do edifício alentejano',
+    src: `${CDN_BASE}/quarto-2.webp`,
+    alt: 'Monte da Estrada — quarto duplo com decoração tradicional alentejana',
     title: 'Quartos'
   },
   quartoDuploTwin: [
     {
       src: `${CDN_BASE}/quarto-1.webp`,
       alt: 'Monte da Estrada - Quarto Duplo com vista para o jardim',
-      title: 'Quarto Duplo ou Twin'
-    },
-    {
-      src: `${CDN_BASE}/quarto-2.webp`,
-      alt: 'Monte da Estrada - Quarto Duplo com decoração tradicional',
       title: 'Quarto Duplo ou Twin'
     },
     {
@@ -31,6 +26,11 @@ export const quartosImages = {
     {
       src: `${CDN_BASE}/quarto-4.webp`,
       alt: 'Monte da Estrada - Quarto com apontamentos e arquitetura de charme',
+      title: 'Quarto Duplo ou Twin'
+    },
+    {
+      src: `${CDN_BASE}/quarto-2.webp`,
+      alt: 'Monte da Estrada - Quarto Duplo com decoração tradicional',
       title: 'Quarto Duplo ou Twin'
     },
     {

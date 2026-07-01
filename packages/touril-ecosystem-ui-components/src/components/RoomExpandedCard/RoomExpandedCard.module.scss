@@ -18,6 +18,11 @@
   box-shadow: none;
   overflow: hidden;
 
+  // Fixed height in the two-column desktop layout for a consistent card.
+  @include desktop {
+    height: 600px;
+  }
+
   @include tablet {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -63,6 +68,15 @@
   position: relative;
   overflow: hidden;
   background-color: $color-warm-gray;
+
+  // Stacked layout needs an explicit height so images crop consistently.
+  @include tablet {
+    height: 420px;
+  }
+
+  @include mobile {
+    height: 300px;
+  }
 }
 
 .slideshow {
@@ -80,6 +94,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
   transition: filter 300ms ease-in-out;
 
   &:hover {

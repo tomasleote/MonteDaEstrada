@@ -25,6 +25,23 @@ import useMobileQuery from '@/hooks/useMobileQuery';
 import styles from './DescobrirPage.module.scss';
 
 // ──────────────────────────────────────────────
+// O Território — carousel images (ordered as per brief)
+// ──────────────────────────────────────────────
+
+const DISC = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir';
+const DISC_V2 = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@5f57c30/mde/descobrir';
+
+const territorioCarouselImages = [
+  { src: `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@0855ab6/mde/descobrir/rotavicentinaai5.3.png`, alt: 'Rota Vicentina — Trilho dos Pescadores' },
+  { src: `${DISC_V2}/praia-zambujeira.JPG`, alt: 'Praia da Zambujeira do Mar' },
+  { src: `${DISC}/cabo-sardao-farol.png`, alt: 'Farol do Cabo Sardão' },
+  { src: `${DISC}/alteirinhos.webp`, alt: 'Praia dos Alteirinhos' },
+  { src: `${DISC}/btt.webp`, alt: 'Trilhos em bicicleta no Alentejo' },
+  { src: `${DISC}/carvalhal.webp`, alt: 'Praia do Carvalhal' },
+  { src: `${DISC_V2}/cegonha.jpg`, alt: 'Cegonha branca no Alentejo' },
+];
+
+// ──────────────────────────────────────────────
 // CategoryNav anchor items — 4 acts
 // ──────────────────────────────────────────────
 
@@ -91,8 +108,7 @@ const DescobrirPage = () => {
         eyebrow={copy.territorioEyebrow}
         heading={copy.territorioHeading}
         body={copy.territorioBody}
-        imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/costavicentina.webp"
-        imageAlt={copy.territorioImageAlt}
+        carouselImages={territorioCarouselImages}
         imagePosition="right"
       />
 

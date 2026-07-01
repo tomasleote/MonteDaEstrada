@@ -91,6 +91,7 @@ const RoomCardGallery = ({
                 subtitle={room.subtitle}
                 image={room.image}
                 imageAlt={room.imageAlt}
+                images={room.images}
                 imagePosition={imagePosition}
                 onInfoClick={() => handleInfoClick(room.roomId)}
                 onReserveClick={() => handleReserveClick(room.roomId)}

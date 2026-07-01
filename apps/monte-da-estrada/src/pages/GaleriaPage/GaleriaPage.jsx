@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import SEO from '@/components/SEO';
 import Lightbox from '@/components/Lightbox';
-import { CategoryNav, PageHero } from '@touril-ecosystem/ui-components';
+import { PageHero } from '@touril-ecosystem/ui-components';
 import { ScrollReveal } from '@/motion';
 import { useLocale } from '@/contexts/LocaleContext';
 import { getData } from '@/data/dataLoader';
@@ -16,43 +16,17 @@ const HOME_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/md
 const getSectionCopy = (locale) => {
   const copy = {
     pt: {
-      oMonte: {
-        eyebrow: 'GALERIA · O MONTE',
-        title: 'O Monte',
-        body: 'Um monte alentejano recuperado com critério — jardins, terraços e o silêncio do campo a enquadrar cada momento.',
-      },
-      aRegiao: {
-        eyebrow: 'GALERIA · A REGIÃO',
-        title: 'O Território',
-        body: 'A Costa Vicentina e o Alentejo Litoral: praias selvagens, vilas branqueadas a cal e uma natureza que impõe respeito.',
-      },
+      eyebrow: 'GALERIA',
+      title: 'O Monte e o Território',
+      body: 'Um monte alentejano recuperado com critério e a Costa Vicentina em redor — jardins, terraços, praias selvagens e o silêncio do campo a enquadrar cada momento.',
     },
     en: {
-      oMonte: {
-        eyebrow: 'GALLERY · THE ESTATE',
-        title: 'The Monte',
-        body: 'A restored Alentejo monte — gardens, terraces, and the silence of the countryside framing every moment.',
-      },
-      aRegiao: {
-        eyebrow: 'GALLERY · THE REGION',
-        title: 'The Territory',
-        body: 'The Costa Vicentina and the Coastal Alentejo: wild beaches, whitewashed villages, and nature that commands respect.',
-      },
+      eyebrow: 'GALLERY',
+      title: 'The Estate & the Territory',
+      body: 'A restored Alentejo monte and the Costa Vicentina all around — gardens, terraces, wild beaches, and the silence of the countryside framing every moment.',
     },
   };
   return copy[locale] || copy.pt;
-};
-
-const getNavItems = (locale) => {
-  const labels = {
-    pt: { oMonte: 'O Monte', aRegiao: 'A Região' },
-    en: { oMonte: 'The Estate', aRegiao: 'The Region' },
-  };
-  const l = labels[locale] || labels.pt;
-  return [
-    { id: 'o-monte', label: l.oMonte },
-    { id: 'a-regiao', label: l.aRegiao },
-  ];
 };
 
 const GaleriaPage = () => {
@@ -64,7 +38,6 @@ const GaleriaPage = () => {
   const galeriaData = getData('galeria', locale);
   const descobrirData = getData('descobrir', locale);
   const sectionCopy = getSectionCopy(locale);
-  const navItems = getNavItems(locale);
 
   // ── O Monte — estate images ────────────────────────────────
   const oMonteImages = useMemo(() => [
@@ -76,11 +49,6 @@ const GaleriaPage = () => {
     { src: `${HOME_CDN}/monte-exterior-5.jpg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
     { src: `${HOME_CDN}/monte-exterior-6.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
     { src: `${HOME_CDN}/monte-exterior-7.jpeg`, alt: 'Monte da Estrada - Vista exterior da propriedade', title: 'Exterior' },
-    { src: `${HOME_CDN}/home-hero-monte-exterior.webp`, alt: 'Monte da Estrada - Exterior panorâmico da propriedade', title: 'Exterior' },
-    { src: `${HOME_CDN}/home-property-view-01.webp`, alt: 'Monte da Estrada - Vista exterior da entrada principal', title: 'Exterior' },
-    { src: `${HOME_CDN}/home-property-view-05.webp`, alt: 'Monte da Estrada - Vista panorâmica da propriedade', title: 'Exterior' },
-    { src: `${HOME_CDN}/home-property-view-08.webp`, alt: 'Monte da Estrada - Vista da propriedade ao pôr do sol', title: 'Exterior' },
-    { src: `${QUARTOS_CDN}/exterior-1.jpeg`, alt: 'Monte da Estrada - Vista exterior do edifício alentejano', title: 'Exterior' },
     // Quartos
     { src: `${HOME_CDN}/quarto-2.webp`, alt: 'Monte da Estrada - Quarto com decoração alentejana', title: 'Quarto' },
     { src: `${QUARTOS_CDN}/quarto-1.webp`, alt: 'Monte da Estrada - Sala estúdio e zonas comuns', title: 'Quarto' },
@@ -113,6 +81,12 @@ const GaleriaPage = () => {
       .map(a => ({ src: a.imageSrc, alt: a.imageAlt || a.title, title: a.title })),
   ], [descobrirData]);
 
+  // ── Galeria unificada — monte + território ────────────────
+  const allImages = useMemo(
+    () => [...oMonteImages, ...aRegiaoImages],
+    [oMonteImages, aRegiaoImages]
+  );
+
   const openLightbox = (images, index) => {
     setLightboxImages(images);
     setLightboxIndex(index);
@@ -131,7 +105,7 @@ const GaleriaPage = () => {
         locale={locale}
       />
 
-      {/* Hero — id used by CategoryNav to know when to appear */}
+      {/* Hero */}
       <div id="galeria-hero">
         <PageHero
           imageSrc={galeriaData?.hero?.image}
@@ -141,65 +115,30 @@ const GaleriaPage = () => {
         />
       </div>
 
-      {/* Sticky sub-navigation */}
-      <CategoryNav items={navItems} targetId="galeria-hero" headerHeight={88} />
-
-      {/* ── O Monte ─────────────────────────────────────────── */}
-      <section id="o-monte" className={styles.section}>
+      {/* ── Galeria — monte + território numa só secção ─────── */}
+      <section id="galeria" className={styles.section}>
         <ScrollReveal>
           <header className={styles.sectionHeader}>
-            <span className={styles.eyebrow}>{sectionCopy.oMonte.eyebrow}</span>
-            <h2 className={styles.sectionTitle}>{sectionCopy.oMonte.title}</h2>
-            <p className={styles.sectionBody}>{sectionCopy.oMonte.body}</p>
+            <span className={styles.eyebrow}>{sectionCopy.eyebrow}</span>
+            <h2 className={styles.sectionTitle}>{sectionCopy.title}</h2>
+            <p className={styles.sectionBody}>{sectionCopy.body}</p>
           </header>
         </ScrollReveal>
 
         <div className={styles.masonryGrid}>
-          {oMonteImages.map((image, index) => (
+          {allImages.map((image, index) => (
             <div
-              key={`o-monte-${index}`}
+              key={`galeria-${index}`}
               className={styles.masonryItem}
-              onClick={() => openLightbox(oMonteImages, index)}
+              onClick={() => openLightbox(allImages, index)}
               role="button"
               tabIndex={0}
               aria-label={`Ver imagem: ${image.title || image.alt}`}
-              onKeyDown={(e) => e.key === 'Enter' && openLightbox(oMonteImages, index)}
+              onKeyDown={(e) => e.key === 'Enter' && openLightbox(allImages, index)}
             >
               <img
                 src={image.src}
                 alt={image.alt || image.title || 'Monte da Estrada'}
-                loading="lazy"
-                className={styles.masonryImage}
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── A Região ─────────────────────────────────────────── */}
-      <section id="a-regiao" className={`${styles.section} ${styles.sectionAlt}`}>
-        <ScrollReveal>
-          <header className={styles.sectionHeader}>
-            <span className={styles.eyebrow}>{sectionCopy.aRegiao.eyebrow}</span>
-            <h2 className={styles.sectionTitle}>{sectionCopy.aRegiao.title}</h2>
-            <p className={styles.sectionBody}>{sectionCopy.aRegiao.body}</p>
-          </header>
-        </ScrollReveal>
-
-        <div className={styles.masonryGrid}>
-          {aRegiaoImages.map((image, index) => (
-            <div
-              key={`a-regiao-${index}`}
-              className={styles.masonryItem}
-              onClick={() => openLightbox(aRegiaoImages, index)}
-              role="button"
-              tabIndex={0}
-              aria-label={`Ver imagem: ${image.title || image.alt}`}
-              onKeyDown={(e) => e.key === 'Enter' && openLightbox(aRegiaoImages, index)}
-            >
-              <img
-                src={image.src}
-                alt={image.alt || image.title || 'A Região'}
                 loading="lazy"
                 className={styles.masonryImage}
               />
