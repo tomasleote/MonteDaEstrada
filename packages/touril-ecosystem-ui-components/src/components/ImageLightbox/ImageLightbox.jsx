@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import styles from './ImageLightbox.module.scss';
 
 /**
@@ -10,6 +10,7 @@ import styles from './ImageLightbox.module.scss';
  */
 const ImageLightbox = ({ images, index, onIndexChange, onClose }) => {
   const hasMultiple = images.length > 1;
+  const prefersReducedMotion = useReducedMotion();
 
   const goToPrevious = useCallback(() => {
     onIndexChange((index - 1 + images.length) % images.length);
@@ -41,7 +42,7 @@ const ImageLightbox = ({ images, index, onIndexChange, onClose }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
     >
       <button
         type="button"
@@ -62,7 +63,7 @@ const ImageLightbox = ({ images, index, onIndexChange, onClose }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.3 }}
         />
       </AnimatePresence>
 

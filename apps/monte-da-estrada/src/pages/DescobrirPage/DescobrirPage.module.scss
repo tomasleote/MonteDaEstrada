@@ -58,7 +58,11 @@
 .mapSection {
   position: relative; // Required for Framer Motion scroll offset calculation
   background-color: $color-cream;
-  padding: $padding-section 0;
+  padding: $space-section 0;
+
+  @include mobile {
+    padding: $spacing-xxxl 0;
+  }
 }
 
 .territorioSection {
@@ -71,7 +75,11 @@
 
 .experiencesSection {
   background-color: $color-sand;
-  padding: $padding-section 0;
+  padding: $space-section 0;
+
+  @include mobile {
+    padding: $spacing-xxxl 0;
+  }
 }
 
 .experiencesGrid {
@@ -96,7 +104,11 @@
 
 .beachesSection {
   background-color: $color-sand;
-  padding: $padding-section 0;
+  padding: $space-section 0;
+
+  @include mobile {
+    padding: $spacing-xxxl 0;
+  }
 }
 
 .beachesGrid {
@@ -117,7 +129,11 @@
 
 .redondezasSection {
   background-color: $color-deep-brown;
-  padding: $padding-section 0;
+  padding: $space-section 0;
+
+  @include mobile {
+    padding: $spacing-xxxl 0;
+  }
 }
 
 .attractionsGrid {
@@ -147,7 +163,11 @@
 
 .bookingSection {
   background-color: $color-sand;
-  padding: $padding-section 0;
+  padding: $space-section 0;
+
+  @include mobile {
+    padding: $spacing-xxxl 0;
+  }
 }
 
 // ==================================
@@ -156,7 +176,11 @@
 
 .parceirosSection {
   background-color: $color-cream;
-  padding: $padding-section 0;
+  padding: $space-section 0;
+
+  @include mobile {
+    padding: $spacing-xxxl 0;
+  }
 }
 
 .parceirosGrid {
@@ -176,7 +200,7 @@
   transition: transform $transition-duration-normal $ease-out-back;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 }
 

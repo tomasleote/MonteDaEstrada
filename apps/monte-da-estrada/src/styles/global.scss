@@ -77,9 +77,11 @@ body {
   }
 }
 
-// Set font for headings
+// Set font for headings — Boutique brand: light (300) headings by default;
+// components opt into heavier weights via their own classes.
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-primary;
+  font-weight: $font-weight-light;
 }
 
 // ==================================
@@ -118,7 +120,9 @@ a {
   transition: $transition-all-fast;
 
   &:hover {
-    color: $color-clay;
+    // Reason: clay (#94B1C9) fails WCAG as text on cream (2.02:1);
+    // charcoal keeps the coastal-blue family at 6.39:1.
+    color: $color-charcoal;
   }
 
   &:focus-visible {

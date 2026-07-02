@@ -80,7 +80,7 @@
   font-family: $font-body;
   font-size: clamp(0.6875rem, 1.1vw, 0.8125rem); // 11px → 13px
   font-weight: $font-weight-medium;
-  letter-spacing: 3px;
+  letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
   color: rgba($color-cream, 0.85);
   margin: 0;

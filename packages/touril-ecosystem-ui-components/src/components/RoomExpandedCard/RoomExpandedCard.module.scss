@@ -95,7 +95,7 @@
   object-fit: cover;
   object-position: center;
   cursor: pointer;
-  transition: filter 300ms ease-in-out;
+  transition: filter $transition-duration-normal $transition-timing-normal;
 
   &:hover {
     filter: brightness(1.05);
@@ -113,7 +113,7 @@
   font-size: 3rem;
   padding: $spacing-m $spacing-l;
   cursor: pointer;
-  transition: all 300ms ease-in-out;
+  transition: all $transition-duration-normal $transition-timing-normal;
   border-radius: 0;
   z-index: 10;
 
@@ -142,13 +142,13 @@
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
   background-color: rgba($color-cream, 0.5);
   border: none;
   cursor: pointer;
-  transition: all 300ms ease-in-out;
+  transition: all $transition-duration-normal $transition-timing-normal;
   padding: 0;
 
   &:hover {
@@ -158,6 +158,7 @@
 
 .dotActive {
   background-color: $color-cream;
+  box-shadow: 0 0 0 2px $color-clay;
 }
 
 // Image counter
@@ -188,7 +189,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 300ms ease-in-out;
+  transition: all $transition-duration-normal $transition-timing-normal;
   border-radius: 0;
   z-index: 20;
   color: $color-deep-brown;
@@ -246,7 +247,7 @@
   font-weight: $font-weight-regular;
   line-height: $line-height-relaxed;
   letter-spacing: $letter-spacing-body;
-  color: $color-warm-gray;
+  color: $color-charcoal;
   margin: 0 0 $spacing-xl 0;
 
   @include mobile {
@@ -328,7 +329,7 @@
   border: none;
   border-radius: 0;
   cursor: pointer;
-  transition: all 300ms ease-in-out;
+  transition: all $transition-duration-normal $transition-timing-normal;
   text-transform: uppercase;
 
   @include mobile {
@@ -336,11 +337,18 @@
     text-align: center;
   }
 
-  &:hover,
-  &:focus {
-    opacity: 0.85;
-    transform: scale(1.02);
-    outline: none;
+  &:hover {
+    background-color: $color-deep-brown;
+    color: $color-cream;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }
 

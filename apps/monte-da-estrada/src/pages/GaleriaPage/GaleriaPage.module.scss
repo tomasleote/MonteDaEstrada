@@ -33,10 +33,10 @@
 
 .eyebrow {
   display: block;
-  font-family: $font-display;
+  font-family: $font-body;
   font-size: $font-size-caption;
   font-weight: $font-weight-medium;
-  letter-spacing: $letter-spacing-headline;
+  letter-spacing: $letter-spacing-eyebrow;
   color: $color-cool-taupe;
   text-transform: uppercase;
   margin-bottom: $spacing-s;
@@ -98,7 +98,7 @@
   border-radius: 0;
 
   &:hover .masonryImage {
-    transform: scale(1.025);
+    transform: scale(1.03);
   }
 
   &:hover .imageOverlay {

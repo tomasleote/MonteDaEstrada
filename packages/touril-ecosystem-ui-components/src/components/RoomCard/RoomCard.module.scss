@@ -63,7 +63,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: filter 300ms ease-in-out, transform 300ms ease-in-out;
+  transition: filter $transition-duration-normal $transition-timing-normal, transform $transition-duration-normal $transition-timing-normal;
 
   .roomCard:hover & {
     filter: brightness(1.05);
@@ -77,7 +77,7 @@
   justify-content: center;
   background-color: $color-off-white;
   padding: $spacing-xxl;
-  transition: background-color 300ms ease-in-out;
+  transition: background-color $transition-duration-normal $transition-timing-normal;
 
   @include tablet {
     padding: $spacing-xl;
@@ -105,11 +105,11 @@
   }
 
   .subtitle {
-    color: rgba($color-cream, 0.75);
+    color: rgba($color-cream, 0.85);
   }
 
   .reserveButton {
-    color: $color-cream;
+    color: $color-deep-brown;
   }
 
   .infoButton {
@@ -127,7 +127,6 @@
 
     .title { color: $color-deep-brown; }
     .subtitle { color: $color-deep-brown; }
-    .reserveButton { color: $color-deep-brown; }
     .infoButton {
       color: $color-deep-brown;
       border-color: $color-deep-brown;
@@ -188,7 +187,7 @@
 
 .reserveButton,
 .infoButton {
-  padding: $spacing-s $spacing-l;
+  padding: $spacing-s $spacing-xl;
   font-family: $font-body;
   font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
@@ -196,7 +195,7 @@
   border: none;
   border-radius: 0;
   cursor: pointer;
-  transition: all 300ms ease-in-out;
+  transition: $transition-duration-normal $transition-timing-normal;
   text-transform: uppercase;
 
   @include mobile {
@@ -204,17 +203,24 @@
     text-align: center;
   }
 
-  &:hover,
-  &:focus {
-    opacity: 0.85;
-    transform: scale(1.02);
-    outline: none;
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
   }
 }
 
 .reserveButton {
   background-color: $color-clay;
   color: $color-deep-brown;
+
+  &:hover {
+    background-color: $color-deep-brown;
+    color: $color-cream;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 .infoButton {

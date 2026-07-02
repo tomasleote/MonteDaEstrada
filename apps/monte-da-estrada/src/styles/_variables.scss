@@ -67,9 +67,9 @@ $color-text-muted: $color-cool-taupe;
 $color-text-light: $color-cream;
 
 $color-success: #5C8A4A; // Olive green (natural, fits Alentejo)
-$color-warning: #E67E22;
-$color-error: #C0392B;
-$color-info: #3498DB;
+$color-warning: #E8A35D; // reconciled with shared package (warm amber)
+$color-error: #C1440E; // reconciled with shared package (warm red-brown)
+$color-info: #3D7BA8; // reconciled with shared package
 
 $color-bg-primary: $color-cream;
 $color-bg-secondary: $color-off-white;
@@ -112,9 +112,9 @@ $font-family-mono: 'Courier New', monospace;
 // Font Sizes
 $font-size-h1: 3.5rem; // 56px
 $font-size-h2: 2.75rem; // 44px
-$font-size-h3: 2.125rem; // 34px
+$font-size-h3: 2rem; // 32px — reconciled with shared package
 $font-size-h4: 1.5rem; // 24px
-$font-size-h5: 1.25rem; // 20px
+$font-size-h5: 1.125rem; // 18px — reconciled with shared package
 $font-size-h6: 1rem; // 16px
 
 $font-size-body-large: 1.125rem; // 18px
@@ -155,6 +155,7 @@ $line-height-normal: $line-height-base;
 $letter-spacing-headline: 1px; // H1 / H2
 $letter-spacing-subheading: 0.75px; // H3 / H4 / button labels
 $letter-spacing-body: 0.5px; // Body / captions
+$letter-spacing-eyebrow: 2px; // Wide-tracked uppercase eyebrows / category labels
 $letter-spacing-touril: 0.75px; // Alias — used in shared component SCSS
 
 // Deprecated letter-spacing
@@ -174,8 +175,9 @@ $spacing-s: $spacing-unit * 1; // 8px
 $spacing-m: $spacing-unit * 2; // 16px
 $spacing-l: $spacing-unit * 3; // 24px
 $spacing-xl: $spacing-unit * 4; // 32px
-$spacing-xxl: $spacing-unit * 5; // 40px
+$spacing-xxl: $spacing-unit * 6; // 48px — reconciled with shared package (was 40px)
 $spacing-xxxl: $spacing-unit * 6; // 48px  ← minimum section padding (brand rule)
+$space-section: $spacing-unit * 10; // 80px — section vertical padding (matches shared package)
 
 // Deprecated spacing aliases
 $spacing-sm: $spacing-unit;
@@ -303,8 +305,8 @@ $opacity-overlay: 0.7;
   --font-size-lg-fluid: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
   --font-size-xl-fluid: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
   --font-size-2xl-fluid: clamp(1.5rem, 1.3rem + 1vw, 2rem);
-  --font-size-3xl-fluid: clamp(2rem, 1.7rem + 1.5vw, 2.5rem);
-  --font-size-4xl-fluid: clamp(2.5rem, 2rem + 2.5vw, 3rem);
+  --font-size-3xl-fluid: clamp(2rem, 1.6rem + 1.5vw, 2.75rem); // max = $font-size-h2 (reconciled)
+  --font-size-4xl-fluid: clamp(2.5rem, 2rem + 2.5vw, 3.5rem); // max = $font-size-h1 (reconciled)
 
   // Fluid spacing
   --spacing-xs-fluid: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);

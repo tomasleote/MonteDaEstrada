@@ -143,9 +143,9 @@ $font-weight-bold: 700;
 
 // Line Heights (brand spec)
 $line-height-tight: 1.2; // H1
-$line-height-base: 1.4; // H2
+$line-height-base: 1.5; // H2 — reconciled with app tokens (was 1.4)
 $line-height-subheading: 1.4; // H3, H4
-$line-height-relaxed: 1.6; // Body text (generous for readability)
+$line-height-relaxed: 1.65; // Body text — reconciled with app tokens (was 1.6)
 $line-height-loose: 2;
 
 // Deprecated line-height aliases
@@ -156,6 +156,7 @@ $line-height-footer-nav: 1.07; // compact nav grid
 $letter-spacing-headline: 1px; // H1, H2
 $letter-spacing-subheading: 0.75px; // H3, H4, labels
 $letter-spacing-body: 0.5px; // Body text, captions
+$letter-spacing-eyebrow: 2px; // Wide-tracked uppercase eyebrows / category labels
 $letter-spacing-touril: 0.75px; // Alias used by components
 
 // Other letter-spacing aliases

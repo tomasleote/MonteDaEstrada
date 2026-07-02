@@ -53,14 +53,14 @@
 
 .roomsSection {
   background-color: $color-cream;
-  padding-top: 80px;
+  padding-top: $space-section;
 
   @include tablet {
-    padding: 60px 0;
+    padding: $spacing-xxxl 0;
   }
 
   @include mobile {
-    padding: 40px 0;
+    padding: $spacing-xxxl 0;
   }
 }
 
@@ -79,14 +79,14 @@
 
 .bookingSection {
   background-color: $color-sand;
-  padding: 80px 0;
+  padding: $space-section 0;
 
   @include tablet {
-    padding: 60px 0;
+    padding: $spacing-xxxl 0;
   }
 
   @include mobile {
-    padding: 40px 0;
+    padding: $spacing-xxxl 0;
   }
 }
 
@@ -107,7 +107,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 40px auto 0;
+  margin: $spacing-xxl auto 0;
 }
 
 // Mobile Reservar button — replaces inline widget on small screens
@@ -117,7 +117,7 @@
   background-color: $color-clay;
   color: $color-deep-brown;
   font-family: $font-body;
-  font-size: 0.875rem;
+  font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;
@@ -129,12 +129,12 @@
               transform $transition-duration-normal $transition-timing-normal;
 
   &:hover {
-    background-color: $color-accent-dark;
+    background-color: $color-deep-brown;
     color: $color-cream;
   }
 
   &:active {
-    transform: scale(1.05);
+    transform: scale(0.98);
   }
 
   @include focus-ring;

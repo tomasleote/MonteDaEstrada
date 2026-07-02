@@ -48,7 +48,7 @@ export default function InlineBookingWidget({ widgetConfig = {}, locale = 'pt', 
       // as HeyTravel script expects exact case attributes.
       containerRef.current.setAttribute('Hotel', widgetConfig.hotel || '[{ "id": "da157c05-a630-43a2-a15b-732f96c563f2", "name": "Monte da Estrada" }]')
       containerRef.current.setAttribute('Font', widgetConfig.font || 'Inter')
-      containerRef.current.setAttribute('Colors', widgetConfig.colors || '{ "MainColor": "#1c1a17", "SecColor": "#f5f2ee", "ThirdColor": "#1c1a17" }')
+      containerRef.current.setAttribute('Colors', widgetConfig.colors || '{ "MainColor": "#2C3E50", "SecColor": "#F5F3F0", "ThirdColor": "#2C3E50" }')
       containerRef.current.setAttribute('langu', widgetConfig.language || locale)
       containerRef.current.setAttribute('Link', widgetConfig.link || 'https://be.heytravel.net/')
       containerRef.current.setAttribute('ComplexId', widgetConfig.complexId || '1828')

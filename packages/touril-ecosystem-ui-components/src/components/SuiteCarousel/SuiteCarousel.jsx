@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import styles from './SuiteCarousel.module.scss';
 
 const SuiteCarousel = ({ images = [], className = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   // Auto-advance carousel every 5 seconds (unless hovering or only 1 image)
   useEffect(() => {
@@ -21,14 +22,14 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
 
   useEffect(() => {
     // On touch devices, default to paused autoplay
-    if (isTouchDevice || isHovering || images.length <= 1) return;
+    if (isTouchDevice || isHovering || prefersReducedMotion || images.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isHovering, isTouchDevice, images.length]);
+  }, [isHovering, isTouchDevice, prefersReducedMotion, images.length]);
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
@@ -59,7 +60,7 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
         >
           <motion.img
             src={images[currentIndex].src}
@@ -68,7 +69,7 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
             loading="lazy"
             decoding="async"
             initial={{ scale: 1 }}
-            animate={{ scale: 1.02 }}
+            animate={{ scale: prefersReducedMotion ? 1 : 1.02 }}
             transition={{ duration: 8, ease: 'easeInOut' }}
           />
         </motion.div>

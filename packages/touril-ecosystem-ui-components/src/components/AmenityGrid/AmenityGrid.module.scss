@@ -4,9 +4,9 @@
 .amenityGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 32px;
+  gap: $spacing-xl;
   width: 100%;
-  margin: 48px 0;
+  margin: $spacing-xxl 0;
 
   @media (max-width: $breakpoint-tablet) {
     gap: 28px;
@@ -14,8 +14,8 @@
 
   @media (max-width: $breakpoint-mobile) {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    margin: 32px 0;
+    gap: $spacing-l;
+    margin: $spacing-xl 0;
   }
 }
 
@@ -29,14 +29,14 @@
   &.atmospheric {
     .amenityLabel {
       color: $color-clay;
-      font-weight: 500;
+      font-weight: $font-weight-medium;
     }
   }
 
   &.premium {
     .amenityLabel {
       color: $color-clay;
-      font-weight: 400;
+      font-weight: $font-weight-regular;
     }
   }
 }
@@ -47,11 +47,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: $font-size-h4;
 }
 
 .amenityLabel {
-  font-size: 14px;
+  font-size: $font-size-body-small;
   line-height: 1.4;
   letter-spacing: 0.5px;
   max-width: 140px;

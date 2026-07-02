@@ -23,7 +23,7 @@
   font-family: $font-body;
   font-size: 11px; // Whispered — same pattern as category labels
   font-weight: $font-weight-regular;
-  letter-spacing: 2px;
+  letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
   color: rgba($color-cream, 0.5);
 }
@@ -67,7 +67,7 @@
 
   @include hover-device {
     &:hover:not(.active) {
-      border-color: rgba($color-cream, 0.4);
+      border-color: rgba($color-cream, 0.65);
       color: $color-cream;
     }
   }

@@ -133,7 +133,7 @@ const RoomExpandedCard = ({
 
       <div className={styles.contentColumn}>
         <div className={styles.contentInner}>
-          <h2 className={styles.title}>{title}</h2>
+          <h3 className={styles.title}>{title}</h3>
           {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
           <div
             className={styles.description}

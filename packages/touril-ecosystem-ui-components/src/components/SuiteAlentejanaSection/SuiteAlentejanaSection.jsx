@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'motion/react';
 import SuiteCarousel from '../SuiteCarousel';
 import AmenityGrid from '../AmenityGrid';
 import styles from './SuiteAlentejanaSection.module.scss';
@@ -32,13 +32,16 @@ const SuiteAlentejanaSection = ({
   ctaHref = '#',
 }) => {
   const hasAmenities = amenities?.atmospheric?.length > 0 || amenities?.premium?.length > 0;
+  const shouldReduceMotion = useReducedMotion();
 
   const textVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { duration: 0.6, ease: 'easeOut' },
     },
   };
 
@@ -46,10 +49,12 @@ const SuiteAlentejanaSection = ({
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : {
+            staggerChildren: 0.15,
+            delayChildren: 0.2,
+          },
     },
   };
 
@@ -107,8 +112,7 @@ const SuiteAlentejanaSection = ({
           href={ctaHref}
           className={styles.ctaButton}
           variants={textVariants}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
         >
           {ctaLabel}
         </motion.a>

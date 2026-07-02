@@ -16,7 +16,7 @@
 // Individual card wrapper
 .cardWrapper {
   width: 100%;
-  transition: all 300ms ease-in-out;
+  transition: all $transition-duration-normal $transition-timing-normal;
 }
 
 // Expanded card wrapper

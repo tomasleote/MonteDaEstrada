@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'motion/react';
 import styles from './AmenityGrid.module.scss';
 
 const AmenityGrid = ({ atmospheric = [], premium = [] }) => {
@@ -8,23 +8,29 @@ const AmenityGrid = ({ atmospheric = [], premium = [] }) => {
     ...premium.map((item) => ({ ...item, type: 'premium' })),
   ];
 
+  const shouldReduceMotion = useReducedMotion();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+          },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { duration: 0.6, ease: 'easeOut' },
     },
   };
 

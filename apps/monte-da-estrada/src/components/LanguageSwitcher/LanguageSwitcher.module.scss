@@ -7,28 +7,27 @@
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba($color-deep-brown, 0.12);
   overflow: hidden;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0;
 
   @media (max-width: 768px) {
     left: auto;
     right: 0;
     top: 50%;
-    border-radius: 4px 0 0 4px;
-    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
   }
 }
 
 .langBtn {
-  background-color: #ffffff;
-  color: #1c1a17;
+  background-color: $color-cream;
+  color: $color-deep-brown;
   border: none;
   padding: 12px 14px;
   font-family: 'Basis Grotesque', sans-serif;
   font-size: 11px;
   letter-spacing: 0.1em;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
@@ -36,12 +35,12 @@
   line-height: 1;
 
   &.active {
-    background-color: #1c1a17;
-    color: #f5f2ee;
+    background-color: $color-deep-brown;
+    color: $color-cream;
     cursor: default;
   }
 
   &:not(.active):hover {
-    background-color: #f5f2ee; 
+    background-color: $color-cream;
   }
 }

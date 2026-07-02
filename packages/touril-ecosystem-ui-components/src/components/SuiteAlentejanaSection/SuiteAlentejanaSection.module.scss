@@ -29,7 +29,7 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   color: $color-clay;
-  margin-bottom: 16px;
+  margin-bottom: $spacing-m;
 }
 
 .heading {
@@ -46,7 +46,7 @@
   font-weight: $font-weight-regular;
   letter-spacing: 0.75px;
   color: $color-deep-brown;
-  margin-bottom: 32px;
+  margin-bottom: $spacing-xl;
   line-height: 1.5;
 
   @media (max-width: $breakpoint-tablet) {
@@ -56,7 +56,7 @@
 
   @media (max-width: $breakpoint-mobile) {
     font-size: clamp(0.9rem, 2.5vw, 1rem);
-    margin-bottom: 24px;
+    margin-bottom: $spacing-l;
   }
 }
 
@@ -86,19 +86,19 @@
 
 .ctaButton {
   display: inline-block;
-  padding: 16px 48px;
-  margin-top: 32px;
+  padding: $spacing-m $spacing-xxl;
+  margin-top: $spacing-xl;
   background-color: $color-clay;
   color: $color-deep-brown;
   font-size: clamp(0.8rem, 1vw, 0.875rem);
   font-weight: $font-weight-medium;
-  letter-spacing: 0.75px;
+  letter-spacing: $letter-spacing-subheading;
   text-decoration: none;
   text-align: center;
   border: none;
   border-radius: 0; // Reason: Brand rule specifies 0px border-radius everywhere
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all $transition-duration-normal $transition-timing-normal;
   align-self: flex-start;
 
   &:hover {

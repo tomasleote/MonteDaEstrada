@@ -48,7 +48,7 @@ const RoomCard = ({
 
       <div className={`${styles.contentColumn} ${isImageRight ? styles.contentColumnDark : ''}`}>
         <div className={styles.contentInner}>
-          <h2 className={styles.title}>{title}</h2>
+          <h3 className={styles.title}>{title}</h3>
           <p className={styles.subtitle}>{subtitle}</p>
 
           <div className={styles.actions}>

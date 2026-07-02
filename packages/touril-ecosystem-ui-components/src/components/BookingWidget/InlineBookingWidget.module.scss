@@ -1,3 +1,5 @@
+@use '../../styles/variables' as *;
+
 .inlineWidget {
   position: relative;
   z-index: 10;
@@ -22,8 +24,8 @@
   :global(#InlinePageWidget > div:first-child),
   :global(#InlinePageWidget table td:first-child),
   :global(#InlinePageWidget .drp-container) {
-    border-top-left-radius: 8px !important;
-    border-bottom-left-radius: 8px !important;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
   }
 
   // Push the calendar popup down so it doesn't overlap the input fields
@@ -40,8 +42,8 @@
   justify-content: center;
   height: 120px;
   background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  color: #f5f2ee;
+  border-radius: 0;
+  color: $color-cream;
   p {
     font-size: 0.875rem;
     margin-top: 1rem;
@@ -54,7 +56,7 @@
   width: 24px;
   height: 24px;
   border: 2px solid rgba(245, 242, 238, 0.3);
-  border-top-color: #f5f2ee;
+  border-top-color: $color-cream;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -67,8 +69,8 @@
   text-align: center;
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  color: #f5f2ee;
+  border-radius: 0;
+  color: $color-cream;
   p {
     margin-bottom: 1rem;
     font-family: 'Inter', sans-serif;
@@ -77,8 +79,8 @@
 
 .fallbackBtn {
   display: inline-block;
-  background: #f5f2ee;
-  color: #1c1a17;
+  background: $color-cream;
+  color: $color-deep-brown;
   padding: 12px 24px;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
@@ -87,7 +89,7 @@
   letter-spacing: 1px;
   transition: all 0.2s;
   &:hover {
-    background: #1c1a17;
-    color: #f5f2ee;
+    background: $color-deep-brown;
+    color: $color-cream;
   }
 }
