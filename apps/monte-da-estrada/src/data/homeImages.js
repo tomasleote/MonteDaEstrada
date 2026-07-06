@@ -3,11 +3,11 @@
  * Centralized image imports for the HomePage component
  */
 
-const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home';
+const CDN_BASE = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/home';
 
 export const homeImages = {
   hero: {
-    src: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home/monte-exterior-1.jpeg',
+    src: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/home/monte-exterior-1.jpeg',
     alt: 'Monte da Estrada - Exterior da propriedade no Litoral Alentejano',
     title: 'Welcome to Monte da Estrada'
   },

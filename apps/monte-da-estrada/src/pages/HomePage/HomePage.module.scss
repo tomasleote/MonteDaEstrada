@@ -11,21 +11,25 @@
   background-color: $color-cream;
 }
 
+// BookingSection carries its own internal padding — any wrapper padding
+// shows as white bands around the dark section.
 .reservasSection {
   width: 100%;
-  background-color: $color-neutral-white;
-  padding-top: $space-section;
-  padding-bottom: $space-section;
 }
 
 // ──────────────────────────────────────────────
 // Hero booking widget slot
 // ──────────────────────────────────────────────
 
+// The HeyTravel widget self-distributes its fields only when given room; the
+// 800px hero content column squeezed it to ~700px and truncated the dates.
+// Break out to the same 1100px the Quartos-page widget uses, centered on the hero.
 .heroWidgetWrapper {
   margin-top: $spacing-xl;
-  width: 100%;
-  max-width: 860px;
+  width: 1100px;
+  max-width: 92vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 // Mobile CTA button inside hero (replaces widget on small screens)

@@ -57,6 +57,11 @@ html {
   min-height: 100vh;
 }
 
+// Anchor targets clear the fixed header + sticky section nav
+[id] {
+  scroll-margin-top: 140px;
+}
+
 body {
   @include text-body;
   background-color: $color-bg-primary;

@@ -38,9 +38,9 @@ function EditorialAnchor({
       whileInView="visible"
       viewport={viewport.default}
     >
-      <motion.h1 className={styles.propertyName} variants={variants.staggerItem}>
+      <motion.h2 className={styles.propertyName} variants={variants.staggerItem}>
         {propertyName}
-      </motion.h1>
+      </motion.h2>
 
       <motion.p className={styles.tagline} variants={variants.staggerItem}>
         {tagline}

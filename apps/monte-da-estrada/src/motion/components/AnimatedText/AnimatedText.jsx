@@ -18,11 +18,11 @@ import { duration, ease, distance, stagger, viewport } from '../../motion.config
  */
 const AnimatedText = ({
   children,
-  as,
-  stagger: useStagger,
+  as = 'p',
+  stagger: useStagger = false,
   className,
-  delay,
-  triggerOnce,
+  delay = 0,
+  triggerOnce = true,
   threshold,
 }) => {
   const shouldReduceMotion = useReducedMotion();
@@ -125,15 +125,6 @@ AnimatedText.propTypes = {
   triggerOnce: PropTypes.bool,
   /** Viewport visibility threshold */
   threshold: PropTypes.number,
-};
-
-AnimatedText.defaultProps = {
-  as: 'p',
-  stagger: false,
-  className: undefined,
-  delay: 0,
-  triggerOnce: true,
-  threshold: undefined,
 };
 
 export default AnimatedText;

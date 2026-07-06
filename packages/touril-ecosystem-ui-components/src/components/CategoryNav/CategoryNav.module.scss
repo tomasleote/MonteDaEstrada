@@ -71,6 +71,7 @@
     padding: 0 $spacing-m;
     gap: 0;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     // Hide scrollbar while keeping scroll functionality
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -97,6 +98,11 @@
   // Accessible focus ring
   @include focus-ring;
 
+  // Tighter padding so more items are visible at once on narrow screens
+  @include mobile {
+    padding: 0 $spacing-s;
+  }
+
   @include hover-device {
     &:hover {
       color: $color-deep-brown;
@@ -115,6 +121,10 @@
   letter-spacing: $letter-spacing-subheading;
   color: $color-cool-taupe;
   transition: color $transition-duration-normal $transition-timing-normal;
+
+  @include mobile {
+    font-size: 0.8125rem; // 13px
+  }
 }
 
 // Active item — clay label

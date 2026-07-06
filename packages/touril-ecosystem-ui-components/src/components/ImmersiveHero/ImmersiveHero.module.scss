@@ -10,7 +10,10 @@
   width: 100%;
   height: 100dvh;
   min-height: 500px;
-  overflow: hidden;
+  // Not hidden: the background image is sized exactly to the hero so nothing
+  // spills, but the booking widget's calendar popup must escape the bottom edge
+  // instead of being clipped.
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +57,9 @@
 
 .content {
   position: relative;
-  z-index: 2;
+  // Above .subtitleBottom (z-index 2) so the booking widget's open calendar,
+  // which lives inside .content, is not covered by the bottom-pinned subtitle.
+  z-index: 3;
   text-align: center;
   padding: $spacing-xxl;
   max-width: 800px;
@@ -107,7 +112,8 @@
   pointer-events: none;
 
   @include mobile {
-    bottom: 90px;
+    // Reason: raised to clear the fixed 56px MobileReserveBar at the bottom
+    bottom: 166px;
     font-size: clamp(0.9rem, 4vw, 1.25rem);
     padding: 0 $spacing-l;
   }
@@ -202,7 +208,8 @@
   }
 
   .scrollIndicator {
-    bottom: 24px;
+    // Reason: raised to clear the fixed 56px MobileReserveBar at the bottom
+    bottom: 96px;
   }
 
   .credit {

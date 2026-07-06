@@ -60,6 +60,8 @@
 
 .hamburgerOpen {
   .hamburgerLine {
+    background-color: $color-cream; // Visible against the deep-brown mobile menu overlay
+
     &:nth-child(1) {
       transform: rotate(45deg) translate(5px, 6px);
     }
@@ -86,6 +88,12 @@
   z-index: 1;
 }
 
+// Reason: .mobileMenu (z-index: $z-index-modal - 1) is a sibling of .leftZone
+// inside .header — without this the logo is hidden behind the overlay when open.
+.headerMenuOpen .leftZone {
+  z-index: $z-index-modal;
+}
+
 .centerZone {
   flex: 1;
   display: flex;
@@ -93,7 +101,10 @@
   align-items: center;
   justify-content: center;
 
-  @include mobile {
+  // Reason: the hamburger menu takes over below 1024px (mobileBreakpoint) —
+  // hiding only ≤767px left a 768-1023px band where the desktop nav
+  // rendered alongside the hamburger and overflowed the header.
+  @media (max-width: #{$breakpoint-desktop - 1}) {
     display: none;
   }
 }
@@ -104,6 +115,13 @@
   gap: $spacing-m;
   flex-shrink: 0;
   z-index: 1;
+}
+
+// Reason: same stacking-context trap as .leftZone — the close (X) button
+// lives inside .rightZone (z-index: 1), which paints under the .mobileMenu
+// overlay regardless of the button's own z-index.
+.headerMenuOpen .rightZone {
+  z-index: $z-index-modal;
 }
 
 // ============================================
@@ -152,7 +170,7 @@
   justify-content: center;
   align-items: center;
 
-  @include mobile {
+  @media (max-width: #{$breakpoint-desktop - 1}) {
     display: none;
   }
 }
@@ -452,6 +470,49 @@
   &:last-child {
     border-bottom: none;
   }
+}
+
+// ============================================
+// MOBILE: LANGUAGE SWITCHER
+// ============================================
+
+.mobileLangSwitcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-m;
+  margin: $spacing-xl 0;
+}
+
+.mobileLangBtn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba($color-cream, 0.6);
+  font-family: $font-body;
+  font-size: $font-size-body-large;
+  letter-spacing: $letter-spacing-subheading;
+  padding: $spacing-s $spacing-m;
+  min-height: $touch-target-min;
+  cursor: pointer;
+  border-radius: 0;
+
+  @include focus-visible;
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: 2px;
+  }
+}
+
+.mobileLangBtnActive {
+  color: $color-cream;
+  opacity: 1;
+  border-bottom: 2px solid $color-clay;
+}
+
+.mobileLangDivider {
+  color: rgba($color-cream, 0.3);
 }
 
 // ============================================

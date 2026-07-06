@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { motion } from 'motion/react';
+import { motion, useReducedMotion } from 'motion/react';
 import { variants, viewport, stagger } from '../../constants/motion';
+import AmenityMarquee from './AmenityMarquee';
 import styles from './AmenityStrip.module.scss';
 
 /**
@@ -107,6 +108,19 @@ AMENITY_ICONS['Terrace'] = AMENITY_ICONS['Terraço'];
  * @returns {React.ReactElement}
  */
 function AmenityStrip({ amenities, className = '' }) {
+  const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const onChange = (e) => setIsMobile(e.matches);
+    setIsMobile(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+
+  const useMarquee = isMobile && !shouldReduceMotion;
+
   return (
     <motion.section
       className={`${styles.strip} ${className}`}
@@ -124,20 +138,33 @@ function AmenityStrip({ amenities, className = '' }) {
         },
       }}
     >
-      <div className={styles.inner}>
-        {amenities.map((amenity, index) => (
-          <motion.div
-            key={index}
-            className={styles.item}
-            variants={variants.staggerItem}
-          >
-            <span className={styles.icon} aria-hidden="true">
-              {AMENITY_ICONS[amenity.name] || null}
-            </span>
-            <span className={styles.label}>{amenity.name}</span>
-          </motion.div>
-        ))}
-      </div>
+      {useMarquee ? (
+        <AmenityMarquee>
+          {amenities.map((amenity, index) => (
+            <div key={index} className={styles.item}>
+              <span className={styles.icon} aria-hidden="true">
+                {AMENITY_ICONS[amenity.name] || null}
+              </span>
+              <span className={styles.label}>{amenity.name}</span>
+            </div>
+          ))}
+        </AmenityMarquee>
+      ) : (
+        <div className={styles.inner}>
+          {amenities.map((amenity, index) => (
+            <motion.div
+              key={index}
+              className={styles.item}
+              variants={variants.staggerItem}
+            >
+              <span className={styles.icon} aria-hidden="true">
+                {AMENITY_ICONS[amenity.name] || null}
+              </span>
+              <span className={styles.label}>{amenity.name}</span>
+            </motion.div>
+          ))}
+        </div>
+      )}
     </motion.section>
   );
 }

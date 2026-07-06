@@ -77,9 +77,9 @@ const SuiteAlentejanaSection = ({
         </motion.div>
 
         {/* Heading */}
-        <motion.h1 className={styles.heading} variants={textVariants}>
+        <motion.h2 className={styles.heading} variants={textVariants}>
           {heading}
-        </motion.h1>
+        </motion.h2>
 
         {/* Tagline */}
         <motion.p className={styles.tagline} variants={textVariants}>

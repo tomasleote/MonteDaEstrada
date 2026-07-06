@@ -254,6 +254,33 @@ const HeaderModern = ({
         className={styles.mobileMenu}
         id="mobile-menu"
       >
+        {/* Language switcher — only rendered when onLanguageChange is provided */}
+        {onLanguageChange && (
+          <div className={styles.mobileLangSwitcher} role="group" aria-label="Idioma">
+            <button
+              className={`${styles.mobileLangBtn} ${currentLanguage === 'PT' ? styles.mobileLangBtnActive : ''}`}
+              onClick={() => {
+                onLanguageChange('PT');
+                handleNavLinkClick();
+              }}
+              aria-label="Mudar para Português"
+            >
+              PT
+            </button>
+            <span className={styles.mobileLangDivider} aria-hidden="true">|</span>
+            <button
+              className={`${styles.mobileLangBtn} ${currentLanguage === 'EN' ? styles.mobileLangBtnActive : ''}`}
+              onClick={() => {
+                onLanguageChange('EN');
+                handleNavLinkClick();
+              }}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+          </div>
+        )}
+
         <nav className={styles.mobileNav} role="navigation">
           <ul className={styles.mobileNavList} role="menubar">
             {links.map((link) => (

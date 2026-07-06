@@ -504,7 +504,10 @@
   transition: all $transition-duration-normal $transition-timing-fast;
 
   &:hover:not(:disabled) {
-    background-color: $color-accent-dark;
+    // Reason: accent-dark fails WCAG with both cream and deep-brown text;
+    // deep-brown bg + cream text is the site-wide CTA hover (9.92:1).
+    background-color: $color-deep-brown;
+    color: $color-cream;
   }
 
   &:disabled {
@@ -613,8 +616,8 @@
   letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
-    background-color: $color-accent-dark;
-    border-color: $color-accent-dark;
+    background-color: $color-deep-brown;
+    border-color: $color-deep-brown;
     color: $color-cream;
   }
 

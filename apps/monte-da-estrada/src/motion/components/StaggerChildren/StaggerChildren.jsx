@@ -27,11 +27,11 @@ const containerMap = {
  */
 const StaggerChildren = ({
   children,
-  speed,
+  speed = 'default',
   threshold,
-  triggerOnce,
+  triggerOnce = true,
   className,
-  as,
+  as = 'div',
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const Component = motion[as];
@@ -73,19 +73,11 @@ StaggerChildren.propTypes = {
   as: PropTypes.string,
 };
 
-StaggerChildren.defaultProps = {
-  speed: 'default',
-  threshold: undefined,
-  triggerOnce: true,
-  className: undefined,
-  as: 'div',
-};
-
 /**
  * Individual stagger item — use as child of StaggerChildren.
  * Inherits animation state from parent container.
  */
-const StaggerItem = ({ children, className, as }) => {
+const StaggerItem = ({ children, className, as = 'div' }) => {
   const Component = motion[as];
 
   return (
@@ -99,11 +91,6 @@ StaggerItem.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   as: PropTypes.string,
-};
-
-StaggerItem.defaultProps = {
-  className: undefined,
-  as: 'div',
 };
 
 // Attach Item as a static property for clean API

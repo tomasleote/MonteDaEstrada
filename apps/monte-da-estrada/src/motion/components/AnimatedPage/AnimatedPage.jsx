@@ -40,8 +40,4 @@ AnimatedPage.propTypes = {
   className: PropTypes.string,
 };
 
-AnimatedPage.defaultProps = {
-  className: undefined,
-};
-
 export default AnimatedPage;

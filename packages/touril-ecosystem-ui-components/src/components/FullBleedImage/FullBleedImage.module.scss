@@ -97,6 +97,11 @@
     padding: 24px $spacing-m $spacing-m;
   }
 
+  .captionGradient {
+    height: 260px;
+    background: linear-gradient(to bottom, rgba($color-deep-brown, 0), rgba($color-deep-brown, 0.75));
+  }
+
   .captionText {
     font-size: 1.125rem;
   }

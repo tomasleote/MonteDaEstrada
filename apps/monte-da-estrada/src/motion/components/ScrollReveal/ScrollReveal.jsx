@@ -27,12 +27,12 @@ const variantMap = {
  */
 const ScrollReveal = ({
   children,
-  variant,
+  variant = 'fadeUp',
   threshold,
-  triggerOnce,
-  delay,
+  triggerOnce = true,
+  delay = 0,
   className,
-  as,
+  as = 'div',
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const variants = variantMap[variant] || fadeUp;
@@ -98,15 +98,6 @@ ScrollReveal.propTypes = {
   className: PropTypes.string,
   /** HTML element to render */
   as: PropTypes.string,
-};
-
-ScrollReveal.defaultProps = {
-  variant: 'fadeUp',
-  threshold: undefined,
-  triggerOnce: true,
-  delay: 0,
-  className: undefined,
-  as: 'div',
 };
 
 export default ScrollReveal;

@@ -23,25 +23,56 @@
 
 .inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: $spacing-xl;
+  gap: $spacing-l $spacing-xl;
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $container-padding;
 
+  // Reason: reduced-motion fallback on mobile — a wrapped grid keeps all
+  // amenities visible at 375px (the default mobile treatment is the marquee).
   @include mobile {
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    row-gap: $spacing-l;
+    column-gap: $spacing-m;
     padding: 0 $spacing-m;
-    gap: $spacing-l;
 
-    &::-webkit-scrollbar {
-      display: none;
+    // Long labels (e.g. "Pequeno-almoço") must wrap inside the 3-col grid
+    .label {
+      white-space: normal;
     }
   }
+}
+
+// ==================================
+// MARQUEE — mobile: single drifting row, draggable, pauses on touch
+// ==================================
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  width: max-content;
+  cursor: grab;
+  touch-action: pan-y;
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.marqueeGroup {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-xl;
+  padding-right: $spacing-xl; // keeps spacing between the two halves seamless
 }
 
 // ==================================

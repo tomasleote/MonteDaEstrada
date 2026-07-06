@@ -28,10 +28,11 @@
     border-bottom-left-radius: 0 !important;
   }
 
-  // Push the calendar popup down so it doesn't overlap the input fields
-  // 85px gives enough clearance to prevent the popup from truncating the date text
-  :global(.daterangepicker) {
-    margin-top: 85px !important;
+  // Drop the calendar popup so it opens flush against the widget's bottom edge
+  // instead of covering the date fields. rem (not px) keeps it aligned as the
+  // widget's text-driven row height scales with the root font size.
+  :global(#HomePageWidget .DateRangePicker_picker) {
+    margin-top: 2.125rem !important;
   }
 }
 

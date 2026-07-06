@@ -9,8 +9,8 @@ import { homeImages } from '@/data/homeImages';
 import styles from './GaleriaPage.module.scss';
 
 // Local static image imports replaced by CDN URLs
-const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos';
-const HOME_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home';
+const QUARTOS_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/quartos';
+const HOME_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/home';
 
 // ── Section editorial copy ─────────────────────────────────────
 const getSectionCopy = (locale) => {

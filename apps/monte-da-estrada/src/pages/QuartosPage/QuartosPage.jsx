@@ -32,7 +32,7 @@ const quartosCopy = {
 <h3>Espaço &amp; Luz</h3>
 <ul>
   <li>Configurável como cama de casal (King Size) ou Twin (duas camas)</li>
-  <li>Terraço privado</li>
+  <li>Terraço com mesa e cadeiras</li>
   <li>Vista sobre a paisagem alentejana</li>
 </ul>
 <h3>Conforto &amp; Repouso</h3>
@@ -68,7 +68,7 @@ const quartosCopy = {
 <h3>Space &amp; Light</h3>
 <ul>
   <li>Configurable as king double or twin (two beds)</li>
-  <li>Private terrace</li>
+  <li>Terrace with table and chairs</li>
   <li>Views over the Alentejo landscape</li>
 </ul>
 <h3>Comfort &amp; Rest</h3>

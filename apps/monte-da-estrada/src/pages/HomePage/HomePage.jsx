@@ -59,7 +59,7 @@ const suiteCarouselImages = [
 ];
 
 // A Casa carousel — pinned to @42b901a (matches hero; monte-exterior-3/5 only exist at this pin)
-const CASA_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/home';
+const CASA_CDN = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/home';
 const s3CarouselImages = [
   { src: `${CASA_CDN}/sala-2.webp`, alt: 'Monte da Estrada — Sala de estar' },
   { src: `${CASA_CDN}/sala-3.webp`, alt: 'Monte da Estrada — Espaços comuns' },
@@ -80,7 +80,7 @@ const structuredData = {
   "url": "https://montedaestrada.com",
   "telephone": "+351960254072",
   "email": "geral@montedaestrada.com",
-  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp",
+  "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/home/home-property-view-05.webp",
   "description": "A sua casa no Litoral Alentejano.",
   "priceRange": "$$",
   "checkinTime": "16:00",
@@ -101,7 +101,7 @@ const structuredData = {
   "containsPlace": Array.from({ length: 8 }, (_, i) => ({
     "@type": "HotelRoom",
     "name": `Quarto Duplo ou Twin ${i + 1}`,
-    "image": `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/quartos/quarto-${(i % 4) + 1}.webp`
+    "image": `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/quartos/quarto-${(i % 4) + 1}.webp`
   }))
 };
 

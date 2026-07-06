@@ -28,11 +28,11 @@ import styles from './DescobrirPage.module.scss';
 // O Território — carousel images (ordered as per brief)
 // ──────────────────────────────────────────────
 
-const DISC = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@42b901a/mde/descobrir';
-const DISC_V2 = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@5f57c30/mde/descobrir';
+const DISC = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/descobrir';
+const DISC_V2 = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/descobrir';
 
 const territorioCarouselImages = [
-  { src: `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@0855ab6/mde/descobrir/rotavicentinaai5.3.png`, alt: 'Rota Vicentina — Trilho dos Pescadores' },
+  { src: `https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/descobrir/rotavicentinaai5.3.png`, alt: 'Rota Vicentina — Trilho dos Pescadores' },
   { src: `${DISC_V2}/praia-zambujeira.JPG`, alt: 'Praia da Zambujeira do Mar' },
   { src: `${DISC}/cabo-sardao-farol.png`, alt: 'Farol do Cabo Sardão' },
   { src: `${DISC}/alteirinhos.webp`, alt: 'Praia dos Alteirinhos' },
@@ -80,14 +80,14 @@ const DescobrirPage = () => {
         keywords={locale === 'en'
           ? 'discover, alentejo, costa vicentina, rota vicentina, zambujeira do mar, activities, surroundings, monte da estrada'
           : 'descobrir, alentejo, costa vicentina, rota vicentina, zambujeira do mar, atividades, redondezas, monte da estrada'}
-        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
+        image="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/descobrir/herodescobrir%20(1).webp"
         locale={locale}
       />
 
       {/* S1 — PageHero ──────────────────────────────────────── */}
       <div id="discovery-hero">
         <PageHero
-          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/descobrir/herodescobrir%20(1).webp"
+          imageSrc="https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/descobrir/herodescobrir%20(1).webp"
           imageAlt={copy.heroImageAlt}
           eyebrow={copy.heroEyebrow}
           headline={copy.heroHeadline}
@@ -164,7 +164,7 @@ const DescobrirPage = () => {
 
       {/* S6 — FullBleedQuote ─────────────────────────────────────── */}
       <FullBleedQuote
-        imageSrc={descobrirData.beaches[4]?.imageSrc || "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/home/home-property-view-05.webp"}
+        imageSrc={descobrirData.beaches[4]?.imageSrc || "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/home/home-property-view-05.webp"}
         alt={copy.fullBleedQuote}
         quote={copy.fullBleedQuote}
         attribution={copy.fullBleedAttribution}

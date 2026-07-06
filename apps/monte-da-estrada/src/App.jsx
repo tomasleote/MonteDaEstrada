@@ -12,7 +12,7 @@ import { LocaleProvider, useLocale } from './contexts/LocaleContext'
 import ptSiteSettings from './data/pt/site-settings.json'
 import enSiteSettings from './data/en/site-settings.json'
 
-const logoBrancoAzul = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@15d5b6f/mde/logos/logo-azul-texto-branco.webp'
+const logoBrancoAzul = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/logos/logo-azul-texto-branco.webp'
 
 // Lazy load page components for better performance
 const HomePage = lazy(() => import('./pages/HomePage'))
@@ -130,6 +130,25 @@ function AppContent() {
   const footerNavLinks = getFooterNavLinks(locale);
   const siteSettings = locale === 'en' ? enSiteSettings : ptSiteSettings;
 
+  const handleLanguageChange = (lang) => {
+    if (lang === locale) return;
+
+    // Proactively save to localStorage so the App context naturally persists
+    localStorage.setItem('mde-locale', lang);
+    setLocale(lang);
+
+    const currentPath = location.pathname;
+
+    if (lang === 'en') {
+      // Append /en to the beginning safely
+      navigate('/en' + (currentPath === '/' ? '' : currentPath));
+    } else {
+      // Strip /en from the beginning
+      const newPath = currentPath.replace(/^\/en/, '') || '/';
+      navigate(newPath);
+    }
+  };
+
   return (
     <div className="app">
       <a href="#main-content" className="skip-to-main">
@@ -146,6 +165,8 @@ function AppContent() {
         currentPropertyUrl="https://montedaestrada.com"
         showProperties={true}
         onBookingClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')}
+        currentLanguage={locale === 'en' ? 'EN' : 'PT'}
+        onLanguageChange={(lang) => handleLanguageChange(lang.toLowerCase())}
       />
 
       <main id="main-content" style={{ flex: 1 }}>
