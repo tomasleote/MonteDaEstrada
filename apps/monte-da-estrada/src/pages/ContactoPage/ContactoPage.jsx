@@ -87,7 +87,7 @@ const ContactoPage = () => {
 
       {/* S1 — Page Hero */}
       <PageHero
-        imageSrc={homeImages.gallery[1].src}
+        imageSrc={homeImages.contactoHero.src}
         imageAlt={copy.heroImageAlt}
         eyebrow={copy.contactEyebrow}
         headline={copy.heroHeadline}

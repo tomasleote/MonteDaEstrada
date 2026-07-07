@@ -52,6 +52,16 @@ export const homeImages = {
     src: `${CDN_BASE}/sala-3.webp`,
     alt: 'Monte da Estrada - Espaços comuns',
     title: 'Espaços Comuns'
+  },
+  territorio: {
+    src: 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@fc13293/mde/descobrir/herodescobrir%20(1).webp',
+    alt: 'Monte da Estrada - Vista panorâmica da paisagem alentejana',
+    title: 'Território'
+  },
+  contactoHero: {
+    src: `${CDN_BASE}/monte-exterior-6.jpeg`,
+    alt: 'Monte da Estrada - Exterior da propriedade no Litoral Alentejano',
+    title: 'Contacto'
   }
 };
 

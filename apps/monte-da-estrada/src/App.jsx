@@ -104,6 +104,25 @@ function AppContent() {
     }
   }, [location.pathname]); // Explicitly omitted setLocale and locale dependencies to prevent infinite loop
 
+  // Route internal <a href="/..."> clicks through the router. Shared-library
+  // components render plain anchors (router-agnostic by design); under HashRouter
+  // those would trigger a full server request and 404, so intercept them here.
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const anchor = e.target.closest('a');
+      if (!anchor) return;
+      if (anchor.target && anchor.target !== '_self') return;
+      const href = anchor.getAttribute('href');
+      // Only internal absolute paths; skip hash anchors, protocol-relative, and external URLs
+      if (!href || !href.startsWith('/') || href.startsWith('//')) return;
+      e.preventDefault();
+      navigate(href);
+    };
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, [navigate]);
+
   // 2. ROOT AUTODETECT ON FIRST VISIT ONLY
   useEffect(() => {
     if (location.pathname === '/') {

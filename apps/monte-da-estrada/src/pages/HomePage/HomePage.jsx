@@ -295,7 +295,7 @@ const HomePage = () => {
           eyebrow={copy.territorioEyebrow}
           heading={copy.territorioHeading}
           body={copy.territorioBody}
-          imageSrc={homeImages.gallery[1].src}
+          imageSrc={homeImages.territorio.src}
           imageAlt={copy.territorioImageAlt}
           imagePosition="right"
           background="offwhite"
