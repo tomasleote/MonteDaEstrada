@@ -55,7 +55,10 @@ const getFooterLegalInfo = (settings) => ({
 })
 
 // HeyTravel Direct Booking URL
-const HEYTRAVEL_BOOKING_URL = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT';
+const BOOKING_URL = {
+  pt: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=pt-PT',
+  en: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1828&lang=en-GB',
+};
 
 // ──────────────────────────────────────────────
 // Locale-aware nav links
@@ -129,6 +132,10 @@ function AppContent() {
   const navLinks = getNavLinks(locale);
   const footerNavLinks = getFooterNavLinks(locale);
   const siteSettings = locale === 'en' ? enSiteSettings : ptSiteSettings;
+  const bookingUrl = BOOKING_URL[locale] || BOOKING_URL.pt;
+  const bookingLabel = locale === 'en' ? 'Book' : 'Reservar';
+  const propertiesLabel = locale === 'en' ? 'PROPERTIES' : 'PROPRIEDADES';
+  const propertiesAriaLabel = locale === 'en' ? 'Select property' : 'Selecionar propriedade';
 
   const handleLanguageChange = (lang) => {
     if (lang === locale) return;
@@ -164,7 +171,10 @@ function AppContent() {
         properties={properties}
         currentPropertyUrl="https://montedaestrada.com"
         showProperties={true}
-        onBookingClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')}
+        onBookingClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')}
+        bookingLabel={bookingLabel}
+        propertiesLabel={propertiesLabel}
+        propertiesAriaLabel={propertiesAriaLabel}
         currentLanguage={locale === 'en' ? 'EN' : 'PT'}
         onLanguageChange={(lang) => handleLanguageChange(lang.toLowerCase())}
       />
@@ -216,7 +226,10 @@ function AppContent() {
         copyright={`© Monte da Estrada ${new Date().getFullYear()}`}
       />
 
-      <BookingTab onClick={() => window.open(HEYTRAVEL_BOOKING_URL, '_blank', 'noopener,noreferrer')} />
+      <BookingTab
+        label={bookingLabel}
+        onClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')}
+      />
       <MobileReserveBar />
       <LanguageSwitcher />
     </div>

@@ -19,6 +19,9 @@ const UI = {
   },
 };
 
+// HeyTravel expects full locale codes (matches the format used by the direct booking URL)
+const LANG_CODE = { pt: 'pt-PT', en: 'en-GB' };
+
 export default function InlineBookingWidget({ widgetConfig = {}, locale = 'pt', className = '' }) {
   const ui = UI[locale] || UI.pt;
   const containerRef = useRef(null)
@@ -49,7 +52,7 @@ export default function InlineBookingWidget({ widgetConfig = {}, locale = 'pt', 
       containerRef.current.setAttribute('Hotel', widgetConfig.hotel || '[{ "id": "da157c05-a630-43a2-a15b-732f96c563f2", "name": "Monte da Estrada" }]')
       containerRef.current.setAttribute('Font', widgetConfig.font || 'Inter')
       containerRef.current.setAttribute('Colors', widgetConfig.colors || '{ "MainColor": "#2C3E50", "SecColor": "#F5F3F0", "ThirdColor": "#2C3E50" }')
-      containerRef.current.setAttribute('langu', widgetConfig.language || locale)
+      containerRef.current.setAttribute('langu', widgetConfig.language || LANG_CODE[locale] || LANG_CODE.pt)
       containerRef.current.setAttribute('Link', widgetConfig.link || 'https://be.heytravel.net/')
       containerRef.current.setAttribute('ComplexId', widgetConfig.complexId || '1828')
       containerRef.current.setAttribute('visualParams', widgetConfig.visualParams || '{ "holder":"", "hiddeEditReservation": "true", "hiddeMaxSize": "50", "allowChildren": "true" }')
@@ -131,7 +134,25 @@ export default function InlineBookingWidget({ widgetConfig = {}, locale = 'pt', 
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const fallbackUrl = 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=[{"room":1,"adults":2,"children":0}]&complex=1828&lang=pt-PT&';
+  // ─── Force redirect language ─────────────────────────────────────────────────
+  // The widget's own "Search" click builds its redirect URL internally and never
+  // includes a lang param (confirmed: be.heytravel.net does honor lang=en-GB/pt-PT
+  // when present — the widget script just omits it). Intercept window.open to inject it.
+  useEffect(() => {
+    const originalOpen = window.open
+    window.open = (url, ...rest) => {
+      if (typeof url === 'string' && url.includes('be.heytravel.net') && !url.includes('lang=')) {
+        const separator = url.includes('?') ? '&' : '?'
+        url = `${url}${separator}lang=${LANG_CODE[locale] || LANG_CODE.pt}`
+      }
+      return originalOpen(url, ...rest)
+    }
+    return () => {
+      window.open = originalOpen
+    }
+  }, [locale])
+
+  const fallbackUrl = `https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=[{"room":1,"adults":2,"children":0}]&complex=1828&lang=${LANG_CODE[locale] || LANG_CODE.pt}&`;
 
   return (
     <div className={`${styles.inlineWidget} ${className}`}>

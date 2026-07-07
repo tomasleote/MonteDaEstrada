@@ -40,6 +40,8 @@ const HeaderModern = ({
   showProperties = true,
   onBookingClick = null,
   bookingLabel = 'Reservar',
+  propertiesLabel = 'PROPRIEDADES',
+  propertiesAriaLabel = 'Selecionar propriedade',
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -206,9 +208,9 @@ const HeaderModern = ({
               onClick={() => setIsPropertiesOpen(!isPropertiesOpen)}
               aria-haspopup="true"
               aria-expanded={isPropertiesOpen}
-              aria-label="Selecionar propriedade"
+              aria-label={propertiesAriaLabel}
             >
-              PROPRIEDADES <span className={`${styles.propertiesArrow} ${isPropertiesOpen ? styles.propertiesArrowOpen : ''}`}>&#9662;</span>
+              {propertiesLabel} <span className={`${styles.propertiesArrow} ${isPropertiesOpen ? styles.propertiesArrowOpen : ''}`}>&#9662;</span>
             </button>
             <ul
               className={`${styles.propertiesMenu} ${isPropertiesOpen ? styles.propertiesMenuOpen : ''}`}
@@ -402,6 +404,10 @@ HeaderModern.propTypes = {
   onBookingClick: PropTypes.func,
   /** Label for the booking CTA */
   bookingLabel: PropTypes.string,
+  /** Label for the Propriedades dropdown toggle */
+  propertiesLabel: PropTypes.string,
+  /** Aria-label for the Propriedades dropdown toggle */
+  propertiesAriaLabel: PropTypes.string,
 };
 
 HeaderModern.defaultProps = {
@@ -419,6 +425,8 @@ HeaderModern.defaultProps = {
   showProperties: true,
   onBookingClick: null,
   bookingLabel: 'Reservar',
+  propertiesLabel: 'PROPRIEDADES',
+  propertiesAriaLabel: 'Selecionar propriedade',
 };
 
 export default HeaderModern;
