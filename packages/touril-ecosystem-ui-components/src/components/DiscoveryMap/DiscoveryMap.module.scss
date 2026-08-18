@@ -75,6 +75,11 @@
   &:hover {
     border-color: var(--ink, #{$color-deep-brown});
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, #{$color-clay});
+    outline-offset: 2px;
+  }
 }
 
 .filterPillActive {
@@ -121,6 +126,11 @@
   &:hover {
     transform: scale(1.15);
     z-index: 10;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, #{$color-clay});
+    outline-offset: 2px;
   }
 }
 

@@ -63,5 +63,10 @@
       "Studio — view 1",
       "Studio — view 3"
     ]
+  },
+  "booking": {
+    "eyebrow": "Reservations",
+    "headline": "Book Your Stay",
+    "body": "Choose your preferred space and secure the best experience in Alentejo."
   }
 }

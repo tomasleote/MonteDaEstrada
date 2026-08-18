@@ -207,7 +207,11 @@
   border: none;
   border-radius: 0;
   cursor: pointer;
-  transition: $transition-duration-normal $transition-timing-normal;
+  transition:
+    background-color $transition-duration-normal $transition-timing-normal,
+    color $transition-duration-normal $transition-timing-normal,
+    border-color $transition-duration-normal $transition-timing-normal,
+    transform $transition-duration-normal $transition-timing-normal;
   text-transform: uppercase;
 
   @include mobile {

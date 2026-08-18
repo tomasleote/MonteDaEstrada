@@ -162,9 +162,9 @@ function AppContent() {
                 {/* 404 Catch-all */}
                 <Route path="*" element={
                   <div style={{ padding: '80px 20px', textAlign: 'center', minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                    <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--foreground)' }}>{locale === 'en' ? 'Page not found' : 'Página não encontrada'}</h1>
-                    <p style={{ marginBottom: '2rem', color: 'var(--muted-foreground)' }}>{locale === 'en' ? 'The page you are looking for does not exist.' : 'A página que procura não existe.'}</p>
-                    <a href={locale === 'en' ? '/en/' : '/'} style={{ textDecoration: 'underline', color: 'var(--primary)' }}>
+                    <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--ink)' }}>{locale === 'en' ? 'Page not found' : 'Página não encontrada'}</h1>
+                    <p style={{ marginBottom: '2rem', color: 'var(--ink-muted)' }}>{locale === 'en' ? 'The page you are looking for does not exist.' : 'A página que procura não existe.'}</p>
+                    <a href={locale === 'en' ? '/en/' : '/'} style={{ textDecoration: 'underline', color: 'var(--accent-ink)' }}>
                       {locale === 'en' ? 'Return to Home' : 'Voltar à Página Inicial'}
                     </a>
                   </div>

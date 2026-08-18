@@ -120,6 +120,7 @@ $color-secondary-dark: $color-accent-dark;
   --footer-accent: #F4C458;
   --focus-ring: #7E6318; /* amarelo #F4C458 falha 3:1 sobre cream — só no chrome escuro */
   --booking-picker-offset: 0px; /* o offset de 2.125rem é um fix específico do MDE */
+  --booking-widget-radius: 0px; /* marca PL: 0px radius; o widget HeyTravel traz 10px */
 
   /* Hero headline mirrors the header wordmark: uppercase, single line, no wrap */
   --headline-text-transform: uppercase;
@@ -190,6 +191,7 @@ $letter-spacing-headline: 1px; // H1 / H2
 $letter-spacing-subheading: 0.75px; // H3 / H4 / button labels
 $letter-spacing-body: 0.5px; // Body / captions
 $letter-spacing-touril: 0.75px; // Alias — used in shared component SCSS
+$letter-spacing-eyebrow: 2px; // Wide-tracked uppercase labels (paridade com a shared lib)
 
 // Deprecated letter-spacing
 $letter-spacing-tight: -0.5px;

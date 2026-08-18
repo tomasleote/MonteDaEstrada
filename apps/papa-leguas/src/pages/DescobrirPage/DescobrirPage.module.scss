@@ -85,6 +85,10 @@
   grid-template-columns: repeat(2, 1fr);
   gap: $spacing-xl;
 
+  @include tablet {
+    gap: $spacing-l;
+  }
+
   @include mobile {
     grid-template-columns: 1fr;
     gap: $spacing-l;

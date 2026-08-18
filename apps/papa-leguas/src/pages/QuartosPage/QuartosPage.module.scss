@@ -1,7 +1,20 @@
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .quartosPage {
   width: 100%;
   min-height: 100vh;
   background-color: $color-cream;
+}
+
+// Same band treatment as the homepage's booking section
+.reservasSection {
+  width: 100%;
+  background-color: $color-neutral-white;
+  padding-top: $spacing-xxl;
+  padding-bottom: $spacing-xxl;
+}
+
+.srOnly {
+  @include sr-only;
 }

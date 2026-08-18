@@ -95,14 +95,15 @@ const QuartosPage = () => {
       <CategoryNav items={navItems} targetId="quartos-hero" headerHeight={88} />
 
       <div id="alojamento">
+        <h2 className={styles.srOnly}>{locale === 'en' ? 'Accommodation' : 'Alojamento'}</h2>
         <RoomCardGallery rooms={rooms} onReserveClick={scrollToBooking} locale={locale} />
       </div>
 
-      <div id={BOOKING_SECTION_ID}>
+      <div id={BOOKING_SECTION_ID} className={styles.reservasSection}>
         <BookingSection
-          eyebrow="Reservas"
-          heading="Reserve a Sua Estadia"
-          description="Escolha o seu espaço preferido e garanta a melhor experiência no Alentejo."
+          eyebrow={data.booking.eyebrow}
+          heading={data.booking.headline}
+          description={data.booking.body}
           bookingUrl={bookingUrl}
           widgetConfig={PL_WIDGET_CONFIG}
           locale={locale}

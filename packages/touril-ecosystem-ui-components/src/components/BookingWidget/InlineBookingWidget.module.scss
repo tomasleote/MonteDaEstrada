@@ -34,6 +34,13 @@
   :global(#HomePageWidget .DateRangePicker_picker) {
     margin-top: var(--booking-picker-offset, 2.125rem) !important;
   }
+
+  // HeyTravel rounds the right edge of the search bar/button (10px); PL's brand
+  // is 0px radius everywhere — the fallback preserves the widget's own value.
+  :global(#HomePageWidget .NewRes),
+  :global(#HomePageWidget .NewRes .InputContainer.button) {
+    border-radius: var(--booking-widget-radius, 0px 10px 10px 0px) !important;
+  }
 }
 
 .loadingSkeleton {
@@ -88,7 +95,7 @@
   text-transform: uppercase;
   font-size: 0.75rem;
   letter-spacing: 1px;
-  transition: all 0.2s;
+  transition: background 0.2s, color 0.2s;
   &:hover {
     background: var(--surface-dark, #{$color-deep-brown});
     color: $color-cream;

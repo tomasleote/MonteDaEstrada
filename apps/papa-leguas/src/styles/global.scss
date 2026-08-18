@@ -79,7 +79,7 @@ body {
 
   // Prevent MobileReserveBar from overlapping footer content on mobile
   @include mobile {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    padding-bottom: calc(#{$spacing-3xl} + env(safe-area-inset-bottom));
   }
 }
 
@@ -207,10 +207,10 @@ input,
 select,
 textarea {
   // Exactly 16px prevents zoom on mobile
-  font-size: max(16px, 1rem);
+  font-size: max(#{$font-size-body}, 1rem);
 
   @media (max-width: $breakpoint-tablet - 1) {
-    font-size: 16px;
+    font-size: $font-size-body;
   }
 }
 

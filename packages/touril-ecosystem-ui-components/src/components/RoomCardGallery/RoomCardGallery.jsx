@@ -39,6 +39,10 @@ const RoomCardGallery = ({
   const labels = ROOM_LABELS[locale] || ROOM_LABELS.pt;
   const [selectedRoomId, setSelectedRoomId] = useState(null);
   const expandedRef = useRef(null);
+  // Reason: tracks each RoomCard's "Mais Informações" button so focus can be
+  // restored to the button that opened the expanded card once it closes.
+  const infoButtonRefs = useRef({});
+  const previouslySelectedRoomIdRef = useRef(null);
 
   const handleInfoClick = (roomId) => {
     setSelectedRoomId(roomId);
@@ -47,6 +51,13 @@ const RoomCardGallery = ({
   const handleClose = () => {
     setSelectedRoomId(null);
   };
+
+  useEffect(() => {
+    if (selectedRoomId === null && previouslySelectedRoomIdRef.current !== null) {
+      infoButtonRefs.current[previouslySelectedRoomIdRef.current]?.focus();
+    }
+    previouslySelectedRoomIdRef.current = selectedRoomId;
+  }, [selectedRoomId]);
 
   const handleReserveClick = (roomId) => {
     if (onReserveClick) onReserveClick(roomId);
@@ -98,6 +109,7 @@ const RoomCardGallery = ({
                 onReserveClick={() => handleReserveClick(room.roomId)}
                 reserveLabel={labels.reserve}
                 infoLabel={labels.info}
+                infoButtonRef={(el) => { infoButtonRefs.current[room.roomId] = el; }}
               />
             )}
           </div>

@@ -4,18 +4,18 @@
   position: fixed;
   left: 0;
   top: 50%;
-  z-index: 1000;
+  z-index: $z-index-dropdown;
   display: flex;
   flex-direction: column;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: $shadow-subtle;
   overflow: hidden;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     left: auto;
     right: 0;
-    border-radius: 4px 0 0 4px;
-    box-shadow: -4px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+    box-shadow: $shadow-subtle;
   }
 }
 
@@ -23,16 +23,22 @@
   background-color: #ffffff;
   color: $color-deep-brown;
   border: none;
-  padding: 12px 14px;
+  padding: $spacing-s $spacing-m;
+  min-height: $touch-target-min;
+  min-width: $touch-target-min;
   font-family: 'Basis Grotesque', sans-serif;
   font-size: 11px;
-  letter-spacing: 0.1em;
-  font-weight: 500;
+  letter-spacing: $letter-spacing-subheading;
+  font-weight: $font-weight-medium;
   text-transform: uppercase;
   cursor: pointer;
-  outline: none;
-  transition: all 0.2s ease;
+  transition: background-color $transition-duration-quick ease, color $transition-duration-quick ease;
   line-height: 1;
+
+  &:focus-visible {
+    outline: 2px solid $color-accent-ink;
+    outline-offset: -2px;
+  }
 
   &.active {
     background-color: $color-deep-brown;

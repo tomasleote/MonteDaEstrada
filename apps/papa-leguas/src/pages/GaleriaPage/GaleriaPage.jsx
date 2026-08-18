@@ -54,7 +54,13 @@ const GaleriaPage = () => {
               role="button"
               tabIndex={0}
               aria-label={`Ver imagem: ${image.caption || image.alt}`}
-              onKeyDown={(e) => e.key === 'Enter' && openLightbox(index)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') openLightbox(index);
+                if (e.key === ' ') {
+                  e.preventDefault();
+                  openLightbox(index);
+                }
+              }}
             >
               <img
                 src={image.src}

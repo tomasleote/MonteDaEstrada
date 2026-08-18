@@ -63,5 +63,10 @@
       "Estúdio — vista 1",
       "Estúdio — vista 3"
     ]
+  },
+  "booking": {
+    "eyebrow": "Reservas",
+    "headline": "Reserve a Sua Estadia",
+    "body": "Escolha o seu espaço preferido e garanta a melhor experiência no Alentejo."
   }
 }

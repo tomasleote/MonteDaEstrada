@@ -22,6 +22,7 @@ const RoomCard = ({
   onReserveClick,
   reserveLabel = 'RESERVE JÁ!',
   infoLabel = 'Mais Informações',
+  infoButtonRef,
   className = '',
 }) => {
   const isImageRight = imagePosition === 'right';
@@ -66,6 +67,7 @@ const RoomCard = ({
             </button>
             <button
               type="button"
+              ref={infoButtonRef}
               className={styles.infoButton}
               onClick={onInfoClick}
               aria-label={`${infoLabel} ${title}`}
@@ -107,6 +109,12 @@ RoomCard.propTypes = {
   onReserveClick: PropTypes.func.isRequired,
   reserveLabel: PropTypes.string,
   infoLabel: PropTypes.string,
+  /** Optional ref forwarded to the "Mais Informações" button, used to restore
+   * keyboard focus to it after the expanded card closes */
+  infoButtonRef: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.any }),
+  ]),
   /** Additional CSS class names */
   className: PropTypes.string,
 };

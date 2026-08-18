@@ -84,6 +84,8 @@ const SuiteCarousel = ({ images = [], imageAlts = [], onImageClick, className = 
       className={`${styles.carouselContainer} ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+      onFocus={() => setIsHovering(true)}
+      onBlur={() => setIsHovering(false)}
     >
       <AnimatePresence mode="wait">
         <motion.div
@@ -143,6 +145,7 @@ const SuiteCarousel = ({ images = [], imageAlts = [], onImageClick, className = 
               }`}
               onClick={() => handleDotClick(index)}
               aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === currentIndex ? 'true' : undefined}
               animate={{ opacity: index === currentIndex ? 1 : 0.5 }}
               transition={{ duration: 0.3 }}
             />

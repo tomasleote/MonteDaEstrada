@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import styles from './ImageLightbox.module.scss';
@@ -11,6 +11,17 @@ import styles from './ImageLightbox.module.scss';
 const ImageLightbox = ({ images, index, onIndexChange, onClose }) => {
   const hasMultiple = images.length > 1;
   const prefersReducedMotion = useReducedMotion();
+  const closeButtonRef = useRef(null);
+
+  // Reason: the lightbox opens over the underlying gallery; focus its close
+  // button on mount and restore focus to whatever triggered it on unmount.
+  useEffect(() => {
+    const previouslyFocused = document.activeElement;
+    closeButtonRef.current?.focus();
+    return () => {
+      if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus();
+    };
+  }, []);
 
   const goToPrevious = useCallback(() => {
     onIndexChange((index - 1 + images.length) % images.length);
@@ -46,6 +57,7 @@ const ImageLightbox = ({ images, index, onIndexChange, onClose }) => {
     >
       <button
         type="button"
+        ref={closeButtonRef}
         className={styles.closeButton}
         onClick={onClose}
         aria-label="Fechar imagem"

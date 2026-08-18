@@ -7,7 +7,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 9999;
+  z-index: $z-index-modal;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,27 +27,27 @@
   position: absolute;
   top: $spacing-m;
   right: $spacing-m;
-  z-index: 10001;
+  z-index: $z-index-modal + 2;
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: $border-width-thin solid rgba(255, 255, 255, 0.2);
   border-radius: $border-radius-slight;
   color: $color-text-light;
-  width: 48px;
-  height: 48px;
+  width: $touch-target-comfortable;
+  height: $touch-target-comfortable;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  @include elegant-transition('all', 200ms);
+  @include elegant-transition('all', $transition-duration-quick);
 
   &:hover,
   &:focus-visible {
     background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &:focus-visible {
-    outline: 2px solid $color-primary;
+    outline: 2px solid $color-clay;
     outline-offset: 2px;
   }
 
@@ -59,7 +59,7 @@
 
 .content {
   position: relative;
-  z-index: 10000;
+  z-index: $z-index-modal + 1;
   width: 90vw;
   height: 80vh;
   display: flex;
@@ -95,26 +95,26 @@
 
 .navButton {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: $border-width-thin solid rgba(255, 255, 255, 0.2);
   border-radius: $border-radius-slight;
   color: $color-text-light;
-  width: 48px;
-  height: 48px;
+  width: $touch-target-comfortable;
+  height: $touch-target-comfortable;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   flex-shrink: 0;
-  @include elegant-transition('all', 200ms);
+  @include elegant-transition('all', $transition-duration-quick);
 
   &:hover,
   &:focus-visible {
     background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &:focus-visible {
-    outline: 2px solid $color-primary;
+    outline: 2px solid $color-clay;
     outline-offset: 2px;
   }
 
@@ -124,8 +124,8 @@
   }
 
   @include responsive($breakpoint-mobile) {
-    width: 40px;
-    height: 40px;
+    width: $touch-target-min;
+    height: $touch-target-min;
 
     svg {
       width: 20px;
@@ -147,7 +147,7 @@
   bottom: $spacing-l;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10001;
+  z-index: $z-index-modal + 2;
   text-align: center;
   color: $color-text-light;
   background: rgba(0, 0, 0, 0.5);

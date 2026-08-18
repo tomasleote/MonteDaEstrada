@@ -244,14 +244,16 @@ function DiscoveryMap({
 
       // 2. Marker: custom branded dot element
       const el = createMarkerEl(location.category);
+      el.tabIndex = 0;
+      el.setAttribute('role', 'button');
+      el.setAttribute('aria-label', location.name);
       const marker = new MapLibreGL.Marker({ element: el })
         .setLngLat(location.coordinates)
         .addTo(map);
 
       // 3. Click handler: always show popup with location details
       // stopPropagation prevents the map's click handler from immediately closing it
-      el.addEventListener('click', (e) => {
-        e.stopPropagation();
+      const togglePopup = () => {
         popupsRef.current.forEach((p) => {
           if (p !== popup && p.isOpen()) p.remove();
         });
@@ -259,6 +261,16 @@ function DiscoveryMap({
           popup.remove();
         } else {
           popup.setLngLat(location.coordinates).addTo(map);
+        }
+      };
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePopup();
+      });
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          togglePopup();
         }
       });
 

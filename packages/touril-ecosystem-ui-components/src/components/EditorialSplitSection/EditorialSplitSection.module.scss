@@ -182,7 +182,7 @@
   text-decoration: none;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition: text-decoration $transition-duration-normal $transition-timing-normal;
   width: fit-content;
 
   &:hover {

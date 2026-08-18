@@ -155,11 +155,12 @@ export default function InlineBookingWidget({ widgetConfig = {}, locale = 'pt', 
   const fallbackUrl = `https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=[{"room":1,"adults":2,"children":0}]&complex=1828&lang=${LANG_CODE[locale] || LANG_CODE.pt}&`;
 
   return (
-    <div className={`${styles.inlineWidget} ${className}`}>
+    <div className={`${styles.inlineWidget} ${className}`} aria-live="polite">
       <AnimatePresence>
         {loading && (
-          <motion.div 
+          <motion.div
             className={styles.loadingSkeleton}
+            role="status"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

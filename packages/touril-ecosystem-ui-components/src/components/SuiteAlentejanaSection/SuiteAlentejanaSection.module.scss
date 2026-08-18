@@ -97,7 +97,10 @@
   border: none;
   border-radius: 0; // Reason: Brand rule specifies 0px border-radius everywhere
   cursor: pointer;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition:
+    background-color $transition-duration-normal $transition-timing-normal,
+    color $transition-duration-normal $transition-timing-normal,
+    opacity $transition-duration-normal $transition-timing-normal;
   align-self: flex-start;
 
   &:hover {
@@ -108,6 +111,11 @@
 
   &:active {
     opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--focus-ring, #{$color-clay});
+    outline-offset: 2px;
   }
 
   @media (max-width: $breakpoint-tablet) {

@@ -15,8 +15,8 @@
 .reservasSection {
   width: 100%;
   background-color: $color-neutral-white;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: $spacing-xxl;
+  padding-bottom: $spacing-xxl;
 }
 
 // ──────────────────────────────────────────────
@@ -66,12 +66,12 @@
   display: inline-flex;
   align-items: center;
   font-family: $font-body;
-  font-size: 0.875rem;
+  font-size: $font-size-body-small;
   color: $color-accent-ink;
   text-decoration: none;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition: text-decoration $transition-duration-quick ease;
 
   &:hover {
     text-decoration: underline;
@@ -79,7 +79,7 @@
 }
 
 .arrow {
-  margin-left: 4px;
+  margin-left: $spacing-xs;
   transition: transform $transition-duration-normal $transition-timing-normal;
 }
 
@@ -110,7 +110,7 @@
   background-color: $color-clay;
   color: $color-deep-brown;
   font-family: $font-body;
-  font-size: 0.875rem;
+  font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;

@@ -56,6 +56,7 @@ export default function LanguageSwitcher() {
             className={`${styles.langBtn} ${locale === 'en' ? styles.active : ''}`}
             onClick={() => switchLang('en')}
             aria-label="Switch to English"
+            aria-pressed={locale === 'en'}
           >
             EN
           </button>
@@ -63,6 +64,7 @@ export default function LanguageSwitcher() {
             className={`${styles.langBtn} ${locale === 'pt' ? styles.active : ''}`}
             onClick={() => switchLang('pt')}
             aria-label="Mudar para Português"
+            aria-pressed={locale === 'pt'}
           >
             PT
           </button>

@@ -112,6 +112,11 @@
   &:hover {
     filter: brightness(1.05);
   }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent, #{$color-clay});
+    outline-offset: 2px;
+  }
 }
 
 // Navigation arrows
@@ -125,12 +130,17 @@
   font-size: 3rem;
   padding: $spacing-m $spacing-l;
   cursor: pointer;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition: background-color $transition-duration-normal $transition-timing-normal;
   border-radius: 0;
   z-index: 10;
 
   &:hover {
     background: rgba($color-deep-brown, 0.6);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent, #{$color-clay});
+    outline-offset: 2px;
   }
 }
 
@@ -165,6 +175,11 @@
 
   &:hover {
     background-color: rgba($color-cream, 0.8);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent, #{$color-clay});
+    outline-offset: 2px;
   }
 }
 
@@ -201,7 +216,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition: background-color $transition-duration-normal $transition-timing-normal;
   border-radius: 0;
   z-index: 20;
   color: var(--ink, #{$color-deep-brown});
@@ -209,6 +224,11 @@
 
   &:hover {
     background: rgba($color-cream, 0.2);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent, #{$color-clay});
+    outline-offset: 2px;
   }
 }
 
@@ -341,7 +361,10 @@
   border: none;
   border-radius: 0;
   cursor: pointer;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition:
+    background-color $transition-duration-normal $transition-timing-normal,
+    color $transition-duration-normal $transition-timing-normal,
+    transform $transition-duration-normal $transition-timing-normal;
   text-transform: uppercase;
 
   @include mobile {

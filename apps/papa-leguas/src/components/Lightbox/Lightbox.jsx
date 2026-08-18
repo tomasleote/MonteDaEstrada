@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import styles from './Lightbox.module.scss';
 
 /**
@@ -15,6 +15,10 @@ import styles from './Lightbox.module.scss';
  */
 const Lightbox = ({ images, initialIndex = 0, onClose, isOpen }) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
+  const closeButtonRef = useRef(null);
+  const containerRef = useRef(null);
+  const previousActiveElementRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     setCurrentIndex(initialIndex);
@@ -26,6 +30,16 @@ const Lightbox = ({ images, initialIndex = 0, onClose, isOpen }) => {
     return () => {
       document.body.style.overflow = '';
     };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      previousActiveElementRef.current = document.activeElement;
+      closeButtonRef.current?.focus();
+    } else if (previousActiveElementRef.current) {
+      previousActiveElementRef.current.focus();
+      previousActiveElementRef.current = null;
+    }
   }, [isOpen]);
 
   const handlePrevious = useCallback(() => {
@@ -58,6 +72,21 @@ const Lightbox = ({ images, initialIndex = 0, onClose, isOpen }) => {
     if (e.target === e.currentTarget) onClose();
   };
 
+  const handleTabTrap = (e) => {
+    if (e.key !== 'Tab') return;
+    const buttons = containerRef.current?.querySelectorAll('button');
+    if (!buttons || buttons.length === 0) return;
+    const first = buttons[0];
+    const last = buttons[buttons.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+
   if (!images || images.length === 0) return null;
 
   const currentImage = images[currentIndex];
@@ -66,19 +95,22 @@ const Lightbox = ({ images, initialIndex = 0, onClose, isOpen }) => {
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          ref={containerRef}
           className={styles.lightbox}
           onClick={handleBackdropClick}
+          onKeyDown={handleTabTrap}
           role="dialog"
           aria-modal="true"
           aria-label="Image lightbox"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.3, ease: [0.4, 0, 0.6, 1] }}
+          transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.3, ease: [0.4, 0, 0.6, 1] }}
         >
           <div className={styles.overlay} aria-hidden="true" />
 
           <button
+            ref={closeButtonRef}
             className={styles.closeButton}
             onClick={onClose}
             aria-label="Close lightbox"
@@ -112,7 +144,7 @@ const Lightbox = ({ images, initialIndex = 0, onClose, isOpen }) => {
                   initial={{ opacity: 0, scale: 0.97 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.97 }}
-                  transition={{ duration: 0.35, ease: [0.32, 0, 0.67, 0] }}
+                  transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.35, ease: [0.32, 0, 0.67, 0] }}
                 />
               </AnimatePresence>
             </div>

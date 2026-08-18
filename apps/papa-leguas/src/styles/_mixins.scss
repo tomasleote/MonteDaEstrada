@@ -14,7 +14,7 @@
  */
 @mixin luxury-card {
   background-color: $color-bg-primary;
-  border: 1px solid $color-border-light;
+  border: $border-width-thin solid $color-border-light;
   border-radius: $border-radius-sharp;
   box-shadow: none;
   transition: border-color $transition-duration-normal $transition-timing-normal;
@@ -483,7 +483,7 @@
   @include touch-press;
   background-color: $color-clay;
   color: $color-deep-brown;
-  border: 1px solid $color-clay;
+  border: $border-width-thin solid $color-clay;
   letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
@@ -505,7 +505,7 @@
   @include touch-press;
   background-color: transparent;
   color: $color-accent-ink;
-  border: 1px solid $color-accent-ink;
+  border: $border-width-thin solid $color-accent-ink;
   letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
@@ -526,7 +526,7 @@
   @include touch-press;
   background-color: transparent;
   color: $color-deep-brown;
-  border: 1px solid $color-deep-brown;
+  border: $border-width-thin solid $color-deep-brown;
   letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
@@ -549,7 +549,7 @@
   border-radius: $border-radius-sharp;
   box-shadow: none;
   padding: $spacing-l;
-  border: 1px solid $color-border-light;
+  border: $border-width-thin solid $color-border-light;
   transition: border-color $transition-duration-normal $transition-timing-normal;
 
   &:hover {
@@ -726,7 +726,7 @@
       border-radius: 50%;
       background-color: rgba($color, 0.3);
       transform: translate(-50%, -50%);
-      transition: width 0.4s ease-out, height 0.4s ease-out;
+      transition: width $transition-duration-normal ease-out, height $transition-duration-normal ease-out;
     }
 
     &:active::after {
@@ -741,7 +741,7 @@
   @include touch-device {
     &:active {
       transform: scale(0.97);
-      transition: transform 0.1s ease-out;
+      transition: transform $transition-duration-quick ease-out;
     }
   }
 }

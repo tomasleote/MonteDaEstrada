@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'motion/react';
 import ImageLightbox from '../ImageLightbox';
@@ -27,6 +27,13 @@ const RoomExpandedCard = ({
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const isImageRight = imagePosition === 'right';
   const isDark = variant === 'dark';
+  const closeButtonRef = useRef(null);
+
+  // Reason: expanding the card moves focus into an in-place detail view;
+  // send keyboard focus to the close button so it isn't lost on the page.
+  useEffect(() => {
+    closeButtonRef.current?.focus();
+  }, []);
 
   const goToPrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -62,6 +69,7 @@ const RoomExpandedCard = ({
     >
       <button
         type="button"
+        ref={closeButtonRef}
         className={styles.closeButton}
         onClick={onClose}
         aria-label="Fechar detalhes do quarto"

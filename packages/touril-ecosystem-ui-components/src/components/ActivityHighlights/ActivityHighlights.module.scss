@@ -89,7 +89,6 @@
   padding: 0;
   border: none;
   background-color: transparent;
-  transition: all $transition-duration-normal $transition-timing-normal;
 }
 
 .icon {
@@ -160,7 +159,7 @@
   text-decoration: none;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;
-  transition: all $transition-duration-normal $transition-timing-normal;
+  transition: text-decoration $transition-duration-normal $transition-timing-normal;
 
   &:hover {
     text-decoration: underline;
