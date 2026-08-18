@@ -39,7 +39,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
-  color: $color-charcoal;
+  color: var(--ink-secondary, #{$color-charcoal});
   margin-bottom: $spacing-m;
 }
 
@@ -48,7 +48,7 @@
   font-size: clamp(1.75rem, 3vw, 2.75rem);
   font-weight: $font-weight-light;
   letter-spacing: $letter-spacing-headline;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0;
   line-height: $line-height-tight;
   max-width: 600px;
@@ -104,7 +104,7 @@
   font-size: 1.125rem;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0 0 $spacing-xs 0;
   line-height: $line-height-tight;
 }
@@ -112,7 +112,7 @@
 .description {
   font-family: $font-body;
   font-size: 0.875rem;
-  color: $color-charcoal;
+  color: var(--ink-secondary, #{$color-charcoal});
   line-height: 1.65;
   margin: 0 0 $spacing-m 0;
 }
@@ -121,11 +121,11 @@
   display: block;
   font-family: $font-body;
   font-size: 0.75rem;
-  color: $color-charcoal;
+  color: var(--ink-secondary, #{$color-charcoal});
   letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
   margin-top: $spacing-m;
-  border-top: 1px solid $color-clay;
+  border-top: 1px solid var(--accent-ink, #{$color-clay});
   padding-top: $spacing-m;
   min-width: 100%;
   opacity: 0;
@@ -156,7 +156,7 @@
 .cta {
   font-family: $font-body;
   font-size: 0.875rem;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   text-decoration: none;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;

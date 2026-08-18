@@ -28,14 +28,14 @@
 
   &.atmospheric {
     .amenityLabel {
-      color: $color-clay;
+      color: var(--accent-ink, #{$color-clay});
       font-weight: $font-weight-medium;
     }
   }
 
   &.premium {
     .amenityLabel {
-      color: $color-clay;
+      color: var(--accent-ink, #{$color-clay});
       font-weight: $font-weight-regular;
     }
   }

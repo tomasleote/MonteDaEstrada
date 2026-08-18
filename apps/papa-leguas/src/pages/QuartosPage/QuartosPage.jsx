@@ -35,7 +35,7 @@ const BOOKING_URL = {
 const PL_WIDGET_CONFIG = {
   hotel: '[{ "id": "da157c05-a630-43a2-a15b-732f96c563f2", "name": "Monte do Papa Léguas" }]',
   font: 'Roboto',
-  colors: '{ "MainColor": "#07294C", "SecColor": "white", "ThirdColor": "#4174F8" }',
+  colors: '{ "MainColor": "#3D2F12", "SecColor": "white", "ThirdColor": "#3D2F12" }',
   link: 'https://be.heytravel.net/',
   complexId: '1839',
   visualParams: '{ "holder": "", "hiddeEditReservation": "true", "allowChildren": "true" }',

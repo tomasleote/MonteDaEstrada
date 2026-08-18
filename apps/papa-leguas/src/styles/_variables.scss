@@ -11,31 +11,32 @@
 // ============================================
 
 // Brand Scale (derived from #94B1C9)
-$color-brand-50: #EDF2F6; // Lightest tint, hover backgrounds
-$color-brand-100: #D9E4ED; // Subtle accents, card highlights
-$color-brand-200: #BDCFDD; // Soft borders, muted states
-$color-brand-300: #A8C0D1; // Secondary accents
-$color-brand-400: #94B1C9; // Lighter variant
-$color-brand-500: #94B1C9; // Brand primary
-$color-brand-600: #7A9BB5; // Primary hover state
-$color-brand-700: #5F809A; // Active / pressed states
-$color-brand-800: #476074; // Dark accent
-$color-brand-900: #2C3E50; // Header/footer background
+$color-brand-50: #FCF6E3; // Lightest tint, hover backgrounds
+$color-brand-100: #F9EBC2; // Subtle accents, card highlights
+$color-brand-200: #F7DE9B; // Soft borders, muted states
+$color-brand-300: #F5D077; // Secondary accents
+$color-brand-400: #F4C458; // Lighter variant
+$color-brand-500: #F4C458; // Brand primary
+$color-brand-600: #D9A83C; // Primary hover state
+$color-brand-700: #A8801F; // Active / pressed states
+$color-brand-800: #7E6318; // Dark accent
+$color-brand-900: #3D2F12; // Header/footer background
 
 $color-cream: #F5F3F0; // Primary background
 $color-off-white: #FAFAF8; // Card backgrounds
 $color-warm-gray: #DDD9D5; // Dividers, borders
-$color-deep-brown: #2C3E50; // Primary text, header/footer bg (dark slate)
-$color-clay: #94B1C9; // Accent, CTAs, links on dark (brand blue)
-$color-charcoal: #415B71; // Secondary text
-$color-cool-taupe: #8A9EAD; // Muted text, labels
-$color-light-taupe: #C5D3DE; // Disabled state
-$color-pale-gray: #EDF2F6; // Hover backgrounds
+$color-deep-brown: #3D2F12; // Primary text, header/footer bg (dark slate)
+$color-clay: #F4C458; // Accent, CTAs, links on dark (brand blue)
+$color-accent-ink: #7E6318; // Readable gold: text/icons/links on light bg
+$color-charcoal: #5C4A26; // Secondary text
+$color-cool-taupe: #75643F; // Muted text, labels
+$color-light-taupe: #D9CFB8; // Disabled state
+$color-pale-gray: #F0EBE0; // Hover backgrounds
 
 // Extended palette
 $color-sand: #EDE8E2; // Discovery alternate sections — 3% warmer than cream
-$color-accent-dark: #7A9BB5; // Brand blue darkened for hover states
-$color-accent-light: #BDCFDD; // Brand blue lightened
+$color-accent-dark: #3D2F12; // Brand blue darkened for hover states
+$color-accent-light: #F7DE9B; // Brand blue lightened
 
 // Semantic tokens
 $color-header-bg: $color-brand-900;
@@ -52,7 +53,7 @@ $color-primary: $color-deep-brown;
 $color-primary-light: #4A6278;
 $color-primary-lighter: #6B8499;
 $color-accent: $color-clay;
-$color-accent-dark: #7A9BB5; // keep as concrete value for Sass math
+$color-accent-dark: #3D2F12; // keep as concrete value for Sass math
 
 $color-neutral-white: #FFFFFF;
 $color-neutral-off-white: $color-off-white;
@@ -69,13 +70,13 @@ $color-text-light: $color-cream;
 $color-success: #5C8A4A; // Olive green (natural, fits Alentejo)
 $color-warning: #E67E22;
 $color-error: #C0392B;
-$color-info: #3498DB;
+$color-info: #3D7BA8;
 
 $color-bg-primary: $color-cream;
 $color-bg-secondary: $color-off-white;
 $color-bg-tertiary: $color-pale-gray;
 $color-bg-dark: $color-deep-brown;
-$color-bg-overlay: rgba(44, 62, 80, 0.6);
+$color-bg-overlay: rgba(61, 47, 18, 0.55);
 
 $color-border: $color-warm-gray;
 $color-border-light: $color-pale-gray;
@@ -90,12 +91,35 @@ $color-secondary-dark: $color-accent-dark;
 
 // CSS custom property for per-property secondary color override
 :root {
-  --color-property-secondary: #8A9EAD; /* PL cool-taupe override */
+  --color-property-secondary: #75643F; /* PL cool-taupe override */
 
   /* PL has no logo image — the header renders a Josefin Sans wordmark instead */
   --brand-text-font: 'Josefin Sans', 'DM Sans', sans-serif;
   --brand-text-size: 20px;
   --brand-text-weight: 300;
+
+  /* PL palette "Terra" — ver docs/pl-color-system.md.
+     #F4C458 é claro (L≈0.59): superfície/acento em fundo escuro, nunca texto
+     sobre claro (1.47:1). O ocre #7E6318 é o amarelo legível (5.15:1). */
+  --ink: #3D2F12;
+  --ink-secondary: #5C4A26;
+  --ink-muted: #75643F;
+  --accent: #F4C458;
+  --accent-ink: #7E6318;
+  --accent-hover: #D9A83C;
+  --surface-dark: #3D2F12;
+  --cta-bg: #F4C458;
+  --cta-ink: #3D2F12;
+  --cta-hover-bg: #3D2F12;
+  --cta-hover-ink: #F5F3F0;
+  --header-bg: #3D2F12;
+  --header-fg: #F5F3F0;
+  --header-accent: #F4C458;
+  --footer-bg: #3D2F12;
+  --footer-fg: #F5F3F0;
+  --footer-accent: #F4C458;
+  --focus-ring: #7E6318; /* amarelo #F4C458 falha 3:1 sobre cream — só no chrome escuro */
+  --booking-picker-offset: 0px; /* o offset de 2.125rem é um fix específico do MDE */
 
   /* Hero headline mirrors the header wordmark: uppercase, single line, no wrap */
   --headline-text-transform: uppercase;

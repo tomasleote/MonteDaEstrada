@@ -27,7 +27,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-headline;
   text-transform: uppercase;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   margin-bottom: $spacing-m;
 }
 
@@ -36,7 +36,7 @@
   font-size: $font-size-h2;
   font-weight: $font-weight-regular;
   letter-spacing: $letter-spacing-headline;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0;
   line-height: $line-height-tight;
 
@@ -61,7 +61,7 @@
   font-size: $font-size-body-small;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   background: transparent;
   border: 1px solid $color-warm-gray;
   padding: $spacing-s $spacing-m;
@@ -73,13 +73,13 @@
     color $transition-duration-quick ease;
 
   &:hover {
-    border-color: $color-deep-brown;
+    border-color: var(--ink, #{$color-deep-brown});
   }
 }
 
 .filterPillActive {
-  background: $color-clay;
-  border-color: $color-clay;
+  background: var(--accent-ink, #{$color-clay});
+  border-color: var(--accent-ink, #{$color-clay});
   color: $color-cream;
 
   &:hover {
@@ -129,7 +129,7 @@
   @extend %dotBase;
   width: 14px;
   height: 14px;
-  background: $color-clay;
+  background: var(--accent-ink, #{$color-clay});
   box-shadow: 0 0 0 1.5px rgba($color-clay, 0.5);
 }
 
@@ -156,7 +156,7 @@
   @extend %dotBase;
   width: 10px;
   height: 10px;
-  background: $color-deep-brown;
+  background: var(--ink, #{$color-deep-brown});
   border-color: $color-warm-gray;
   border-width: 2.5px;
 }
@@ -203,14 +203,14 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-headline;
   text-transform: uppercase;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   line-height: 1;
 }
 
 .popupDistance {
   font-family: $font-body;
   font-size: 11px;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   background: $color-warm-gray;
   padding: 2px 6px;
   white-space: nowrap;
@@ -222,7 +222,7 @@
   font-size: 16px;
   font-weight: $font-weight-regular;
   letter-spacing: $letter-spacing-subheading;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0 0 $spacing-s;
   line-height: $line-height-base;
 }
@@ -231,7 +231,7 @@
   font-family: $font-body;
   font-size: 13px;
   line-height: 1.55;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0 0 $spacing-m;
   // Clamp to 2 lines
   display: -webkit-box;
@@ -252,7 +252,7 @@
   font-size: 12px;
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   text-decoration: none;
   transition: text-decoration $transition-duration-quick ease;
 

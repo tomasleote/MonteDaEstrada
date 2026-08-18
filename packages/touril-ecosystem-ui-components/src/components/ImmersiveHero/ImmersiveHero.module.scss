@@ -147,7 +147,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid var(--accent, #{$color-clay});
     outline-offset: 4px;
   }
 }

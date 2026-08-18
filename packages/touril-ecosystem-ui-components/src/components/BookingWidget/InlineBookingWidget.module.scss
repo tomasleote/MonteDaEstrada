@@ -32,7 +32,7 @@
   // instead of covering the date fields. rem (not px) keeps it aligned as the
   // widget's text-driven row height scales with the root font size.
   :global(#HomePageWidget .DateRangePicker_picker) {
-    margin-top: 2.125rem !important;
+    margin-top: var(--booking-picker-offset, 2.125rem) !important;
   }
 }
 
@@ -81,7 +81,7 @@
 .fallbackBtn {
   display: inline-block;
   background: $color-cream;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   padding: 12px 24px;
   text-decoration: none;
   font-family: 'Inter', sans-serif;
@@ -90,7 +90,7 @@
   letter-spacing: 1px;
   transition: all 0.2s;
   &:hover {
-    background: $color-deep-brown;
+    background: var(--surface-dark, #{$color-deep-brown});
     color: $color-cream;
   }
 }

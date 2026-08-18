@@ -98,7 +98,7 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  color: $color-cool-taupe;
+  color: var(--ink-muted, #{$color-cool-taupe});
 
   svg {
     width: 100%;
@@ -117,7 +117,7 @@
   font-weight: $font-weight-regular;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: $color-cool-taupe;
+  color: var(--ink-muted, #{$color-cool-taupe});
   text-align: center;
   white-space: nowrap;
 }

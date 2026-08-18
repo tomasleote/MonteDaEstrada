@@ -17,7 +17,7 @@
 
   @include hover-device {
     &:hover {
-      border-color: $color-clay;
+      border-color: var(--accent-ink, #{$color-clay});
 
       .image {
         transform: scale(1.03);
@@ -69,7 +69,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   line-height: 1;
 }
 
@@ -78,7 +78,7 @@
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: $font-weight-light; // 300 — editorial standard
   letter-spacing: $letter-spacing-subheading;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   line-height: $line-height-base;
   margin: 0;
 }
@@ -88,7 +88,7 @@
   font-size: $font-size-body-small; // 14px
   font-weight: $font-weight-regular;
   letter-spacing: $letter-spacing-body;
-  color: $color-charcoal;
+  color: var(--ink-secondary, #{$color-charcoal});
   line-height: $line-height-relaxed;
   margin: 0;
 }
@@ -102,7 +102,7 @@
   font-family: $font-body;
   font-size: 0.6875rem; // 11px — matching category label
   letter-spacing: 0.5px;
-  color: $color-cool-taupe;
+  color: var(--ink-muted, #{$color-cool-taupe});
   margin: 0;
   line-height: 1.6;
 }

@@ -107,7 +107,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;
-  color: $color-clay;
+  color: $color-accent-ink;
 }
 
 .detailValue {
@@ -120,7 +120,7 @@
   transition: color $transition-duration-normal $transition-timing-normal;
 
   &:hover {
-    color: $color-clay;
+    color: $color-accent-ink;
   }
 }
 

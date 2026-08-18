@@ -28,7 +28,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   margin-bottom: $spacing-m;
 }
 
@@ -36,7 +36,7 @@
   font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: $font-weight-light;
   letter-spacing: $letter-spacing-headline;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin-bottom: 12px;
   line-height: 1.2;
 }
@@ -45,7 +45,7 @@
   font-size: clamp(1rem, 1.5vw, 1.25rem);
   font-weight: $font-weight-regular;
   letter-spacing: 0.75px;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin-bottom: $spacing-xl;
   line-height: 1.5;
 
@@ -70,7 +70,7 @@
     font-size: clamp(0.875rem, 1vw, 1rem);
     line-height: 1.6;
     letter-spacing: 0.5px;
-    color: $color-deep-brown;
+    color: var(--ink, #{$color-deep-brown});
 
     @media (max-width: $breakpoint-tablet) {
       font-size: clamp(0.85rem, 1.2vw, 0.95rem);
@@ -87,8 +87,8 @@
 .ctaButton {
   display: inline-block;
   padding: $spacing-m $spacing-xxl;
-  background-color: $color-clay;
-  color: $color-deep-brown;
+  background-color: var(--cta-bg, #{$color-clay});
+  color: var(--cta-ink, #{$color-deep-brown});
   font-size: clamp(0.8rem, 1vw, 0.875rem);
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-subheading;
@@ -101,8 +101,8 @@
   align-self: flex-start;
 
   &:hover {
-    background-color: $color-deep-brown;
-    color: $color-cream;
+    background-color: var(--cta-hover-bg, #{$color-deep-brown});
+    color: var(--cta-hover-ink, #{$color-cream});
     opacity: 1;
   }
 

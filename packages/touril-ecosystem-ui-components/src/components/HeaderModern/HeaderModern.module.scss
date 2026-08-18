@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
+  background-color: var(--header-top-bg, transparent);
   transition: background-color $transition-duration-slow $transition-timing-normal,
     box-shadow $transition-duration-slow $transition-timing-normal,
     height $transition-duration-slow $transition-timing-normal;
@@ -46,7 +46,7 @@
 // Scrolled state — fades in the deep brown background, scales header up
 .headerScrolled {
   --header-height: 88px;
-  background-color: $color-deep-brown;
+  background-color: var(--header-bg, #{$color-deep-brown});
   border-bottom: 1px solid rgba($color-warm-gray, 0.2);
   height: var(--header-height);
 }
@@ -158,7 +158,7 @@
   font-weight: var(--brand-text-weight, #{$font-weight-medium});
   letter-spacing: $letter-spacing-headline;
   text-transform: uppercase;
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   white-space: nowrap;
 }
 
@@ -196,7 +196,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: 0.75px;
   text-transform: uppercase;
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   text-decoration: none;
   display: block;
   padding: $spacing-s $spacing-m;
@@ -214,14 +214,14 @@
     left: $spacing-m;
     right: $spacing-m;
     height: 2px;
-    background-color: $color-clay;
+    background-color: var(--header-accent, #{$color-clay});
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:hover {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
 
     &::after {
       transform: scaleX(1);
@@ -230,7 +230,7 @@
 
   // Active: clay color + underline fully expanded
   &.navLinkActive {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
 
     &::after {
       transform: scaleX(1);
@@ -261,7 +261,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: 0.75px;
   text-transform: uppercase;
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   background-color: transparent;
   border: none;
   padding: $spacing-xs;
@@ -276,7 +276,7 @@
   @include focus-visible;
 
   &:hover {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
   }
 }
 
@@ -304,7 +304,7 @@
 
   width: max-content;
   min-width: 200px;
-  background-color: $color-deep-brown;
+  background-color: var(--header-bg, #{$color-deep-brown});
   border: 1px solid rgba($color-warm-gray, 0.25);
   list-style: none;
   margin: 0;
@@ -338,7 +338,7 @@
   font-weight: $font-weight-regular;
   letter-spacing: 0.75px;
   text-decoration: none;
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   position: relative;
   transition: color $transition-duration-normal $transition-timing-fast;
 
@@ -352,14 +352,14 @@
     left: $spacing-l;
     right: $spacing-l;
     height: 2px;
-    background-color: $color-clay;
+    background-color: var(--header-accent, #{$color-clay});
     transform: scaleX(0);
     transform-origin: left center;
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:hover {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
 
     &::after {
       transform: scaleX(1);
@@ -367,7 +367,7 @@
   }
 
   &.propertyItemActive {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
 
     &::after {
       transform: scaleX(1);
@@ -404,7 +404,7 @@
 .hamburgerLine {
   width: 22px;
   height: 1.5px;
-  background-color: $color-clay; // Clay-colored hamburger per spec
+  background-color: var(--header-accent, #{$color-clay}); // Clay-colored hamburger per spec
   margin: 4px 0;
   transition: transform $transition-duration-normal $transition-timing-normal,
     opacity $transition-duration-normal $transition-timing-normal;
@@ -422,7 +422,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: $color-deep-brown;
+  background-color: var(--header-bg, #{$color-deep-brown});
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
@@ -455,7 +455,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: 0.75px;
   text-transform: uppercase;
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   text-decoration: none;
   padding: $spacing-m $spacing-s;
   border-bottom: 1px solid rgba($color-warm-gray, 0.12);
@@ -466,7 +466,7 @@
 
   &:hover,
   &.mobileNavLinkActive {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
   }
 
   &:last-child {
@@ -502,15 +502,15 @@
   @include focus-visible;
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid var(--header-accent, #{$color-clay});
     outline-offset: 2px;
   }
 }
 
 .mobileLangBtnActive {
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   opacity: 1;
-  border-bottom: 2px solid $color-clay;
+  border-bottom: 2px solid var(--header-accent, #{$color-clay});
 }
 
 .mobileLangDivider {
@@ -537,7 +537,7 @@
 .bookingCta {
   background: none;
   border: none;
-  color: $color-cream;
+  color: var(--header-fg, #{$color-cream});
   font-family: $font-body;
   font-size: 12px;
   font-weight: $font-weight-medium;
@@ -560,12 +560,12 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: $color-clay;
+    background: var(--header-accent, #{$color-clay});
     transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:hover {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
     &::after {
       width: 100%;
     }
@@ -573,7 +573,7 @@
 
   // Active state match
   &.active {
-    color: $color-clay;
+    color: var(--header-accent, #{$color-clay});
     &::after {
       width: 100%;
     }
@@ -593,8 +593,8 @@
   display: block;
   width: 100%;
   text-align: center;
-  background: $color-deep-brown;
-  color: $color-cream;
+  background: var(--header-bg, #{$color-deep-brown});
+  color: var(--header-fg, #{$color-cream});
   border: none;
   border-radius: 0;
   padding: 16px;

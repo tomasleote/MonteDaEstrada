@@ -105,10 +105,10 @@
 
   @include hover-device {
     &:hover {
-      color: $color-deep-brown;
+      color: var(--ink, #{$color-deep-brown});
 
       .label {
-        color: $color-deep-brown;
+        color: var(--ink, #{$color-deep-brown});
       }
     }
   }
@@ -119,7 +119,7 @@
   font-size: $font-size-body-small; // 14px
   font-weight: $font-weight-regular;
   letter-spacing: $letter-spacing-subheading;
-  color: $color-cool-taupe;
+  color: var(--ink-muted, #{$color-cool-taupe});
   transition: color $transition-duration-normal $transition-timing-normal;
 
   @include mobile {
@@ -129,7 +129,7 @@
 
 // Active item — clay label
 .itemActive .label {
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   font-weight: $font-weight-medium;
 }
 
@@ -144,7 +144,7 @@
   left: $spacing-m;
   right: $spacing-m;
   height: 2px;
-  background-color: $color-clay;
+  background-color: var(--accent-ink, #{$color-clay});
   // Framer Motion handles the layout animation; no CSS transform here
 }
 

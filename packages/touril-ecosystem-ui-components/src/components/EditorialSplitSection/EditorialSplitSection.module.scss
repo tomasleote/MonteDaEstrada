@@ -138,7 +138,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
-  color: $color-charcoal;
+  color: var(--ink-secondary, #{$color-charcoal});
   margin-bottom: $spacing-m;
   align-self: flex-start;
 }
@@ -152,7 +152,7 @@
   font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: $font-weight-light;
   letter-spacing: $letter-spacing-headline;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0 0 $spacing-xl 0;
   line-height: $line-height-tight;
 }
@@ -160,7 +160,7 @@
 .bodyParagraph {
   font-family: $font-body;
   font-size: 1rem;
-  color: $color-charcoal;
+  color: var(--ink-secondary, #{$color-charcoal});
   line-height: 1.75;
   margin: 0 0 $spacing-m 0;
 
@@ -178,7 +178,7 @@
   align-items: center;
   font-family: $font-body;
   font-size: 0.875rem;
-  color: $color-clay;
+  color: var(--accent-ink, #{$color-clay});
   text-decoration: none;
   letter-spacing: $letter-spacing-subheading;
   text-transform: uppercase;

@@ -24,7 +24,7 @@
   }
 
   &:focus-within {
-    outline: 2px solid $color-clay;
+    outline: 2px solid $color-accent-ink;
     outline-offset: 2px;
   }
 }
@@ -493,7 +493,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid $color-accent-ink;
     outline-offset: 2px;
   }
 }
@@ -504,8 +504,8 @@
   @include touch-ripple($color-clay);
   @include touch-press;
   background-color: transparent;
-  color: $color-clay;
-  border: 1px solid $color-clay;
+  color: $color-accent-ink;
+  border: 1px solid $color-accent-ink;
   letter-spacing: $letter-spacing-subheading;
 
   &:hover:not(:disabled) {
@@ -514,7 +514,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid $color-accent-ink;
     outline-offset: 2px;
   }
 }
@@ -535,7 +535,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid $color-accent-ink;
     outline-offset: 2px;
   }
 }
@@ -838,7 +838,7 @@
 // Focus visible (modern focus styles)
 @mixin focus-visible {
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid $color-accent-ink;
     outline-offset: 2px;
   }
 }

@@ -9,8 +9,8 @@
 @use '../../styles/mixins' as *;
 
 .footer {
-  background-color: $color-deep-brown;
-  color: $color-cream;
+  background-color: var(--footer-bg, #{$color-deep-brown});
+  color: var(--footer-fg, #{$color-cream});
   padding: $spacing-xxl $spacing-m;
   font-family: $font-body;
   font-size: $font-size-body-small;
@@ -20,16 +20,16 @@
 
   // All links: cream default, clay hover
   a {
-    color: $color-cream;
+    color: var(--footer-fg, #{$color-cream});
     text-decoration: none;
     transition: color $transition-normal $ease-standard;
 
     &:hover {
-      color: $color-clay;
+      color: var(--footer-accent, #{$color-clay});
     }
 
     &:focus-visible {
-      outline: 2px solid $color-clay;
+      outline: 2px solid var(--footer-accent, #{$color-clay});
       outline-offset: 2px;
     }
   }
@@ -100,7 +100,7 @@
   color: rgba($color-cream, 0.75);
 
   &:hover {
-    color: $color-clay;
+    color: var(--footer-accent, #{$color-clay});
   }
 }
 
@@ -161,7 +161,7 @@
 .addressLabel {
   display: block;
   font-weight: $font-weight-medium;
-  color: $color-cream;
+  color: var(--footer-fg, #{$color-cream});
   text-transform: uppercase;
   letter-spacing: $letter-spacing-subheading;
   font-size: $font-size-caption;
@@ -229,7 +229,7 @@
   transition: color $transition-normal $ease-standard;
 
   &:hover {
-    color: $color-clay;
+    color: var(--footer-accent, #{$color-clay});
   }
 
   img {
@@ -259,14 +259,14 @@
 
 @media (prefers-contrast: more) {
   .footer {
-    color: $color-cream;
+    color: var(--footer-fg, #{$color-cream});
   }
 
   .navLink,
   .addressParagraph,
   .contactParagraph,
   .legalParagraph {
-    color: $color-cream;
+    color: var(--footer-fg, #{$color-cream});
   }
 }
 

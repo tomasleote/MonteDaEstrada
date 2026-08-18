@@ -110,7 +110,7 @@
 
 // Dark variant — charcoal background, cream text
 .contentColumnDark {
-  background-color: $color-charcoal;
+  background-color: var(--surface-dark, #{$color-charcoal});
 
   .title {
     color: $color-cream;
@@ -121,7 +121,7 @@
   }
 
   .reserveButton {
-    color: $color-deep-brown;
+    color: var(--ink, #{$color-deep-brown});
   }
 
   .infoButton {
@@ -130,21 +130,21 @@
 
     &:hover {
       background-color: $color-cream;
-      color: $color-charcoal;
+      color: var(--ink-secondary, #{$color-charcoal});
     }
   }
 
   @include tablet {
     background-color: $color-off-white;
 
-    .title { color: $color-deep-brown; }
-    .subtitle { color: $color-deep-brown; }
+    .title { color: var(--ink, #{$color-deep-brown}); }
+    .subtitle { color: var(--ink, #{$color-deep-brown}); }
     .infoButton {
-      color: $color-deep-brown;
-      border-color: $color-deep-brown;
+      color: var(--ink, #{$color-deep-brown});
+      border-color: var(--ink, #{$color-deep-brown});
 
       &:hover {
-        background-color: $color-deep-brown;
+        background-color: var(--surface-dark, #{$color-deep-brown});
         color: $color-cream;
       }
     }
@@ -162,7 +162,7 @@
   font-weight: $font-weight-light;
   line-height: $line-height-tight;
   letter-spacing: $letter-spacing-headline;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0 0 $spacing-m 0;
 
   @include mobile {
@@ -176,7 +176,7 @@
   font-weight: $font-weight-regular;
   line-height: $line-height-relaxed;
   letter-spacing: $letter-spacing-body;
-  color: $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
   margin: 0 0 $spacing-xl 0;
 
   @include mobile {
@@ -216,18 +216,18 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid var(--accent-ink, #{$color-clay});
     outline-offset: 2px;
   }
 }
 
 .reserveButton {
-  background-color: $color-clay;
-  color: $color-deep-brown;
+  background-color: var(--cta-bg, #{$color-clay});
+  color: var(--cta-ink, #{$color-deep-brown});
 
   &:hover {
-    background-color: $color-deep-brown;
-    color: $color-cream;
+    background-color: var(--cta-hover-bg, #{$color-deep-brown});
+    color: var(--cta-hover-ink, #{$color-cream});
   }
 
   &:active {
@@ -237,11 +237,11 @@
 
 .infoButton {
   background-color: transparent;
-  color: $color-deep-brown;
-  border: 1px solid $color-deep-brown;
+  color: var(--ink, #{$color-deep-brown});
+  border: 1px solid var(--ink, #{$color-deep-brown});
 
   &:hover {
-    background-color: $color-deep-brown;
+    background-color: var(--surface-dark, #{$color-deep-brown});
     color: $color-cream;
   }
 }

@@ -57,6 +57,12 @@ html {
   min-height: 100vh;
 }
 
+// Dark chrome: focus rings over #3D2F12 need the yellow accent (ochre reads 2.6:1 there)
+header,
+footer {
+  --focus-ring: #F4C458;
+}
+
 body {
   @include text-body;
   background-color: $color-bg-primary;
@@ -118,11 +124,11 @@ a {
   transition: $transition-all-fast;
 
   &:hover {
-    color: $color-clay;
+    color: $color-accent-ink;
   }
 
   &:focus-visible {
-    outline: 2px solid $color-clay;
+    outline: 2px solid $color-accent-ink;
     outline-offset: 2px;
   }
 }

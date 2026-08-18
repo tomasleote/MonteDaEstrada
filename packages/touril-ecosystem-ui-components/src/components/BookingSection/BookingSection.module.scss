@@ -6,7 +6,9 @@
 // ==================================
 
 .section {
-  background-color: $color-deep-brown;
+  // Dark band: focus rings inside must use the on-dark accent, not the on-light one
+  --focus-ring: var(--accent, #{$color-clay});
+  background-color: var(--surface-dark, #{$color-deep-brown});
   color: $color-cream;
   padding: $space-section;
   max-width: 1100px;
@@ -29,7 +31,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
-  color: $color-clay;
+  color: var(--accent, #{$color-clay});
   margin-bottom: $spacing-m;
 }
 
@@ -78,7 +80,7 @@
   transition: color $transition-duration-normal $transition-timing-normal;
 
   &:hover {
-    color: $color-clay;
+    color: var(--accent, #{$color-clay});
   }
 
   @include focus-ring;
@@ -87,7 +89,7 @@
 .icon {
   font-size: 1.25rem;
   line-height: 1;
-  color: $color-clay;
+  color: var(--accent, #{$color-clay});
 }
 
 .contactText {
@@ -110,8 +112,8 @@
 .reserveButton {
   display: inline-block;
   padding: $spacing-m $spacing-xxl;
-  background-color: $color-clay;
-  color: $color-deep-brown;
+  background-color: var(--accent, #{$color-clay});
+  color: var(--cta-ink, #{$color-deep-brown});
   font-family: $font-body;
   font-size: 0.875rem;
   font-weight: $font-weight-medium;
@@ -125,8 +127,8 @@
               transform $transition-duration-quick $transition-timing-fast;
 
   &:hover {
-    background-color: $color-accent-dark;
-    color: $color-cream;
+    background-color: var(--cta-hover-bg, #{$color-accent-dark});
+    color: var(--cta-hover-ink, #{$color-cream});
   }
 
   &:active {
