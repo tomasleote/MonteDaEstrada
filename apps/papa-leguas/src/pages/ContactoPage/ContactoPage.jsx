@@ -9,13 +9,12 @@ import styles from './ContactoPage.module.scss';
 // CategoryNav anchor items — must match the section ids below
 const getNavItems = (locale) => {
   const labels = {
-    pt: { localizacao: 'Localização', mapa: 'Mapa', contactos: 'Contactos' },
-    en: { localizacao: 'Location', mapa: 'Map', contactos: 'Contacts' },
+    pt: { localizacao: 'Localização', contactos: 'Contactos' },
+    en: { localizacao: 'Location', contactos: 'Contacts' },
   };
   const l = labels[locale] || labels.pt;
   return [
     { id: 'localizacao', label: l.localizacao },
-    { id: 'mapa', label: l.mapa },
     { id: 'contactos', label: l.contactos },
   ];
 };
