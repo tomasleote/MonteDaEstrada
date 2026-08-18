@@ -3,116 +3,278 @@
     "eyebrow": "Descobrir",
     "title": "A Costa Alentejana à Sua Porta",
     "subtitle": "Experiências únicas, paisagens deslumbrantes e os sabores autênticos do Sudoeste Alentejano.",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-caminhada.webp",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/redondezas/hero-descobrir.webp",
     "imageAlt": "Trilho dos pescadores na Costa Vicentina"
   },
-  "activities": [
+  "experiences": [
     {
-      "id": "caminhadas",
+      "category": "gastronomia",
+      "categoryLabel": "Piqueniques",
+      "title": "Piquenique para caminhantes",
+      "description": "Sacos de piquenique, fruta da época, sanduiches em pão a lenha da Zambujeira do Mar - tudo o que é essencial para a sua caminhada.",
+      "highlights": [
+        "Fruta da época",
+        "Sanduiches em pão a lenha",
+        "Zambujeira do Mar"
+      ],
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/pequeniqueai.webp",
+      "imageAlt": "Cesta de piquenique com produtos locais no campo"
+    },
+    {
+      "category": "gastronomia",
+      "categoryLabel": "Petiscar",
+      "title": "Tábua de queijo, enchidos e vinho",
+      "description": "Para saborear no terraço do seu quarto, ao seu ritmo.",
+      "highlights": [
+        "Queijo regional",
+        "Enchidos",
+        "Vinho alentejano"
+      ],
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/vinhos-ai.jpg",
+      "imageAlt": "Tábua de queijo, enchidos e vinho regional"
+    },
+    {
+      "category": "natureza",
+      "categoryLabel": "Caminhadas",
       "title": "Caminhadas na Rota Vicentina",
-      "description": "Caminhadas guiadas pelo Trilho dos Pescadores, um dos mais emblemáticos da Rota Vicentina. Vários troços com diferentes graus de dificuldade, acessíveis a todos.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-caminhada.webp",
-      "imageAlt": "Caminhada no Trilho dos Pescadores"
+      "description": "O Trilho dos Pescadores encontra-se a minutos do monte. O troço entre a Zambujeira do Mar e o Cavaleiro é considerado um dos mais bonitos da Rota Vicentina.",
+      "highlights": [
+        "Trilho dos Pescadores",
+        "Falésias costeiras",
+        "Praias desertas"
+      ],
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/rotavicentinaai.webp",
+      "imageAlt": "Caminheiro na Rota Vicentina com vista para o Atlântico"
     },
     {
-      "id": "sunset",
-      "title": "Sunset Chaser",
-      "description": "Passeio de Jipe com guia local até um ponto privilegiado para observar o pôr do sol, enquanto saboreia um vinho e um petisco regional.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-sunset.webp",
-      "imageAlt": "Pôr do sol na Costa Vicentina"
+      "category": "natureza",
+      "categoryLabel": "Ciclismo",
+      "title": "Trilhos em Bicicleta",
+      "description": "Explore os caminhos de montado e os pedaços de Alentejo onde os carros não chegam. De bicicleta, ao seu ritmo.",
+      "highlights": [
+        "Trilhos de montado",
+        "Sem trânsito",
+        "Ao seu ritmo"
+      ],
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/btt.webp",
+      "imageAlt": "Bicicleta apoiada em tronco com montado alentejano ao fundo"
     },
     {
-      "id": "vinho",
-      "title": "Prova de Vinhos Regionais",
-      "description": "Uma prova de vinhos produzidos nas proximidades — alentejanos com características atlânticas únicas.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-vinho.webp",
-      "imageAlt": "Prova de vinhos regionais alentejanos"
+      "category": "paisagens",
+      "categoryLabel": "História",
+      "title": "Farol do Cabo Sardão",
+      "description": "Este emblemático edifício do início do século XIX destaca-se pela arquitetura singular e por proporcionar vistas deslumbrantes ao pôr do sol.",
+      "highlights": [
+        "Arquitetura singular",
+        "Século XIX",
+        "Pôr do sol"
+      ],
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/cabo-sardao-farol.png",
+      "imageAlt": "Farol do Cabo Sardão ao pôr do sol"
     },
     {
-      "id": "bike",
-      "title": "Trilhos em E-bike",
-      "description": "Passeio em E-bike com guia local para explorar a Costa Alentejana. Diferentes troços e distâncias para todos os níveis.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-bike.webp",
-      "imageAlt": "Passeio de e-bike na Costa Alentejana"
-    },
-    {
-      "id": "massagem",
-      "title": "Massagens",
-      "description": "Massagens de relaxamento na sala de massagens da Herdade do Touril, com oferta de uma bebida no Bar da Piscina.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-massagem.webp",
-      "imageAlt": "Sala de massagens da Herdade do Touril"
-    },
-    {
-      "id": "piquenique-cesta",
-      "title": "Cesta de Piquenique",
-      "description": "Um piquenique completo, ideal para um passeio romântico até uma praia, uma falésia ou para desfrutar à sombra do nosso pinhal.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-piquenique.webp",
-      "imageAlt": "Cesta de piquenique com produtos regionais"
-    },
-    {
-      "id": "piquenique-caminhantes",
-      "title": "Piqueniques para Caminhantes",
-      "description": "Preparamos um piquenique ligeiro para que possa levar na sua caminhada pelo Trilho dos Pescadores.",
-      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/atividade-piquenique.webp",
-      "imageAlt": "Piquenique para caminhantes"
+      "category": "gastronomia",
+      "categoryLabel": "Restaurante",
+      "title": "Restaurante Herdade do Touril",
+      "description": "Almoço, petisco e jantares — o melhor da gastronomia, paisagem deslumbrante e uma atenção especial aos nossos hóspedes.",
+      "highlights": [
+        "Almoço & jantar",
+        "Gastronomia regional",
+        "Vista deslumbrante"
+      ],
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/restaurante-touril.jpg",
+      "imageAlt": "Restaurante da Herdade do Touril"
     }
   ],
-  "activitiesNote": "Todas as atividades necessitam de reserva prévia. Preços disponíveis sob consulta.",
+  "activitiesNote": "Todas as atividades necessitam de reserva prévia, com alguns dias de antecedência e estão dependentes da disponibilidade de terceiros. Os preços apenas estão disponíveis sob consulta prévia, porque variam ao longo do ano.",
   "services": [
-    { "id": "pequeno-almoco", "label": "Pequeno-Almoço", "detail": "8h30–11h00", "icon": "coffee" },
-    { "id": "piscina", "label": "Piscina", "detail": "Sazonal", "icon": "pool" },
-    { "id": "honesty-bar", "label": "Honesty Bar", "detail": "Sempre disponível", "icon": "bar" },
-    { "id": "transfer", "label": "Transfer para Caminhantes", "detail": "Vários pontos", "icon": "car" },
-    { "id": "wifi", "label": "Wi-Fi Gratuito", "detail": "Em todo o monte", "icon": "wifi" },
-    { "id": "bicicletas", "label": "Bicicletas", "detail": "Mecânicas e elétricas", "icon": "bike" },
-    { "id": "checkin", "label": "Check-in", "detail": "Quartos 15h–20h · Estúdios 16h–20h", "icon": "key" },
-    { "id": "checkout", "label": "Check-out", "detail": "Até às 11h", "icon": "clock" },
-    { "id": "horario", "label": "Recepção", "detail": "9h–20h", "icon": "door" },
-    { "id": "secador", "label": "Secador de Cabelo", "detail": "Em todos os alojamentos", "icon": "sparkles" },
-    { "id": "parking", "label": "Estacionamento", "detail": "Privativo para hóspedes", "icon": "car" }
+    {
+      "id": "pequeno-almoco",
+      "label": "Pequeno Almoço",
+      "detail": "8h30–11h00",
+      "icon": "coffee"
+    },
+    {
+      "id": "piscina",
+      "label": "Piscina",
+      "detail": "Sazonal",
+      "icon": "pool"
+    },
+    {
+      "id": "honesty-bar",
+      "label": "Honesty Bar",
+      "detail": "Sempre disponível",
+      "icon": "bar"
+    },
+    {
+      "id": "transfer",
+      "label": "Transfer para Caminhantes",
+      "detail": "Vários pontos",
+      "icon": "car"
+    },
+    {
+      "id": "wifi",
+      "label": "Wifi Grátis",
+      "detail": "Em todo o monte",
+      "icon": "wifi"
+    },
+    {
+      "id": "bicicletas",
+      "label": "Bicicletas",
+      "detail": "Mecânicas e elétricas",
+      "icon": "bike"
+    },
+    {
+      "id": "checkin",
+      "label": "Check-in",
+      "detail": "Quartos 15h–20h · Estúdios 16h–20h",
+      "icon": "key"
+    },
+    {
+      "id": "checkout",
+      "label": "Check-out",
+      "detail": "Até às 11h",
+      "icon": "clock"
+    },
+    {
+      "id": "horario",
+      "label": "Horário",
+      "detail": "9h–20h",
+      "icon": "door"
+    },
+    {
+      "id": "secador",
+      "label": "Secador de Cabelo",
+      "detail": "Em todos os alojamentos",
+      "icon": "sparkles"
+    },
+    {
+      "id": "tv",
+      "label": "TV",
+      "detail": "Satélite na sala comum",
+      "icon": "tv"
+    },
+    {
+      "id": "parque",
+      "label": "Parque",
+      "detail": "Privativo para hóspedes",
+      "icon": "car"
+    }
   ],
-  "partners": [
+  "beaches": [
     {
-      "name": "Casas Brancas",
-      "url": "https://www.casasbrancas.pt/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/casasbrancas.webp",
-      "logoAlt": "Casas Brancas logo"
+      "name": "Zambujeira do Mar",
+      "distance": "2 km",
+      "description": "Praia selvagem encaixada em falésias de xisto. O Atlântico puro.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/zambujeirapraia.webp",
+      "imageAlt": "Zambujeira do Mar com falésias e mar azul-turquesa",
+      "mapUrl": "https://maps.app.goo.gl/kofHZjwBekjVqEzt5"
     },
     {
-      "name": "Turismo do Alentejo",
-      "url": "https://www.visitalentejo.pt/pt/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/turismo-alentejo.webp",
-      "logoAlt": "Turismo do Alentejo logo"
+      "name": "Alteirinhos",
+      "distance": "3 km",
+      "description": "Praia de acesso difícil e beleza improvável. Para os que procuram o inesperado.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/alteirinhos.webp",
+      "imageAlt": "Praia dos Alteirinhos vista do alto das falésias",
+      "mapUrl": "https://maps.app.goo.gl/gAvwGa5rhY8RvcGu9"
     },
     {
-      "name": "Herdade do Touril",
+      "name": "Carvalhal",
+      "distance": "6 km",
+      "description": "Extensa e ventosa, favorita dos surfistas e dos que querem praia sem multidão.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/carvalhal.webp",
+      "imageAlt": "Praia do Carvalhal com ondas e dunas ao fundo",
+      "mapUrl": "https://maps.app.goo.gl/TaXwnk9cj364cnbZ9"
+    },
+    {
+      "name": "Tonel",
+      "distance": "8 km",
+      "description": "Pequena enseada selvagem junto à Zambujeira do Mar. Falésias, ondas fortes e areia quase deserta.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/tonel.webp",
+      "imageAlt": "Praia do Tonel na Zambujeira do Mar, entre falésias",
+      "mapUrl": "https://maps.app.goo.gl/aMzy7JTXVZ74kfsh8"
+    },
+    {
+      "name": "Odeceixe",
+      "distance": "11 km",
+      "description": "Onde o rio encontra o mar. Protegida do vento, ideal para famílias.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/odeceixe.webp",
+      "imageAlt": "Praia de Odeceixe com estuário do rio Seixe",
+      "mapUrl": "https://maps.app.goo.gl/ggdNmsjs6CQXuFJW8"
+    },
+    {
+      "name": "Almograve",
+      "distance": "15 km",
+      "description": "Praia selvagem com acesso fácil e águas cristalinas. Um tesouro escondido da Costa Vicentina.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/almograve.webp",
+      "imageAlt": "Praia de Almograve com areias douradas",
+      "mapUrl": "https://maps.app.goo.gl/4BgVJrALGAAXTBan9"
+    },
+    {
+      "name": "Malhão",
+      "distance": "30 km",
+      "description": "Praia com areal extenso. Dunas, vento e Atlântico aberto.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/malhao.webp",
+      "imageAlt": "Praia do Malhão com dunas",
+      "mapUrl": "https://maps.app.goo.gl/Y2azVFZfRtxEWDDh8"
+    },
+    {
+      "name": "Aivados",
+      "distance": "33 km",
+      "description": "Praia secreta entre rochas. Um dos segredos mais bem guardados da costa.",
+      "imageSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/descobrir/aivados.webp",
+      "imageAlt": "Praia dos Aivados entre rochas",
+      "mapUrl": "https://maps.app.goo.gl/iBKwXiUTcYPmADNq9"
+    }
+  ],
+  "parceiros": [
+    {
+      "name": "Restaurante Herdade do Touril",
       "url": "https://herdadedotouril.com/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/touril.webp",
-      "logoAlt": "Herdade do Touril logo"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/touril.png",
+      "group": "comercial"
     },
     {
-      "name": "Rota Vicentina",
-      "url": "https://rotavicentina.com/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/rota-vicentina.webp",
-      "logoAlt": "Rota Vicentina logo"
+      "name": "Bar da Praia - Almograve",
+      "url": "https://www.barpraiaalmograve.pt/",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/bardapraia.png",
+      "group": "comercial"
     },
     {
-      "name": "Manjedoura",
+      "name": "Manjedoura Restaurante Bar",
       "url": "https://www.manjedoura.pt/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/manjedoura.webp",
-      "logoAlt": "Manjedoura logo"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/manjedoura%20(1).webp",
+      "group": "comercial"
     },
     {
       "name": "Tasca do Celso",
       "url": "https://rotavicentina.com/restaurantes/tasca-do-celso/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/celso.webp",
-      "logoAlt": "Tasca do Celso logo"
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/celso.png",
+      "group": "comercial"
     },
     {
-      "name": "Bar Praia do Almograve",
-      "url": "https://www.barpraiaalmograve.pt/",
-      "logoSrc": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/descobrir/parceiros/bardapraia.webp",
-      "logoAlt": "Bar da Praia do Almograve logo"
+      "name": "BDP Vieirinha",
+      "url": "",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/VIEIRINHA-logo.png",
+      "group": "comercial"
+    },
+    {
+      "name": "Visit Alentejo",
+      "url": "https://www.visitalentejo.pt/pt/",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/visitalentejo.png",
+      "group": "institucional"
+    },
+    {
+      "name": "Casas Brancas",
+      "url": "https://www.casasbrancas.pt/",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/casas_brancas.png",
+      "group": "institucional"
+    },
+    {
+      "name": "Rota Vicentina",
+      "url": "https://rotavicentina.com/",
+      "logo": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/mde/parceiros/rota_vicentina.png",
+      "group": "institucional"
     }
   ]
 }

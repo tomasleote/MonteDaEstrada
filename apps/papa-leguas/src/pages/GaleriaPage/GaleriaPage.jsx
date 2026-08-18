@@ -3,13 +3,29 @@ import { PageHero } from '@touril-ecosystem/ui-components';
 import Lightbox from '@/components/Lightbox';
 import { galeriaImages } from '@/data/galeriaImages';
 import { useLocale } from '@/contexts/LocaleContext';
-import ptData from '@/data/pt/galeria.json';
-import enData from '@/data/en/galeria.json';
 import styles from './GaleriaPage.module.scss';
+
+const heroCopy = {
+  pt: {
+    eyebrow: 'Galeria',
+    title: 'Monte do Papa Léguas',
+    subtitle: 'Explore a beleza e autenticidade do Monte do Papa-Léguas no Sudoeste Alentejano.',
+    imageAlt: 'Piscina exterior do Monte do Papa Léguas',
+  },
+  en: {
+    eyebrow: 'Gallery',
+    title: 'Monte do Papa Léguas',
+    subtitle: 'Explore the beauty and authenticity of Monte do Papa-Léguas in the Southwest Alentejo.',
+    imageAlt: 'Outdoor pool at Monte do Papa Léguas',
+  },
+};
+
+const HERO_IMAGE =
+  'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/galeria/piscina-1.webp';
 
 const GaleriaPage = () => {
   const { locale } = useLocale();
-  const data = locale === 'en' ? enData : ptData;
+  const hero = heroCopy[locale] || heroCopy.pt;
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
@@ -21,11 +37,11 @@ const GaleriaPage = () => {
   return (
     <div className={styles.galeriaPage}>
       <PageHero
-        imageSrc={data.hero.image}
-        imageAlt={data.hero.imageAlt || data.hero.title}
-        eyebrow={data.hero.eyebrow}
-        headline={data.hero.title}
-        subtitle={data.hero.subtitle}
+        imageSrc={HERO_IMAGE}
+        imageAlt={hero.imageAlt}
+        eyebrow={hero.eyebrow}
+        headline={hero.title}
+        subtitle={hero.subtitle}
       />
 
       <section className={styles.section}>

@@ -1,9 +1,9 @@
 {
   "hero": {
     "eyebrow": "Contact",
-    "title": "We Are Waiting for You",
+    "title": "Location & Contacts",
     "subtitle": "Two kilometres from the beach, in the heart of the Parque Natural do Sudoeste Alentejano.",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/home/hero-1.webp",
     "imageAlt": "Monte do Papa Léguas exterior at dusk"
   },
   "address": {
@@ -12,8 +12,7 @@
     "postalCode": "7630-611",
     "region": "Alentejo",
     "country": "Portugal",
-    "description": "Surrounded by farmland and set within a small private pine grove, we are located 2 km from the centre of Zambujeira do Mar and its beach.",
-    "nearbyBeaches": "Nearest beaches: Zambujeira do Mar, Alteirinhos, Carvalhal and Almograve"
+    "description": "Surrounded by agricultural fields and set in a small private pine forest, we are located 2km from the center of Zambujeira do Mar and its beach.\n\nLocated in the heart of the Southwest Alentejo and Costa Vicentina Natural Park, just 2 km from the charming village of Zambujeira do Mar, Monte do Papa Léguas is a haven of charm where the Alentejo reveals itself in all its authenticity. Combining tradition and elegance, our home is a true invitation to relaxation, celebrating tones, textures and timeless simplicity of Alentejo culture. Here every detail is thought to provide a memorable experience, in perfect harmony with nature.\n\nStart your day with an artisanal breakfast, full of genuine flavors, prepared with local ingredients and with the care that only Alentejo can offer. Relax by the pool, immersing yourself in the peaceful rhythm of sunny days, or find serenity in a hammock in the shade of our pine trees. For those who like to be adventurous, we have bicycles to explore the trails and surrounding landscapes, where each curve reveals new wonders. Committed to sustainability, we value responsible practices that preserve nature and honor the richness of this unique territory. At Monte do Papa Léguas, every moment is an invitation to experience the best of Alentejo, we are waiting for you.\n\nMonte do Papa Léguas is nestled in the heart of Zambujeira do Mar, a coastal gem known for its breathtaking landscapes and authentic charm. Just a stroll away, discover pristine beaches where golden sands meet the Atlantic Ocean's azure waters. Explore the quaint village, its narrow streets adorned with whitewashed houses and local artisan shops. Indulge in fresh seafood at seaside restaurants, and witness stunning sunsets that paint the sky in hues of warmth. Whether you seek tranquility or adventure, the surrounding area invites you to experience the best of coastal Portugal."
   },
   "contact": {
     "phone": "+351 960 432 223",
@@ -30,13 +29,5 @@
     "lat": 37.529417,
     "lng": -8.761460,
     "zoom": 14
-  },
-  "form": {
-    "namePlaceholder": "Your name",
-    "emailPlaceholder": "Your email",
-    "arrivalPlaceholder": "Arrival date",
-    "departurePlaceholder": "Departure date",
-    "messagePlaceholder": "Your message",
-    "submitLabel": "Send Message"
   }
 }

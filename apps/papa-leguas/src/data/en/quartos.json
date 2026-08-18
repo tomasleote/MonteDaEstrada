@@ -1,71 +1,67 @@
 {
   "hero": {
-    "eyebrow": "Our Spaces",
-    "title": "Comfort with Alentejo Soul",
-    "subtitle": "Rooms and studios fully equipped for comfort, in an authentic Alentejo atmosphere.",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-01.webp",
+    "eyebrow": "Rooms",
+    "title": "Our Spaces",
+    "subtitle": "Monte do Papa Léguas offers two types of accommodation: double rooms with private bathroom, and studios with double bedroom, private bathroom, kitchenette and porch with dining area.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-2.webp",
     "imageAlt": "Interior of a room at Monte do Papa Léguas"
   },
   "quartos": {
     "heading": "The Rooms",
-    "tagline": "Comfortable and Welcoming",
+    "tagline": "Comfortable and welcoming",
     "description": [
-      "Comfortable and welcoming, our rooms offer everything you need for a pleasant and practical stay.",
-      "Located next to the main Monte, each room features a double bed or two single beds, according to your preference."
+      "Comfortable and welcoming, our rooms offer a spacious bed (double or 2 separate beds, as you prefer), modern bathroom with shower, heating, TV, wardrobe and a minifridge, ensuring a pleasant and practical stay."
     ],
     "amenities": {
-      "atmospheric": ["Double bed or 2 single beds", "Private bathroom with shower", "Mini fridge"],
-      "premium": ["Air conditioning and heating", "Television", "Wardrobe", "Electric kettle", "Nearby parking"]
+      "atmospheric": ["Double bed (double or 2 separate beds, as preferred)", "Modern bathroom with shower", "A comfortable minibar"],
+      "premium": ["A/C, Heating, Television and Wardrobe", "Electric kettle", "Parking near the main Monte"]
     },
-    "cta": { "label": "Book Room", "href": "HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER" },
     "images": [
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-01.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-02.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-03.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-04.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-05.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-06.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/quartos/quartos-room-07.webp"
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-2.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/wc-quarto-2.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-4.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-5.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-3.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-1.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/wc-quarto.webp"
     ],
     "imageAlts": [
-      "Room at Monte do Papa Léguas — view 1",
-      "Room — view 2",
+      "Room at Monte do Papa Léguas — view 2",
+      "Room bathroom — view 2",
+      "Room — view 4",
+      "Room — view 5",
       "Room — view 3",
-      "Room — bathroom",
-      "Room — detail",
-      "Room — exterior",
-      "Room — terrace"
+      "Room — view 1",
+      "Room bathroom"
     ]
   },
   "estudios": {
     "heading": "The Studios",
-    "tagline": "Autonomy and Privacy",
+    "tagline": "Ideal for those who want more autonomy",
     "description": [
-      "The studio is ideal for those who prefer more independence. With a fully equipped kitchenette and private porch, it is the perfect space for an extended stay.",
-      "The studios are in a separate block from the main Monte, with their own parking space."
+      "The Studio is ideal for those who want more autonomy. Our Studios are in a separate block from the main Monte and have a parking space next to Monte dos Estudios."
     ],
     "amenities": {
-      "atmospheric": ["Equipped kitchenette (mini-fridge, induction hob, microwave, toaster)", "Furnished private porch/terrace", "Bathroom with bathtub"],
-      "premium": ["Double bed or 2 single beds", "Extra bed available", "Air conditioning and heating", "Television", "Wardrobe", "Electric kettle", "Parking next to the block"]
+      "atmospheric": ["Equipped kitchenette (utensils, minibar, induction hob, microwave, electric kettle and toaster)", "Private furnished terrace", "Double bed (or 2 single beds, as you prefer)"],
+      "premium": ["Option to add an extra bed, ideal for family holidays", "WC with Bath", "A/C, Heating, Television and Wardrobe", "Parking space next to Monte dos Estúdios"]
     },
-    "cta": { "label": "Book Studio", "href": "HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER" },
     "images": [
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-01.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-02.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-03.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-04.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-05.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-06.webp",
-      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/estudios/estudios-room-07.webp"
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/estudio-4.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/estudio-6.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/estudio-2.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/estudio-5.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/wc-estudio.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/estudio-1.webp",
+      "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/estudio-3.webp"
     ],
     "imageAlts": [
-      "Studio at Monte do Papa Léguas — view 1",
-      "Studio — kitchenette",
-      "Studio — living area",
-      "Studio — bathroom",
-      "Studio — porch",
-      "Studio — detail",
-      "Studio — exterior"
+      "Studio — view 4",
+      "Studio — view 6",
+      "Studio — view 2",
+      "Studio — view 5",
+      "Studio bathroom",
+      "Studio — view 1",
+      "Studio — view 3"
     ]
   }
 }

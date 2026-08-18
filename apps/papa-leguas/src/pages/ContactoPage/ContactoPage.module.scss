@@ -4,19 +4,57 @@
   width: 100%;
 }
 
-.nearbyContainer {
-  max-width: $container-max-width;
-  margin: 0 auto;
-  padding: 0 $container-padding $spacing-xxxl;
+// ──────────────────────────────────────────────
+// Localização — text-only section (no image)
+// ──────────────────────────────────────────────
+
+.locationSection {
+  background-color: $color-off-white;
+  padding: $padding-section 0;
 }
 
-.nearbyText {
+.locationContainer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    padding: 0 $spacing-m;
+  }
+}
+
+.locationHeading {
+  font-family: $font-display;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-medium;
+  color: $color-deep-brown;
+  letter-spacing: $letter-spacing-headline;
+  margin: $spacing-s 0 $spacing-xl;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    font-size: $font-size-h4;
+  }
+}
+
+.locationText {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-l;
+}
+
+.locationParagraph {
   font-family: $font-body;
   font-size: $font-size-body;
+  font-weight: $font-weight-regular;
   color: $color-charcoal;
   line-height: $line-height-relaxed;
   letter-spacing: $letter-spacing-body;
   margin: 0;
+
+  &:first-of-type {
+    font-size: $font-size-body-large;
+    color: $color-deep-brown;
+  }
 }
 
 .mapSection {
@@ -39,29 +77,27 @@
   }
 }
 
-.contactGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $spacing-xxxl * 2;
-
-  @media (max-width: #{$breakpoint-tablet}) {
-    grid-template-columns: 1fr;
-    gap: $spacing-xxl;
-  }
-}
-
 .detailsList {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  flex-direction: column;
-  gap: $spacing-xl;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $spacing-xxl;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-xl;
+  }
 }
 
 .detailItem {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: $spacing-xs;
 }
 
@@ -88,6 +124,3 @@
   }
 }
 
-.formWrapper {
-  // Layout placeholder — ContactForm handles its own layout
-}

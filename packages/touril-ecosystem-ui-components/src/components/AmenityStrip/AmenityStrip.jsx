@@ -94,6 +94,80 @@ AMENITY_ICONS['Shared Kitchen'] = AMENITY_ICONS['Cozinha Partilhada'];
 AMENITY_ICONS['Terrace'] = AMENITY_ICONS['Terraço'];
 
 /**
+ * Icons addressable by a stable key, so labels can be reworded or translated
+ * without silently losing the icon (matching on the display name breaks the
+ * moment a label reads "Pequeno Almoço" instead of "Pequeno-almoço").
+ */
+const ICONS_BY_KEY = {
+  coffee: AMENITY_ICONS['Pequeno-almoço'],
+  bike: AMENITY_ICONS['Bicicletas'],
+  wifi: AMENITY_ICONS['Wi-Fi'],
+  car: AMENITY_ICONS['Estacionamento'],
+  ac: AMENITY_ICONS['Ar condicionado'],
+  garden: AMENITY_ICONS['Jardim'],
+  bbq: AMENITY_ICONS['Churrasqueira'],
+  kitchen: AMENITY_ICONS['Cozinha Partilhada'],
+  terrace: AMENITY_ICONS['Terraço'],
+  pool: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 18c1.5 0 1.5-1.5 3-1.5S6.5 18 8 18s1.5-1.5 3-1.5 1.5 1.5 3 1.5 1.5-1.5 3-1.5 1.5 1.5 3 1.5" />
+      <path d="M2 22c1.5 0 1.5-1.5 3-1.5S6.5 22 8 22s1.5-1.5 3-1.5 1.5 1.5 3 1.5 1.5-1.5 3-1.5 1.5 1.5 3 1.5" />
+      <path d="M7 15V4a2 2 0 0 1 4 0M17 15V4a2 2 0 0 0-4 0" />
+      <path d="M7 9h6" />
+    </svg>
+  ),
+  bar: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 3h18l-9 9z" />
+      <path d="M12 12v8" />
+      <path d="M8 20h8" />
+    </svg>
+  ),
+  key: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="7.5" cy="15.5" r="4.5" />
+      <path d="M10.7 12.3 21 2" />
+      <path d="m17 6 3 3" />
+    </svg>
+  ),
+  clock: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  ),
+  door: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 21V4a1 1 0 0 1 1-1h9a1 1 0 0 1 1 1v17" />
+      <path d="M3 21h18" />
+      <circle cx="13" cy="12" r="0.8" />
+    </svg>
+  ),
+  sparkles: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M5 3v4M3 5h4" />
+      <path d="M6 17v4M4 19h4" />
+      <path d="m13 3 2.5 6.5L22 12l-6.5 2.5L13 21l-2.5-6.5L4 12l6.5-2.5L13 3z" />
+    </svg>
+  ),
+  tv: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="7" width="20" height="13" rx="2" />
+      <path d="m17 2-5 5-5-5" />
+    </svg>
+  ),
+  transfer: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M3 17h18" />
+      <path d="M5 17V9l2-4h10l2 4v8" />
+      <circle cx="7.5" cy="17.5" r="1.5" />
+      <circle cx="16.5" cy="17.5" r="1.5" />
+      <path d="M5 12h14" />
+    </svg>
+  ),
+};
+
+/**
  * AmenityStrip — Horizontal scrollable strip of icon + label pairs.
  * A premium "at a glance" treatment. The amenities are a whisper, not a feature list.
  * Background: cream with warm-gray top/bottom borders.
@@ -103,7 +177,8 @@ AMENITY_ICONS['Terrace'] = AMENITY_ICONS['Terraço'];
  * No descriptions — just the icon and name.
  *
  * @param {Object} props
- * @param {Array<{name: string}>} props.amenities - Array of amenity objects (only name is used)
+ * @param {Array<{name: string, icon?: string}>} props.amenities - Amenities; `icon`
+ *   selects from ICONS_BY_KEY and takes precedence over matching on `name`
  * @param {string} props.className - Additional CSS classes
  * @returns {React.ReactElement}
  */
@@ -143,7 +218,7 @@ function AmenityStrip({ amenities, className = '' }) {
           {amenities.map((amenity, index) => (
             <div key={index} className={styles.item}>
               <span className={styles.icon} aria-hidden="true">
-                {AMENITY_ICONS[amenity.name] || null}
+                {ICONS_BY_KEY[amenity.icon] || AMENITY_ICONS[amenity.name] || null}
               </span>
               <span className={styles.label}>{amenity.name}</span>
             </div>
@@ -158,7 +233,7 @@ function AmenityStrip({ amenities, className = '' }) {
               variants={variants.staggerItem}
             >
               <span className={styles.icon} aria-hidden="true">
-                {AMENITY_ICONS[amenity.name] || null}
+                {ICONS_BY_KEY[amenity.icon] || AMENITY_ICONS[amenity.name] || null}
               </span>
               <span className={styles.label}>{amenity.name}</span>
             </motion.div>
@@ -173,6 +248,7 @@ AmenityStrip.propTypes = {
   amenities: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
+      icon: PropTypes.string,
     })
   ).isRequired,
   className: PropTypes.string,

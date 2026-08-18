@@ -9,11 +9,15 @@
     <title>Monte do Papa Léguas | Zambujeira do Mar | Turismo Rural Alentejo</title>
     <meta name="description" content="Situado no Parque Natural do Sudoeste Alentejano e Costa Vicentina, a 2 km da Zambujeira do Mar. Casa de campo com quartos e estúdios, piscina e pequeno-almoço artesanal." />
 
+    <!-- Image CDN — open the connection before React asks for the hero image -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
     <!-- Google Fonts — DM Sans (display fallback for Basis Grotesque) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600;700&family=Josefin+Sans:wght@300;400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
       rel="stylesheet"
     />
 
@@ -21,25 +25,5 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
-    <!-- Netlify Identity Widget & Redirect for Admin Authentication (Lazy) -->
-    <script>
-      if (window.location.pathname.startsWith('/admin')) {
-        var s = document.createElement('script');
-        s.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
-        s.onload = function() {
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-              if (!user) {
-                window.netlifyIdentity.on("login", () => {
-                  document.location.href = "/admin/";
-                });
-              }
-            });
-          }
-        };
-        document.head.appendChild(s);
-      }
-    </script>
   </body>
 </html>

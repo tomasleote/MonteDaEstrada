@@ -18,3 +18,108 @@
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
+// ──────────────────────────────────────────────
+// Gallery slideshow section (S5)
+// ──────────────────────────────────────────────
+
+.gallerySection {
+  background-color: $color-cream;
+  padding: $padding-section 0;
+}
+
+.galleryHeader {
+  text-align: center;
+  margin-bottom: $spacing-l;
+}
+
+.galleryHeading {
+  font-family: $font-display;
+  font-size: $font-size-h3;
+  font-weight: $font-weight-medium;
+  color: $color-deep-brown;
+  letter-spacing: $letter-spacing-headline;
+  margin: $spacing-s 0 0;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    font-size: $font-size-h4;
+  }
+}
+
+.gallerySlideshow {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-l;
+
+  @media (max-width: #{$breakpoint-tablet}) {
+    padding: 0 $spacing-m;
+  }
+}
+
+.galleryCtaContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: $spacing-xxxl;
+}
+
+.galleryCta {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  color: $color-clay;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  transition: all $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.arrow {
+  margin-left: 4px;
+  transition: transform $transition-duration-normal $transition-timing-normal;
+}
+
+.galleryCta:hover .arrow {
+  transform: translateX(4px);
+}
+
+// ──────────────────────────────────────────────
+// Hero booking widget slot
+// ──────────────────────────────────────────────
+
+// The HeyTravel widget self-distributes its fields only when given room; the
+// 800px hero content column squeezed it to ~700px and truncated the dates.
+// Break out to the same 1100px the Espaços-page widget uses, centered on the hero.
+.heroWidgetWrapper {
+  margin-top: $spacing-xl;
+  width: 1100px;
+  max-width: 92vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+// Mobile CTA button inside hero (replaces widget on small screens)
+.heroBookButton {
+  display: inline-block;
+  margin-top: $spacing-xl;
+  padding: $spacing-m $spacing-xxl;
+  background-color: $color-clay;
+  color: $color-deep-brown;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  font-weight: $font-weight-medium;
+  letter-spacing: $letter-spacing-subheading;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color $transition-duration-normal $transition-timing-normal;
+
+  &:hover {
+    background-color: $color-accent-dark;
+    color: $color-cream;
+  }
+}

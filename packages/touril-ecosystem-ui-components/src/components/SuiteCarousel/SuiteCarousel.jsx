@@ -1,11 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import styles from './SuiteCarousel.module.scss';
 
-const SuiteCarousel = ({ images = [], className = '' }) => {
+// Callers pass either plain URLs or { src, alt } objects — accept both.
+const normalize = (images, alts = []) =>
+  images.map((image, index) =>
+    typeof image === 'string'
+      ? { src: image, alt: alts[index] || '' }
+      : image
+  );
+
+const SuiteCarousel = ({ images = [], imageAlts = [], onImageClick, className = '' }) => {
+  const slides = normalize(images, imageAlts);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
 
   // Auto-advance carousel every 5 seconds (unless hovering or only 1 image)
@@ -20,35 +31,56 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
     return () => touchMedia.removeEventListener('change', handleChange);
   }, []);
 
+  // Autoplay only once the carousel is properly on screen, and rewind to the
+  // first slide whenever it leaves. Without this the timer runs from mount, so
+  // the visitor arrives at a carousel that is already several slides in.
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') {
+      setIsInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.intersectionRatio >= 0.5);
+        if (entry.intersectionRatio === 0) setCurrentIndex(0);
+      },
+      { threshold: [0, 0.5] }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     // On touch devices, default to paused autoplay
-    if (isTouchDevice || isHovering || prefersReducedMotion || images.length <= 1) return;
+    if (!isInView || isTouchDevice || isHovering || prefersReducedMotion || images.length <= 1) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isHovering, isTouchDevice, prefersReducedMotion, images.length]);
+  }, [isInView, isHovering, isTouchDevice, prefersReducedMotion, slides.length]);
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    setCurrentIndex((prev) => (prev + 1) % slides.length);
   };
 
-  if (!images || images.length === 0) {
+  if (slides.length === 0) {
     return <div className={styles.carouselEmpty}>No images available</div>;
   }
 
   return (
     <div
+      ref={containerRef}
       className={`${styles.carouselContainer} ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
@@ -63,11 +95,24 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
           transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
         >
           <motion.img
-            src={images[currentIndex].src}
-            alt={images[currentIndex].alt}
-            className={styles.carouselImage}
-            loading="lazy"
+            src={slides[currentIndex].src}
+            alt={slides[currentIndex].alt}
+            className={`${styles.carouselImage} ${onImageClick ? styles.clickable : ''}`}
+            loading="eager"
             decoding="async"
+            onClick={onImageClick ? () => onImageClick(currentIndex) : undefined}
+            role={onImageClick ? 'button' : undefined}
+            tabIndex={onImageClick ? 0 : undefined}
+            onKeyDown={
+              onImageClick
+                ? (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault();
+                      onImageClick(currentIndex);
+                    }
+                  }
+                : undefined
+            }
             initial={{ scale: 1 }}
             animate={{ scale: prefersReducedMotion ? 1 : 1.02 }}
             transition={{ duration: 8, ease: 'easeInOut' }}
@@ -75,10 +120,22 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
         </motion.div>
       </AnimatePresence>
 
+      {/* Warm the next slide so the cross-fade never lands on a blank frame */}
+      {slides.length > 1 && (
+        <img
+          src={slides[(currentIndex + 1) % slides.length].src}
+          alt=""
+          aria-hidden="true"
+          className={styles.preload}
+          loading="eager"
+          decoding="async"
+        />
+      )}
+
       {/* Navigation Dots */}
-      {images.length > 1 && (
+      {slides.length > 1 && (
         <div className={styles.dotsContainer}>
-          {images.map((_, index) => (
+          {slides.map((_, index) => (
             <motion.button
               key={index}
               className={`${styles.dot} ${
@@ -94,7 +151,7 @@ const SuiteCarousel = ({ images = [], className = '' }) => {
       )}
 
       {/* Left/Right Arrow Controls */}
-      {images.length > 1 && (
+      {slides.length > 1 && (
         <>
           <button
             className={styles.arrowButton}

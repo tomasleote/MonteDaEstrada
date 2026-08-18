@@ -27,6 +27,8 @@ const SuiteAlentejanaSection = ({
   tagline = 'Um refúgio onde a luz do Alentejo entra pelas janelas.',
   description = [],
   carouselImages = [],
+  carouselImageAlts = [],
+  onImageClick,
   amenities = { atmospheric: [], premium: [] },
   ctaLabel = 'Reservar A Suite Alentejana',
   ctaHref = '#',
@@ -61,7 +63,11 @@ const SuiteAlentejanaSection = ({
   return (
     <section className={styles.suiteSection}>
       {/* Carousel */}
-      <SuiteCarousel images={carouselImages} />
+      <SuiteCarousel
+        images={carouselImages}
+        imageAlts={carouselImageAlts}
+        onImageClick={onImageClick}
+      />
 
       {/* Content Container */}
       <motion.div

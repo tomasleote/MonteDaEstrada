@@ -35,6 +35,25 @@
   will-change: transform;
 }
 
+.clickable {
+  cursor: zoom-in;
+
+  &:focus-visible {
+    outline: 2px solid $color-clay;
+    outline-offset: -4px;
+  }
+}
+
+// Offscreen next-slide warmer — must stay loadable, so no display:none
+.preload {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .dotsContainer {
   position: absolute;
   bottom: 24px;

@@ -17,6 +17,7 @@ const RoomCard = ({
   imageAlt,
   images = [],
   imagePosition = 'left',
+  variant,
   onInfoClick,
   onReserveClick,
   reserveLabel = 'RESERVE JÁ!',
@@ -24,6 +25,9 @@ const RoomCard = ({
   className = '',
 }) => {
   const isImageRight = imagePosition === 'right';
+  // Reason: the dark panel historically tracked the image side; `variant` lets a
+  // consumer decouple the two without changing that default.
+  const isDark = variant ? variant === 'dark' : isImageRight;
   const hasCarousel = Array.isArray(images) && images.length > 1;
 
   return (
@@ -46,7 +50,7 @@ const RoomCard = ({
         )}
       </div>
 
-      <div className={`${styles.contentColumn} ${isImageRight ? styles.contentColumnDark : ''}`}>
+      <div className={`${styles.contentColumn} ${isDark ? styles.contentColumnDark : ''}`}>
         <div className={styles.contentInner}>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.subtitle}>{subtitle}</p>
@@ -95,6 +99,8 @@ RoomCard.propTypes = {
   ),
   /** Image position: 'left' or 'right' */
   imagePosition: PropTypes.oneOf(['left', 'right']),
+  /** Content-panel colour scheme; defaults to dark when the image sits right */
+  variant: PropTypes.oneOf(['light', 'dark']),
   /** Callback function when "Mais Informações" button is clicked */
   onInfoClick: PropTypes.func.isRequired,
   /** Callback function when "RESERVE JÁ!" button is clicked */

@@ -60,10 +60,10 @@ const RoomCardGallery = ({
         const isSelected = room.roomId === selectedRoomId;
         // Reason: Alternate image position for visual variety
         // Even indices get 'left', odd indices get 'right'
-        const imagePosition = index % 2 === 0 ? 'left' : 'right';
+        const imagePosition = room.imagePosition || (index % 2 === 0 ? 'left' : 'right');
         // Reason: Match collapsed card color scheme in expanded view
         // Even indices have light background, odd have dark background
-        const variant = index % 2 === 0 ? 'light' : 'dark';
+        const variant = room.variant || (index % 2 === 0 ? 'light' : 'dark');
 
         return (
           <div key={room.roomId} className={styles.cardWrapper}>
@@ -93,6 +93,7 @@ const RoomCardGallery = ({
                 imageAlt={room.imageAlt}
                 images={room.images}
                 imagePosition={imagePosition}
+                variant={variant}
                 onInfoClick={() => handleInfoClick(room.roomId)}
                 onReserveClick={() => handleReserveClick(room.roomId)}
                 reserveLabel={labels.reserve}
@@ -131,6 +132,10 @@ RoomCardGallery.propTypes = {
           alt: PropTypes.string,
         })
       ).isRequired,
+      /** Overrides the alternating image side for this card */
+      imagePosition: PropTypes.oneOf(['left', 'right']),
+      /** Overrides the alternating content-panel colour scheme for this card */
+      variant: PropTypes.oneOf(['light', 'dark']),
     })
   ).isRequired,
   /** Callback function when a reserve button is clicked, receives roomId */

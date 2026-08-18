@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/home/hero-1.webp",
     "alt": "Monte do Papa Léguas at dawn",
     "eyebrow": "Zambujeira do Mar · Natural Park",
     "headline": "Monte do Papa Léguas",
@@ -10,21 +10,21 @@
   "welcome": {
     "eyebrow": "Welcome",
     "headline": "A Charming Retreat in the Heart of Alentejo",
-    "body": "Located in the heart of the Parque Natural do Sudoeste Alentejano e Costa Vicentina, just 2 km from the charming village of Zambujeira do Mar, Monte do Papa Léguas is a charming retreat where Alentejo reveals itself in all its authenticity.\n\nCombining tradition and elegance, our home is a true invitation to relaxation, celebrating the tones, textures, and timeless simplicity of Alentejo culture. Here every detail is thoughtfully crafted to provide a memorable experience, in perfect harmony with nature.",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "body": "Located in the heart of the Southwest Alentejo and Vicentine Coast Natural Park, just 2 km from the charming village of Zambujeira do Mar, Monte do Papa Léguas is Rural Guesthouse by the sea, a charming retreat where the Alentejo reveals itself in all its authenticity.\n\nCombining tradition and elegance, our home is a true invitation to relax, celebrating the tones, textures and timeless simplicity of Alentejo culture. Here, every detail is designed to provide a memorable experience, in perfect harmony with nature.\n\nStart your day with an artisanal breakfast, full of genuine flavors, prepared with local ingredients and with the care that only Alentejo knows how to offer.\n\nRelax by the pool, immersing yourself in the peaceful rhythm of sunny days, or find serenity in a hammock in the shade of our pine trees. For those who enjoy adventure, we have bicycles available to explore the trails and surrounding landscapes, where every turn reveals new wonders.\n\nCommitted to sustainability, we value responsible practices that preserve nature and honor the richness of this unique territory.\n\nAt Monte do Papa Léguas, every moment is an invitation to experience the best of Alentejo, we are waiting for you.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/home/hero-1.webp",
     "imageAlt": "Monte do Papa Léguas exterior area with pine trees"
   },
   "spaces": {
     "eyebrow": "Our Spaces",
     "headline": "Rooms & Studios",
-    "body": "Two types of accommodation, both with the comfort and Alentejo charm that define us.",
-    "ctaLabel": "View Spaces",
-    "ctaHref": "/en/espacos"
+    "body": "Monte do Papa Léguas offers two types of accommodation: double rooms with private bathroom and studios with kitchenette and porch, comfortable and welcoming, designed for a pleasant and practical stay.",
+    "ctaLabel": "View Rooms",
+    "ctaHref": "/en/quartos"
   },
   "activities": {
     "eyebrow": "Discover",
     "headline": "The Alentejo Coast at Your Doorstep",
-    "body": "From the Rota Vicentina to wild beaches, wine tasting to Sunset Chaser — unique experiences designed for you.",
+    "body": "We propose several activities to make the most of your stay on the Alentejo Coast and Rota Vicentina — from regional wine tasting to the Sunset Chaser. Contact us for more details.",
     "ctaLabel": "Explore",
     "ctaHref": "/en/descobrir"
   },

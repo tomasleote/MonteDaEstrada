@@ -1,4 +1,5 @@
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .descobrirPage {
   width: 100%;
@@ -6,33 +7,128 @@
   background-color: $color-cream;
 }
 
+// ==================================
+// S2 — EXPERIENCES (mirrors Monte da Estrada's Descobrir grid)
+// ==================================
+
+.experiencesSection {
+  background-color: $color-sand;
+  padding: $spacing-xxxl 0;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 $spacing-m;
+  }
+}
+
+.sectionHeading {
+  font-family: $font-display;
+  font-size: clamp($font-size-h4, 3vw, $font-size-h2);
+  font-weight: $font-weight-light; // 300 — editorial restraint
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  margin: 0 0 $spacing-xxl 0;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.experiencesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-l;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-l;
+  }
+}
+
+.activitiesNote {
+  margin: $spacing-xxl 0 0;
+  font-family: $font-body;
+  font-size: $font-size-caption;
+  color: $color-charcoal;
+  line-height: $line-height-relaxed;
+  letter-spacing: $letter-spacing-body;
+  text-align: center;
+}
+
 .mapSection {
   position: relative;
   background-color: $color-cream;
 }
 
-.partnersSection {
-  padding: $spacing-xxl $container-padding;
-  text-align: center;
+// ==================================
+// S6 — BEACHES
+// ==================================
+
+.beachesSection {
+  background-color: $color-sand;
+  padding: $spacing-xxxl 0;
 }
 
-.partnerGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-l;
-  justify-content: center;
+.beachesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacing-l;
+  }
+}
+
+// ==================================
+// S7 — PARTNERS
+// ==================================
+
+.parceirosSection {
+  background-color: $color-cream;
+  padding: $spacing-xxxl 0;
+}
+
+.parceirosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: $spacing-xl;
   align-items: center;
+  justify-items: center;
   margin-top: $spacing-xl;
 }
 
-.partnerLogo {
-  height: 60px;
-  max-width: 160px;
-  object-fit: contain;
-  opacity: 0.75;
-  transition: opacity 0.2s ease;
+.partnerCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: transform $transition-duration-normal $ease-out-back;
 
   &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.partnerLogo {
+  max-height: 80px;
+  max-width: 100%;
+  object-fit: contain;
+  opacity: 0.8;
+  transition: opacity $transition-duration-normal $ease-out-back;
+
+  .partnerCard:hover & {
     opacity: 1;
   }
 }

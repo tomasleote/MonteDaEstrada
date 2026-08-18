@@ -1,9 +1,9 @@
 {
   "hero": {
     "eyebrow": "Contacto",
-    "title": "Estamos à Sua Espera",
+    "title": "Localização & Contactos",
     "subtitle": "A dois quilómetros da praia, no coração do Parque Natural do Sudoeste Alentejano.",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/home/hero-1.webp",
     "imageAlt": "Exterior do Monte do Papa Léguas ao entardecer"
   },
   "address": {
@@ -12,8 +12,7 @@
     "postalCode": "7630-611",
     "region": "Alentejo",
     "country": "Portugal",
-    "description": "Rodeados por campos agrícolas e inseridos num pequeno pinhal privado, estamos localizados a 2 km do centro da Zambujeira do Mar e da sua praia.",
-    "nearbyBeaches": "Praias mais próximas: Zambujeira do Mar, Alteirinhos, Carvalhal e Almograve"
+    "description": "Rodeados por campos agrícolas e inseridos num pequeno pinhal privado, estamos localizados a 2km do centro da Zambujeira do Mar e da sua praia.\n\nNo coração do Parque Natural do Sudoeste Alentejano e Costa Vicentina, apenas a 2 km da encantadora vila da Zambujeira do Mar, o Monte do Papa Léguas é um refúgio de charme onde o Alentejo se revela em toda a sua autenticidade. Aliando tradição e elegância, a nossa casa é um verdadeiro convite ao relaxamento, celebrando tons, texturas e simplicidade intemporal da cultura alentejana. Aqui cada detalhe é pensado para proporcionar uma experiência memorável, em perfeita harmonia com a natureza.\n\nComece o seu dia com um pequeno-almoço artesanal, cheio de sabores genuínos, preparado com ingredientes locais e com o cuidado que só o Alentejo pode oferecer. Relaxe à beira da piscina, mergulhando no ritmo tranquilo dos dias ensolarados, ou encontre serenidade em uma rede à sombra de nossos pinheiros. Para quem gosta de ser aventureiro, temos bicicletas para explorar os trilhos e paisagens envolventes, onde cada curva revela novas maravilhas.\n\nComprometidos com a sustentabilidade, valorizamos práticas responsáveis que preservem a natureza e honrem a riqueza deste território único. No Monte do Papa Léguas, cada momento é um convite para experimentar o melhor do Alentejo, estamos à sua espera.\n\nO Monte do Papa Léguas está situado no coração da Zambujeira do Mar, uma joia costeira conhecida pelas suas paisagens deslumbrantes e encanto autêntico. A poucos passos de distância, descubra praias imaculadas onde areias douradas se encontram com as águas azuis do Oceano Atlântico. Explore a pitoresca vila, com ruas estreitas adornadas, casas caiadas de branco e lojas de artesanato local. Delicie-se com o peixe e marisco fresco e testemunhe pores-do-sol deslumbrantes que pintam o céu com uma cor laranja vibrante."
   },
   "contact": {
     "phone": "+351 960 432 223",
@@ -30,13 +29,5 @@
     "lat": 37.529417,
     "lng": -8.761460,
     "zoom": 14
-  },
-  "form": {
-    "namePlaceholder": "O seu nome",
-    "emailPlaceholder": "O seu email",
-    "arrivalPlaceholder": "Data de chegada",
-    "departurePlaceholder": "Data de saída",
-    "messagePlaceholder": "A sua mensagem",
-    "submitLabel": "Enviar Mensagem"
   }
 }

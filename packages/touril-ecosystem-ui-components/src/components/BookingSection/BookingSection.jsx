@@ -21,6 +21,10 @@ const BOOKING_URL = {
  * @param {string} [props.fallbackPhone] - Contact phone
  * @param {string} [props.whatsappNumber] - WhatsApp number (international format without +)
  * @param {boolean} [props.isMobile] - If true, renders a "Reservar" link button instead of the inline widget
+ * @param {boolean} [props.buttonOnly] - Force the link button even on desktop. Required when
+ *   another InlineBookingWidget already exists on the page: the HeyTravel script binds to a
+ *   single `#HomePageWidget` id, so a second instance leaves both pickers dead.
+ * @param {string} [props.bookingUrl] - Property-specific booking URL (defaults to Monte da Estrada)
  * @param {string} [props.className] - Additional CSS classes
  * @returns {React.ReactElement}
  */
@@ -32,10 +36,13 @@ function BookingSection({
   fallbackPhone,
   whatsappNumber,
   isMobile = false,
+  buttonOnly = false,
+  bookingUrl: bookingUrlProp,
+  widgetConfig,
   locale = 'pt',
   className = '',
 }) {
-  const bookingUrl = BOOKING_URL[locale] || BOOKING_URL.pt;
+  const bookingUrl = bookingUrlProp || BOOKING_URL[locale] || BOOKING_URL.pt;
   const reserveLabel = locale === 'en' ? 'Book' : 'Reservar';
   const responseNote = locale === 'en' ? 'Response within 24 hours.' : 'Resposta em 24 horas.';
   return (
@@ -59,7 +66,7 @@ function BookingSection({
 
       {/* Primary CTA — mobile: link button | desktop: inline widget */}
       <motion.div variants={variants.fadeUp} className={styles.widgetContainer}>
-        {isMobile ? (
+        {isMobile || buttonOnly ? (
           <a
             href={bookingUrl}
             target="_blank"
@@ -69,7 +76,7 @@ function BookingSection({
             {reserveLabel}
           </a>
         ) : (
-          <InlineBookingWidget locale={locale} />
+          <InlineBookingWidget locale={locale} widgetConfig={widgetConfig} />
         )}
       </motion.div>
 
@@ -118,6 +125,9 @@ BookingSection.propTypes = {
   fallbackPhone: PropTypes.string,
   whatsappNumber: PropTypes.string,
   isMobile: PropTypes.bool,
+  buttonOnly: PropTypes.bool,
+  bookingUrl: PropTypes.string,
+  widgetConfig: PropTypes.object,
   locale: PropTypes.string,
   className: PropTypes.string,
 };

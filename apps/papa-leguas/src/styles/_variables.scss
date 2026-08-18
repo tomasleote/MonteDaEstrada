@@ -91,6 +91,16 @@ $color-secondary-dark: $color-accent-dark;
 // CSS custom property for per-property secondary color override
 :root {
   --color-property-secondary: #8A9EAD; /* PL cool-taupe override */
+
+  /* PL has no logo image — the header renders a Josefin Sans wordmark instead */
+  --brand-text-font: 'Josefin Sans', 'DM Sans', sans-serif;
+  --brand-text-size: 20px;
+  --brand-text-weight: 300;
+
+  /* Hero headline mirrors the header wordmark: uppercase, single line, no wrap */
+  --headline-text-transform: uppercase;
+  --headline-white-space: nowrap;
+  --headline-font-size: clamp(1.25rem, 6vw, 3.25rem);
 }
 
 // ============================================

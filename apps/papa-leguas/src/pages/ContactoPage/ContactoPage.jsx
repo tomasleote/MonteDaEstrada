@@ -1,42 +1,60 @@
 import React from 'react';
-import { PageHero, EditorialSplitSection } from '@touril-ecosystem/ui-components';
+import { PageHero, CategoryNav, SectionEyebrow } from '@touril-ecosystem/ui-components';
 import Map from '@/components/Map';
-import ContactForm from '@/components/ContactForm';
 import { useLocale } from '@/contexts/LocaleContext';
 import ptData from '@/data/pt/contacto.json';
 import enData from '@/data/en/contacto.json';
 import styles from './ContactoPage.module.scss';
 
+// CategoryNav anchor items — must match the section ids below
+const getNavItems = (locale) => {
+  const labels = {
+    pt: { localizacao: 'Localização', mapa: 'Mapa', contactos: 'Contactos' },
+    en: { localizacao: 'Location', mapa: 'Map', contactos: 'Contacts' },
+  };
+  const l = labels[locale] || labels.pt;
+  return [
+    { id: 'localizacao', label: l.localizacao },
+    { id: 'mapa', label: l.mapa },
+    { id: 'contactos', label: l.contactos },
+  ];
+};
+
 const ContactoPage = () => {
   const { locale } = useLocale();
   const data = locale === 'en' ? enData : ptData;
+  const paragraphs = data.address.description.split('\n\n');
+  const navItems = getNavItems(locale);
 
   return (
     <div className={styles.page}>
-      <PageHero
-        imageSrc={data.hero.image}
-        imageAlt={data.hero.imageAlt}
-        eyebrow={data.hero.eyebrow}
-        headline={data.hero.title}
-        subtitle={data.hero.subtitle}
-      />
+      <div id="contacto-hero">
+        <PageHero
+          imageSrc={data.hero.image}
+          imageAlt={data.hero.imageAlt}
+          eyebrow={data.hero.eyebrow}
+          headline={data.hero.title}
+          subtitle={data.hero.subtitle}
+        />
+      </div>
 
-      <EditorialSplitSection
-        eyebrow="Localização"
-        heading="2 km da Zambujeira do Mar"
-        body={data.address.description}
-        imageSrc={data.hero.image}
-        imageAlt={data.hero.imageAlt}
-        imagePosition="right"
-      />
+      <CategoryNav items={navItems} targetId="contacto-hero" headerHeight={88} />
 
-      {data.address.nearbyBeaches && (
-        <div className={styles.nearbyContainer}>
-          <p className={styles.nearbyText}>{data.address.nearbyBeaches}</p>
+      <section id="localizacao" className={styles.locationSection}>
+        <div className={styles.locationContainer}>
+          <SectionEyebrow label={locale === 'en' ? 'Location' : 'Localização'} />
+          <h2 className={styles.locationHeading}>
+            {locale === 'en' ? '2 km from Zambujeira do Mar' : '2 km da Zambujeira do Mar'}
+          </h2>
+          <div className={styles.locationText}>
+            {paragraphs.map((paragraph, index) => (
+              <p key={index} className={styles.locationParagraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
-      )}
+      </section>
 
-      <section className={styles.mapSection}>
+      <section id="mapa" className={styles.mapSection}>
         <Map
           lat={data.map.lat}
           lng={data.map.lng}
@@ -44,70 +62,61 @@ const ContactoPage = () => {
         />
       </section>
 
-      <section className={styles.contactSection}>
+      <section id="contactos" className={styles.contactSection}>
         <div className={styles.container}>
-          <div className={styles.contactGrid}>
-            <ul className={styles.detailsList}>
+          <ul className={styles.detailsList}>
+            <li className={styles.detailItem}>
+              <span className={styles.detailLabel}>
+                {locale === 'en' ? 'Phone' : 'Telefone'}
+              </span>
+              <a href="tel:+351960432223" className={styles.detailValue}>
+                {data.contact.phoneDisplay}
+              </a>
+            </li>
+            <li className={styles.detailItem}>
+              <span className={styles.detailLabel}>Email</span>
+              <a href="mailto:geral@montedopapaleguas.pt" className={styles.detailValue}>
+                {data.contact.email}
+              </a>
+            </li>
+            <li className={styles.detailItem}>
+              <span className={styles.detailLabel}>GPS</span>
+              <a
+                href={data.contact.gpsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.detailValue}
+              >
+                {data.contact.gpsCoords}
+              </a>
+            </li>
+            {data.social?.facebook && (
               <li className={styles.detailItem}>
-                <span className={styles.detailLabel}>
-                  {locale === 'en' ? 'Phone' : 'Telefone'}
-                </span>
-                <a href="tel:+351960432223" className={styles.detailValue}>
-                  {data.contact.phoneDisplay}
-                </a>
-              </li>
-              <li className={styles.detailItem}>
-                <span className={styles.detailLabel}>Email</span>
-                <a href="mailto:geral@montedopapaleguas.pt" className={styles.detailValue}>
-                  {data.contact.email}
-                </a>
-              </li>
-              <li className={styles.detailItem}>
-                <span className={styles.detailLabel}>GPS</span>
+                <span className={styles.detailLabel}>Facebook</span>
                 <a
-                  href={data.contact.gpsLink}
+                  href={data.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.detailValue}
                 >
-                  {data.contact.gpsCoords}
+                  Monte do Papa Léguas
                 </a>
               </li>
-              {data.social?.facebook && (
-                <li className={styles.detailItem}>
-                  <span className={styles.detailLabel}>Facebook</span>
-                  <a
-                    href={data.social.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.detailValue}
-                  >
-                    Monte do Papa Léguas
-                  </a>
-                </li>
-              )}
-              {data.social?.instagram && (
-                <li className={styles.detailItem}>
-                  <span className={styles.detailLabel}>Instagram</span>
-                  <a
-                    href={data.social.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.detailValue}
-                  >
-                    @montedopapaleguas
-                  </a>
-                </li>
-              )}
-            </ul>
-
-            <div className={styles.formWrapper}>
-              <ContactForm
-                email="geral@montedopapaleguas.pt"
-                formLabels={data.form}
-              />
-            </div>
-          </div>
+            )}
+            {data.social?.instagram && (
+              <li className={styles.detailItem}>
+                <span className={styles.detailLabel}>Instagram</span>
+                <a
+                  href={data.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.detailValue}
+                >
+                  @montedopapaleguas
+                </a>
+              </li>
+            )}
+          </ul>
         </div>
       </section>
     </div>

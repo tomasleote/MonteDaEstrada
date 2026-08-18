@@ -12,12 +12,14 @@ import { LocaleProvider, useLocale } from './contexts/LocaleContext'
 import ptSiteSettings from './data/pt/site-settings.json'
 import enSiteSettings from './data/en/site-settings.json'
 
-const PL_LOGO = 'https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/logos/logo-pl-branco.webp'
-
-const HEYTRAVEL_PL_BOOKING_URL = 'HEYTRAVEL_PL_BOOKING_URL_PLACEHOLDER'
+// HeyTravel Direct Booking URL
+const BOOKING_URL = {
+  pt: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1839&lang=pt-PT',
+  en: 'https://be.heytravel.net/da157c05-a630-43a2-a15b-732f96c563f2?occupation=%5B%7B%22room%22%3A1%2C%22adults%22%3A2%2C%22children%22%3A0%7D%5D&complex=1839&lang=en-GB',
+}
 
 const HomePage = lazy(() => import('./pages/HomePage'))
-const EspacosPage = lazy(() => import('./pages/EspacosPage'))
+const QuartosPage = lazy(() => import('./pages/QuartosPage'))
 const DescobrirPage = lazy(() => import('./pages/DescobrirPage'))
 const GaleriaPage = lazy(() => import('./pages/GaleriaPage'))
 const ContactoPage = lazy(() => import('./pages/ContactoPage'))
@@ -56,7 +58,7 @@ const getNavLinks = (locale) => {
   const base = locale === 'en';
   return [
     { label: base ? 'Home' : 'Casa', to: base ? '/en/' : '/' },
-    { label: base ? 'Spaces' : 'Espaços', to: base ? '/en/espacos' : '/espacos' },
+    { label: base ? 'Rooms' : 'Quartos', to: base ? '/en/quartos' : '/quartos' },
     { label: base ? 'Discover' : 'Descobrir', to: base ? '/en/descobrir' : '/descobrir' },
     { label: base ? 'Gallery' : 'Galeria', to: base ? '/en/galeria' : '/galeria' },
     { label: base ? 'Contact' : 'Contacto', to: base ? '/en/contacto' : '/contacto' },
@@ -67,7 +69,7 @@ const getFooterNavLinks = (locale) => {
   const base = locale === 'en';
   return [
     { text: base ? 'Home' : 'Casa', href: base ? '/en/' : '/' },
-    { text: base ? 'Spaces' : 'Espaços', href: base ? '/en/espacos' : '/espacos' },
+    { text: base ? 'Rooms' : 'Quartos', href: base ? '/en/quartos' : '/quartos' },
     { text: base ? 'Discover' : 'Descobrir', href: base ? '/en/descobrir' : '/descobrir' },
     { text: base ? 'Gallery' : 'Galeria', href: base ? '/en/galeria' : '/galeria' },
     { text: base ? 'Contact' : 'Contacto', href: base ? '/en/contacto' : '/contacto' },
@@ -114,6 +116,7 @@ function AppContent() {
   const navLinks = getNavLinks(locale);
   const footerNavLinks = getFooterNavLinks(locale);
   const siteSettings = locale === 'en' ? enSiteSettings : ptSiteSettings;
+  const bookingUrl = BOOKING_URL[locale] || BOOKING_URL.pt;
 
   return (
     <div className="app">
@@ -124,13 +127,11 @@ function AppContent() {
       <HeaderModern
         links={navLinks}
         brandName="Monte do Papa Léguas"
-        logoDefault={PL_LOGO}
-        logoScrolled={PL_LOGO}
         scrollThreshold={50}
         properties={properties}
         currentPropertyUrl="https://montedopapaleguas.pt"
         showProperties={true}
-        onBookingClick={() => window.open(HEYTRAVEL_PL_BOOKING_URL, '_blank', 'noopener,noreferrer')}
+        onBookingClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')}
       />
 
       <main id="main-content" style={{ flex: 1 }}>
@@ -140,20 +141,20 @@ function AppContent() {
               <Routes location={location}>
                 {/* ── Portuguese (default) ── */}
                 <Route path="/" element={<HomePage />} />
-                <Route path="/espacos" element={<EspacosPage />} />
+                <Route path="/quartos" element={<QuartosPage />} />
                 <Route path="/descobrir" element={<DescobrirPage />} />
                 <Route path="/galeria" element={<GaleriaPage />} />
                 <Route path="/contacto" element={<ContactoPage />} />
 
                 {/* ── English ── */}
                 <Route path="/en/" element={<HomePage />} />
-                <Route path="/en/espacos" element={<EspacosPage />} />
+                <Route path="/en/quartos" element={<QuartosPage />} />
                 <Route path="/en/descobrir" element={<DescobrirPage />} />
                 <Route path="/en/galeria" element={<GaleriaPage />} />
                 <Route path="/en/contacto" element={<ContactoPage />} />
 
                 {/* Legacy redirects */}
-                <Route path="/quartos" element={<Navigate to="/espacos" replace />} />
+                <Route path="/espacos" element={<Navigate to="/quartos" replace />} />
                 <Route path="/atividades" element={<Navigate to="/descobrir" replace />} />
                 <Route path="/redondezas" element={<Navigate to="/descobrir" replace />} />
                 <Route path="/contactos" element={<Navigate to="/contacto" replace />} />
@@ -181,7 +182,7 @@ function AppContent() {
         copyright={`© Monte do Papa Léguas ${new Date().getFullYear()}`}
       />
 
-      <BookingTab onClick={() => window.open(HEYTRAVEL_PL_BOOKING_URL, '_blank', 'noopener,noreferrer')} />
+      <BookingTab onClick={() => window.open(bookingUrl, '_blank', 'noopener,noreferrer')} />
       <MobileReserveBar />
       <LanguageSwitcher />
     </div>

@@ -1,1 +1,1 @@
-export { default } from './EspacosPage';
+export { default } from './QuartosPage';

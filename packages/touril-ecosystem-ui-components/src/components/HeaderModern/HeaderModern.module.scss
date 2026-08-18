@@ -150,10 +150,12 @@
   height: 80px;
 }
 
+// Wordmark shown when a property has no logo image. Each app can retune it
+// through these vars; the fallbacks preserve the original treatment.
 .brandTextLeft {
-  font-family: $font-display;
-  font-size: 18px;
-  font-weight: $font-weight-medium;
+  font-family: var(--brand-text-font, #{$font-display});
+  font-size: var(--brand-text-size, 18px);
+  font-weight: var(--brand-text-weight, #{$font-weight-medium});
   letter-spacing: $letter-spacing-headline;
   text-transform: uppercase;
   color: $color-cream;

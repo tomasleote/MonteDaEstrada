@@ -71,13 +71,15 @@
 }
 
 .headline {
-  font-family: $font-display;
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-family: var(--brand-text-font, #{$font-display});
+  font-size: var(--headline-font-size, clamp(2.5rem, 5vw, 4.5rem));
   font-weight: $font-weight-light;
   letter-spacing: $letter-spacing-headline;
   color: $color-cream;
   line-height: $line-height-tight;
   margin: 0;
+  text-transform: var(--headline-text-transform, none);
+  white-space: var(--headline-white-space, normal);
 }
 
 .subtitle {

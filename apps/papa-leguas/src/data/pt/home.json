@@ -1,6 +1,6 @@
 {
   "hero": {
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/home/hero-1.webp",
     "alt": "Vista do Monte do Papa Léguas ao amanhecer",
     "eyebrow": "Zambujeira do Mar · Parque Natural",
     "headline": "Monte do Papa Léguas",
@@ -10,21 +10,21 @@
   "welcome": {
     "eyebrow": "Bem-vindo",
     "headline": "Um Refúgio de Charme no Coração do Alentejo",
-    "body": "Situado no coração do Parque Natural do Sudoeste Alentejano e Costa Vicentina, a apenas 2 km da encantadora vila da Zambujeira do Mar, o Monte do Papa Léguas é um refúgio de charme onde o Alentejo se revela em toda a sua autenticidade.\n\nCombinando tradição e elegância, a nossa casa é um verdadeiro convite à descontração, celebrando tons, texturas e simplicidade intemporal da cultura alentejana. Aqui cada detalhe é pensado para proporcionar uma experiência memorável, em perfeita harmonia com a natureza.",
-    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@COMMIT_HASH_PLACEHOLDER/pl/hero/hero-main.webp",
+    "body": "Situado no coração do Parque Natural do Sudoeste Alentejano e Costa Vicentina, a apenas 2 Km da encantadora vila da Zambujeira do Mar, o Monte do Papa Léguas é um refúgio de charme onde o Alentejo se revela em toda a sua autenticidade.\n\nCombinando tradição e elegância, a nossa casa é um verdadeiro convite à descontração, celebrando tons, texturas e simplicidade intemporal da cultura alentejana. Aqui cada detalhe é pensado para proporcionar uma experiência memorável, em perfeita harmonia com a natureza.\n\nComece o seu dia com um pequeno-almoço artesanal, repleto de sabores genuínos, preparado com ingredientes locais e com o cuidado que só o Alentejo sabe oferecer.\n\nRelaxe junto à piscina, mergulhando no ritmo tranquilo dos dias soalheiros, ou encontre serenidade numa cama de rede à sombra dos nossos pinheiros. Para quem gosta de se aventurar, dispomos de bicicletas para explorar os trilhos e paisagens envolventes, onde cada curva revela novas maravilhas.\n\nComprometidos com a sustentabilidade, valorizamos práticas responsáveis que preservam a natureza e honram a riqueza deste território único.\n\nNo monte do Papa Léguas, cada momento é um convite a viver o melhor do Alentejo, esperamos por si.",
+    "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/home/hero-1.webp",
     "imageAlt": "Área exterior do Monte do Papa Léguas com pinheiros"
   },
   "spaces": {
     "eyebrow": "Os Nossos Espaços",
     "headline": "Quartos e Estúdios",
-    "body": "Dois tipos de alojamento, ambos com o conforto e o charme alentejano que nos caracterizam.",
-    "ctaLabel": "Ver Espaços",
-    "ctaHref": "/espacos"
+    "body": "O Monte do Papa Léguas dispõe de dois tipos de alojamento: quartos de casal com wc privativo e estúdios com kitchenette e alpendre, confortáveis e acolhedores, pensados para uma estadia agradável e prática.",
+    "ctaLabel": "Ver Quartos",
+    "ctaHref": "/quartos"
   },
   "activities": {
     "eyebrow": "Descobrir",
     "headline": "A Costa Alentejana à Sua Porta",
-    "body": "Da Rota Vicentina às praias selvagens, da prova de vinhos ao Sunset Chaser — experiências únicas pensadas para si.",
+    "body": "Propomos várias atividades para desfrutar ao máximo a sua estadia na Costa Alentejana e Rota Vicentina — da prova de vinhos regionais ao Sunset Chaser. Consulte-nos para mais detalhes.",
     "ctaLabel": "Explorar",
     "ctaHref": "/descobrir"
   },
