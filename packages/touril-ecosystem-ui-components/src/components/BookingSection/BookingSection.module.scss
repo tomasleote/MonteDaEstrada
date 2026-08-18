@@ -6,10 +6,11 @@
 // ==================================
 
 .section {
-  // Dark band: focus rings inside must use the on-dark accent, not the on-light one
-  --focus-ring: var(--accent, #{$color-clay});
-  background-color: var(--surface-dark, #{$color-deep-brown});
-  color: $color-cream;
+  // The band is dark by default; --booking-* lets a property flip it to a light
+  // surface (the HeyTravel widget's own button must contrast with whatever is behind it).
+  --focus-ring: var(--booking-focus-ring, var(--accent, #{$color-clay}));
+  background-color: var(--booking-bg, var(--surface-dark, #{$color-deep-brown}));
+  color: var(--booking-fg, #{$color-cream});
   padding: $space-section;
   max-width: 1100px;
   margin: 0 auto;
@@ -31,7 +32,7 @@
   font-weight: $font-weight-medium;
   letter-spacing: $letter-spacing-eyebrow;
   text-transform: uppercase;
-  color: var(--accent, #{$color-clay});
+  color: var(--booking-eyebrow, var(--accent, #{$color-clay}));
   margin-bottom: $spacing-m;
 }
 
@@ -40,7 +41,7 @@
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: $font-weight-regular;
   letter-spacing: $letter-spacing-headline;
-  color: $color-cream;
+  color: var(--booking-fg, #{$color-cream});
   margin: 0 0 $spacing-xl 0;
   line-height: $line-height-tight;
 }
@@ -48,7 +49,7 @@
 .description {
   font-family: $font-body;
   font-size: 1rem;
-  color: rgba($color-cream, 0.85);
+  color: var(--booking-body, #{rgba($color-cream, 0.85)});
   line-height: 1.8;
   margin: 0 0 $spacing-xxxl 0;
 }
@@ -144,7 +145,7 @@
 .note {
   font-family: $font-body;
   font-size: 0.75rem;
-  color: rgba($color-cream, 0.5);
+  color: var(--booking-note, #{rgba($color-cream, 0.5)});
   margin: 0;
   letter-spacing: 1px;
 }

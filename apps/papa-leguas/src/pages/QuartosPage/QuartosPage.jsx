@@ -4,6 +4,7 @@ import {
   CategoryNav,
   RoomCardGallery,
   BookingSection,
+  SectionEyebrow,
 } from '@touril-ecosystem/ui-components';
 import { useLocale } from '@/contexts/LocaleContext';
 import useMobileQuery from '@/hooks/useMobileQuery';
@@ -88,16 +89,21 @@ const QuartosPage = () => {
           imageAlt={data.hero.imageAlt}
           eyebrow={data.hero.eyebrow}
           headline={data.hero.title}
-          subtitle={data.hero.subtitle}
         />
       </div>
 
       <CategoryNav items={navItems} targetId="quartos-hero" headerHeight={88} />
 
-      <div id="alojamento">
-        <h2 className={styles.srOnly}>{locale === 'en' ? 'Accommodation' : 'Alojamento'}</h2>
+      <section id="alojamento" className={styles.roomsSection}>
+        <div className={styles.container}>
+          <div className={styles.roomsHeader}>
+            <SectionEyebrow label={data.alojamento.eyebrow} />
+            <h2 className={styles.sectionHeading}>{data.alojamento.intro}</h2>
+          </div>
+        </div>
+
         <RoomCardGallery rooms={rooms} onReserveClick={scrollToBooking} locale={locale} />
-      </div>
+      </section>
 
       <div id={BOOKING_SECTION_ID} className={styles.reservasSection}>
         <BookingSection

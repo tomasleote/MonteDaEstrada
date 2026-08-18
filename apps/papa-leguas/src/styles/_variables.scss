@@ -119,6 +119,15 @@ $color-secondary-dark: $color-accent-dark;
   --footer-fg: #F5F3F0;
   --footer-accent: #F4C458;
   --focus-ring: #7E6318; /* amarelo #F4C458 falha 3:1 sobre cream — só no chrome escuro */
+  /* Banda de reservas clara (como no MDE): o botão do widget HeyTravel é
+     castanho e precisa de contrastar com a superfície por trás. */
+  --booking-bg: #EDE8E2;
+  --booking-fg: #3D2F12;
+  --booking-eyebrow: #7E6318;
+  --booking-body: #5C4A26;
+  --booking-note: #75643F;
+  --booking-focus-ring: #7E6318;
+
   --booking-picker-offset: 0px; /* o offset de 2.125rem é um fix específico do MDE */
   --booking-widget-radius: 0px; /* marca PL: 0px radius; o widget HeyTravel traz 10px */
 

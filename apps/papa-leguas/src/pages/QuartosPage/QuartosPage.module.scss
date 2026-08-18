@@ -15,6 +15,41 @@
   padding-bottom: $spacing-xxl;
 }
 
-.srOnly {
-  @include sr-only;
+// Rooms intro band — the accommodation copy lives here, not in the hero subtitle
+.roomsSection {
+  padding-top: $spacing-4xl;
+
+  @include tablet {
+    padding-top: $spacing-xxxl;
+  }
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @include mobile {
+    padding: 0 $spacing-m;
+  }
+}
+
+.roomsHeader {
+  margin-bottom: $spacing-xxl;
+
+  @include mobile {
+    margin-bottom: $spacing-xl;
+  }
+}
+
+// Smaller than the MDE equivalent: this copy is a full sentence, not a short line.
+.sectionHeading {
+  font-family: $font-display;
+  font-size: clamp($font-size-h5, 2.5vw, $font-size-h4);
+  font-weight: $font-weight-light;
+  line-height: $line-height-base;
+  letter-spacing: $letter-spacing-headline;
+  color: $color-deep-brown;
+  max-width: 900px;
+  margin: 0;
 }

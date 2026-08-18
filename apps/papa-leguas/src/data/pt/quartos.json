@@ -2,9 +2,12 @@
   "hero": {
     "eyebrow": "Quartos",
     "title": "Os Nossos Espaços",
-    "subtitle": "O Monte do Papa Léguas dispõe de dois tipos de alojamento: Quartos de casal com wc privativo, Estúdios com quarto de casal, wc privativo, kitchenette e alpendre com zona de refeição.",
     "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-2.webp",
     "imageAlt": "Interior de um quarto do Monte do Papa Léguas"
+  },
+  "alojamento": {
+    "eyebrow": "Alojamento",
+    "intro": "O Monte do Papa Léguas dispõe de dois tipos de alojamento: Quartos de casal com wc privativo, Estúdios com quarto de casal, wc privativo, kitchenette e alpendre com zona de refeição."
   },
   "quartos": {
     "heading": "Os Quartos",
@@ -66,7 +69,7 @@
   },
   "booking": {
     "eyebrow": "Reservas",
-    "headline": "Reserve a Sua Estadia",
+    "headline": "Reserve a sua estadia",
     "body": "Escolha o seu espaço preferido e garanta a melhor experiência no Alentejo."
   }
 }

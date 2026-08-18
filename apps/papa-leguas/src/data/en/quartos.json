@@ -2,9 +2,12 @@
   "hero": {
     "eyebrow": "Rooms",
     "title": "Our Spaces",
-    "subtitle": "Monte do Papa Léguas offers two types of accommodation: double rooms with private bathroom, and studios with double bedroom, private bathroom, kitchenette and porch with dining area.",
     "image": "https://cdn.jsdelivr.net/gh/tomasleote/assets-hotel@aeb78c1/pl/quartos/quarto-2.webp",
     "imageAlt": "Interior of a room at Monte do Papa Léguas"
+  },
+  "alojamento": {
+    "eyebrow": "Accommodation",
+    "intro": "Monte do Papa Léguas offers two types of accommodation: double rooms with private bathroom, and studios with double bedroom, private bathroom, kitchenette and porch with dining area."
   },
   "quartos": {
     "heading": "The Rooms",
@@ -66,7 +69,7 @@
   },
   "booking": {
     "eyebrow": "Reservations",
-    "headline": "Book Your Stay",
+    "headline": "Book your stay",
     "body": "Choose your preferred space and secure the best experience in Alentejo."
   }
 }
